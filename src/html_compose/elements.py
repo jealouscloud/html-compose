@@ -1,4 +1,72 @@
+from typing import Any, Callable, Optional, TypeAlias, Union
 
+from .attributes import GlobalAttrs, ImgAttrs
+from .base_attribute import BaseAttribute
+from .base_element import BaseElement
+
+
+class img(BaseElement, GlobalAttrs, ImgAttrs):
+    attr_type: TypeAlias = Union[
+        Callable[["img"], list[BaseAttribute]], list[BaseAttribute]
+    ]
+
+    def attrs(fun: Callable[["img"], list[BaseAttribute]]):
+        """
+        Callable for type hints while generating attr list
+
+        Example: img(attrs=img.attrs(lambda _: [img.src("google.com")]))
+        """
+        return fun(img)
+
+    def __init__(
+        self,
+        id: GlobalAttrs.id = None,
+        class_: GlobalAttrs.class_ = None,
+        attrs: attr_type = None,
+        data: Optional[Any] = None,
+    ) -> None:
+        super().__init__(
+            "img",
+            void_element=True,
+            id=id,
+            class_=class_,
+            attrs=attrs,
+            data=data,
+        )
+
+
+class div(BaseElement, ImgAttrs):
+    attr_type: TypeAlias = Callable[["div"], list[BaseAttribute]]
+
+    def attrs(fun: attr_type):
+        """
+        Callable for type hints while generating attr list
+
+        Example: img(attrs=img.attrs(lambda _: [img.src("google.com")]))
+        """
+        return fun(img)
+
+    def __init__(
+        self,
+        id: GlobalAttrs.id = None,
+        class_: GlobalAttrs.class_ = None,
+        attrs: attr_type = None,
+        data: Optional[Any] = None,
+    ):
+        super().__init__(
+            "div",
+            void_element=False,
+            id=id,
+            class_=class_,
+            attrs=attrs,
+            data=data,
+        )
+
+
+# img(id="demo", class_=["demo", "demo2"], attrs=img.attrs(lambda x: img
+
+# img(attrs=[img.href("google.com")])
+# img(attrs=img.attrs(lambda _: AnchorAttrs.href(
 
 # # https://developer.mozilla.org/en-US/docs/Glossary/Doctype
 # html = HTMLElement("html")

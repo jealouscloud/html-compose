@@ -1,0 +1,76 @@
+[project]
+name = "html-compose"
+version = "0.1.0"
+description = "Composable HTML generation in python"
+authors = [
+    { name = "jealouscloud", email = "github@noaha.org" }
+]
+dependencies = [
+    "markupsafe>=2.0.0",
+    "beautifulsoup4>=4.12.3",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+license = { text = "MIT" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "pyright>=1.1.383",
+    "requests>=2.32.3",
+    "hext>=1.0.11",
+    "pytest>=8.3.3",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/html_compose"]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "tools/generated",
+]
+
+line-length = 80
+indent-width = 4
+
+# Assume Python 3.8
+target-version = "py38"

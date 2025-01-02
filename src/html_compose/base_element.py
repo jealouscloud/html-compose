@@ -1,156 +1,95 @@
-from markupsafe import Markup, escape
-from collections import deque
-import typing
-from dataclasses import MISSING
-from typing import Iterable, Callable, TypeAlias
+from collections import defaultdict
+from typing import Any, Callable, Generator, Optional, Union
 
-
-@typing.runtime_checkable
-class _HasHtml(typing.Protocol):
-    def __html__(self) -> str: ...
-
-
-@typing.runtime_checkable
-class ElementContext(typing.Protocol):
-    def mask(self, BaseElement):
-        pass
-
-@typing.runtime_checkable
-class _ContextAware(typing.Protocol):
-    def context(self, ctx) -> str: ...
-
-
-def escape_text(value) -> str:
-    return escape(str(value))
-
-
-def unsafe_text(value) -> str:
-    return Markup(str(value))
-
-
-ClassVariable: TypeAlias = (
-    None | str | list[str] | dict[str, str] | dict[str, Callable] | list[Callable]
+from . import escape_text, unsafe_text, util_funcs
+from .attributes import BaseAttribute, GlobalAttrs
+from .base_types import (
+    ElementBase,
+    Node,
+    _HasHtml,
 )
 
 
-class BaseElement(_ContextAware):
-    __slots__ = ("name", "_class", "_id", "_attrs", "_children", "_context")
+class BaseElement(ElementBase, GlobalAttrs):
+    """
+    Base HTML element
+
+    All elements derive from this class
+    """
+
+    __slots__ = ("name", "_attrs", "_children", "data")
 
     def __init__(
         self,
         name: str,
-        Class: ClassVariable = None,
-        id: str = None,
+        void_element: bool = False,
+        id: Union[str, GlobalAttrs.id] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         children: list = None,
-        **attrs,
+        attrs: Union[dict[str, str], list[BaseAttribute]] = None,
+        data: Optional[Any] = None,
     ) -> None:
-        self.name = None
-        if isinstance(Class, str):
-            self._class = Class.split()
-        elif isinstance(Class, list):
-            self._class = Class
-        elif isinstance(Class, dict):
-            for key, value in Class.items():
-                if value:  # filter hardcoded bools/nones out from the get go
-                    self._class.append({key: value})
+        """
+        Initialize an HTML element
 
-        self._class = Class
-        self._id = id
-        self._attrs = attrs
-        if children is None:
+        Args:
+            name (str): The name of the element.
+            void_element (bool): Indicates if the element is a void element. Defaults to False.
+            id (str): The ID of the element. Defaults to None.
+            class_: The class of the element. Defaults to None.
+            children: A list of child elements. Defaults to None.
+            attrs: A list of attributes for the element.
+                It can also be a dictionary of key,value strings.
+                Defaults to None.
+            data: Non-rendered data for the element. Defaults to None.
+        """
+        self.name = name
+        if attrs is None:
+            attrs = []
+
+        auto_attrs = []
+        if id is not None:
+            if isinstance(id, GlobalAttrs.id):
+                auto_attrs.append(id)
+            else:
+                auto_attrs.append(GlobalAttrs.id(id))
+
+        if class_ is not None:
+            if isinstance(class_, GlobalAttrs.class_):
+                auto_attrs.append(class_)
+            else:
+                auto_attrs.append(GlobalAttrs.class_(class_))
+
+        if children is None and not void_element:
             children = []
+
+        self._attrs = attrs
         self._children = children
-        self._context = None
+        self.data = data
+        self.is_void_element = void_element
 
-    def _convert_kwarg_attrs(self, attrs):
-        if isinstance(attrs, dict):
-            result = {}
-            for key, value in attrs.items():
-                if key == "_":
-                    result[key] = value
-                else:
-                    result[key.replace("_", "-")] = value
+    def append(self, *child_or_childs: Node):
+        if self.is_void_element:
+            raise ValueError(f"Void element {self.name} cannot have children")
 
-        elif isinstance(attrs, list):
-            return {attr: True for attr in attrs}
-        
+        args = child_or_childs
+        # Special case: We may have been passed a literal tuple
+        # If it has one child that itself is a tuple, unbox it.
+        if (
+            isinstance(args, tuple)
+            and len(args) == 1
+            and isinstance(args[0], tuple)
+        ):
+            args = args[0]
 
-    def context(self, ctx):
-        if self._context is None:
-            self._context = deque()
-        self._context.append(ctx)
-        yield self
-        self._context.remove(ctx)
-
-    def _class_list_to_str(self, cls_list):
-        """
-        A class list supports the following formats:
-        Class = ["btn", "btn-primary"]
-        Class = [{"btn": True}, {"btn-primary": lambda x: True}]
-        Class = ["btn", {"btn-primary": True}]
-        Class = {"btn-primary": False}
-
-        Convert all to a class string to be used in an element
-        """
-        cls_str = []
-        for cls in cls_list:
-            if callable(cls):
-                cls_str.append(escape_text(cls()))
-            elif isinstance(cls, str):
-                cls_str.append(escape_text(cls))
-            elif isinstance(cls, dict):
-                for key, value in cls.items():
-                    if not isinstance(key, str):
-                        raise TypeError("Class key must be a string")
-
-                    if callable(value):
-                        result = value()
-                        if result:
-                            cls_str.append(escape_text(key))
-                    elif value:
-                        cls_str.append(escape_text(key))
-            else:
-                raise TypeError("Element class must be a string or callable")
-        return " ".join(cls_str)
-
-    def _attrs(self):
-        """
-        Build attr list to be inserted to html element
-
-        """
-        attrs = []
-        cls_str = ""
-        if self._class:
-            cls_str = self._build_class_str(self._class)
-
-        if "class" in self._attrs:
-            if cls_str:
-                cls_str = f"{cls_str} {self._build_class_str(self._attrs["class"])}"
-            else:
-                cls_str = self._build_class_str(self._attrs["class"])
-
-        if cls_str:
-            attrs.append(f'class="{cls_str}"')
-
-        _id = self._id
-        if "id" in self._attrs:
-            # attr overrides self.id
-            _id = self._attrs["id"]
-
-        if _id:
-            attrs.append(f'id="{escape_text(_id)}"')
-
-        for key, value in self._attrs.items():
-            if key in ('id', 'class'):
-                continue
-            
-            if isinstance(value, bool):
-                if value:
-                    attrs.append(escape_text(key))
-            else:
-                if value is not None:
-                    attrs.append(f'{escape_text(key)}="{escape_text(value)}"')
-        return " ".join(attrs)
+        # Unbox any literal tuple, lists
+        if isinstance(args, tuple) or isinstance(args, list):
+            for k in args:
+                self._children.append(k)
+        else:
+            # Let the child resolver step handle it
+            # Applies to iterables, callables, literal elements
+            self._children.append(args)
 
     def __getitem__(self, key):
         """
@@ -170,79 +109,223 @@ class BaseElement(_ContextAware):
         # todo: consider raising based on type
         # todo: consider raising if chained:
         # div()[1,2][3]
-        if isinstance(key, tuple):
-            for k in key:
-                self._children.append(k)
+        self.append(key)
 
         return self
 
-    def _materialize_child(item, context):
-        if isinstance(item, str):
-            return escape_text(item)
-        elif isinstance(item, _HasHtml):
-            return item.__html__()
+    def _call_callable(self, func, parent):
+        """
+        Executor for callable elements
 
-    def __iter__(self) -> typing.Iterator[str]:
-        yield f"{self.name}{' '.join(self._class)}"
-        pass
+        These elements may accept 0-2 positional args:
+        0: None
+        1: self (The function may consider it "parent")
+        2: the parents parent
+
+        """
+        param_count = util_funcs.get_param_count(func)
+
+        assert param_count in range(0, 3), (
+            "Element resolution expects 0 - 2 parameter callables"
+            f", got {param_count} params"
+        )
+
+        if param_count == 0:
+            result = func()
+        elif param_count == 1:
+            result = func(self)
+        elif param_count == 2:
+            result = func(self, parent)
+
+        return result
+
+    def resolve_child(
+        self, child: Node, call_callables, parent
+    ) -> Generator[str, None, None]:
+        """
+        Child resolver for elements
+
+        Returns raw HTML string for child
+
+        If call_callables is false, callables are yielded.
+        """
+
+        if child is None:
+            # null child, possibly from the callable.
+            # Magic: We ignore null children for things like
+            # div[
+            #   button if needs_button else None
+            # ]
+            yield from ()
+
+        if isinstance(child, str):
+            yield escape_text(child)
+
+        elif isinstance(child, int):
+            # escape_text will str()
+            yield escape_text(child)
+
+        elif isinstance(child, float):
+            # Magic: Convert float to string with fixed ndigits
+            # This avoids weird output like 6.33333333333...
+            yield escape_text(round(child, self.__class__.FLOAT_PRECISION))
+
+        elif isinstance(child, bool):
+            # Magic: Convert to 'typical' true/false
+            # Most people using this would be better using None
+            # which specifically means "no render"
+            # But some weirdos may be trying to render true/false literally
+            yield unsafe_text("true" if child else "false")
+
+        elif isinstance(child, ElementBase):
+            child: ElementBase
+            # Recursively resolve the element tree
+            yield from child.resolve(self)
+
+        elif isinstance(child, _HasHtml):
+            # Fetch raw HTML from object
+            yield unsafe_text(child.__html__())
+        elif util_funcs.is_iterable_but_not_str(child):
+            for el in util_funcs.flatten_iterable(child):
+                yield from self.resolve_child(el, call_callables, parent)
+
+        elif callable(child):
+            if not call_callables:
+                # In deferred resolve state,
+                # callables are yielded instead of resolved
+                yield child
+            else:
+                result = child
+                while callable(result):
+                    result = self._call_callable(child, parent)
+
+                yield from self.resolve_child(result, call_callables, parent)
+        else:
+            raise ValueError(f"Unknown child type: {type(child)}")
+
+    def resolve_tree(
+        self, parent=None
+    ) -> Generator[Union[str, Callable], None, None]:
+        """
+        Walk html element tree and yield all resolved children
+
+        Callables are yielded instead of resolved
+
+        Return:
+            escaped (trusted) HTML strings
+        """
+
+        for child in self._children:
+            child: Node
+            yield from self.resolve_child(
+                child, call_callables=False, parent=parent
+            )
+
+    def resolve_attrs(self) -> defaultdict[str]:
+        """
+        Resolve attributes into key/value pairs
+        """
+        if not self._attrs:
+            return defaultdict(str)
+
+        # These are sent to us in format:
+        # key, value (unescaped)
+        if isinstance(self._attrs, list):
+            attr_dict = defaultdict(str)
+            for item in self._attrs:
+                if isinstance(item, BaseAttribute):
+                    key, value = item.evaluate(self)
+                    attr_dict[key] = value
+                elif isinstance(item, tuple) and len(item) == 2:
+                    attr_dict[item[0]] = item[1]
+                elif isinstance(item, dict):
+                    for key, value in item.items():
+                        print(key)
+                        attr_dict[key] = value
+
+        elif isinstance(self._attrs, dict):
+            attr_dict = defaultdict(str, self._attrs)
+
+        else:
+            raise ValueError(f"Unknown: {type(self._attrs)}")
+
+        return attr_dict
+
+    def deferred_resolve(self, parent) -> Generator[str, None, None]:
+        """
+        Resolve all attributes and children of the HTML element, except for callable children.
+
+        This method performs the following steps:
+        1. Resolves all attributes of the element.
+        2. Resolves all non-callable children.
+        3. Applies context hooks if applicable.
+        4. Generates the HTML string representation of the element.
+
+        Returns:
+            Generator[str, None, None]: A generator that yields strings representing
+            parts of the HTML element. These parts include:
+            - The opening tag with attributes
+            - The content (children) of the element
+            - The closing tag
+
+        Note:
+            - For void elements, only the self-closing tag is yielded.
+            - Callable children are not resolved in this method.
+        """
+
+        # attrs is a defaultdict of strings.
+        # The key is the attr name, the value is the attr value unescaped.
+        attrs = self.resolve_attrs()
+
+        children = None
+
+        if not self.is_void_element:
+            children = [child for child in self.resolve_tree()]
+
+        # join_attrs has a configurable lru_cache
+        join_attrs = self.get_attr_join()
+
+        # Generate the key="value" pairs for the attributes
+        attr_string = " ".join(
+            (join_attrs(k, escape_text(v)) for k, v in attrs.items())
+        )
+
+        if self.is_void_element:
+            yield f"<{self.name} {attr_string}/>"
+        else:
+            if attr_string:
+                yield f"<{self.name} {attr_string}>"
+            else:
+                yield f"<{self.name}>"
+
+            yield from children
+            yield f"</{self.name}>"
+
+    def resolve(self, parent=None) -> Generator[str, None, None]:
+        """
+        Generate the flat HTML [string] iterator for the HTML element
+        """
+        resolver = self.deferred_resolve(parent)
+        for element in resolver:
+            if callable(element):
+                # Feature: nested calling similar to a functional programming style
+                yield from self.resolve_child(
+                    element, call_callables=True, parent=parent
+                )
+            else:
+                yield element
+
+    def render(self, parent=None) -> str:
+        """
+        Render the HTML element
+        """
+        return "".join(self.resolve())
+
+    def __str__(self) -> str:
+        return self.__html__()
 
     def __html__(self):
-        pass
-
-    # def __str__(self) -> _Markup:
-    # return _Markup("".join(self))
-
-
-Node: TypeAlias = (
-    None
-    | bool
-    | str
-    | int
-    | BaseElement
-    | _HasHtml
-    | Iterable["Node"]
-    | Callable[[], "Node"]
-    | _ContextAware
-)
-
-
-class img(BaseElement):
-    def __init__(
-        self,
-        Class: str = None,
-        id: str = None,
-        src: str = None,
-        alt: str = None,
-        **attrs,
-    ) -> None:
-        super().__init__("img", Class, id, src=src, alt=alt, **attrs)
-
-
-def iter_children(element, ctx) -> typing.Iterable:
-    # If this element is a function, call it until it resolves
-    while not isinstance(element, BaseElement) and callable(element):
-        if isinstance(element, _ContextAware):
-            with element.context(ctx) as x:
-                element = x()
-        else:
-            element = element()
-
-    if element is None:
-        return
-
-    if element in (True, False):
-        # No bools
-        return
-
-    if isinstance(element, BaseElement):
-        if element._children is None:
-            return None
-        with element.context(ctx):
-            for child in element._children:
-                yield from iter_children(child, ctx)
-    elif isinstance(element, str):
-        yield escape_text(element)
-    elif isinstance(element, int):
-        yield str(element)
-    elif isinstance(element, _HasHtml):
-        yield unsafe_text(element.__html__())
+        """
+        Render the HTML element
+        """
+        return self.render()
