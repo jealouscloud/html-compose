@@ -311,7 +311,7 @@ class GlobalAttrs:
         def resolve_join(self, input_data):
             """
             Join a list of strings
-            Override to concat style statements
+            Magic: Override to concat style statements
             """
             return "; ".join(input_data)
 
