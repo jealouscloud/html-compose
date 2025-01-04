@@ -234,18 +234,23 @@ class BaseElement(ElementBase, GlobalAttrs):
             attr_dict = defaultdict(str)
             for item in self._attrs:
                 if isinstance(item, BaseAttribute):
-                    key, value = item.evaluate(self)
+                    result = item.evaluate(self)
+                    if not result:
+                        continue
+                    key, value = result
                     attr_dict[key] = value
                 elif isinstance(item, tuple) and len(item) == 2:
                     attr_dict[item[0]] = item[1]
                 elif isinstance(item, dict):
                     for key, value in item.items():
-                        print(key)
                         attr_dict[key] = value
+                else:
+                    raise ValueError(
+                        f"Unknown type for attr value: {type(item)}."
+                    )
 
         elif isinstance(self._attrs, dict):
             attr_dict = defaultdict(str, self._attrs)
-
         else:
             raise ValueError(f"Unknown: {type(self._attrs)}")
 

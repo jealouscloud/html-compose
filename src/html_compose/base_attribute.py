@@ -1,27 +1,17 @@
-from typing import Callable, Iterable, TypeAlias, Union
+from typing import Iterable, TypeAlias, Union
 
-from markupsafe import Markup, escape
-
-from . import util_funcs
-
-
-def escape_text(value) -> str:
-    return escape(str(value))
+from markupsafe import Markup
 
 
 def unsafe_text(value) -> str:
     return Markup(str(value))
 
 
-BoolCallable: TypeAlias = Callable[[], bool]
-
 Resolveable: TypeAlias = Union[
     None,
     str,
     list[str],
     dict[str, str],
-    dict[str, BoolCallable],
-    list[Callable],
 ]
 
 
@@ -36,32 +26,6 @@ class BaseAttribute:
         self.name = name
         self.data = data
 
-    def resolve_key_value(self, key, value):
-        """
-        Resolve key value pair
-
-        Default implementation:
-        - If value is None, return None
-        - If value is a bool, return key if True
-        - If value is a callable, call and use above logic
-        """
-
-        def resolve_value(value):
-            if value is None:
-                return None
-
-            if isinstance(value, bool):
-                return key if value else None
-
-            raise ValueError(
-                f"Value must be a bool, NoneType or callable, got {type(value)}"
-            )
-
-        if callable(value):
-            return resolve_value(value())
-
-        return resolve_value(value)
-
     def resolve_join(self, input_data: Iterable):
         """
         Join a list of strings
@@ -74,8 +38,6 @@ class BaseAttribute:
         Resolve list into string list (generator)
         """
         for data_provider in data:
-            if callable(data_provider):
-                yield data_provider()
             # You're gonna be a string then
             if not isinstance(data_provider, str):
                 raise ValueError(
@@ -88,48 +50,44 @@ class BaseAttribute:
         Resolve dictionary into string list (generator)
 
         Keys are returned if value is truthy
+        The value only determines if the key should be included
         """
         for key, value in data.items():
-            result = self.resolve_key_value(key, value)
-            if result:
-                yield result
+            if not value:
+                continue
+            yield key
 
-    def resolve_data(self, element):
+    def resolve_data(self):
         """
-        Resolve right half of attribute
+        Resolve right half of attribute into a string
+
+        A resolved string is returned from the input or resolved list/dict
         """
 
+        data = self.data
         # Just a string
-        if isinstance(self.data, str):
-            return self.data
+        if isinstance(data, str):
+            return data
 
-        if isinstance(self.data, int):
-            return str(self.data)
+        if isinstance(data, int):
+            return str(data)
 
-        # Just a bool that needs to be marhalled to a string
-        if isinstance(self.data, bool):
-            return "true" if self.data else "false"
+        # Just a bool that needs to be marshalled to a string
+        # evaluate normally blocks this
+        if isinstance(data, bool):
+            return "true" if data else "false"
 
-        if self.data is None:
+        if data is None:
             return None
 
-        # Just a callable
-        if callable(self.data):
-            param_count = util_funcs.get_param_count(self.data)
-            if param_count == 0:
-                data = self.data()
-            if param_count == 1:
-                data = self.data(element)
-        else:
-            data = self.data
-
+        # a list which can be resolved via join
         _resolved = None
 
-        # List of strings or callables
+        # List of strings
         if isinstance(data, list):
             _resolved = self.list_string_generator(data)
-        # dictionary of key value pairs
 
+        # dictionary of key value pairs
         if isinstance(data, dict):
             _resolved = self.dict_string_generator()
         else:
@@ -141,6 +99,9 @@ class BaseAttribute:
         """
         Evaluate attribute, return key, value as tuple
         """
+        if self.data is None or self.data is False:
+            return None
+
         resolved = self.resolve_data(element)
         return (self.name, resolved)
 

@@ -27,7 +27,8 @@ div(attrs={
 div(attrs=[div.class_("red")])
 
 # string / list of string is explicitly NOT supported
-# it is prone to XSS because it is not sanitized
+
+# it requires disabling sanitization and is therefore quietly prone to XSS
 div(attrs=['class="red"']) # ❌
 
 ```
