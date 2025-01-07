@@ -95,14 +95,15 @@ class BaseAttribute:
 
         return self.resolve_join(_resolved)
 
-    def evaluate(self, element):
+    def evaluate(self):
         """
         Evaluate attribute, return key, value as tuple
+        or None if attribute is falsey
         """
         if self.data is None or self.data is False:
             return None
 
-        resolved = self.resolve_data(element)
+        resolved = self.resolve_data()
         return (self.name, resolved)
 
     def __repr__(self):
