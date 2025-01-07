@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union, Callable
+from typing import Union, Callable
 
 
 class ImgAttrs:
@@ -25,12 +25,7 @@ class ImgAttrs:
         Value: ['anonymous', 'use-credentials']
         """
 
-        def __init__(
-            self,
-            value: Union[
-                Literal["anonymous", "use-credentials"], Callable[[], str]
-            ],
-        ):
+        def __init__(self, value):
             super().__init__("crossorigin", value)
 
     class decoding(BaseAttribute):
@@ -40,10 +35,7 @@ class ImgAttrs:
         Value: ['sync', 'async', 'auto']
         """
 
-        def __init__(
-            self,
-            value: Union[Literal["sync", "async", "auto"], Callable[[], str]],
-        ):
+        def __init__(self, value):
             super().__init__("decoding", value)
 
     class fetchpriority(BaseAttribute):
@@ -53,10 +45,7 @@ class ImgAttrs:
         Value: ['auto', 'high', 'low']
         """
 
-        def __init__(
-            self,
-            value: Union[Literal["auto", "high", "low"], Callable[[], str]],
-        ):
+        def __init__(self, value):
             super().__init__("fetchpriority", value)
 
     class height(BaseAttribute):
@@ -86,9 +75,7 @@ class ImgAttrs:
         Value: ['lazy', 'eager']
         """
 
-        def __init__(
-            self, value: Union[Literal["lazy", "eager"], Callable[[], str]]
-        ):
+        def __init__(self, value):
             super().__init__("loading", value)
 
     class referrerpolicy(BaseAttribute):

@@ -1,6 +1,5 @@
-from typing import Callable, Literal, Union
-
 from . import BaseAttribute
+from typing import Literal, Union, Callable
 
 
 class GlobalAttrs:
@@ -307,13 +306,6 @@ class GlobalAttrs:
 
         def __init__(self, value):
             super().__init__("style", value)
-
-        def resolve_join(self, input_data):
-            """
-            Join a list of strings
-            Magic: Override to concat style statements
-            """
-            return "; ".join(input_data)
 
     class tabindex(BaseAttribute):
         """

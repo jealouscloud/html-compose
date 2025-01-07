@@ -97,11 +97,20 @@ def other_attrs():
         if not attrs:
             continue
 
+        defined_attrs = []
         for attr in attrs:
             attr_name = attr["Attribute"]
+            if attr_name in defined_attrs:
+                # no dupes
+                continue
             safe_attr_name = safe_name(attr_name)
-            attr_desc = attr["Description"]
-            value_desc = attr["Value"]
+
+            dupes = list(filter(lambda x: x["Attribute"] == attr_name, attrs))
+            # This case was spawned for the link element
+            # and the title attr
+            delim = "  OR  "
+            attr_desc = delim.join(x["Description"] for x in dupes)
+            value_desc = delim.join(str(x["Value"]) for x in dupes)
 
             type_data = type_for_value(value_desc)
 
@@ -113,6 +122,7 @@ def other_attrs():
                 value_desc,
                 type_data,
             )
+            defined_attrs.append(attr_name)
             result.append(_class)
 
         doc = "\n\n".join(result)
@@ -122,6 +132,7 @@ def other_attrs():
             element_name_for_class = "Anchor"
 
         element_name_for_class = element_name_for_class.title()
+
         doc_lines = [
             "from . import BaseAttribute",
             "from typing import Literal, Union, Callable",
