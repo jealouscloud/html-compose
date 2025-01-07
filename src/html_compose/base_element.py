@@ -1,4 +1,3 @@
-from collections import defaultdict
 from typing import Any, Callable, Generator, Optional, Union
 
 from . import escape_text, unsafe_text, util_funcs
@@ -41,29 +40,42 @@ class BaseElement(ElementBase, GlobalAttrs):
             attrs: A list of attributes for the element.
                 It can also be a dictionary of key,value strings.
                 Defaults to None.
-            data: Non-rendered data for the element. Defaults to None.
+            data: Non-rendered user data for the element. Defaults to None.
         """
         self.name = name
         if attrs is None:
             attrs = []
 
-        auto_attrs = []
+        self._attrs = self._resolve_attrs(attrs)
+
         if id is not None:
-            if isinstance(id, GlobalAttrs.id):
-                auto_attrs.append(id)
-            else:
-                auto_attrs.append(GlobalAttrs.id(id))
+            if not isinstance(class_, GlobalAttrs.id):
+                id = GlobalAttrs.id(id)
+
+            result = id.evaluate()
+            if result is not None:
+                _, id_value = result
+                if "id" in self._attrs:
+                    raise ValueError("ID attr was passsed twice")
+                self._attrs["id"] = id_value
 
         if class_ is not None:
-            if isinstance(class_, GlobalAttrs.class_):
-                auto_attrs.append(class_)
-            else:
-                auto_attrs.append(GlobalAttrs.class_(class_))
+            if not isinstance(class_, GlobalAttrs.class_):
+                class_ = GlobalAttrs.class_(class_)
+
+            result = class_.evaluate()
+            if result is not None:
+                _, class_value = result
+                if "class" in self._attrs:
+                    self._attrs["class"] = (
+                        f'{class_value} {self._attrs["class"]}'
+                    )
+                else:
+                    self._attrs["class"] = class_value
 
         if children is None and not void_element:
             children = []
 
-        self._attrs = attrs
         self._children = children
         self.data = data
         self.is_void_element = void_element
@@ -158,7 +170,7 @@ class BaseElement(ElementBase, GlobalAttrs):
             # ]
             yield from ()
 
-        if isinstance(child, str):
+        elif isinstance(child, str):
             yield escape_text(child)
 
         elif isinstance(child, int):
@@ -185,6 +197,7 @@ class BaseElement(ElementBase, GlobalAttrs):
         elif isinstance(child, _HasHtml):
             # Fetch raw HTML from object
             yield unsafe_text(child.__html__())
+
         elif util_funcs.is_iterable_but_not_str(child):
             for el in util_funcs.flatten_iterable(child):
                 yield from self.resolve_child(el, call_callables, parent)
@@ -221,38 +234,53 @@ class BaseElement(ElementBase, GlobalAttrs):
                 child, call_callables=False, parent=parent
             )
 
-    def resolve_attrs(self) -> defaultdict[str]:
+    def _resolve_attrs(self, attrs) -> dict[str]:
         """
         Resolve attributes into key/value pairs
         """
-        if not self._attrs:
-            return defaultdict(str)
+        if not attrs:
+            return {}
 
+        attr_dict = {}
         # These are sent to us in format:
         # key, value (unescaped)
-        if isinstance(self._attrs, list):
-            attr_dict = defaultdict(str)
-            for item in self._attrs:
+        if isinstance(attrs, (list, tuple)):
+            for item in attrs:
                 if isinstance(item, BaseAttribute):
-                    result = item.evaluate(self)
+                    result = item.evaluate()
                     if not result:
                         continue
                     key, value = result
                     attr_dict[key] = value
                 elif isinstance(item, tuple) and len(item) == 2:
-                    attr_dict[item[0]] = item[1]
+                    attr = BaseAttribute(item[0], item[1]).evaluate()
+                    if not attr:
+                        continue
+
+                    a_name, a_value = attr
+                    attr_dict[a_name] = a_value
                 elif isinstance(item, dict):
                     for key, value in item.items():
-                        attr_dict[key] = value
+                        attr = BaseAttribute(key, value).evaluate()
+                        if not attr:
+                            continue
+                        a_name, a_value = attr
+                        attr_dict[a_name] = a_value
                 else:
                     raise ValueError(
                         f"Unknown type for attr value: {type(item)}."
                     )
 
-        elif isinstance(self._attrs, dict):
-            attr_dict = defaultdict(str, self._attrs)
+        elif isinstance(attrs, dict):
+            for key, value in attrs.items():
+                attr = BaseAttribute(key, value).evaluate()
+                if attr:
+                    a_name, a_value = attr
+                    attr_dict[a_name] = a_value
+
+            attr_dict = attrs
         else:
-            raise ValueError(f"Unknown: {type(self._attrs)}")
+            raise ValueError(f"Unknown: {type(attrs)}")
 
         return attr_dict
 
@@ -280,7 +308,7 @@ class BaseElement(ElementBase, GlobalAttrs):
 
         # attrs is a defaultdict of strings.
         # The key is the attr name, the value is the attr value unescaped.
-        attrs = self.resolve_attrs()
+        attrs = self._attrs
 
         children = None
 
@@ -291,6 +319,8 @@ class BaseElement(ElementBase, GlobalAttrs):
         join_attrs = self.get_attr_join()
 
         # Generate the key="value" pairs for the attributes
+        # The value escape step lives here because we trust no
+        # previous step in the pipeline.
         attr_string = " ".join(
             (join_attrs(k, escape_text(v)) for k, v in attrs.items())
         )
@@ -324,7 +354,7 @@ class BaseElement(ElementBase, GlobalAttrs):
         """
         Render the HTML element
         """
-        return "".join(self.resolve())
+        return "".join(self.resolve(parent))
 
     def __str__(self) -> str:
         return self.__html__()
