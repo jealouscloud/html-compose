@@ -12,17 +12,6 @@ def normalize_html(html):
     return soup.prettify()
 
 
-# class MySpecialComponent(_ContextAware):
-#     def __init__(self, name: str):
-#         self.name = name
-
-#     def context(self, ctx: Context) -> str:
-#         return super().context(ctx)
-
-#     def render(self, context):
-#         return div()[img(src="google.com")]
-
-
 def test_soup_empty_attrs():
     data_1 = '<div hidden="">'
     data_2 = "<div hidden>"
@@ -33,7 +22,7 @@ def test_soup_empty_attrs():
 
 
 def test_base_element_initialization():
-    expected = """<div>
+    expected = """<div id="a">
  <img src = "google.com"/>
  <div>
   <div>
@@ -43,12 +32,10 @@ def test_base_element_initialization():
   </div>
  </div>
 </div>"""
-    img(attrs=lambda x: x)
     element = div(id="a")[
         img(attrs={"src": "google.com"}), div()[div()[div()["hi"]]]
     ]
 
-    element[div()[div()[div()["hi"]]]]
     rasterized = element.__html__()
     print("--")
     p1 = normalize_html(rasterized)
@@ -59,7 +46,7 @@ def test_base_element_initialization():
 
 
 def test_attr_syntax_variations():
-    a = div(id=1, attrs=[div.accesskey("a"), div.tabindex(1)]).render()
+    a = div(id=1, attrs=(div.accesskey("a"), div.tabindex(1))).render()
     b = div(id=1, attrs=[{"accesskey": "a", "tabindex": "1"}]).render()
     assert a == b
     c = div(id=1, attrs=[{"accesskey": "a"}, div.tabindex(1)]).render()
@@ -76,7 +63,9 @@ def test_nested_callables():
 
 
 def test_resolve_none():
-    assert div(div(None)), "Nonetype should result in empty string"
+    assert (
+        div()[None].render() == "<div></div>"
+    ), "Nonetype should result in empty string"
 
 
 def test_xss():
@@ -95,4 +84,4 @@ def test_xss():
 
 def test_id():
     el = div(id="123").render()
-    assert el == '<div id="123"></div'
+    assert el == '<div id="123"></div>'
