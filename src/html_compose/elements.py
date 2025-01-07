@@ -10,14 +10,6 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         Callable[["img"], list[BaseAttribute]], list[BaseAttribute]
     ]
 
-    def attrs(fun: Callable[["img"], list[BaseAttribute]]):
-        """
-        Callable for type hints while generating attr list
-
-        Example: img(attrs=img.attrs(lambda _: [img.src("google.com")]))
-        """
-        return fun(img)
-
     def __init__(
         self,
         id: GlobalAttrs.id = None,
@@ -36,15 +28,9 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
 
 
 class div(BaseElement, ImgAttrs):
-    attr_type: TypeAlias = Callable[["div"], list[BaseAttribute]]
-
-    def attrs(fun: attr_type):
-        """
-        Callable for type hints while generating attr list
-
-        Example: img(attrs=img.attrs(lambda _: [img.src("google.com")]))
-        """
-        return fun(img)
+    attr_type: TypeAlias = Union[
+        Callable[["div"], list[BaseAttribute]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
