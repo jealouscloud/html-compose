@@ -1,5 +1,4 @@
 from . import BaseAttribute
-from typing import Union, Callable
 
 
 class AreaAttrs:
@@ -15,7 +14,7 @@ class AreaAttrs:
         Value: Text*
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("alt", value)
 
     class coords(BaseAttribute):
@@ -35,7 +34,7 @@ class AreaAttrs:
         Value: Text
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("download", value)
 
     class href(BaseAttribute):

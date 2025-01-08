@@ -1,5 +1,4 @@
 from . import BaseAttribute
-from typing import Union, Callable
 
 
 class LinkAttrs:
@@ -55,7 +54,7 @@ class LinkAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("disabled", value)
 
     class fetchpriority(BaseAttribute):
@@ -115,7 +114,7 @@ class LinkAttrs:
         Value: Text
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("integrity", value)
 
     class media(BaseAttribute):

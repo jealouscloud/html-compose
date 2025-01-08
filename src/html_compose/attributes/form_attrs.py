@@ -1,5 +1,4 @@
 from . import BaseAttribute
-from typing import Union, Callable
 
 
 class FormAttrs:
@@ -65,7 +64,7 @@ class FormAttrs:
         Value: Text*
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("name", value)
 
     class novalidate(BaseAttribute):
@@ -75,7 +74,7 @@ class FormAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("novalidate", value)
 
     class target(BaseAttribute):

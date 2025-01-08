@@ -1,37 +1,15 @@
 import json
-from pathlib import Path
 
-
-def get_path(fn):
-    if Path("tools").exists():
-        return Path("tools") / fn
-    else:
-        return Path(fn)
-
-
-def safe_name(name):
-    """
-    Some names are reserved in Python, so we need to add an underscore
-    An underscore after was chosen so type hints match what user is looking for
-    """
-    # Keywords
-    if name in ("class", "is", "for", "as", "async"):
-        name = name + "_"
-
-    if "-" in name:
-        # Fixes for 'accept-charset' etc.
-        name = name.replace("-", "_")
-
-    return name
+from generator_common import get_path, safe_name
 
 
 def type_for_value(value):
     if isinstance(value, list):
-        return f": Union[Literal{value}, Callable[[], str]]"
+        return f": Literal{value}"
     if value in ("Text", "Text*"):
-        return ": Union[str, Callable[[], str]]"
+        return ": str"
     if value == "Boolean attribute":
-        return ": Union[bool, Callable[[], bool]]"
+        return ": bool"
     return ""
 
 
@@ -96,7 +74,6 @@ def other_attrs():
         attrs = spec[element]["spec"]["attributes"]
         if not attrs:
             continue
-
         defined_attrs = []
         for attr in attrs:
             attr_name = attr["Attribute"]
@@ -135,7 +112,7 @@ def other_attrs():
 
         doc_lines = [
             "from . import BaseAttribute",
-            "from typing import Literal, Union, Callable",
+            "from typing import Literal, Union",
             "",
             f"class {element_name_for_class}Attrs:",
             '    """ ',

@@ -1,4 +1,4 @@
-from typing import Any, Callable, Generator, Optional, Union
+from typing import Callable, Generator, Union
 
 from . import escape_text, unsafe_text, util_funcs
 from .attributes import BaseAttribute, GlobalAttrs
@@ -7,6 +7,11 @@ from .base_types import (
     Node,
     _HasHtml,
 )
+
+SPECIAL_ATTRS = {
+    "class": GlobalAttrs.class_,
+    "style": GlobalAttrs.style,
+}
 
 
 class BaseElement(ElementBase, GlobalAttrs):
@@ -18,15 +23,43 @@ class BaseElement(ElementBase, GlobalAttrs):
 
     __slots__ = ("name", "_attrs", "_children", "data")
 
+    @classmethod
+    def __class_getitem__(cls, key):
+        raise TypeError(
+            "Cannot use [] directly on the class. "
+            "Did you mean to call the class first? Example: div()['elements'] instead of div['elements']"
+        )
+
+    def __getitem__(self, key):
+        """
+        Implements [] syntax which automatically appends to children list.
+
+        Example:
+
+        div()[
+          "text",
+          p()["text"],
+          ul()[
+            li["a"],
+            li["b"]
+          ]
+        ]
+        """
+        # todo: consider raising based on type
+        # todo: consider raising if chained:
+        # div()[1,2][3]
+        self.append(key)
+
+        return self
+
     def __init__(
         self,
         name: str,
         void_element: bool = False,
         id: Union[str, GlobalAttrs.id] = None,
         class_: Union[str, GlobalAttrs.class_] = None,
-        children: list = None,
         attrs: Union[dict[str, str], list[BaseAttribute]] = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         """
         Initialize an HTML element
@@ -36,49 +69,102 @@ class BaseElement(ElementBase, GlobalAttrs):
             void_element (bool): Indicates if the element is a void element. Defaults to False.
             id (str): The ID of the element. Defaults to None.
             class_: The class of the element. Defaults to None.
-            children: A list of child elements. Defaults to None.
             attrs: A list of attributes for the element.
                 It can also be a dictionary of key,value strings.
                 Defaults to None.
-            data: Non-rendered user data for the element. Defaults to None.
+            children: A list of child elements. Defaults to None.
         """
         self.name = name
-        if attrs is None:
-            attrs = []
-
         self._attrs = self._resolve_attrs(attrs)
 
-        if id is not None:
-            if not isinstance(class_, GlobalAttrs.id):
-                id = GlobalAttrs.id(id)
+        self._process_attr("id", id)
+        self._process_attr("class", class_)
 
-            result = id.evaluate()
-            if result is not None:
-                _, id_value = result
-                if "id" in self._attrs:
-                    raise ValueError("ID attr was passsed twice")
-                self._attrs["id"] = id_value
+        self._children = children if children else []
+        self.is_void_element = void_element
 
-        if class_ is not None:
-            if not isinstance(class_, GlobalAttrs.class_):
-                class_ = GlobalAttrs.class_(class_)
+    def _process_attr(self, attr_name, attr_data):
+        if attr_data is None or attr_data is False:
+            return  # noop
 
-            result = class_.evaluate()
-            if result is not None:
-                _, class_value = result
-                if "class" in self._attrs:
-                    self._attrs["class"] = (
-                        f'{class_value} {self._attrs["class"]}'
+        if isinstance(attr_data, BaseAttribute):
+            attr = attr_data
+        else:
+            attr_class = SPECIAL_ATTRS.get(attr_name, None)
+            if attr_class:
+                attr = attr_class(attr_data)
+            else:
+                attr = BaseAttribute(attr_name, attr_data)
+
+        result = attr.evaluate()
+        if result is not None:
+            _, resolved_value = result
+            if attr_name in self._attrs:
+                if attr_name == "class":
+                    self._attrs[attr_name] = (
+                        f"{resolved_value} {self._attrs[attr_name]}"
+                    )
+                elif attr_name == "style":
+                    self._attrs[attr_name] = (
+                        f"{resolved_value}; {self._attrs[attr_name]}"
                     )
                 else:
-                    self._attrs["class"] = class_value
+                    raise ValueError(
+                        f"Attribute {attr_name} waas passed twice. "
+                        "We don't know how to merge it."
+                    )
+            else:
+                self._attrs[attr_name] = resolved_value
 
-        if children is None and not void_element:
-            children = []
+    def _resolve_attrs(self, attrs) -> dict[str]:
+        """
+        Resolve attributes into key/value pairs
+        """
+        if not attrs:
+            return {}
 
-        self._children = children
-        self.data = data
-        self.is_void_element = void_element
+        attr_dict = {}
+        # These are sent to us in format:
+        # key, value (unescaped)
+        if isinstance(attrs, (list, tuple)):
+            for item in attrs:
+                if isinstance(item, BaseAttribute):
+                    result = item.evaluate()
+                    if not result:
+                        continue
+                    key, value = result
+                    attr_dict[key] = value
+                elif isinstance(item, tuple) and len(item) == 2:
+                    attr = BaseAttribute(item[0], item[1]).evaluate()
+                    if not attr:
+                        continue
+
+                    a_name, a_value = attr
+                    attr_dict[a_name] = a_value
+                elif isinstance(item, dict):
+                    for key, value in item.items():
+                        attr = BaseAttribute(key, value).evaluate()
+                        if not attr:
+                            continue
+                        a_name, a_value = attr
+                        attr_dict[a_name] = a_value
+                else:
+                    raise ValueError(
+                        f"Unknown type for attr value: {type(item)}."
+                    )
+
+        elif isinstance(attrs, dict):
+            for key, value in attrs.items():
+                attr = BaseAttribute(key, value).evaluate()
+                if attr:
+                    a_name, a_value = attr
+                    attr_dict[a_name] = a_value
+
+            attr_dict = attrs
+        else:
+            raise ValueError(f"Unknown: {type(attrs)}")
+
+        return attr_dict
 
     def append(self, *child_or_childs: Node):
         if self.is_void_element:
@@ -102,28 +188,6 @@ class BaseElement(ElementBase, GlobalAttrs):
             # Let the child resolver step handle it
             # Applies to iterables, callables, literal elements
             self._children.append(args)
-
-    def __getitem__(self, key):
-        """
-        Implements [] syntax which automatically appends to children list.
-
-        Example:
-
-        div()[
-          "text",
-          p()["text"],
-          ul()[
-            li["a"],
-            li["b"]
-          ]
-        ]
-        """
-        # todo: consider raising based on type
-        # todo: consider raising if chained:
-        # div()[1,2][3]
-        self.append(key)
-
-        return self
 
     def _call_callable(self, func, parent):
         """
@@ -233,56 +297,6 @@ class BaseElement(ElementBase, GlobalAttrs):
             yield from self.resolve_child(
                 child, call_callables=False, parent=parent
             )
-
-    def _resolve_attrs(self, attrs) -> dict[str]:
-        """
-        Resolve attributes into key/value pairs
-        """
-        if not attrs:
-            return {}
-
-        attr_dict = {}
-        # These are sent to us in format:
-        # key, value (unescaped)
-        if isinstance(attrs, (list, tuple)):
-            for item in attrs:
-                if isinstance(item, BaseAttribute):
-                    result = item.evaluate()
-                    if not result:
-                        continue
-                    key, value = result
-                    attr_dict[key] = value
-                elif isinstance(item, tuple) and len(item) == 2:
-                    attr = BaseAttribute(item[0], item[1]).evaluate()
-                    if not attr:
-                        continue
-
-                    a_name, a_value = attr
-                    attr_dict[a_name] = a_value
-                elif isinstance(item, dict):
-                    for key, value in item.items():
-                        attr = BaseAttribute(key, value).evaluate()
-                        if not attr:
-                            continue
-                        a_name, a_value = attr
-                        attr_dict[a_name] = a_value
-                else:
-                    raise ValueError(
-                        f"Unknown type for attr value: {type(item)}."
-                    )
-
-        elif isinstance(attrs, dict):
-            for key, value in attrs.items():
-                attr = BaseAttribute(key, value).evaluate()
-                if attr:
-                    a_name, a_value = attr
-                    attr_dict[a_name] = a_value
-
-            attr_dict = attrs
-        else:
-            raise ValueError(f"Unknown: {type(attrs)}")
-
-        return attr_dict
 
     def deferred_resolve(self, parent) -> Generator[str, None, None]:
         """

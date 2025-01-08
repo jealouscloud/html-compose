@@ -1,5 +1,4 @@
 from . import BaseAttribute
-from typing import Union, Callable
 
 
 class ButtonAttrs:
@@ -15,7 +14,7 @@ class ButtonAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("disabled", value)
 
     class form(BaseAttribute):
@@ -65,7 +64,7 @@ class ButtonAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("formnovalidate", value)
 
     class formtarget(BaseAttribute):
@@ -85,7 +84,7 @@ class ButtonAttrs:
         Value: Text*
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("name", value)
 
     class popovertarget(BaseAttribute):
@@ -125,5 +124,5 @@ class ButtonAttrs:
         Value: Text
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("value", value)

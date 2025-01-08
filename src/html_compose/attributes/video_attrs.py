@@ -1,5 +1,4 @@
 from . import BaseAttribute
-from typing import Union, Callable
 
 
 class VideoAttrs:
@@ -15,7 +14,7 @@ class VideoAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("autoplay", value)
 
     class controls(BaseAttribute):
@@ -25,7 +24,7 @@ class VideoAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("controls", value)
 
     class crossorigin(BaseAttribute):
@@ -55,7 +54,7 @@ class VideoAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("loop", value)
 
     class muted(BaseAttribute):
@@ -65,7 +64,7 @@ class VideoAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("muted", value)
 
     class playsinline(BaseAttribute):
@@ -75,7 +74,7 @@ class VideoAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("playsinline", value)
 
     class poster(BaseAttribute):

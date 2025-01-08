@@ -1,7 +1,6 @@
-from typing import Any, Optional, TypeAlias, Union
+from typing import TypeAlias, Union
 
 from .attributes import (
-    GlobalAttrs,
     AnchorAttrs,
     AreaAttrs,
     AudioAttrs,
@@ -19,6 +18,7 @@ from .attributes import (
     EmbedAttrs,
     FieldsetAttrs,
     FormAttrs,
+    GlobalAttrs,
     IframeAttrs,
     ImgAttrs,
     InputAttrs,
@@ -72,8 +72,16 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        rel: AnchorAttrs.rel = None,
+        download: AnchorAttrs.download = None,
+        referrerpolicy: AnchorAttrs.referrerpolicy = None,
+        target: AnchorAttrs.target = None,
+        ping: AnchorAttrs.ping = None,
+        href: AnchorAttrs.href = None,
+        type: AnchorAttrs.type = None,
+        hreflang: AnchorAttrs.hreflang = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "a",
@@ -81,8 +89,15 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("rel", rel)
+        self._process_attr("download", download)
+        self._process_attr("referrerpolicy", referrerpolicy)
+        self._process_attr("target", target)
+        self._process_attr("ping", ping)
+        self._process_attr("href", href)
+        self._process_attr("type", type)
+        self._process_attr("hreflang", hreflang)
 
 
 class abbr(BaseElement, GlobalAttrs):
@@ -103,7 +118,7 @@ class abbr(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "abbr",
@@ -111,7 +126,6 @@ class abbr(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -133,7 +147,7 @@ class address(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "address",
@@ -141,7 +155,6 @@ class address(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -162,8 +175,17 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        alt: AreaAttrs.alt = None,
+        download: AreaAttrs.download = None,
+        referrerpolicy: AreaAttrs.referrerpolicy = None,
+        target: AreaAttrs.target = None,
+        ping: AreaAttrs.ping = None,
+        coords: AreaAttrs.coords = None,
+        shape: AreaAttrs.shape = None,
+        rel: AreaAttrs.rel = None,
+        href: AreaAttrs.href = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "area",
@@ -171,8 +193,16 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("alt", alt)
+        self._process_attr("download", download)
+        self._process_attr("referrerpolicy", referrerpolicy)
+        self._process_attr("target", target)
+        self._process_attr("ping", ping)
+        self._process_attr("coords", coords)
+        self._process_attr("shape", shape)
+        self._process_attr("rel", rel)
+        self._process_attr("href", href)
 
 
 class article(BaseElement, GlobalAttrs):
@@ -193,7 +223,7 @@ class article(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "article",
@@ -201,7 +231,6 @@ class article(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -223,7 +252,7 @@ class aside(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "aside",
@@ -231,7 +260,6 @@ class aside(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -252,8 +280,15 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        crossorigin: AudioAttrs.crossorigin = None,
+        controls: AudioAttrs.controls = None,
+        src: AudioAttrs.src = None,
+        loop: AudioAttrs.loop = None,
+        muted: AudioAttrs.muted = None,
+        preload: AudioAttrs.preload = None,
+        autoplay: AudioAttrs.autoplay = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "audio",
@@ -261,8 +296,14 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("crossorigin", crossorigin)
+        self._process_attr("controls", controls)
+        self._process_attr("src", src)
+        self._process_attr("loop", loop)
+        self._process_attr("muted", muted)
+        self._process_attr("preload", preload)
+        self._process_attr("autoplay", autoplay)
 
 
 class b(BaseElement, GlobalAttrs):
@@ -283,7 +324,7 @@ class b(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "b",
@@ -291,7 +332,6 @@ class b(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -312,8 +352,10 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        target: BaseAttrs.target = None,
+        href: BaseAttrs.href = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "base",
@@ -321,8 +363,9 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("target", target)
+        self._process_attr("href", href)
 
 
 class bdi(BaseElement, GlobalAttrs):
@@ -343,7 +386,7 @@ class bdi(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "bdi",
@@ -351,7 +394,6 @@ class bdi(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -373,7 +415,7 @@ class bdo(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "bdo",
@@ -381,7 +423,6 @@ class bdo(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -402,8 +443,9 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        cite: BlockquoteAttrs.cite = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "blockquote",
@@ -411,8 +453,8 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("cite", cite)
 
 
 class body(BaseElement, GlobalAttrs, BodyAttrs):
@@ -432,8 +474,26 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        onpageshow: BodyAttrs.onpageshow = None,
+        onafterprint: BodyAttrs.onafterprint = None,
+        onbeforeunload: BodyAttrs.onbeforeunload = None,
+        onpopstate: BodyAttrs.onpopstate = None,
+        onrejectionhandled: BodyAttrs.onrejectionhandled = None,
+        onmessage: BodyAttrs.onmessage = None,
+        onhashchange: BodyAttrs.onhashchange = None,
+        onmessageerror: BodyAttrs.onmessageerror = None,
+        ononline: BodyAttrs.ononline = None,
+        onlanguagechange: BodyAttrs.onlanguagechange = None,
+        onoffline: BodyAttrs.onoffline = None,
+        onpagehide: BodyAttrs.onpagehide = None,
+        onstorage: BodyAttrs.onstorage = None,
+        onpagereveal: BodyAttrs.onpagereveal = None,
+        onbeforeprint: BodyAttrs.onbeforeprint = None,
+        onpageswap: BodyAttrs.onpageswap = None,
+        onunload: BodyAttrs.onunload = None,
+        onunhandledrejection: BodyAttrs.onunhandledrejection = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "body",
@@ -441,8 +501,25 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("onpageshow", onpageshow)
+        self._process_attr("onafterprint", onafterprint)
+        self._process_attr("onbeforeunload", onbeforeunload)
+        self._process_attr("onpopstate", onpopstate)
+        self._process_attr("onrejectionhandled", onrejectionhandled)
+        self._process_attr("onmessage", onmessage)
+        self._process_attr("onhashchange", onhashchange)
+        self._process_attr("onmessageerror", onmessageerror)
+        self._process_attr("ononline", ononline)
+        self._process_attr("onlanguagechange", onlanguagechange)
+        self._process_attr("onoffline", onoffline)
+        self._process_attr("onpagehide", onpagehide)
+        self._process_attr("onstorage", onstorage)
+        self._process_attr("onpagereveal", onpagereveal)
+        self._process_attr("onbeforeprint", onbeforeprint)
+        self._process_attr("onpageswap", onpageswap)
+        self._process_attr("onunload", onunload)
+        self._process_attr("onunhandledrejection", onunhandledrejection)
 
 
 class br(BaseElement, GlobalAttrs):
@@ -463,7 +540,7 @@ class br(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "br",
@@ -471,7 +548,6 @@ class br(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -492,8 +568,20 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        formnovalidate: ButtonAttrs.formnovalidate = None,
+        disabled: ButtonAttrs.disabled = None,
+        formaction: ButtonAttrs.formaction = None,
+        value: ButtonAttrs.value = None,
+        formenctype: ButtonAttrs.formenctype = None,
+        popovertarget: ButtonAttrs.popovertarget = None,
+        formmethod: ButtonAttrs.formmethod = None,
+        name: ButtonAttrs.name = None,
+        formtarget: ButtonAttrs.formtarget = None,
+        popovertargetaction: ButtonAttrs.popovertargetaction = None,
+        type: ButtonAttrs.type = None,
+        form: ButtonAttrs.form = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "button",
@@ -501,8 +589,19 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("formnovalidate", formnovalidate)
+        self._process_attr("disabled", disabled)
+        self._process_attr("formaction", formaction)
+        self._process_attr("value", value)
+        self._process_attr("formenctype", formenctype)
+        self._process_attr("popovertarget", popovertarget)
+        self._process_attr("formmethod", formmethod)
+        self._process_attr("name", name)
+        self._process_attr("formtarget", formtarget)
+        self._process_attr("popovertargetaction", popovertargetaction)
+        self._process_attr("type", type)
+        self._process_attr("form", form)
 
 
 class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
@@ -522,8 +621,10 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        height: CanvasAttrs.height = None,
+        width: CanvasAttrs.width = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "canvas",
@@ -531,8 +632,9 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("height", height)
+        self._process_attr("width", width)
 
 
 class caption(BaseElement, GlobalAttrs):
@@ -553,7 +655,7 @@ class caption(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "caption",
@@ -561,7 +663,6 @@ class caption(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -583,7 +684,7 @@ class cite(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "cite",
@@ -591,7 +692,6 @@ class cite(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -613,7 +713,7 @@ class code(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "code",
@@ -621,7 +721,6 @@ class code(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -642,8 +741,9 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        span: ColAttrs.span = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "col",
@@ -651,8 +751,8 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("span", span)
 
 
 class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
@@ -672,8 +772,9 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        span: ColgroupAttrs.span = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "colgroup",
@@ -681,8 +782,8 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("span", span)
 
 
 class data(BaseElement, GlobalAttrs, DataAttrs):
@@ -702,8 +803,9 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        value: DataAttrs.value = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "data",
@@ -711,8 +813,8 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("value", value)
 
 
 class datalist(BaseElement, GlobalAttrs):
@@ -733,7 +835,7 @@ class datalist(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "datalist",
@@ -741,7 +843,6 @@ class datalist(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -763,7 +864,7 @@ class dd(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "dd",
@@ -771,7 +872,6 @@ class dd(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -792,8 +892,10 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        cite: DelAttrs.cite = None,
+        datetime: DelAttrs.datetime = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "del",
@@ -801,8 +903,9 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("cite", cite)
+        self._process_attr("datetime", datetime)
 
 
 class details(BaseElement, GlobalAttrs, DetailsAttrs):
@@ -822,8 +925,10 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        name: DetailsAttrs.name = None,
+        open: DetailsAttrs.open = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "details",
@@ -831,8 +936,9 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("name", name)
+        self._process_attr("open", open)
 
 
 class dfn(BaseElement, GlobalAttrs):
@@ -853,7 +959,7 @@ class dfn(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "dfn",
@@ -861,7 +967,6 @@ class dfn(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -882,8 +987,9 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        open: DialogAttrs.open = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "dialog",
@@ -891,8 +997,8 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("open", open)
 
 
 class div(BaseElement, GlobalAttrs):
@@ -913,7 +1019,7 @@ class div(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "div",
@@ -921,7 +1027,6 @@ class div(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -943,7 +1048,7 @@ class dl(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "dl",
@@ -951,7 +1056,6 @@ class dl(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -973,7 +1077,7 @@ class dt(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "dt",
@@ -981,7 +1085,6 @@ class dt(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1003,7 +1106,7 @@ class em(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "em",
@@ -1011,7 +1114,6 @@ class em(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1032,8 +1134,12 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        src: EmbedAttrs.src = None,
+        type: EmbedAttrs.type = None,
+        height: EmbedAttrs.height = None,
+        width: EmbedAttrs.width = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "embed",
@@ -1041,8 +1147,11 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("src", src)
+        self._process_attr("type", type)
+        self._process_attr("height", height)
+        self._process_attr("width", width)
 
 
 class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
@@ -1062,8 +1171,11 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        name: FieldsetAttrs.name = None,
+        disabled: FieldsetAttrs.disabled = None,
+        form: FieldsetAttrs.form = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "fieldset",
@@ -1071,8 +1183,10 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("name", name)
+        self._process_attr("disabled", disabled)
+        self._process_attr("form", form)
 
 
 class figcaption(BaseElement, GlobalAttrs):
@@ -1093,7 +1207,7 @@ class figcaption(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "figcaption",
@@ -1101,7 +1215,6 @@ class figcaption(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1123,7 +1236,7 @@ class figure(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "figure",
@@ -1131,7 +1244,6 @@ class figure(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1153,7 +1265,7 @@ class footer(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "footer",
@@ -1161,7 +1273,6 @@ class footer(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1182,8 +1293,16 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        accept_charset: FormAttrs.accept_charset = None,
+        action: FormAttrs.action = None,
+        novalidate: FormAttrs.novalidate = None,
+        target: FormAttrs.target = None,
+        enctype: FormAttrs.enctype = None,
+        name: FormAttrs.name = None,
+        method: FormAttrs.method = None,
+        autocomplete: FormAttrs.autocomplete = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "form",
@@ -1191,8 +1310,15 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("accept-charset", accept_charset)
+        self._process_attr("action", action)
+        self._process_attr("novalidate", novalidate)
+        self._process_attr("target", target)
+        self._process_attr("enctype", enctype)
+        self._process_attr("name", name)
+        self._process_attr("method", method)
+        self._process_attr("autocomplete", autocomplete)
 
 
 class h1(BaseElement, GlobalAttrs):
@@ -1213,7 +1339,7 @@ class h1(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "h1",
@@ -1221,7 +1347,6 @@ class h1(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1243,7 +1368,7 @@ class h2(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "h2",
@@ -1251,7 +1376,6 @@ class h2(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1273,7 +1397,7 @@ class h3(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "h3",
@@ -1281,7 +1405,6 @@ class h3(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1303,7 +1426,7 @@ class h4(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "h4",
@@ -1311,7 +1434,6 @@ class h4(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1333,7 +1455,7 @@ class h5(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "h5",
@@ -1341,7 +1463,6 @@ class h5(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1363,7 +1484,7 @@ class h6(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "h6",
@@ -1371,7 +1492,6 @@ class h6(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1393,7 +1513,7 @@ class head(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "head",
@@ -1401,7 +1521,6 @@ class head(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1423,7 +1542,7 @@ class header(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "header",
@@ -1431,7 +1550,6 @@ class header(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1453,7 +1571,7 @@ class hgroup(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "hgroup",
@@ -1461,7 +1579,6 @@ class hgroup(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1483,7 +1600,7 @@ class hr(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "hr",
@@ -1491,7 +1608,6 @@ class hr(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1513,7 +1629,7 @@ class html(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "html",
@@ -1521,7 +1637,6 @@ class html(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1543,7 +1658,7 @@ class i(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "i",
@@ -1551,7 +1666,6 @@ class i(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1572,8 +1686,18 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        height: IframeAttrs.height = None,
+        width: IframeAttrs.width = None,
+        src: IframeAttrs.src = None,
+        srcdoc: IframeAttrs.srcdoc = None,
+        referrerpolicy: IframeAttrs.referrerpolicy = None,
+        allow: IframeAttrs.allow = None,
+        name: IframeAttrs.name = None,
+        allowfullscreen: IframeAttrs.allowfullscreen = None,
+        sandbox: IframeAttrs.sandbox = None,
+        loading: IframeAttrs.loading = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "iframe",
@@ -1581,8 +1705,17 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("height", height)
+        self._process_attr("width", width)
+        self._process_attr("src", src)
+        self._process_attr("srcdoc", srcdoc)
+        self._process_attr("referrerpolicy", referrerpolicy)
+        self._process_attr("allow", allow)
+        self._process_attr("name", name)
+        self._process_attr("allowfullscreen", allowfullscreen)
+        self._process_attr("sandbox", sandbox)
+        self._process_attr("loading", loading)
 
 
 class img(BaseElement, GlobalAttrs, ImgAttrs):
@@ -1602,8 +1735,21 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        crossorigin: ImgAttrs.crossorigin = None,
+        alt: ImgAttrs.alt = None,
+        height: ImgAttrs.height = None,
+        width: ImgAttrs.width = None,
+        ismap: ImgAttrs.ismap = None,
+        src: ImgAttrs.src = None,
+        referrerpolicy: ImgAttrs.referrerpolicy = None,
+        usemap: ImgAttrs.usemap = None,
+        fetchpriority: ImgAttrs.fetchpriority = None,
+        loading: ImgAttrs.loading = None,
+        srcset: ImgAttrs.srcset = None,
+        sizes: ImgAttrs.sizes = None,
+        decoding: ImgAttrs.decoding = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "img",
@@ -1611,8 +1757,20 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("crossorigin", crossorigin)
+        self._process_attr("alt", alt)
+        self._process_attr("height", height)
+        self._process_attr("width", width)
+        self._process_attr("ismap", ismap)
+        self._process_attr("src", src)
+        self._process_attr("referrerpolicy", referrerpolicy)
+        self._process_attr("usemap", usemap)
+        self._process_attr("fetchpriority", fetchpriority)
+        self._process_attr("loading", loading)
+        self._process_attr("srcset", srcset)
+        self._process_attr("sizes", sizes)
+        self._process_attr("decoding", decoding)
 
 
 class input(BaseElement, GlobalAttrs, InputAttrs):
@@ -1632,8 +1790,43 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        required: InputAttrs.required = None,
+        popovertarget: InputAttrs.popovertarget = None,
+        formmethod: InputAttrs.formmethod = None,
+        pattern: InputAttrs.pattern = None,
+        accept: InputAttrs.accept = None,
+        popovertargetaction: InputAttrs.popovertargetaction = None,
+        step: InputAttrs.step = None,
+        disabled: InputAttrs.disabled = None,
+        height: InputAttrs.height = None,
+        width: InputAttrs.width = None,
+        size: InputAttrs.size = None,
+        minlength: InputAttrs.minlength = None,
+        alpha: InputAttrs.alpha = None,
+        formtarget: InputAttrs.formtarget = None,
+        maxlength: InputAttrs.maxlength = None,
+        formnovalidate: InputAttrs.formnovalidate = None,
+        alt: InputAttrs.alt = None,
+        formaction: InputAttrs.formaction = None,
+        dirname: InputAttrs.dirname = None,
+        title: InputAttrs.title = None,
+        formenctype: InputAttrs.formenctype = None,
+        src: InputAttrs.src = None,
+        multiple: InputAttrs.multiple = None,
+        min: InputAttrs.min = None,
+        readonly: InputAttrs.readonly = None,
+        checked: InputAttrs.checked = None,
+        max: InputAttrs.max = None,
+        colorspace: InputAttrs.colorspace = None,
+        form: InputAttrs.form = None,
+        value: InputAttrs.value = None,
+        name: InputAttrs.name = None,
+        autocomplete: InputAttrs.autocomplete = None,
+        placeholder: InputAttrs.placeholder = None,
+        list: InputAttrs.list = None,
+        type: InputAttrs.type = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "input",
@@ -1641,8 +1834,42 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("required", required)
+        self._process_attr("popovertarget", popovertarget)
+        self._process_attr("formmethod", formmethod)
+        self._process_attr("pattern", pattern)
+        self._process_attr("accept", accept)
+        self._process_attr("popovertargetaction", popovertargetaction)
+        self._process_attr("step", step)
+        self._process_attr("disabled", disabled)
+        self._process_attr("height", height)
+        self._process_attr("width", width)
+        self._process_attr("size", size)
+        self._process_attr("minlength", minlength)
+        self._process_attr("alpha", alpha)
+        self._process_attr("formtarget", formtarget)
+        self._process_attr("maxlength", maxlength)
+        self._process_attr("formnovalidate", formnovalidate)
+        self._process_attr("alt", alt)
+        self._process_attr("formaction", formaction)
+        self._process_attr("dirname", dirname)
+        self._process_attr("title", title)
+        self._process_attr("formenctype", formenctype)
+        self._process_attr("src", src)
+        self._process_attr("multiple", multiple)
+        self._process_attr("min", min)
+        self._process_attr("readonly", readonly)
+        self._process_attr("checked", checked)
+        self._process_attr("max", max)
+        self._process_attr("colorspace", colorspace)
+        self._process_attr("form", form)
+        self._process_attr("value", value)
+        self._process_attr("name", name)
+        self._process_attr("autocomplete", autocomplete)
+        self._process_attr("placeholder", placeholder)
+        self._process_attr("list", list)
+        self._process_attr("type", type)
 
 
 class ins(BaseElement, GlobalAttrs, InsAttrs):
@@ -1662,8 +1889,10 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        cite: InsAttrs.cite = None,
+        datetime: InsAttrs.datetime = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "ins",
@@ -1671,8 +1900,9 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("cite", cite)
+        self._process_attr("datetime", datetime)
 
 
 class kbd(BaseElement, GlobalAttrs):
@@ -1693,7 +1923,7 @@ class kbd(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "kbd",
@@ -1701,7 +1931,6 @@ class kbd(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1722,8 +1951,9 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        for_: LabelAttrs.for_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "label",
@@ -1731,8 +1961,8 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("for", for_)
 
 
 class legend(BaseElement, GlobalAttrs):
@@ -1753,7 +1983,7 @@ class legend(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "legend",
@@ -1761,7 +1991,6 @@ class legend(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1782,8 +2011,9 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        value: LiAttrs.value = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "li",
@@ -1791,8 +2021,8 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("value", value)
 
 
 class link(BaseElement, GlobalAttrs, LinkAttrs):
@@ -1812,8 +2042,25 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        crossorigin: LinkAttrs.crossorigin = None,
+        integrity: LinkAttrs.integrity = None,
+        disabled: LinkAttrs.disabled = None,
+        title: LinkAttrs.title = None,
+        media: LinkAttrs.media = None,
+        referrerpolicy: LinkAttrs.referrerpolicy = None,
+        sizes: LinkAttrs.sizes = None,
+        fetchpriority: LinkAttrs.fetchpriority = None,
+        blocking: LinkAttrs.blocking = None,
+        imagesrcset: LinkAttrs.imagesrcset = None,
+        color: LinkAttrs.color = None,
+        as_: LinkAttrs.as_ = None,
+        rel: LinkAttrs.rel = None,
+        type: LinkAttrs.type = None,
+        hreflang: LinkAttrs.hreflang = None,
+        href: LinkAttrs.href = None,
+        imagesizes: LinkAttrs.imagesizes = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "link",
@@ -1821,8 +2068,24 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("crossorigin", crossorigin)
+        self._process_attr("integrity", integrity)
+        self._process_attr("disabled", disabled)
+        self._process_attr("title", title)
+        self._process_attr("media", media)
+        self._process_attr("referrerpolicy", referrerpolicy)
+        self._process_attr("sizes", sizes)
+        self._process_attr("fetchpriority", fetchpriority)
+        self._process_attr("blocking", blocking)
+        self._process_attr("imagesrcset", imagesrcset)
+        self._process_attr("color", color)
+        self._process_attr("as", as_)
+        self._process_attr("rel", rel)
+        self._process_attr("type", type)
+        self._process_attr("hreflang", hreflang)
+        self._process_attr("href", href)
+        self._process_attr("imagesizes", imagesizes)
 
 
 class main(BaseElement, GlobalAttrs):
@@ -1843,7 +2106,7 @@ class main(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "main",
@@ -1851,7 +2114,6 @@ class main(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1872,8 +2134,9 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        name: MapAttrs.name = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "map",
@@ -1881,8 +2144,8 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("name", name)
 
 
 class mark(BaseElement, GlobalAttrs):
@@ -1903,7 +2166,7 @@ class mark(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "mark",
@@ -1911,7 +2174,6 @@ class mark(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1933,7 +2195,7 @@ class menu(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "menu",
@@ -1941,7 +2203,6 @@ class menu(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -1962,8 +2223,13 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        charset: MetaAttrs.charset = None,
+        http_equiv: MetaAttrs.http_equiv = None,
+        name: MetaAttrs.name = None,
+        content: MetaAttrs.content = None,
+        media: MetaAttrs.media = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "meta",
@@ -1971,8 +2237,12 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("charset", charset)
+        self._process_attr("http-equiv", http_equiv)
+        self._process_attr("name", name)
+        self._process_attr("content", content)
+        self._process_attr("media", media)
 
 
 class meter(BaseElement, GlobalAttrs, MeterAttrs):
@@ -1992,8 +2262,14 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        value: MeterAttrs.value = None,
+        low: MeterAttrs.low = None,
+        min: MeterAttrs.min = None,
+        optimum: MeterAttrs.optimum = None,
+        high: MeterAttrs.high = None,
+        max: MeterAttrs.max = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "meter",
@@ -2001,8 +2277,13 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("value", value)
+        self._process_attr("low", low)
+        self._process_attr("min", min)
+        self._process_attr("optimum", optimum)
+        self._process_attr("high", high)
+        self._process_attr("max", max)
 
 
 class nav(BaseElement, GlobalAttrs):
@@ -2023,7 +2304,7 @@ class nav(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "nav",
@@ -2031,7 +2312,6 @@ class nav(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2053,7 +2333,7 @@ class noscript(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "noscript",
@@ -2061,7 +2341,6 @@ class noscript(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2082,8 +2361,14 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        height: ObjectAttrs.height = None,
+        width: ObjectAttrs.width = None,
+        data: ObjectAttrs.data = None,
+        name: ObjectAttrs.name = None,
+        type: ObjectAttrs.type = None,
+        form: ObjectAttrs.form = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "object",
@@ -2091,8 +2376,13 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("height", height)
+        self._process_attr("width", width)
+        self._process_attr("data", data)
+        self._process_attr("name", name)
+        self._process_attr("type", type)
+        self._process_attr("form", form)
 
 
 class ol(BaseElement, GlobalAttrs, OlAttrs):
@@ -2112,8 +2402,11 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        type: OlAttrs.type = None,
+        reversed: OlAttrs.reversed = None,
+        start: OlAttrs.start = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "ol",
@@ -2121,8 +2414,10 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("type", type)
+        self._process_attr("reversed", reversed)
+        self._process_attr("start", start)
 
 
 class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
@@ -2142,8 +2437,10 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        disabled: OptgroupAttrs.disabled = None,
+        label: OptgroupAttrs.label = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "optgroup",
@@ -2151,8 +2448,9 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("disabled", disabled)
+        self._process_attr("label", label)
 
 
 class option(BaseElement, GlobalAttrs, OptionAttrs):
@@ -2172,8 +2470,12 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        disabled: OptionAttrs.disabled = None,
+        label: OptionAttrs.label = None,
+        selected: OptionAttrs.selected = None,
+        value: OptionAttrs.value = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "option",
@@ -2181,8 +2483,11 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("disabled", disabled)
+        self._process_attr("label", label)
+        self._process_attr("selected", selected)
+        self._process_attr("value", value)
 
 
 class output(BaseElement, GlobalAttrs, OutputAttrs):
@@ -2202,8 +2507,11 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        for_: OutputAttrs.for_ = None,
+        name: OutputAttrs.name = None,
+        form: OutputAttrs.form = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "output",
@@ -2211,8 +2519,10 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("for", for_)
+        self._process_attr("name", name)
+        self._process_attr("form", form)
 
 
 class p(BaseElement, GlobalAttrs):
@@ -2233,7 +2543,7 @@ class p(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "p",
@@ -2241,7 +2551,6 @@ class p(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2263,7 +2572,7 @@ class picture(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "picture",
@@ -2271,7 +2580,6 @@ class picture(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2293,7 +2601,7 @@ class pre(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "pre",
@@ -2301,7 +2609,6 @@ class pre(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2322,8 +2629,10 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        max: ProgressAttrs.max = None,
+        value: ProgressAttrs.value = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "progress",
@@ -2331,8 +2640,9 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("max", max)
+        self._process_attr("value", value)
 
 
 class q(BaseElement, GlobalAttrs, QAttrs):
@@ -2352,8 +2662,9 @@ class q(BaseElement, GlobalAttrs, QAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        cite: QAttrs.cite = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "q",
@@ -2361,8 +2672,8 @@ class q(BaseElement, GlobalAttrs, QAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("cite", cite)
 
 
 class rp(BaseElement, GlobalAttrs):
@@ -2383,7 +2694,7 @@ class rp(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "rp",
@@ -2391,7 +2702,6 @@ class rp(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2413,7 +2723,7 @@ class rt(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "rt",
@@ -2421,7 +2731,6 @@ class rt(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2443,7 +2752,7 @@ class ruby(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "ruby",
@@ -2451,7 +2760,6 @@ class ruby(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2473,7 +2781,7 @@ class s(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "s",
@@ -2481,7 +2789,6 @@ class s(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2503,7 +2810,7 @@ class samp(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "samp",
@@ -2511,7 +2818,6 @@ class samp(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2532,8 +2838,18 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        crossorigin: ScriptAttrs.crossorigin = None,
+        integrity: ScriptAttrs.integrity = None,
+        async_: ScriptAttrs.async_ = None,
+        src: ScriptAttrs.src = None,
+        referrerpolicy: ScriptAttrs.referrerpolicy = None,
+        fetchpriority: ScriptAttrs.fetchpriority = None,
+        blocking: ScriptAttrs.blocking = None,
+        defer: ScriptAttrs.defer = None,
+        nomodule: ScriptAttrs.nomodule = None,
+        type: ScriptAttrs.type = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "script",
@@ -2541,8 +2857,17 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("crossorigin", crossorigin)
+        self._process_attr("integrity", integrity)
+        self._process_attr("async", async_)
+        self._process_attr("src", src)
+        self._process_attr("referrerpolicy", referrerpolicy)
+        self._process_attr("fetchpriority", fetchpriority)
+        self._process_attr("blocking", blocking)
+        self._process_attr("defer", defer)
+        self._process_attr("nomodule", nomodule)
+        self._process_attr("type", type)
 
 
 class search(BaseElement, GlobalAttrs):
@@ -2563,7 +2888,7 @@ class search(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "search",
@@ -2571,7 +2896,6 @@ class search(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2593,7 +2917,7 @@ class section(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "section",
@@ -2601,7 +2925,6 @@ class section(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2622,8 +2945,15 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        disabled: SelectAttrs.disabled = None,
+        required: SelectAttrs.required = None,
+        multiple: SelectAttrs.multiple = None,
+        size: SelectAttrs.size = None,
+        name: SelectAttrs.name = None,
+        autocomplete: SelectAttrs.autocomplete = None,
+        form: SelectAttrs.form = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "select",
@@ -2631,8 +2961,14 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("disabled", disabled)
+        self._process_attr("required", required)
+        self._process_attr("multiple", multiple)
+        self._process_attr("size", size)
+        self._process_attr("name", name)
+        self._process_attr("autocomplete", autocomplete)
+        self._process_attr("form", form)
 
 
 class slot(BaseElement, GlobalAttrs, SlotAttrs):
@@ -2652,8 +2988,9 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        name: SlotAttrs.name = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "slot",
@@ -2661,8 +2998,8 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("name", name)
 
 
 class small(BaseElement, GlobalAttrs):
@@ -2683,7 +3020,7 @@ class small(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "small",
@@ -2691,7 +3028,6 @@ class small(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2712,8 +3048,15 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        height: SourceAttrs.height = None,
+        width: SourceAttrs.width = None,
+        src: SourceAttrs.src = None,
+        sizes: SourceAttrs.sizes = None,
+        srcset: SourceAttrs.srcset = None,
+        type: SourceAttrs.type = None,
+        media: SourceAttrs.media = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "source",
@@ -2721,8 +3064,14 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("height", height)
+        self._process_attr("width", width)
+        self._process_attr("src", src)
+        self._process_attr("sizes", sizes)
+        self._process_attr("srcset", srcset)
+        self._process_attr("type", type)
+        self._process_attr("media", media)
 
 
 class span(BaseElement, GlobalAttrs):
@@ -2743,7 +3092,7 @@ class span(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "span",
@@ -2751,7 +3100,6 @@ class span(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2773,7 +3121,7 @@ class strong(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "strong",
@@ -2781,7 +3129,6 @@ class strong(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2802,8 +3149,11 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        blocking: StyleAttrs.blocking = None,
+        title: StyleAttrs.title = None,
+        media: StyleAttrs.media = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "style",
@@ -2811,8 +3161,10 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("blocking", blocking)
+        self._process_attr("title", title)
+        self._process_attr("media", media)
 
 
 class sub(BaseElement, GlobalAttrs):
@@ -2833,7 +3185,7 @@ class sub(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "sub",
@@ -2841,7 +3193,6 @@ class sub(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2863,7 +3214,7 @@ class summary(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "summary",
@@ -2871,7 +3222,6 @@ class summary(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2893,7 +3243,7 @@ class sup(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "sup",
@@ -2901,7 +3251,6 @@ class sup(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2923,7 +3272,7 @@ class svg(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "svg",
@@ -2931,7 +3280,6 @@ class svg(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2953,7 +3301,7 @@ class table(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "table",
@@ -2961,7 +3309,6 @@ class table(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -2983,7 +3330,7 @@ class tbody(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "tbody",
@@ -2991,7 +3338,6 @@ class tbody(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -3012,8 +3358,11 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        colspan: TdAttrs.colspan = None,
+        rowspan: TdAttrs.rowspan = None,
+        headers: TdAttrs.headers = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "td",
@@ -3021,8 +3370,10 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("colspan", colspan)
+        self._process_attr("rowspan", rowspan)
+        self._process_attr("headers", headers)
 
 
 class template(BaseElement, GlobalAttrs, TemplateAttrs):
@@ -3042,8 +3393,12 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        shadowrootclonable: TemplateAttrs.shadowrootclonable = None,
+        shadowrootmode: TemplateAttrs.shadowrootmode = None,
+        shadowrootdelegatesfocus: TemplateAttrs.shadowrootdelegatesfocus = None,
+        shadowrootserializable: TemplateAttrs.shadowrootserializable = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "template",
@@ -3051,8 +3406,11 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("shadowrootclonable", shadowrootclonable)
+        self._process_attr("shadowrootmode", shadowrootmode)
+        self._process_attr("shadowrootdelegatesfocus", shadowrootdelegatesfocus)
+        self._process_attr("shadowrootserializable", shadowrootserializable)
 
 
 class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
@@ -3072,8 +3430,21 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        disabled: TextareaAttrs.disabled = None,
+        required: TextareaAttrs.required = None,
+        dirname: TextareaAttrs.dirname = None,
+        rows: TextareaAttrs.rows = None,
+        cols: TextareaAttrs.cols = None,
+        minlength: TextareaAttrs.minlength = None,
+        name: TextareaAttrs.name = None,
+        readonly: TextareaAttrs.readonly = None,
+        maxlength: TextareaAttrs.maxlength = None,
+        autocomplete: TextareaAttrs.autocomplete = None,
+        placeholder: TextareaAttrs.placeholder = None,
+        wrap: TextareaAttrs.wrap = None,
+        form: TextareaAttrs.form = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "textarea",
@@ -3081,8 +3452,20 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("disabled", disabled)
+        self._process_attr("required", required)
+        self._process_attr("dirname", dirname)
+        self._process_attr("rows", rows)
+        self._process_attr("cols", cols)
+        self._process_attr("minlength", minlength)
+        self._process_attr("name", name)
+        self._process_attr("readonly", readonly)
+        self._process_attr("maxlength", maxlength)
+        self._process_attr("autocomplete", autocomplete)
+        self._process_attr("placeholder", placeholder)
+        self._process_attr("wrap", wrap)
+        self._process_attr("form", form)
 
 
 class tfoot(BaseElement, GlobalAttrs):
@@ -3103,7 +3486,7 @@ class tfoot(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "tfoot",
@@ -3111,7 +3494,6 @@ class tfoot(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -3132,8 +3514,13 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        colspan: ThAttrs.colspan = None,
+        abbr: ThAttrs.abbr = None,
+        scope: ThAttrs.scope = None,
+        headers: ThAttrs.headers = None,
+        rowspan: ThAttrs.rowspan = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "th",
@@ -3141,8 +3528,12 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("colspan", colspan)
+        self._process_attr("abbr", abbr)
+        self._process_attr("scope", scope)
+        self._process_attr("headers", headers)
+        self._process_attr("rowspan", rowspan)
 
 
 class thead(BaseElement, GlobalAttrs):
@@ -3163,7 +3554,7 @@ class thead(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "thead",
@@ -3171,7 +3562,6 @@ class thead(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -3192,8 +3582,9 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        datetime: TimeAttrs.datetime = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "time",
@@ -3201,8 +3592,8 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("datetime", datetime)
 
 
 class title(BaseElement, GlobalAttrs):
@@ -3223,7 +3614,7 @@ class title(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "title",
@@ -3231,7 +3622,6 @@ class title(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -3253,7 +3643,7 @@ class tr(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "tr",
@@ -3261,7 +3651,6 @@ class tr(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -3282,8 +3671,13 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        srclang: TrackAttrs.srclang = None,
+        src: TrackAttrs.src = None,
+        label: TrackAttrs.label = None,
+        default: TrackAttrs.default = None,
+        kind: TrackAttrs.kind = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "track",
@@ -3291,8 +3685,12 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("srclang", srclang)
+        self._process_attr("src", src)
+        self._process_attr("label", label)
+        self._process_attr("default", default)
+        self._process_attr("kind", kind)
 
 
 class u(BaseElement, GlobalAttrs):
@@ -3313,7 +3711,7 @@ class u(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "u",
@@ -3321,7 +3719,6 @@ class u(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -3343,7 +3740,7 @@ class ul(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "ul",
@@ -3351,7 +3748,6 @@ class ul(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -3373,7 +3769,7 @@ class var(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "var",
@@ -3381,7 +3777,6 @@ class var(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
 
 
@@ -3402,8 +3797,19 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        crossorigin: VideoAttrs.crossorigin = None,
+        height: VideoAttrs.height = None,
+        controls: VideoAttrs.controls = None,
+        width: VideoAttrs.width = None,
+        src: VideoAttrs.src = None,
+        loop: VideoAttrs.loop = None,
+        muted: VideoAttrs.muted = None,
+        poster: VideoAttrs.poster = None,
+        playsinline: VideoAttrs.playsinline = None,
+        preload: VideoAttrs.preload = None,
+        autoplay: VideoAttrs.autoplay = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "video",
@@ -3411,8 +3817,18 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
+        self._process_attr("crossorigin", crossorigin)
+        self._process_attr("height", height)
+        self._process_attr("controls", controls)
+        self._process_attr("width", width)
+        self._process_attr("src", src)
+        self._process_attr("loop", loop)
+        self._process_attr("muted", muted)
+        self._process_attr("poster", poster)
+        self._process_attr("playsinline", playsinline)
+        self._process_attr("preload", preload)
+        self._process_attr("autoplay", autoplay)
 
 
 class wbr(BaseElement, GlobalAttrs):
@@ -3433,7 +3849,7 @@ class wbr(BaseElement, GlobalAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         attrs: attr_type = None,
-        data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         super().__init__(
             "wbr",
@@ -3441,5 +3857,4 @@ class wbr(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
-            data=data,
         )
