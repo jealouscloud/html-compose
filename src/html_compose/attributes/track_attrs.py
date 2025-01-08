@@ -1,5 +1,4 @@
 from . import BaseAttribute
-from typing import Union, Callable
 
 
 class TrackAttrs:
@@ -15,7 +14,7 @@ class TrackAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("default", value)
 
     class kind(BaseAttribute):
@@ -35,7 +34,7 @@ class TrackAttrs:
         Value: Text
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("label", value)
 
     class src(BaseAttribute):

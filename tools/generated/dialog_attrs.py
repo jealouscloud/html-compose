@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union, Callable
+from typing import Literal, Union
 
 class DialogAttrs:
     """ 
@@ -14,6 +14,6 @@ class DialogAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("open", value)
             

@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union, Callable
+from typing import Literal, Union
 
 class ButtonAttrs:
     """ 
@@ -14,7 +14,7 @@ class ButtonAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("disabled", value)
             
 
@@ -74,7 +74,7 @@ class ButtonAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("formnovalidate", value)
             
 
@@ -98,7 +98,7 @@ class ButtonAttrs:
         Value: Text*
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("name", value)
             
 
@@ -146,6 +146,6 @@ class ButtonAttrs:
         Value: Text
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("value", value)
             

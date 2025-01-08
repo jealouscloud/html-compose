@@ -1,5 +1,4 @@
 from . import BaseAttribute
-from typing import Union, Callable
 
 
 class TextareaAttrs:
@@ -35,7 +34,7 @@ class TextareaAttrs:
         Value: Text*
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("dirname", value)
 
     class disabled(BaseAttribute):
@@ -45,7 +44,7 @@ class TextareaAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("disabled", value)
 
     class form(BaseAttribute):
@@ -85,7 +84,7 @@ class TextareaAttrs:
         Value: Text*
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("name", value)
 
     class placeholder(BaseAttribute):
@@ -95,7 +94,7 @@ class TextareaAttrs:
         Value: Text*
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("placeholder", value)
 
     class readonly(BaseAttribute):
@@ -105,7 +104,7 @@ class TextareaAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("readonly", value)
 
     class required(BaseAttribute):
@@ -115,7 +114,7 @@ class TextareaAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("required", value)
 
     class rows(BaseAttribute):

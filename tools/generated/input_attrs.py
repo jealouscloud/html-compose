@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union, Callable
+from typing import Literal, Union
 
 class InputAttrs:
     """ 
@@ -26,7 +26,7 @@ class InputAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("alpha", value)
             
 
@@ -38,7 +38,7 @@ class InputAttrs:
         Value: Text*
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("alt", value)
             
 
@@ -62,7 +62,7 @@ class InputAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("checked", value)
             
 
@@ -86,7 +86,7 @@ class InputAttrs:
         Value: Text*
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("dirname", value)
             
 
@@ -98,7 +98,7 @@ class InputAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("disabled", value)
             
 
@@ -158,7 +158,7 @@ class InputAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("formnovalidate", value)
             
 
@@ -254,7 +254,7 @@ class InputAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("multiple", value)
             
 
@@ -266,7 +266,7 @@ class InputAttrs:
         Value: Text*
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("name", value)
             
 
@@ -290,7 +290,7 @@ class InputAttrs:
         Value: Text*
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("placeholder", value)
             
 
@@ -326,7 +326,7 @@ class InputAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("readonly", value)
             
 
@@ -338,7 +338,7 @@ class InputAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("required", value)
             
 
@@ -386,7 +386,7 @@ class InputAttrs:
         Value: Text
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("title", value)
             
 

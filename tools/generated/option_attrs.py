@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union, Callable
+from typing import Literal, Union
 
 class OptionAttrs:
     """ 
@@ -14,7 +14,7 @@ class OptionAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("disabled", value)
             
 
@@ -26,7 +26,7 @@ class OptionAttrs:
         Value: Text
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("label", value)
             
 
@@ -38,7 +38,7 @@ class OptionAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("selected", value)
             
 
@@ -50,6 +50,6 @@ class OptionAttrs:
         Value: Text
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("value", value)
             

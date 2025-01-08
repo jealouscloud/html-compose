@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union, Callable
+from typing import Literal, Union
 
 class TrackAttrs:
     """ 
@@ -14,7 +14,7 @@ class TrackAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("default", value)
             
 
@@ -38,7 +38,7 @@ class TrackAttrs:
         Value: Text
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("label", value)
             
 

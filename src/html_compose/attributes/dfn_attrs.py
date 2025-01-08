@@ -1,5 +1,4 @@
 from . import BaseAttribute
-from typing import Union, Callable
 
 
 class DfnAttrs:
@@ -15,5 +14,5 @@ class DfnAttrs:
         Value: Text
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("title", value)

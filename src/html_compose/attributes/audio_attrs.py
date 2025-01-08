@@ -1,5 +1,4 @@
 from . import BaseAttribute
-from typing import Union, Callable
 
 
 class AudioAttrs:
@@ -15,7 +14,7 @@ class AudioAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("autoplay", value)
 
     class controls(BaseAttribute):
@@ -25,7 +24,7 @@ class AudioAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("controls", value)
 
     class crossorigin(BaseAttribute):
@@ -45,7 +44,7 @@ class AudioAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("loop", value)
 
     class muted(BaseAttribute):
@@ -55,7 +54,7 @@ class AudioAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("muted", value)
 
     class preload(BaseAttribute):

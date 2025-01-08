@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union, Callable
+from typing import Literal, Union
 
 class TemplateAttrs:
     """ 
@@ -14,7 +14,7 @@ class TemplateAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("shadowrootclonable", value)
             
 
@@ -26,7 +26,7 @@ class TemplateAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("shadowrootdelegatesfocus", value)
             
 
@@ -50,6 +50,6 @@ class TemplateAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("shadowrootserializable", value)
             

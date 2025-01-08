@@ -26,7 +26,7 @@ class GlobalAttrs:
         Value: ['on', 'off', 'none', 'sentences', 'words', 'characters']
         """
         
-        def __init__(self, value: Union[Literal['on', 'off', 'none', 'sentences', 'words', 'characters'], Callable[[], str]]):
+        def __init__(self, value: Literal['on', 'off', 'none', 'sentences', 'words', 'characters']):
             super().__init__("autocapitalize", value)
             
 
@@ -38,7 +38,7 @@ class GlobalAttrs:
         Value: ['on', 'off']
         """
         
-        def __init__(self, value: Union[Literal['on', 'off'], Callable[[], str]]):
+        def __init__(self, value: Literal['on', 'off']):
             super().__init__("autocorrect", value)
             
 
@@ -50,7 +50,7 @@ class GlobalAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("autofocus", value)
             
 
@@ -74,7 +74,7 @@ class GlobalAttrs:
         Value: ['true', 'plaintext-only', 'false']
         """
         
-        def __init__(self, value: Union[Literal['true', 'plaintext-only', 'false'], Callable[[], str]]):
+        def __init__(self, value: Literal['true', 'plaintext-only', 'false']):
             super().__init__("contenteditable", value)
             
 
@@ -86,7 +86,7 @@ class GlobalAttrs:
         Value: ['ltr', 'rtl', 'auto']
         """
         
-        def __init__(self, value: Union[Literal['ltr', 'rtl', 'auto'], Callable[[], str]]):
+        def __init__(self, value: Literal['ltr', 'rtl', 'auto']):
             super().__init__("dir", value)
             
 
@@ -98,7 +98,7 @@ class GlobalAttrs:
         Value: ['true', 'false']
         """
         
-        def __init__(self, value: Union[Literal['true', 'false'], Callable[[], str]]):
+        def __init__(self, value: Literal['true', 'false']):
             super().__init__("draggable", value)
             
 
@@ -110,7 +110,7 @@ class GlobalAttrs:
         Value: ['enter', 'done', 'go', 'next', 'previous', 'search', 'send']
         """
         
-        def __init__(self, value: Union[Literal['enter', 'done', 'go', 'next', 'previous', 'search', 'send'], Callable[[], str]]):
+        def __init__(self, value: Literal['enter', 'done', 'go', 'next', 'previous', 'search', 'send']):
             super().__init__("enterkeyhint", value)
             
 
@@ -122,7 +122,7 @@ class GlobalAttrs:
         Value: ['until-found', 'hidden', '']
         """
         
-        def __init__(self, value: Union[Literal['until-found', 'hidden', ''], Callable[[], str]]):
+        def __init__(self, value: Literal['until-found', 'hidden', '']):
             super().__init__("hidden", value)
             
 
@@ -134,7 +134,7 @@ class GlobalAttrs:
         Value: Text*
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("id", value)
             
 
@@ -146,7 +146,7 @@ class GlobalAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("inert", value)
             
 
@@ -158,7 +158,7 @@ class GlobalAttrs:
         Value: ['none', 'text', 'tel', 'email', 'url', 'numeric', 'decimal', 'search']
         """
         
-        def __init__(self, value: Union[Literal['none', 'text', 'tel', 'email', 'url', 'numeric', 'decimal', 'search'], Callable[[], str]]):
+        def __init__(self, value: Literal['none', 'text', 'tel', 'email', 'url', 'numeric', 'decimal', 'search']):
             super().__init__("inputmode", value)
             
 
@@ -218,7 +218,7 @@ class GlobalAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("itemscope", value)
             
 
@@ -254,7 +254,7 @@ class GlobalAttrs:
         Value: Text
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("nonce", value)
             
 
@@ -278,7 +278,7 @@ class GlobalAttrs:
         Value: Text
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("slot", value)
             
 
@@ -290,7 +290,7 @@ class GlobalAttrs:
         Value: ['true', 'false', '']
         """
         
-        def __init__(self, value: Union[Literal['true', 'false', ''], Callable[[], str]]):
+        def __init__(self, value: Literal['true', 'false', '']):
             super().__init__("spellcheck", value)
             
 
@@ -326,7 +326,7 @@ class GlobalAttrs:
         Value: Text
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("title", value)
             
 
@@ -338,7 +338,7 @@ class GlobalAttrs:
         Value: ['yes', 'no']
         """
         
-        def __init__(self, value: Union[Literal['yes', 'no'], Callable[[], str]]):
+        def __init__(self, value: Literal['yes', 'no']):
             super().__init__("translate", value)
             
 
@@ -350,7 +350,7 @@ class GlobalAttrs:
         Value: ['true', 'false', '']
         """
         
-        def __init__(self, value: Union[Literal['true', 'false', ''], Callable[[], str]]):
+        def __init__(self, value: Literal['true', 'false', '']):
             super().__init__("writingsuggestions", value)
             
 

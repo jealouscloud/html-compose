@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union, Callable
+from typing import Literal, Union
 
 class ScriptAttrs:
     """ 
@@ -7,14 +7,14 @@ class ScriptAttrs:
     Which is inherited by the element so the element can be a reference to our attributes
     """ 
     
-    class async(BaseAttribute):
+    class async_(BaseAttribute):
         """
         script attribute: async
         Description: Execute script when available, without blocking while fetching
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("async", value)
             
 
@@ -50,7 +50,7 @@ class ScriptAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("defer", value)
             
 
@@ -74,7 +74,7 @@ class ScriptAttrs:
         Value: Text
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("integrity", value)
             
 
@@ -86,7 +86,7 @@ class ScriptAttrs:
         Value: Boolean attribute
         """
         
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("nomodule", value)
             
 

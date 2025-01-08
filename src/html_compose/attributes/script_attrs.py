@@ -1,5 +1,4 @@
 from . import BaseAttribute
-from typing import Union, Callable
 
 
 class ScriptAttrs:
@@ -15,7 +14,7 @@ class ScriptAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("async", value)
 
     class blocking(BaseAttribute):
@@ -45,7 +44,7 @@ class ScriptAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("defer", value)
 
     class fetchpriority(BaseAttribute):
@@ -65,7 +64,7 @@ class ScriptAttrs:
         Value: Text
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("integrity", value)
 
     class nomodule(BaseAttribute):
@@ -75,7 +74,7 @@ class ScriptAttrs:
         Value: Boolean attribute
         """
 
-        def __init__(self, value: Union[bool, Callable[[], bool]]):
+        def __init__(self, value: bool):
             super().__init__("nomodule", value)
 
     class referrerpolicy(BaseAttribute):

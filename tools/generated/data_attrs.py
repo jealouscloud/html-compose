@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union, Callable
+from typing import Literal, Union
 
 class DataAttrs:
     """ 
@@ -14,6 +14,6 @@ class DataAttrs:
         Value: Text*
         """
         
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("value", value)
             

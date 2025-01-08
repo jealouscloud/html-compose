@@ -1,5 +1,4 @@
 from . import BaseAttribute
-from typing import Union, Callable
 
 
 class MetaAttrs:
@@ -25,7 +24,7 @@ class MetaAttrs:
         Value: Text*
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("content", value)
 
     class http_equiv(BaseAttribute):
@@ -55,5 +54,5 @@ class MetaAttrs:
         Value: Text*
         """
 
-        def __init__(self, value: Union[str, Callable[[], str]]):
+        def __init__(self, value: str):
             super().__init__("name", value)
