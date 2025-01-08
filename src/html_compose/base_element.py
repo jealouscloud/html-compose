@@ -47,15 +47,12 @@ class BaseElement(ElementBase, GlobalAttrs):
             children: A list of child elements. Defaults to None.
         """
         self.name = name
-        if attrs is None:
-            attrs = []
-
         self._attrs = self._resolve_attrs(attrs)
 
         self._process_attr("id", id)
         self._process_attr("class", class_)
 
-        self._children = children
+        self._children = children if children else []
         self.is_void_element = void_element
 
     def _process_attr(self, attr_name, attr_data):
@@ -63,8 +60,11 @@ class BaseElement(ElementBase, GlobalAttrs):
             return  # noop
 
         if not isinstance(attr_data, BaseAttribute):
-            attr_class = SPECIAL_ATTRS.get(attr_name, BaseAttribute)
-            attr = attr_class(attr_data)
+            attr_class = SPECIAL_ATTRS.get(attr_name, None)
+            if attr_class:
+                attr = attr_class(attr_data)
+            else:
+                attr = BaseAttribute(attr_name, attr_data)
 
         result = attr.evaluate()
         if result is not None:
@@ -85,6 +85,56 @@ class BaseElement(ElementBase, GlobalAttrs):
                     )
             else:
                 self._attrs[attr_name] = resolved_value
+
+    def _resolve_attrs(self, attrs) -> dict[str]:
+        """
+        Resolve attributes into key/value pairs
+        """
+        if not attrs:
+            return {}
+
+        attr_dict = {}
+        # These are sent to us in format:
+        # key, value (unescaped)
+        if isinstance(attrs, (list, tuple)):
+            for item in attrs:
+                if isinstance(item, BaseAttribute):
+                    result = item.evaluate()
+                    if not result:
+                        continue
+                    key, value = result
+                    attr_dict[key] = value
+                elif isinstance(item, tuple) and len(item) == 2:
+                    attr = BaseAttribute(item[0], item[1]).evaluate()
+                    if not attr:
+                        continue
+
+                    a_name, a_value = attr
+                    attr_dict[a_name] = a_value
+                elif isinstance(item, dict):
+                    for key, value in item.items():
+                        attr = BaseAttribute(key, value).evaluate()
+                        if not attr:
+                            continue
+                        a_name, a_value = attr
+                        attr_dict[a_name] = a_value
+                else:
+                    raise ValueError(
+                        f"Unknown type for attr value: {type(item)}."
+                    )
+
+        elif isinstance(attrs, dict):
+            for key, value in attrs.items():
+                attr = BaseAttribute(key, value).evaluate()
+                if attr:
+                    a_name, a_value = attr
+                    attr_dict[a_name] = a_value
+
+            attr_dict = attrs
+        else:
+            raise ValueError(f"Unknown: {type(attrs)}")
+
+        return attr_dict
 
     def append(self, *child_or_childs: Node):
         if self.is_void_element:
@@ -239,56 +289,6 @@ class BaseElement(ElementBase, GlobalAttrs):
             yield from self.resolve_child(
                 child, call_callables=False, parent=parent
             )
-
-    def _resolve_attrs(self, attrs) -> dict[str]:
-        """
-        Resolve attributes into key/value pairs
-        """
-        if not attrs:
-            return {}
-
-        attr_dict = {}
-        # These are sent to us in format:
-        # key, value (unescaped)
-        if isinstance(attrs, (list, tuple)):
-            for item in attrs:
-                if isinstance(item, BaseAttribute):
-                    result = item.evaluate()
-                    if not result:
-                        continue
-                    key, value = result
-                    attr_dict[key] = value
-                elif isinstance(item, tuple) and len(item) == 2:
-                    attr = BaseAttribute(item[0], item[1]).evaluate()
-                    if not attr:
-                        continue
-
-                    a_name, a_value = attr
-                    attr_dict[a_name] = a_value
-                elif isinstance(item, dict):
-                    for key, value in item.items():
-                        attr = BaseAttribute(key, value).evaluate()
-                        if not attr:
-                            continue
-                        a_name, a_value = attr
-                        attr_dict[a_name] = a_value
-                else:
-                    raise ValueError(
-                        f"Unknown type for attr value: {type(item)}."
-                    )
-
-        elif isinstance(attrs, dict):
-            for key, value in attrs.items():
-                attr = BaseAttribute(key, value).evaluate()
-                if attr:
-                    a_name, a_value = attr
-                    attr_dict[a_name] = a_value
-
-            attr_dict = attrs
-        else:
-            raise ValueError(f"Unknown: {type(attrs)}")
-
-        return attr_dict
 
     def deferred_resolve(self, parent) -> Generator[str, None, None]:
         """
