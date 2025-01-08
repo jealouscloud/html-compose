@@ -14,7 +14,7 @@ def safe_name(name):
     An underscore after was chosen so type hints match what user is looking for
     """
     # Keywords
-    if name in ("class", "is", "for", "as", "async" "del"):
+    if name in ("class", "is", "for", "as", "async", "del"):
         name = name + "_"
 
     if "-" in name:
