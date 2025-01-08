@@ -1,4 +1,4 @@
-from typing import Any, Callable, Generator, Optional, Union
+from typing import Callable, Generator, Union
 
 from . import escape_text, unsafe_text, util_funcs
 from .attributes import BaseAttribute, GlobalAttrs
@@ -30,7 +30,6 @@ class BaseElement(ElementBase, GlobalAttrs):
         id: Union[str, GlobalAttrs.id] = None,
         class_: Union[str, GlobalAttrs.class_] = None,
         attrs: Union[dict[str, str], list[BaseAttribute]] = None,
-        data: Optional[Any] = None,
         children: list = None,
     ) -> None:
         """
@@ -57,7 +56,6 @@ class BaseElement(ElementBase, GlobalAttrs):
         self._process_attr("class", class_)
 
         self._children = children
-        self.data = data
         self.is_void_element = void_element
 
     def _process_attr(self, attr_name, attr_data):

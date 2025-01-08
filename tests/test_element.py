@@ -70,7 +70,9 @@ def test_resolve_none():
 
 def test_xss():
     bad_string = "<SCRIPT SRC=https://cdn.jsdelivr.net/gh/Moksh45/host-xss.rocks/index.js></SCRIPT>"
-    el = div(data=["a", bad_string, "c"])[lambda x: x.data].render()
+    el = div(attrs={"class": ["a", bad_string, "c"]})[
+        lambda: bad_string
+    ].render()
     assert bad_string not in el, "xss string should not be present"
     el = div(id=bad_string, class_=bad_string).render()
     assert bad_string not in el, "xss string should not be present"
