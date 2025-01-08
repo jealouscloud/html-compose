@@ -5,7 +5,7 @@ from generator_common import get_path, safe_name
 
 def type_for_value(value):
     if isinstance(value, list):
-        return f": Literal{value}]"
+        return f": Literal{value}"
     if value in ("Text", "Text*"):
         return ": str"
     if value == "Boolean attribute":
