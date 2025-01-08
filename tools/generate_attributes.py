@@ -5,11 +5,11 @@ from generator_common import get_path, safe_name
 
 def type_for_value(value):
     if isinstance(value, list):
-        return f": Union[Literal{value}, Callable[[], str]]"
+        return f": Literal{value}]"
     if value in ("Text", "Text*"):
-        return ": Union[str, Callable[[], str]]"
+        return ": str"
     if value == "Boolean attribute":
-        return ": Union[bool, Callable[[], bool]]"
+        return ": bool"
     return ""
 
 
@@ -112,7 +112,7 @@ def other_attrs():
 
         doc_lines = [
             "from . import BaseAttribute",
-            "from typing import Literal, Union, Callable",
+            "from typing import Literal, Union",
             "",
             f"class {element_name_for_class}Attrs:",
             '    """ ',
