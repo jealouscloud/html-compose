@@ -1,12 +1,6 @@
 import json
-from pathlib import Path
 
-
-def get_path(fn):
-    if Path("tools").exists():
-        return Path("tools") / fn
-    else:
-        return Path(fn)
+from generator_common import get_path
 
 
 def safe_name(name):
@@ -89,6 +83,7 @@ def global_attrs():
 
 
 def other_attrs():
+    element_attr_class_names = {}
     for element in spec:
         result = []
         if element == "_global_attributes":
@@ -96,7 +91,7 @@ def other_attrs():
         attrs = spec[element]["spec"]["attributes"]
         if not attrs:
             continue
-
+        element_attr_class_names[element] = []
         defined_attrs = []
         for attr in attrs:
             attr_name = attr["Attribute"]

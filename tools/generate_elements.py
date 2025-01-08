@@ -1,13 +1,6 @@
 import json
-from pathlib import Path
 
-
-def get_path(fn):
-    if Path("tools").exists():
-        return Path("tools") / fn
-    else:
-        return Path(fn)
-
+from generator_common import get_path
 
 spec = json.loads(get_path("spec_reference.json").read_text())
 
