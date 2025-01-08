@@ -44,7 +44,7 @@ def gen_elements():
             attr_string = ""
             # Everyone gets global attrs, so ignore elements
             # that only have them.
-            if attrs != "globals" and real_element != "html":
+            if attrs != "globals":
                 attr_string = f", {attr_name}Attrs"
                 attr_imports.append(f"{attr_name}Attrs")
 
