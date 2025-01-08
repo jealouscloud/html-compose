@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 
-from html_compose.elements import a, div, img
+import html_compose.elements as h
+from html_compose import a, div, img
 
 
 def get_soup(input: str):
@@ -96,3 +97,27 @@ def test_href():
     assert a1 == literal
     assert a2 == literal
     assert a1 == a2
+
+
+def test_doc():
+    username = "wanderer"
+    print(
+        h.html()[
+            h.head()[
+                h.title()[f"Welcome, {username}!"],
+                h.body()[
+                    h.article()[
+                        h.p()[
+                            "Welcome to the internet", h.strong()[username], "!"
+                        ],
+                        h.br(),
+                        h.p()[
+                            "Have you checked out this cool thing called a ",
+                            h.a(href="https://google.com")["search engine"],
+                            "?",
+                        ],
+                    ]
+                ],
+            ]
+        ].render()
+    )
