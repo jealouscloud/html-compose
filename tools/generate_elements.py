@@ -42,11 +42,6 @@ def gen_elements():
             elif real_element == "MathML math":
                 # We aren't bothering with MathML for now
                 continue
-            elif real_element == "html":
-                assert (
-                    attrs == "globals manifest"
-                ), "This is deprecated and we overwrite it"
-                attrs = "globals"
 
             if real_element == "a":
                 attr_name = "Anchor"
