@@ -1,6 +1,6 @@
 import json
 
-from generator_common import get_path
+from generator_common import get_path, safe_name
 
 spec = json.loads(get_path("spec_reference.json").read_text())
 
@@ -44,13 +44,32 @@ def gen_elements():
             attr_string = ""
             # Everyone gets global attrs, so ignore elements
             # that only have them.
+            attr_class = "GlobalAttrs"
+            extra_attrs = ""
+            attr_assignment = ""
             if attrs != "globals":
-                attr_string = f", {attr_name}Attrs"
-                attr_imports.append(f"{attr_name}Attrs")
+                attr_class = f"{attr_name}Attrs"
+                attr_string = f", {attr_class}"
+                attr_imports.append(attr_class)
+                attr_list = _spec["attributes"]
+                if attr_list:
+                    attr_list = set(x["Attribute"] for x in attr_list)
+                    extra_attrs = "\n".join(
+                        [
+                            f"        {safe_name(x)}: Union[str, {attr_class}.{safe_name(x)}] = None,"
+                            for x in attr_list
+                        ]
+                    )
+                    attr_assignment = "\n".join(
+                        [
+                            f'        self._process_attr("{x}", {safe_name(x)})'
+                            for x in attr_list
+                        ]
+                    )
+            else:
+                attr_list = []
 
-            fixed_name = real_element
-            if real_element == "del":
-                fixed_name = "del_"
+            fixed_name = safe_name(real_element)
             is_void_element = children == "empty"
             template = [
                 "",
@@ -73,8 +92,9 @@ def gen_elements():
                 "        self,",
                 "        id: GlobalAttrs.id = None,",
                 "        class_: GlobalAttrs.class_ = None,",
+                extra_attrs,
                 "        attrs: attr_type = None,",
-                "        data: Optional[Any] = None,",
+                "        children: list = None",
                 "    ) -> None:",
                 "        super().__init__(",
                 f'            "{real_element}",',
@@ -82,8 +102,8 @@ def gen_elements():
                 "            id=id,",
                 "            class_=class_,",
                 "            attrs=attrs,",
-                "            data=data,",
                 "        )",
+                attr_assignment,
             ]
             result.append("\n".join(template))
 

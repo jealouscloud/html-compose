@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-from html_compose.elements import div, img
+from html_compose.elements import a, div, img
 
 
 def get_soup(input: str):
@@ -87,3 +87,12 @@ def test_xss():
 def test_id():
     el = div(id="123").render()
     assert el == '<div id="123"></div>'
+
+
+def test_href():
+    literal = '<a href="https://google.com">Search Engine</a>'
+    a1 = a(href=a.href("https://google.com"))["Search Engine"].render()
+    a2 = a(href="https://google.com")["Search Engine"].render()
+    assert a1 == literal
+    assert a2 == literal
+    assert a1 == a2

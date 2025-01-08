@@ -43,7 +43,6 @@ class BaseElement(ElementBase, GlobalAttrs):
             attrs: A list of attributes for the element.
                 It can also be a dictionary of key,value strings.
                 Defaults to None.
-            data: Non-rendered user data for the element. Defaults to None.
             children: A list of child elements. Defaults to None.
         """
         self.name = name
@@ -59,7 +58,9 @@ class BaseElement(ElementBase, GlobalAttrs):
         if attr_data is None or attr_data is False:
             return  # noop
 
-        if not isinstance(attr_data, BaseAttribute):
+        if isinstance(attr_data, BaseAttribute):
+            attr = attr_data
+        else:
             attr_class = SPECIAL_ATTRS.get(attr_name, None)
             if attr_class:
                 attr = attr_class(attr_data)
