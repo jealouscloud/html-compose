@@ -1,22 +1,6 @@
 import json
 
-from generator_common import get_path
-
-
-def safe_name(name):
-    """
-    Some names are reserved in Python, so we need to add an underscore
-    An underscore after was chosen so type hints match what user is looking for
-    """
-    # Keywords
-    if name in ("class", "is", "for", "as", "async"):
-        name = name + "_"
-
-    if "-" in name:
-        # Fixes for 'accept-charset' etc.
-        name = name.replace("-", "_")
-
-    return name
+from generator_common import get_path, safe_name
 
 
 def type_for_value(value):
@@ -83,7 +67,6 @@ def global_attrs():
 
 
 def other_attrs():
-    element_attr_class_names = {}
     for element in spec:
         result = []
         if element == "_global_attributes":
@@ -91,7 +74,6 @@ def other_attrs():
         attrs = spec[element]["spec"]["attributes"]
         if not attrs:
             continue
-        element_attr_class_names[element] = []
         defined_attrs = []
         for attr in attrs:
             attr_name = attr["Attribute"]
