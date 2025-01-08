@@ -23,6 +23,35 @@ class BaseElement(ElementBase, GlobalAttrs):
 
     __slots__ = ("name", "_attrs", "_children", "data")
 
+    @classmethod
+    def __class_getitem__(cls, key):
+        raise TypeError(
+            "Cannot use [] directly on the class. "
+            "Did you mean to call the class first? Example: div()['elements'] instead of div['elements']"
+        )
+
+    def __getitem__(self, key):
+        """
+        Implements [] syntax which automatically appends to children list.
+
+        Example:
+
+        div()[
+          "text",
+          p()["text"],
+          ul()[
+            li["a"],
+            li["b"]
+          ]
+        ]
+        """
+        # todo: consider raising based on type
+        # todo: consider raising if chained:
+        # div()[1,2][3]
+        self.append(key)
+
+        return self
+
     def __init__(
         self,
         name: str,
@@ -159,28 +188,6 @@ class BaseElement(ElementBase, GlobalAttrs):
             # Let the child resolver step handle it
             # Applies to iterables, callables, literal elements
             self._children.append(args)
-
-    def __getitem__(self, key):
-        """
-        Implements [] syntax which automatically appends to children list.
-
-        Example:
-
-        div()[
-          "text",
-          p()["text"],
-          ul()[
-            li["a"],
-            li["b"]
-          ]
-        ]
-        """
-        # todo: consider raising based on type
-        # todo: consider raising if chained:
-        # div()[1,2][3]
-        self.append(key)
-
-        return self
 
     def _call_callable(self, func, parent):
         """
