@@ -1,2 +1,16 @@
 # 0.1.1
-Add `with` syntax
+* Add element import to module import i.e. from html_compose import div
+
+* Remove callable on attr template which is already non functionable
+
+* [breaking] Move BaseElement children kwarg position ahead of anyone using it
+
+* Code generator no longer translates attr list for html element because the living HTML doc changed. I caught this with an assertion!
+
+* Remove data attr, you can define that on your own or subclass
+
+* Generate elements with attr list in params. I'm intentionally not choosing kwargs to favor explicit over implicit support. For everything else, theres attrs=
+
+* Remove callable references for attr system. I was going to make attrs evaluate callables but i decided the element resolution system is enough and the complexity has burden to also maintain in attrs.
+
+* Add exception when you fail to initialize an element: `div["test"]` raises an error because you forgot `div()`
