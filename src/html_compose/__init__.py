@@ -27,7 +27,7 @@ def unsafe_text(value: Union[str, Markup]) -> Markup:
     return Markup(str(value))
 
 
-# ruff: noqa: F401
+# ruff: noqa: F401, E402
 from .elements import (
     a,
     abbr,
