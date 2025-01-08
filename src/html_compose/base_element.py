@@ -8,6 +8,11 @@ from .base_types import (
     _HasHtml,
 )
 
+SPECIAL_ATTRS = {
+    "class": GlobalAttrs.class_,
+    "style": GlobalAttrs.style,
+}
+
 
 class BaseElement(ElementBase, GlobalAttrs):
     """
@@ -24,9 +29,9 @@ class BaseElement(ElementBase, GlobalAttrs):
         void_element: bool = False,
         id: Union[str, GlobalAttrs.id] = None,
         class_: Union[str, GlobalAttrs.class_] = None,
-        children: list = None,
         attrs: Union[dict[str, str], list[BaseAttribute]] = None,
         data: Optional[Any] = None,
+        children: list = None,
     ) -> None:
         """
         Initialize an HTML element
@@ -36,11 +41,11 @@ class BaseElement(ElementBase, GlobalAttrs):
             void_element (bool): Indicates if the element is a void element. Defaults to False.
             id (str): The ID of the element. Defaults to None.
             class_: The class of the element. Defaults to None.
-            children: A list of child elements. Defaults to None.
             attrs: A list of attributes for the element.
                 It can also be a dictionary of key,value strings.
                 Defaults to None.
             data: Non-rendered user data for the element. Defaults to None.
+            children: A list of child elements. Defaults to None.
         """
         self.name = name
         if attrs is None:
@@ -48,37 +53,40 @@ class BaseElement(ElementBase, GlobalAttrs):
 
         self._attrs = self._resolve_attrs(attrs)
 
-        if id is not None:
-            if not isinstance(class_, GlobalAttrs.id):
-                id = GlobalAttrs.id(id)
-
-            result = id.evaluate()
-            if result is not None:
-                _, id_value = result
-                if "id" in self._attrs:
-                    raise ValueError("ID attr was passsed twice")
-                self._attrs["id"] = id_value
-
-        if class_ is not None:
-            if not isinstance(class_, GlobalAttrs.class_):
-                class_ = GlobalAttrs.class_(class_)
-
-            result = class_.evaluate()
-            if result is not None:
-                _, class_value = result
-                if "class" in self._attrs:
-                    self._attrs["class"] = (
-                        f'{class_value} {self._attrs["class"]}'
-                    )
-                else:
-                    self._attrs["class"] = class_value
-
-        if children is None and not void_element:
-            children = []
+        self._process_attr("id", id)
+        self._process_attr("class", class_)
 
         self._children = children
         self.data = data
         self.is_void_element = void_element
+
+    def _process_attr(self, attr_name, attr_data):
+        if attr_data is None or attr_data is False:
+            return  # noop
+
+        if not isinstance(attr_data, BaseAttribute):
+            attr_class = SPECIAL_ATTRS.get(attr_name, BaseAttribute)
+            attr = attr_class(attr_data)
+
+        result = attr.evaluate()
+        if result is not None:
+            _, resolved_value = result
+            if attr_name in self._attrs:
+                if attr_name == "class":
+                    self._attrs[attr_name] = (
+                        f"{resolved_value} {self._attrs[attr_name]}"
+                    )
+                elif attr_name == "style":
+                    self._attrs[attr_name] = (
+                        f"{resolved_value}; {self._attrs[attr_name]}"
+                    )
+                else:
+                    raise ValueError(
+                        f"Attribute {attr_name} waas passed twice. "
+                        "We don't know how to merge it."
+                    )
+            else:
+                self._attrs[attr_name] = resolved_value
 
     def append(self, *child_or_childs: Node):
         if self.is_void_element:
