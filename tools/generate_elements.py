@@ -53,7 +53,7 @@ def gen_elements():
                 attr_imports.append(attr_class)
                 attr_list = _spec["attributes"]
                 if attr_list:
-                    attr_list = set(x["Attribute"] for x in attr_list)
+                    attr_list = sorted(set(x["Attribute"] for x in attr_list))
                     extra_attrs = "\n".join(
                         [
                             f"        {safe_name(x)}: Union[str, {attr_class}.{safe_name(x)}] = None,"
