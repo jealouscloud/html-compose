@@ -102,6 +102,7 @@ def gen_elements():
                 "            id=id,",
                 "            class_=class_,",
                 "            attrs=attrs,",
+                "            children=children",
                 "        )",
                 attr_assignment,
             ]
