@@ -25,13 +25,13 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        ping: Union[str, AnchorAttrs.ping] = None,
         download: Union[str, AnchorAttrs.download] = None,
-        hreflang: Union[str, AnchorAttrs.hreflang] = None,
-        target: Union[str, AnchorAttrs.target] = None,
         href: Union[str, AnchorAttrs.href] = None,
-        rel: Union[str, AnchorAttrs.rel] = None,
+        hreflang: Union[str, AnchorAttrs.hreflang] = None,
+        ping: Union[str, AnchorAttrs.ping] = None,
         referrerpolicy: Union[str, AnchorAttrs.referrerpolicy] = None,
+        rel: Union[str, AnchorAttrs.rel] = None,
+        target: Union[str, AnchorAttrs.target] = None,
         type: Union[str, AnchorAttrs.type] = None,
         attrs: attr_type = None,
         children: list = None
@@ -42,14 +42,15 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("ping", ping)
         self._process_attr("download", download)
-        self._process_attr("hreflang", hreflang)
-        self._process_attr("target", target)
         self._process_attr("href", href)
-        self._process_attr("rel", rel)
+        self._process_attr("hreflang", hreflang)
+        self._process_attr("ping", ping)
         self._process_attr("referrerpolicy", referrerpolicy)
+        self._process_attr("rel", rel)
+        self._process_attr("target", target)
         self._process_attr("type", type)
 
 
@@ -82,6 +83,7 @@ class abbr(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -115,6 +117,7 @@ class address(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -138,15 +141,15 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        ping: Union[str, AreaAttrs.ping] = None,
-        download: Union[str, AreaAttrs.download] = None,
-        target: Union[str, AreaAttrs.target] = None,
-        href: Union[str, AreaAttrs.href] = None,
-        rel: Union[str, AreaAttrs.rel] = None,
-        referrerpolicy: Union[str, AreaAttrs.referrerpolicy] = None,
         alt: Union[str, AreaAttrs.alt] = None,
         coords: Union[str, AreaAttrs.coords] = None,
+        download: Union[str, AreaAttrs.download] = None,
+        href: Union[str, AreaAttrs.href] = None,
+        ping: Union[str, AreaAttrs.ping] = None,
+        referrerpolicy: Union[str, AreaAttrs.referrerpolicy] = None,
+        rel: Union[str, AreaAttrs.rel] = None,
         shape: Union[str, AreaAttrs.shape] = None,
+        target: Union[str, AreaAttrs.target] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -156,16 +159,17 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("ping", ping)
-        self._process_attr("download", download)
-        self._process_attr("target", target)
-        self._process_attr("href", href)
-        self._process_attr("rel", rel)
-        self._process_attr("referrerpolicy", referrerpolicy)
         self._process_attr("alt", alt)
         self._process_attr("coords", coords)
+        self._process_attr("download", download)
+        self._process_attr("href", href)
+        self._process_attr("ping", ping)
+        self._process_attr("referrerpolicy", referrerpolicy)
+        self._process_attr("rel", rel)
         self._process_attr("shape", shape)
+        self._process_attr("target", target)
 
 
 class article(BaseElement, GlobalAttrs):
@@ -197,6 +201,7 @@ class article(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -230,6 +235,7 @@ class aside(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -253,13 +259,13 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        muted: Union[str, AudioAttrs.muted] = None,
-        loop: Union[str, AudioAttrs.loop] = None,
+        autoplay: Union[str, AudioAttrs.autoplay] = None,
         controls: Union[str, AudioAttrs.controls] = None,
         crossorigin: Union[str, AudioAttrs.crossorigin] = None,
+        loop: Union[str, AudioAttrs.loop] = None,
+        muted: Union[str, AudioAttrs.muted] = None,
         preload: Union[str, AudioAttrs.preload] = None,
         src: Union[str, AudioAttrs.src] = None,
-        autoplay: Union[str, AudioAttrs.autoplay] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -269,14 +275,15 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("muted", muted)
-        self._process_attr("loop", loop)
+        self._process_attr("autoplay", autoplay)
         self._process_attr("controls", controls)
         self._process_attr("crossorigin", crossorigin)
+        self._process_attr("loop", loop)
+        self._process_attr("muted", muted)
         self._process_attr("preload", preload)
         self._process_attr("src", src)
-        self._process_attr("autoplay", autoplay)
 
 
 class b(BaseElement, GlobalAttrs):
@@ -308,6 +315,7 @@ class b(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -342,6 +350,7 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("href", href)
         self._process_attr("target", target)
@@ -376,6 +385,7 @@ class bdi(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -409,6 +419,7 @@ class bdo(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -442,6 +453,7 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("cite", cite)
 
@@ -465,24 +477,24 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        onmessageerror: Union[str, BodyAttrs.onmessageerror] = None,
-        onhashchange: Union[str, BodyAttrs.onhashchange] = None,
-        onpagereveal: Union[str, BodyAttrs.onpagereveal] = None,
-        onstorage: Union[str, BodyAttrs.onstorage] = None,
-        onpagehide: Union[str, BodyAttrs.onpagehide] = None,
-        onlanguagechange: Union[str, BodyAttrs.onlanguagechange] = None,
-        onrejectionhandled: Union[str, BodyAttrs.onrejectionhandled] = None,
-        onunhandledrejection: Union[str, BodyAttrs.onunhandledrejection] = None,
-        onbeforeprint: Union[str, BodyAttrs.onbeforeprint] = None,
-        onunload: Union[str, BodyAttrs.onunload] = None,
-        onoffline: Union[str, BodyAttrs.onoffline] = None,
         onafterprint: Union[str, BodyAttrs.onafterprint] = None,
-        onpageshow: Union[str, BodyAttrs.onpageshow] = None,
-        onpopstate: Union[str, BodyAttrs.onpopstate] = None,
-        onpageswap: Union[str, BodyAttrs.onpageswap] = None,
+        onbeforeprint: Union[str, BodyAttrs.onbeforeprint] = None,
         onbeforeunload: Union[str, BodyAttrs.onbeforeunload] = None,
-        ononline: Union[str, BodyAttrs.ononline] = None,
+        onhashchange: Union[str, BodyAttrs.onhashchange] = None,
+        onlanguagechange: Union[str, BodyAttrs.onlanguagechange] = None,
         onmessage: Union[str, BodyAttrs.onmessage] = None,
+        onmessageerror: Union[str, BodyAttrs.onmessageerror] = None,
+        onoffline: Union[str, BodyAttrs.onoffline] = None,
+        ononline: Union[str, BodyAttrs.ononline] = None,
+        onpagehide: Union[str, BodyAttrs.onpagehide] = None,
+        onpagereveal: Union[str, BodyAttrs.onpagereveal] = None,
+        onpageshow: Union[str, BodyAttrs.onpageshow] = None,
+        onpageswap: Union[str, BodyAttrs.onpageswap] = None,
+        onpopstate: Union[str, BodyAttrs.onpopstate] = None,
+        onrejectionhandled: Union[str, BodyAttrs.onrejectionhandled] = None,
+        onstorage: Union[str, BodyAttrs.onstorage] = None,
+        onunhandledrejection: Union[str, BodyAttrs.onunhandledrejection] = None,
+        onunload: Union[str, BodyAttrs.onunload] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -492,25 +504,26 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("onmessageerror", onmessageerror)
-        self._process_attr("onhashchange", onhashchange)
-        self._process_attr("onpagereveal", onpagereveal)
-        self._process_attr("onstorage", onstorage)
-        self._process_attr("onpagehide", onpagehide)
-        self._process_attr("onlanguagechange", onlanguagechange)
-        self._process_attr("onrejectionhandled", onrejectionhandled)
-        self._process_attr("onunhandledrejection", onunhandledrejection)
-        self._process_attr("onbeforeprint", onbeforeprint)
-        self._process_attr("onunload", onunload)
-        self._process_attr("onoffline", onoffline)
         self._process_attr("onafterprint", onafterprint)
-        self._process_attr("onpageshow", onpageshow)
-        self._process_attr("onpopstate", onpopstate)
-        self._process_attr("onpageswap", onpageswap)
+        self._process_attr("onbeforeprint", onbeforeprint)
         self._process_attr("onbeforeunload", onbeforeunload)
-        self._process_attr("ononline", ononline)
+        self._process_attr("onhashchange", onhashchange)
+        self._process_attr("onlanguagechange", onlanguagechange)
         self._process_attr("onmessage", onmessage)
+        self._process_attr("onmessageerror", onmessageerror)
+        self._process_attr("onoffline", onoffline)
+        self._process_attr("ononline", ononline)
+        self._process_attr("onpagehide", onpagehide)
+        self._process_attr("onpagereveal", onpagereveal)
+        self._process_attr("onpageshow", onpageshow)
+        self._process_attr("onpageswap", onpageswap)
+        self._process_attr("onpopstate", onpopstate)
+        self._process_attr("onrejectionhandled", onrejectionhandled)
+        self._process_attr("onstorage", onstorage)
+        self._process_attr("onunhandledrejection", onunhandledrejection)
+        self._process_attr("onunload", onunload)
 
 
 class br(BaseElement, GlobalAttrs):
@@ -542,6 +555,7 @@ class br(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -566,17 +580,17 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         disabled: Union[str, ButtonAttrs.disabled] = None,
-        name: Union[str, ButtonAttrs.name] = None,
-        popovertargetaction: Union[str, ButtonAttrs.popovertargetaction] = None,
-        formnovalidate: Union[str, ButtonAttrs.formnovalidate] = None,
         form: Union[str, ButtonAttrs.form] = None,
-        formenctype: Union[str, ButtonAttrs.formenctype] = None,
         formaction: Union[str, ButtonAttrs.formaction] = None,
-        popovertarget: Union[str, ButtonAttrs.popovertarget] = None,
-        value: Union[str, ButtonAttrs.value] = None,
+        formenctype: Union[str, ButtonAttrs.formenctype] = None,
         formmethod: Union[str, ButtonAttrs.formmethod] = None,
+        formnovalidate: Union[str, ButtonAttrs.formnovalidate] = None,
         formtarget: Union[str, ButtonAttrs.formtarget] = None,
+        name: Union[str, ButtonAttrs.name] = None,
+        popovertarget: Union[str, ButtonAttrs.popovertarget] = None,
+        popovertargetaction: Union[str, ButtonAttrs.popovertargetaction] = None,
         type: Union[str, ButtonAttrs.type] = None,
+        value: Union[str, ButtonAttrs.value] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -586,19 +600,20 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("disabled", disabled)
-        self._process_attr("name", name)
-        self._process_attr("popovertargetaction", popovertargetaction)
-        self._process_attr("formnovalidate", formnovalidate)
         self._process_attr("form", form)
-        self._process_attr("formenctype", formenctype)
         self._process_attr("formaction", formaction)
-        self._process_attr("popovertarget", popovertarget)
-        self._process_attr("value", value)
+        self._process_attr("formenctype", formenctype)
         self._process_attr("formmethod", formmethod)
+        self._process_attr("formnovalidate", formnovalidate)
         self._process_attr("formtarget", formtarget)
+        self._process_attr("name", name)
+        self._process_attr("popovertarget", popovertarget)
+        self._process_attr("popovertargetaction", popovertargetaction)
         self._process_attr("type", type)
+        self._process_attr("value", value)
 
 
 class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
@@ -631,6 +646,7 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("height", height)
         self._process_attr("width", width)
@@ -665,6 +681,7 @@ class caption(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -698,6 +715,7 @@ class cite(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -731,6 +749,7 @@ class code(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -764,6 +783,7 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("span", span)
 
@@ -797,6 +817,7 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("span", span)
 
@@ -830,6 +851,7 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("value", value)
 
@@ -863,6 +885,7 @@ class datalist(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -896,11 +919,12 @@ class dd(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
 
-class del(BaseElement, GlobalAttrs, DelAttrs):
+class del_(BaseElement, GlobalAttrs, DelAttrs):
     """
     The <del> element.
     Description: A removal from the document
@@ -930,6 +954,7 @@ class del(BaseElement, GlobalAttrs, DelAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("cite", cite)
         self._process_attr("datetime", datetime)
@@ -954,8 +979,8 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        open: Union[str, DetailsAttrs.open] = None,
         name: Union[str, DetailsAttrs.name] = None,
+        open: Union[str, DetailsAttrs.open] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -965,9 +990,10 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("open", open)
         self._process_attr("name", name)
+        self._process_attr("open", open)
 
 
 class dfn(BaseElement, GlobalAttrs):
@@ -999,6 +1025,7 @@ class dfn(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1032,6 +1059,7 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("open", open)
 
@@ -1065,6 +1093,7 @@ class div(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1098,6 +1127,7 @@ class dl(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1131,6 +1161,7 @@ class dt(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1164,6 +1195,7 @@ class em(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1187,10 +1219,10 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        src: Union[str, EmbedAttrs.src] = None,
-        width: Union[str, EmbedAttrs.width] = None,
         height: Union[str, EmbedAttrs.height] = None,
+        src: Union[str, EmbedAttrs.src] = None,
         type: Union[str, EmbedAttrs.type] = None,
+        width: Union[str, EmbedAttrs.width] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -1200,11 +1232,12 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("src", src)
-        self._process_attr("width", width)
         self._process_attr("height", height)
+        self._process_attr("src", src)
         self._process_attr("type", type)
+        self._process_attr("width", width)
 
 
 class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
@@ -1238,6 +1271,7 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("disabled", disabled)
         self._process_attr("form", form)
@@ -1273,6 +1307,7 @@ class figcaption(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1306,6 +1341,7 @@ class figure(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1339,6 +1375,7 @@ class footer(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1362,13 +1399,13 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        autocomplete: Union[str, FormAttrs.autocomplete] = None,
-        novalidate: Union[str, FormAttrs.novalidate] = None,
+        accept_charset: Union[str, FormAttrs.accept_charset] = None,
         action: Union[str, FormAttrs.action] = None,
-        name: Union[str, FormAttrs.name] = None,
+        autocomplete: Union[str, FormAttrs.autocomplete] = None,
         enctype: Union[str, FormAttrs.enctype] = None,
         method: Union[str, FormAttrs.method] = None,
-        accept_charset: Union[str, FormAttrs.accept_charset] = None,
+        name: Union[str, FormAttrs.name] = None,
+        novalidate: Union[str, FormAttrs.novalidate] = None,
         target: Union[str, FormAttrs.target] = None,
         attrs: attr_type = None,
         children: list = None
@@ -1379,14 +1416,15 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("autocomplete", autocomplete)
-        self._process_attr("novalidate", novalidate)
+        self._process_attr("accept-charset", accept_charset)
         self._process_attr("action", action)
-        self._process_attr("name", name)
+        self._process_attr("autocomplete", autocomplete)
         self._process_attr("enctype", enctype)
         self._process_attr("method", method)
-        self._process_attr("accept-charset", accept_charset)
+        self._process_attr("name", name)
+        self._process_attr("novalidate", novalidate)
         self._process_attr("target", target)
 
 
@@ -1419,6 +1457,7 @@ class h1(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1452,6 +1491,7 @@ class h2(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1485,6 +1525,7 @@ class h3(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1518,6 +1559,7 @@ class h4(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1551,6 +1593,7 @@ class h5(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1584,6 +1627,7 @@ class h6(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1617,6 +1661,7 @@ class head(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1650,6 +1695,7 @@ class header(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1683,6 +1729,7 @@ class hgroup(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1716,6 +1763,7 @@ class hr(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1749,6 +1797,7 @@ class html(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1782,6 +1831,7 @@ class i(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -1805,14 +1855,14 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        allowfullscreen: Union[str, IframeAttrs.allowfullscreen] = None,
-        loading: Union[str, IframeAttrs.loading] = None,
-        src: Union[str, IframeAttrs.src] = None,
-        sandbox: Union[str, IframeAttrs.sandbox] = None,
-        name: Union[str, IframeAttrs.name] = None,
-        height: Union[str, IframeAttrs.height] = None,
-        referrerpolicy: Union[str, IframeAttrs.referrerpolicy] = None,
         allow: Union[str, IframeAttrs.allow] = None,
+        allowfullscreen: Union[str, IframeAttrs.allowfullscreen] = None,
+        height: Union[str, IframeAttrs.height] = None,
+        loading: Union[str, IframeAttrs.loading] = None,
+        name: Union[str, IframeAttrs.name] = None,
+        referrerpolicy: Union[str, IframeAttrs.referrerpolicy] = None,
+        sandbox: Union[str, IframeAttrs.sandbox] = None,
+        src: Union[str, IframeAttrs.src] = None,
         srcdoc: Union[str, IframeAttrs.srcdoc] = None,
         width: Union[str, IframeAttrs.width] = None,
         attrs: attr_type = None,
@@ -1824,15 +1874,16 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("allowfullscreen", allowfullscreen)
-        self._process_attr("loading", loading)
-        self._process_attr("src", src)
-        self._process_attr("sandbox", sandbox)
-        self._process_attr("name", name)
-        self._process_attr("height", height)
-        self._process_attr("referrerpolicy", referrerpolicy)
         self._process_attr("allow", allow)
+        self._process_attr("allowfullscreen", allowfullscreen)
+        self._process_attr("height", height)
+        self._process_attr("loading", loading)
+        self._process_attr("name", name)
+        self._process_attr("referrerpolicy", referrerpolicy)
+        self._process_attr("sandbox", sandbox)
+        self._process_attr("src", src)
         self._process_attr("srcdoc", srcdoc)
         self._process_attr("width", width)
 
@@ -1856,18 +1907,18 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        loading: Union[str, ImgAttrs.loading] = None,
-        fetchpriority: Union[str, ImgAttrs.fetchpriority] = None,
-        decoding: Union[str, ImgAttrs.decoding] = None,
-        height: Union[str, ImgAttrs.height] = None,
-        crossorigin: Union[str, ImgAttrs.crossorigin] = None,
-        ismap: Union[str, ImgAttrs.ismap] = None,
-        sizes: Union[str, ImgAttrs.sizes] = None,
-        usemap: Union[str, ImgAttrs.usemap] = None,
-        referrerpolicy: Union[str, ImgAttrs.referrerpolicy] = None,
-        srcset: Union[str, ImgAttrs.srcset] = None,
-        src: Union[str, ImgAttrs.src] = None,
         alt: Union[str, ImgAttrs.alt] = None,
+        crossorigin: Union[str, ImgAttrs.crossorigin] = None,
+        decoding: Union[str, ImgAttrs.decoding] = None,
+        fetchpriority: Union[str, ImgAttrs.fetchpriority] = None,
+        height: Union[str, ImgAttrs.height] = None,
+        ismap: Union[str, ImgAttrs.ismap] = None,
+        loading: Union[str, ImgAttrs.loading] = None,
+        referrerpolicy: Union[str, ImgAttrs.referrerpolicy] = None,
+        sizes: Union[str, ImgAttrs.sizes] = None,
+        src: Union[str, ImgAttrs.src] = None,
+        srcset: Union[str, ImgAttrs.srcset] = None,
+        usemap: Union[str, ImgAttrs.usemap] = None,
         width: Union[str, ImgAttrs.width] = None,
         attrs: attr_type = None,
         children: list = None
@@ -1878,19 +1929,20 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("loading", loading)
-        self._process_attr("fetchpriority", fetchpriority)
-        self._process_attr("decoding", decoding)
-        self._process_attr("height", height)
-        self._process_attr("crossorigin", crossorigin)
-        self._process_attr("ismap", ismap)
-        self._process_attr("sizes", sizes)
-        self._process_attr("usemap", usemap)
-        self._process_attr("referrerpolicy", referrerpolicy)
-        self._process_attr("srcset", srcset)
-        self._process_attr("src", src)
         self._process_attr("alt", alt)
+        self._process_attr("crossorigin", crossorigin)
+        self._process_attr("decoding", decoding)
+        self._process_attr("fetchpriority", fetchpriority)
+        self._process_attr("height", height)
+        self._process_attr("ismap", ismap)
+        self._process_attr("loading", loading)
+        self._process_attr("referrerpolicy", referrerpolicy)
+        self._process_attr("sizes", sizes)
+        self._process_attr("src", src)
+        self._process_attr("srcset", srcset)
+        self._process_attr("usemap", usemap)
         self._process_attr("width", width)
 
 
@@ -1913,41 +1965,41 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        list: Union[str, InputAttrs.list] = None,
-        name: Union[str, InputAttrs.name] = None,
-        max: Union[str, InputAttrs.max] = None,
-        title: Union[str, InputAttrs.title] = None,
-        min: Union[str, InputAttrs.min] = None,
-        step: Union[str, InputAttrs.step] = None,
-        placeholder: Union[str, InputAttrs.placeholder] = None,
-        formtarget: Union[str, InputAttrs.formtarget] = None,
-        pattern: Union[str, InputAttrs.pattern] = None,
-        type: Union[str, InputAttrs.type] = None,
-        autocomplete: Union[str, InputAttrs.autocomplete] = None,
-        alpha: Union[str, InputAttrs.alpha] = None,
-        disabled: Union[str, InputAttrs.disabled] = None,
-        size: Union[str, InputAttrs.size] = None,
-        height: Union[str, InputAttrs.height] = None,
         accept: Union[str, InputAttrs.accept] = None,
-        value: Union[str, InputAttrs.value] = None,
-        formaction: Union[str, InputAttrs.formaction] = None,
-        maxlength: Union[str, InputAttrs.maxlength] = None,
+        alpha: Union[str, InputAttrs.alpha] = None,
+        alt: Union[str, InputAttrs.alt] = None,
+        autocomplete: Union[str, InputAttrs.autocomplete] = None,
         checked: Union[str, InputAttrs.checked] = None,
-        popovertargetaction: Union[str, InputAttrs.popovertargetaction] = None,
-        width: Union[str, InputAttrs.width] = None,
         colorspace: Union[str, InputAttrs.colorspace] = None,
-        formnovalidate: Union[str, InputAttrs.formnovalidate] = None,
+        dirname: Union[str, InputAttrs.dirname] = None,
+        disabled: Union[str, InputAttrs.disabled] = None,
+        form: Union[str, InputAttrs.form] = None,
+        formaction: Union[str, InputAttrs.formaction] = None,
         formenctype: Union[str, InputAttrs.formenctype] = None,
         formmethod: Union[str, InputAttrs.formmethod] = None,
-        alt: Union[str, InputAttrs.alt] = None,
-        required: Union[str, InputAttrs.required] = None,
-        readonly: Union[str, InputAttrs.readonly] = None,
-        multiple: Union[str, InputAttrs.multiple] = None,
-        form: Union[str, InputAttrs.form] = None,
-        popovertarget: Union[str, InputAttrs.popovertarget] = None,
-        dirname: Union[str, InputAttrs.dirname] = None,
+        formnovalidate: Union[str, InputAttrs.formnovalidate] = None,
+        formtarget: Union[str, InputAttrs.formtarget] = None,
+        height: Union[str, InputAttrs.height] = None,
+        list: Union[str, InputAttrs.list] = None,
+        max: Union[str, InputAttrs.max] = None,
+        maxlength: Union[str, InputAttrs.maxlength] = None,
+        min: Union[str, InputAttrs.min] = None,
         minlength: Union[str, InputAttrs.minlength] = None,
+        multiple: Union[str, InputAttrs.multiple] = None,
+        name: Union[str, InputAttrs.name] = None,
+        pattern: Union[str, InputAttrs.pattern] = None,
+        placeholder: Union[str, InputAttrs.placeholder] = None,
+        popovertarget: Union[str, InputAttrs.popovertarget] = None,
+        popovertargetaction: Union[str, InputAttrs.popovertargetaction] = None,
+        readonly: Union[str, InputAttrs.readonly] = None,
+        required: Union[str, InputAttrs.required] = None,
+        size: Union[str, InputAttrs.size] = None,
         src: Union[str, InputAttrs.src] = None,
+        step: Union[str, InputAttrs.step] = None,
+        title: Union[str, InputAttrs.title] = None,
+        type: Union[str, InputAttrs.type] = None,
+        value: Union[str, InputAttrs.value] = None,
+        width: Union[str, InputAttrs.width] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -1957,42 +2009,43 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("list", list)
-        self._process_attr("name", name)
-        self._process_attr("max", max)
-        self._process_attr("title", title)
-        self._process_attr("min", min)
-        self._process_attr("step", step)
-        self._process_attr("placeholder", placeholder)
-        self._process_attr("formtarget", formtarget)
-        self._process_attr("pattern", pattern)
-        self._process_attr("type", type)
-        self._process_attr("autocomplete", autocomplete)
-        self._process_attr("alpha", alpha)
-        self._process_attr("disabled", disabled)
-        self._process_attr("size", size)
-        self._process_attr("height", height)
         self._process_attr("accept", accept)
-        self._process_attr("value", value)
-        self._process_attr("formaction", formaction)
-        self._process_attr("maxlength", maxlength)
+        self._process_attr("alpha", alpha)
+        self._process_attr("alt", alt)
+        self._process_attr("autocomplete", autocomplete)
         self._process_attr("checked", checked)
-        self._process_attr("popovertargetaction", popovertargetaction)
-        self._process_attr("width", width)
         self._process_attr("colorspace", colorspace)
-        self._process_attr("formnovalidate", formnovalidate)
+        self._process_attr("dirname", dirname)
+        self._process_attr("disabled", disabled)
+        self._process_attr("form", form)
+        self._process_attr("formaction", formaction)
         self._process_attr("formenctype", formenctype)
         self._process_attr("formmethod", formmethod)
-        self._process_attr("alt", alt)
-        self._process_attr("required", required)
-        self._process_attr("readonly", readonly)
-        self._process_attr("multiple", multiple)
-        self._process_attr("form", form)
-        self._process_attr("popovertarget", popovertarget)
-        self._process_attr("dirname", dirname)
+        self._process_attr("formnovalidate", formnovalidate)
+        self._process_attr("formtarget", formtarget)
+        self._process_attr("height", height)
+        self._process_attr("list", list)
+        self._process_attr("max", max)
+        self._process_attr("maxlength", maxlength)
+        self._process_attr("min", min)
         self._process_attr("minlength", minlength)
+        self._process_attr("multiple", multiple)
+        self._process_attr("name", name)
+        self._process_attr("pattern", pattern)
+        self._process_attr("placeholder", placeholder)
+        self._process_attr("popovertarget", popovertarget)
+        self._process_attr("popovertargetaction", popovertargetaction)
+        self._process_attr("readonly", readonly)
+        self._process_attr("required", required)
+        self._process_attr("size", size)
         self._process_attr("src", src)
+        self._process_attr("step", step)
+        self._process_attr("title", title)
+        self._process_attr("type", type)
+        self._process_attr("value", value)
+        self._process_attr("width", width)
 
 
 class ins(BaseElement, GlobalAttrs, InsAttrs):
@@ -2025,6 +2078,7 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("cite", cite)
         self._process_attr("datetime", datetime)
@@ -2059,6 +2113,7 @@ class kbd(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2092,6 +2147,7 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("for", for_)
 
@@ -2125,6 +2181,7 @@ class legend(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2158,6 +2215,7 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("value", value)
 
@@ -2181,22 +2239,22 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        as_: Union[str, LinkAttrs.as_] = None,
+        blocking: Union[str, LinkAttrs.blocking] = None,
+        color: Union[str, LinkAttrs.color] = None,
+        crossorigin: Union[str, LinkAttrs.crossorigin] = None,
         disabled: Union[str, LinkAttrs.disabled] = None,
         fetchpriority: Union[str, LinkAttrs.fetchpriority] = None,
-        hreflang: Union[str, LinkAttrs.hreflang] = None,
-        crossorigin: Union[str, LinkAttrs.crossorigin] = None,
-        integrity: Union[str, LinkAttrs.integrity] = None,
-        imagesizes: Union[str, LinkAttrs.imagesizes] = None,
-        blocking: Union[str, LinkAttrs.blocking] = None,
-        media: Union[str, LinkAttrs.media] = None,
         href: Union[str, LinkAttrs.href] = None,
+        hreflang: Union[str, LinkAttrs.hreflang] = None,
+        imagesizes: Union[str, LinkAttrs.imagesizes] = None,
         imagesrcset: Union[str, LinkAttrs.imagesrcset] = None,
+        integrity: Union[str, LinkAttrs.integrity] = None,
+        media: Union[str, LinkAttrs.media] = None,
         referrerpolicy: Union[str, LinkAttrs.referrerpolicy] = None,
         rel: Union[str, LinkAttrs.rel] = None,
         sizes: Union[str, LinkAttrs.sizes] = None,
         title: Union[str, LinkAttrs.title] = None,
-        color: Union[str, LinkAttrs.color] = None,
-        as_: Union[str, LinkAttrs.as_] = None,
         type: Union[str, LinkAttrs.type] = None,
         attrs: attr_type = None,
         children: list = None
@@ -2207,23 +2265,24 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
+        self._process_attr("as", as_)
+        self._process_attr("blocking", blocking)
+        self._process_attr("color", color)
+        self._process_attr("crossorigin", crossorigin)
         self._process_attr("disabled", disabled)
         self._process_attr("fetchpriority", fetchpriority)
-        self._process_attr("hreflang", hreflang)
-        self._process_attr("crossorigin", crossorigin)
-        self._process_attr("integrity", integrity)
-        self._process_attr("imagesizes", imagesizes)
-        self._process_attr("blocking", blocking)
-        self._process_attr("media", media)
         self._process_attr("href", href)
+        self._process_attr("hreflang", hreflang)
+        self._process_attr("imagesizes", imagesizes)
         self._process_attr("imagesrcset", imagesrcset)
+        self._process_attr("integrity", integrity)
+        self._process_attr("media", media)
         self._process_attr("referrerpolicy", referrerpolicy)
         self._process_attr("rel", rel)
         self._process_attr("sizes", sizes)
         self._process_attr("title", title)
-        self._process_attr("color", color)
-        self._process_attr("as", as_)
         self._process_attr("type", type)
 
 
@@ -2256,6 +2315,7 @@ class main(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2289,6 +2349,7 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("name", name)
 
@@ -2322,6 +2383,7 @@ class mark(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2355,6 +2417,7 @@ class menu(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2378,11 +2441,11 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        name: Union[str, MetaAttrs.name] = None,
+        charset: Union[str, MetaAttrs.charset] = None,
+        content: Union[str, MetaAttrs.content] = None,
         http_equiv: Union[str, MetaAttrs.http_equiv] = None,
         media: Union[str, MetaAttrs.media] = None,
-        content: Union[str, MetaAttrs.content] = None,
-        charset: Union[str, MetaAttrs.charset] = None,
+        name: Union[str, MetaAttrs.name] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -2392,12 +2455,13 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("name", name)
+        self._process_attr("charset", charset)
+        self._process_attr("content", content)
         self._process_attr("http-equiv", http_equiv)
         self._process_attr("media", media)
-        self._process_attr("content", content)
-        self._process_attr("charset", charset)
+        self._process_attr("name", name)
 
 
 class meter(BaseElement, GlobalAttrs, MeterAttrs):
@@ -2419,12 +2483,12 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        optimum: Union[str, MeterAttrs.optimum] = None,
+        high: Union[str, MeterAttrs.high] = None,
+        low: Union[str, MeterAttrs.low] = None,
         max: Union[str, MeterAttrs.max] = None,
         min: Union[str, MeterAttrs.min] = None,
+        optimum: Union[str, MeterAttrs.optimum] = None,
         value: Union[str, MeterAttrs.value] = None,
-        low: Union[str, MeterAttrs.low] = None,
-        high: Union[str, MeterAttrs.high] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -2434,13 +2498,14 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("optimum", optimum)
+        self._process_attr("high", high)
+        self._process_attr("low", low)
         self._process_attr("max", max)
         self._process_attr("min", min)
+        self._process_attr("optimum", optimum)
         self._process_attr("value", value)
-        self._process_attr("low", low)
-        self._process_attr("high", high)
 
 
 class nav(BaseElement, GlobalAttrs):
@@ -2472,6 +2537,7 @@ class nav(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2505,6 +2571,7 @@ class noscript(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2528,12 +2595,12 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        width: Union[str, ObjectAttrs.width] = None,
-        name: Union[str, ObjectAttrs.name] = None,
-        height: Union[str, ObjectAttrs.height] = None,
         data: Union[str, ObjectAttrs.data] = None,
         form: Union[str, ObjectAttrs.form] = None,
+        height: Union[str, ObjectAttrs.height] = None,
+        name: Union[str, ObjectAttrs.name] = None,
         type: Union[str, ObjectAttrs.type] = None,
+        width: Union[str, ObjectAttrs.width] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -2543,13 +2610,14 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("width", width)
-        self._process_attr("name", name)
-        self._process_attr("height", height)
         self._process_attr("data", data)
         self._process_attr("form", form)
+        self._process_attr("height", height)
+        self._process_attr("name", name)
         self._process_attr("type", type)
+        self._process_attr("width", width)
 
 
 class ol(BaseElement, GlobalAttrs, OlAttrs):
@@ -2571,9 +2639,9 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        type: Union[str, OlAttrs.type] = None,
         reversed: Union[str, OlAttrs.reversed] = None,
         start: Union[str, OlAttrs.start] = None,
+        type: Union[str, OlAttrs.type] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -2583,10 +2651,11 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("type", type)
         self._process_attr("reversed", reversed)
         self._process_attr("start", start)
+        self._process_attr("type", type)
 
 
 class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
@@ -2619,6 +2688,7 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("disabled", disabled)
         self._process_attr("label", label)
@@ -2644,9 +2714,9 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         disabled: Union[str, OptionAttrs.disabled] = None,
+        label: Union[str, OptionAttrs.label] = None,
         selected: Union[str, OptionAttrs.selected] = None,
         value: Union[str, OptionAttrs.value] = None,
-        label: Union[str, OptionAttrs.label] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -2656,11 +2726,12 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("disabled", disabled)
+        self._process_attr("label", label)
         self._process_attr("selected", selected)
         self._process_attr("value", value)
-        self._process_attr("label", label)
 
 
 class output(BaseElement, GlobalAttrs, OutputAttrs):
@@ -2694,6 +2765,7 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("for", for_)
         self._process_attr("form", form)
@@ -2729,6 +2801,7 @@ class p(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2762,6 +2835,7 @@ class picture(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2795,6 +2869,7 @@ class pre(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2818,8 +2893,8 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        value: Union[str, ProgressAttrs.value] = None,
         max: Union[str, ProgressAttrs.max] = None,
+        value: Union[str, ProgressAttrs.value] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -2829,9 +2904,10 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("value", value)
         self._process_attr("max", max)
+        self._process_attr("value", value)
 
 
 class q(BaseElement, GlobalAttrs, QAttrs):
@@ -2863,6 +2939,7 @@ class q(BaseElement, GlobalAttrs, QAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("cite", cite)
 
@@ -2896,6 +2973,7 @@ class rp(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2929,6 +3007,7 @@ class rt(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2962,6 +3041,7 @@ class ruby(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -2995,6 +3075,7 @@ class s(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3028,6 +3109,7 @@ class samp(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3051,15 +3133,15 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        async: Union[str, ScriptAttrs.async] = None,
-        fetchpriority: Union[str, ScriptAttrs.fetchpriority] = None,
-        defer: Union[str, ScriptAttrs.defer] = None,
-        crossorigin: Union[str, ScriptAttrs.crossorigin] = None,
-        integrity: Union[str, ScriptAttrs.integrity] = None,
+        async_: Union[str, ScriptAttrs.async_] = None,
         blocking: Union[str, ScriptAttrs.blocking] = None,
+        crossorigin: Union[str, ScriptAttrs.crossorigin] = None,
+        defer: Union[str, ScriptAttrs.defer] = None,
+        fetchpriority: Union[str, ScriptAttrs.fetchpriority] = None,
+        integrity: Union[str, ScriptAttrs.integrity] = None,
+        nomodule: Union[str, ScriptAttrs.nomodule] = None,
         referrerpolicy: Union[str, ScriptAttrs.referrerpolicy] = None,
         src: Union[str, ScriptAttrs.src] = None,
-        nomodule: Union[str, ScriptAttrs.nomodule] = None,
         type: Union[str, ScriptAttrs.type] = None,
         attrs: attr_type = None,
         children: list = None
@@ -3070,16 +3152,17 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("async", async)
-        self._process_attr("fetchpriority", fetchpriority)
-        self._process_attr("defer", defer)
-        self._process_attr("crossorigin", crossorigin)
-        self._process_attr("integrity", integrity)
+        self._process_attr("async", async_)
         self._process_attr("blocking", blocking)
+        self._process_attr("crossorigin", crossorigin)
+        self._process_attr("defer", defer)
+        self._process_attr("fetchpriority", fetchpriority)
+        self._process_attr("integrity", integrity)
+        self._process_attr("nomodule", nomodule)
         self._process_attr("referrerpolicy", referrerpolicy)
         self._process_attr("src", src)
-        self._process_attr("nomodule", nomodule)
         self._process_attr("type", type)
 
 
@@ -3112,6 +3195,7 @@ class search(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3145,6 +3229,7 @@ class section(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3170,11 +3255,11 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
         class_: GlobalAttrs.class_ = None,
         autocomplete: Union[str, SelectAttrs.autocomplete] = None,
         disabled: Union[str, SelectAttrs.disabled] = None,
-        name: Union[str, SelectAttrs.name] = None,
-        size: Union[str, SelectAttrs.size] = None,
-        multiple: Union[str, SelectAttrs.multiple] = None,
         form: Union[str, SelectAttrs.form] = None,
+        multiple: Union[str, SelectAttrs.multiple] = None,
+        name: Union[str, SelectAttrs.name] = None,
         required: Union[str, SelectAttrs.required] = None,
+        size: Union[str, SelectAttrs.size] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -3184,14 +3269,15 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("autocomplete", autocomplete)
         self._process_attr("disabled", disabled)
-        self._process_attr("name", name)
-        self._process_attr("size", size)
-        self._process_attr("multiple", multiple)
         self._process_attr("form", form)
+        self._process_attr("multiple", multiple)
+        self._process_attr("name", name)
         self._process_attr("required", required)
+        self._process_attr("size", size)
 
 
 class slot(BaseElement, GlobalAttrs, SlotAttrs):
@@ -3223,6 +3309,7 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("name", name)
 
@@ -3256,6 +3343,7 @@ class small(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3279,13 +3367,13 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        width: Union[str, SourceAttrs.width] = None,
         height: Union[str, SourceAttrs.height] = None,
-        sizes: Union[str, SourceAttrs.sizes] = None,
         media: Union[str, SourceAttrs.media] = None,
-        srcset: Union[str, SourceAttrs.srcset] = None,
+        sizes: Union[str, SourceAttrs.sizes] = None,
         src: Union[str, SourceAttrs.src] = None,
+        srcset: Union[str, SourceAttrs.srcset] = None,
         type: Union[str, SourceAttrs.type] = None,
+        width: Union[str, SourceAttrs.width] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -3295,14 +3383,15 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("width", width)
         self._process_attr("height", height)
-        self._process_attr("sizes", sizes)
         self._process_attr("media", media)
-        self._process_attr("srcset", srcset)
+        self._process_attr("sizes", sizes)
         self._process_attr("src", src)
+        self._process_attr("srcset", srcset)
         self._process_attr("type", type)
+        self._process_attr("width", width)
 
 
 class span(BaseElement, GlobalAttrs):
@@ -3334,6 +3423,7 @@ class span(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3367,6 +3457,7 @@ class strong(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3402,6 +3493,7 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("blocking", blocking)
         self._process_attr("media", media)
@@ -3437,6 +3529,7 @@ class sub(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3470,6 +3563,7 @@ class summary(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3503,6 +3597,7 @@ class sup(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3536,6 +3631,7 @@ class svg(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3569,6 +3665,7 @@ class table(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3602,6 +3699,7 @@ class tbody(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3625,8 +3723,8 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        headers: Union[str, TdAttrs.headers] = None,
         colspan: Union[str, TdAttrs.colspan] = None,
+        headers: Union[str, TdAttrs.headers] = None,
         rowspan: Union[str, TdAttrs.rowspan] = None,
         attrs: attr_type = None,
         children: list = None
@@ -3637,9 +3735,10 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("headers", headers)
         self._process_attr("colspan", colspan)
+        self._process_attr("headers", headers)
         self._process_attr("rowspan", rowspan)
 
 
@@ -3662,10 +3761,10 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        shadowrootmode: Union[str, TemplateAttrs.shadowrootmode] = None,
-        shadowrootdelegatesfocus: Union[str, TemplateAttrs.shadowrootdelegatesfocus] = None,
-        shadowrootserializable: Union[str, TemplateAttrs.shadowrootserializable] = None,
         shadowrootclonable: Union[str, TemplateAttrs.shadowrootclonable] = None,
+        shadowrootdelegatesfocus: Union[str, TemplateAttrs.shadowrootdelegatesfocus] = None,
+        shadowrootmode: Union[str, TemplateAttrs.shadowrootmode] = None,
+        shadowrootserializable: Union[str, TemplateAttrs.shadowrootserializable] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -3675,11 +3774,12 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("shadowrootmode", shadowrootmode)
-        self._process_attr("shadowrootdelegatesfocus", shadowrootdelegatesfocus)
-        self._process_attr("shadowrootserializable", shadowrootserializable)
         self._process_attr("shadowrootclonable", shadowrootclonable)
+        self._process_attr("shadowrootdelegatesfocus", shadowrootdelegatesfocus)
+        self._process_attr("shadowrootmode", shadowrootmode)
+        self._process_attr("shadowrootserializable", shadowrootserializable)
 
 
 class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
@@ -3702,18 +3802,18 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         autocomplete: Union[str, TextareaAttrs.autocomplete] = None,
+        cols: Union[str, TextareaAttrs.cols] = None,
+        dirname: Union[str, TextareaAttrs.dirname] = None,
         disabled: Union[str, TextareaAttrs.disabled] = None,
-        readonly: Union[str, TextareaAttrs.readonly] = None,
+        form: Union[str, TextareaAttrs.form] = None,
+        maxlength: Union[str, TextareaAttrs.maxlength] = None,
+        minlength: Union[str, TextareaAttrs.minlength] = None,
         name: Union[str, TextareaAttrs.name] = None,
+        placeholder: Union[str, TextareaAttrs.placeholder] = None,
+        readonly: Union[str, TextareaAttrs.readonly] = None,
+        required: Union[str, TextareaAttrs.required] = None,
         rows: Union[str, TextareaAttrs.rows] = None,
         wrap: Union[str, TextareaAttrs.wrap] = None,
-        cols: Union[str, TextareaAttrs.cols] = None,
-        form: Union[str, TextareaAttrs.form] = None,
-        dirname: Union[str, TextareaAttrs.dirname] = None,
-        minlength: Union[str, TextareaAttrs.minlength] = None,
-        maxlength: Union[str, TextareaAttrs.maxlength] = None,
-        placeholder: Union[str, TextareaAttrs.placeholder] = None,
-        required: Union[str, TextareaAttrs.required] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -3723,20 +3823,21 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("autocomplete", autocomplete)
+        self._process_attr("cols", cols)
+        self._process_attr("dirname", dirname)
         self._process_attr("disabled", disabled)
-        self._process_attr("readonly", readonly)
+        self._process_attr("form", form)
+        self._process_attr("maxlength", maxlength)
+        self._process_attr("minlength", minlength)
         self._process_attr("name", name)
+        self._process_attr("placeholder", placeholder)
+        self._process_attr("readonly", readonly)
+        self._process_attr("required", required)
         self._process_attr("rows", rows)
         self._process_attr("wrap", wrap)
-        self._process_attr("cols", cols)
-        self._process_attr("form", form)
-        self._process_attr("dirname", dirname)
-        self._process_attr("minlength", minlength)
-        self._process_attr("maxlength", maxlength)
-        self._process_attr("placeholder", placeholder)
-        self._process_attr("required", required)
 
 
 class tfoot(BaseElement, GlobalAttrs):
@@ -3768,6 +3869,7 @@ class tfoot(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3791,11 +3893,11 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
+        abbr: Union[str, ThAttrs.abbr] = None,
+        colspan: Union[str, ThAttrs.colspan] = None,
         headers: Union[str, ThAttrs.headers] = None,
         rowspan: Union[str, ThAttrs.rowspan] = None,
         scope: Union[str, ThAttrs.scope] = None,
-        abbr: Union[str, ThAttrs.abbr] = None,
-        colspan: Union[str, ThAttrs.colspan] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -3805,12 +3907,13 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
+        self._process_attr("abbr", abbr)
+        self._process_attr("colspan", colspan)
         self._process_attr("headers", headers)
         self._process_attr("rowspan", rowspan)
         self._process_attr("scope", scope)
-        self._process_attr("abbr", abbr)
-        self._process_attr("colspan", colspan)
 
 
 class thead(BaseElement, GlobalAttrs):
@@ -3842,6 +3945,7 @@ class thead(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3875,6 +3979,7 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("datetime", datetime)
 
@@ -3908,6 +4013,7 @@ class title(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3941,6 +4047,7 @@ class tr(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -3965,10 +4072,10 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
         default: Union[str, TrackAttrs.default] = None,
-        srclang: Union[str, TrackAttrs.srclang] = None,
         kind: Union[str, TrackAttrs.kind] = None,
-        src: Union[str, TrackAttrs.src] = None,
         label: Union[str, TrackAttrs.label] = None,
+        src: Union[str, TrackAttrs.src] = None,
+        srclang: Union[str, TrackAttrs.srclang] = None,
         attrs: attr_type = None,
         children: list = None
     ) -> None:
@@ -3978,12 +4085,13 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
         self._process_attr("default", default)
-        self._process_attr("srclang", srclang)
         self._process_attr("kind", kind)
-        self._process_attr("src", src)
         self._process_attr("label", label)
+        self._process_attr("src", src)
+        self._process_attr("srclang", srclang)
 
 
 class u(BaseElement, GlobalAttrs):
@@ -4015,6 +4123,7 @@ class u(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -4048,6 +4157,7 @@ class ul(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -4081,6 +4191,7 @@ class var(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
 
 
@@ -4104,16 +4215,16 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
         self,
         id: GlobalAttrs.id = None,
         class_: GlobalAttrs.class_ = None,
-        muted: Union[str, VideoAttrs.muted] = None,
-        loop: Union[str, VideoAttrs.loop] = None,
+        autoplay: Union[str, VideoAttrs.autoplay] = None,
         controls: Union[str, VideoAttrs.controls] = None,
-        poster: Union[str, VideoAttrs.poster] = None,
-        height: Union[str, VideoAttrs.height] = None,
         crossorigin: Union[str, VideoAttrs.crossorigin] = None,
+        height: Union[str, VideoAttrs.height] = None,
+        loop: Union[str, VideoAttrs.loop] = None,
+        muted: Union[str, VideoAttrs.muted] = None,
         playsinline: Union[str, VideoAttrs.playsinline] = None,
+        poster: Union[str, VideoAttrs.poster] = None,
         preload: Union[str, VideoAttrs.preload] = None,
         src: Union[str, VideoAttrs.src] = None,
-        autoplay: Union[str, VideoAttrs.autoplay] = None,
         width: Union[str, VideoAttrs.width] = None,
         attrs: attr_type = None,
         children: list = None
@@ -4124,17 +4235,18 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
-        self._process_attr("muted", muted)
-        self._process_attr("loop", loop)
+        self._process_attr("autoplay", autoplay)
         self._process_attr("controls", controls)
-        self._process_attr("poster", poster)
-        self._process_attr("height", height)
         self._process_attr("crossorigin", crossorigin)
+        self._process_attr("height", height)
+        self._process_attr("loop", loop)
+        self._process_attr("muted", muted)
         self._process_attr("playsinline", playsinline)
+        self._process_attr("poster", poster)
         self._process_attr("preload", preload)
         self._process_attr("src", src)
-        self._process_attr("autoplay", autoplay)
         self._process_attr("width", width)
 
 
@@ -4167,4 +4279,5 @@ class wbr(BaseElement, GlobalAttrs):
             id=id,
             class_=class_,
             attrs=attrs,
+            children=children
         )
