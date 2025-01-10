@@ -1,3 +1,7 @@
+# 0.1.2
+* [bugfix] Pass children arg in elements
+* Sort attr list so generated element code doesn't change arbitrarily
+
 # 0.1.1
 * Add element import to module import i.e. from html_compose import div
 
