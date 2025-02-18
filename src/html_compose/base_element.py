@@ -234,7 +234,13 @@ class BaseElement(ElementBase, GlobalAttrs):
             # ]
             yield from ()
 
+        elif isinstance(child, _HasHtml):
+            # Fetch raw HTML from object
+            yield unsafe_text(child.__html__())
+
         elif isinstance(child, str):
+            # Magic: If the string is already escaped,
+            # this never has to fire.
             yield escape_text(child)
 
         elif isinstance(child, int):
@@ -257,10 +263,6 @@ class BaseElement(ElementBase, GlobalAttrs):
             child: ElementBase
             # Recursively resolve the element tree
             yield from child.resolve(self)
-
-        elif isinstance(child, _HasHtml):
-            # Fetch raw HTML from object
-            yield unsafe_text(child.__html__())
 
         elif util_funcs.is_iterable_but_not_str(child):
             for el in util_funcs.flatten_iterable(child):
