@@ -1,13 +1,59 @@
 import json
 
-from generator_common import get_path, safe_name
+from generator_common import AttrDefinition, ReadAttr, get_path, safe_name
 
 spec = json.loads(get_path("spec_reference.json").read_text())
+
+
+def generate_attrs(attr_class, attr_list):
+    attr_params = []
+    attr_assignments = []
+    attr_docstrings = []
+    attrdefs = {}
+    for attr in attr_list:
+        attrdef = ReadAttr(attr)
+        dupe = attrdefs.get(attrdef.name, None)
+        def_dict = {
+            "attr": attrdef,
+            "docstring": [
+                f":param {attrdef.safe_name}: {attrdef.description}",
+                f"    | {attrdef.value_desc}",
+            ],
+        }
+        if dupe:
+            if "dupes" in dupe:
+                dupes = dupe["dupes"] + [def_dict]
+                def_dict["dupes"] = dupes
+            else:
+                dupes = [dupe]
+                def_dict["dupes"] = dupes
+        attrdefs[attrdef.name] = def_dict
+    attr_list = sorted(set(x for x in attrdefs.keys()))
+    for attr_name in attr_list:
+        attrdef: AttrDefinition = attrdefs[attr_name]["attr"]
+        attr_params.append(
+            f"        {attrdef.safe_name}: Union[str, {attr_class}.{attrdef.safe_name}] = None,"
+        )
+        attr_assignments.append(
+            f'        self._process_attr("{attrdef.name}", {attrdef.safe_name})'
+        )
+        attr_docstrings.append(attrdefs[attr_name]["docstring"])
+        dupes = attrdefs[attr_name].get("dupes", [])
+        for dupe in dupes:
+            # <link> has two tile defs, but they are the same attr.
+            # We provide both docstrings even though the editor won't
+            # provide both on completion
+            attr_docstrings.append(dupe["docstring"])
+    return attr_params, attr_docstrings, attr_assignments
 
 
 def gen_elements():
     result = []
     attr_imports = []
+    global_attrs = spec["_global_attributes"]["spec"]
+    global_attr_defs: list[AttrDefinition] = []
+    for attr in global_attrs:
+        global_attr_defs.append(ReadAttr(attr))
     for element in spec:
         if element in ("_global_attributes", "autonomous custom elements"):
             continue
@@ -59,28 +105,17 @@ def gen_elements():
                 attr_imports.append(attr_class)
                 attr_list = _spec["attributes"]
                 if attr_list:
-                    for attr in attr_list:
-                        attr_name = attr["Attribute"]
-
-                        attr_docstrings.append(
-                            f":param {safe_name(attr_name)}: {attr['Description']}"
-                        )
-                        attr_docstrings.append(f"    | {attr['Value']}")
-                    attr_list = sorted(set(x["Attribute"] for x in attr_list))
-                    extra_attrs = "\n".join(
-                        [
-                            f"        {safe_name(x)}: Union[str, {attr_class}.{safe_name(x)}] = None,"
-                            for x in attr_list
-                        ]
+                    params, docstrings, attr_assignments = generate_attrs(
+                        attr_class, attr_list
                     )
-                    attr_assignment = "\n".join(
-                        [
-                            f'        self._process_attr("{x}", {safe_name(x)})'
-                            for x in attr_list
-                        ]
-                    )
+                    for docstring in docstrings:
+                        attr_docstrings.extend(docstring)
+                    extra_attrs = "\n".join(params)
+                    attr_assignment = "\n".join(attr_assignments)
             else:
                 attr_list = []
+            # for attr in global_attr_defs:
+            # attr_class = f"{attr}"
 
             fixed_name = safe_name(real_element)
             is_void_element = children == "empty"

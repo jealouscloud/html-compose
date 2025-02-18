@@ -1,4 +1,9 @@
+from collections import namedtuple
 from pathlib import Path
+
+AttrDefinition = namedtuple(
+    "AttrDefinition", ["name", "safe_name", "value_desc", "description"]
+)
 
 
 def get_path(fn):
@@ -22,3 +27,11 @@ def safe_name(name):
         name = name.replace("-", "_")
 
     return name
+
+
+def ReadAttr(attr_spec) -> AttrDefinition:
+    name = attr_spec["Attribute"]
+    safe_attr_name = safe_name(name)
+    attr_desc = attr_spec["Description"]
+    value_desc = attr_spec["Value"]
+    return AttrDefinition(name, safe_attr_name, value_desc, attr_desc)

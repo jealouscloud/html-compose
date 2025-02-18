@@ -2968,9 +2968,9 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
             | Unordered set of unique space-separated tokens*
         :param sizes: Sizes of the icons (for rel="icon")
             | Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of sizes*
-        :param title: Title of the link
-            | Text
         :param title: CSS style sheet set name
+            | Text
+        :param title: Title of the link
             | Text
         :param type: Hint for the type of the referenced resource
             | Valid MIME type string
