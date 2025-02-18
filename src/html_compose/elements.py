@@ -83,6 +83,31 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <a> element.
+        Description: Hyperlink
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param download: Whether to download the resource instead of navigating to it, and its filename if so
+            | Text
+        :param href: Address of the hyperlink
+            | Valid URL potentially surrounded by spaces
+        :param hreflang: Language of the linked resource
+            | Valid BCP 47 language tag
+        :param ping: URLs to ping
+            | Set of space-separated tokens consisting of valid non-empty URLs
+        :param referrerpolicy: Referrer policy for fetches initiated by the element
+            | Referrer policy
+        :param rel: Relationship between the location in the document containing the hyperlink and the destination resource
+            | Unordered set of unique space-separated tokens*
+        :param target: Navigable for hyperlink navigation
+            | Valid navigable target name or keyword
+        :param type: Hint for the type of the referenced resource
+            | Valid MIME type string
+        """
         super().__init__(
             "a",
             void_element=False,
@@ -121,6 +146,15 @@ class abbr(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <abbr> element.
+        Description: Abbreviation
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "abbr",
             void_element=False,
@@ -151,6 +185,15 @@ class address(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <address> element.
+        Description: Contact information for a page or article element
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "address",
             void_element=False,
@@ -190,6 +233,33 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <area> element.
+        Description: Hyperlink or dead area on an image map
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param alt: Replacement text for use when images are not available
+            | Text*
+        :param coords: Coordinates for the shape to be created in an image map
+            | Valid list of floating-point numbers*
+        :param download: Whether to download the resource instead of navigating to it, and its filename if so
+            | Text
+        :param href: Address of the hyperlink
+            | Valid URL potentially surrounded by spaces
+        :param ping: URLs to ping
+            | Set of space-separated tokens consisting of valid non-empty URLs
+        :param referrerpolicy: Referrer policy for fetches initiated by the element
+            | Referrer policy
+        :param rel: Relationship between the location in the document containing the hyperlink and the destination resource
+            | Unordered set of unique space-separated tokens*
+        :param shape: The kind of shape to be created in an image map
+            | ['circle', 'default', 'poly', 'rect']
+        :param target: Navigable for hyperlink navigation
+            | Valid navigable target name or keyword
+        """
         super().__init__(
             "area",
             void_element=True,
@@ -229,6 +299,15 @@ class article(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <article> element.
+        Description: Self-contained syndicatable or reusable composition
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "article",
             void_element=False,
@@ -259,6 +338,15 @@ class aside(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <aside> element.
+        Description: Sidebar for tangentially related content
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "aside",
             void_element=False,
@@ -296,6 +384,29 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <audio> element.
+        Description: Audio player
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param autoplay: Hint that the media resource can be started automatically when the page is loaded
+            | Boolean attribute
+        :param controls: Show user agent controls
+            | Boolean attribute
+        :param crossorigin: How the element handles crossorigin requests
+            | ['anonymous', 'use-credentials']
+        :param loop: Whether to loop the media resource
+            | Boolean attribute
+        :param muted: Whether to mute the media resource by default
+            | Boolean attribute
+        :param preload: Hints how much buffering the media resource will likely need
+            | ['none', 'metadata', 'auto']
+        :param src: Address of the resource
+            | Valid non-empty URL potentially surrounded by spaces
+        """
         super().__init__(
             "audio",
             void_element=False,
@@ -333,6 +444,15 @@ class b(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <b> element.
+        Description: Keywords
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "b",
             void_element=False,
@@ -365,6 +485,19 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <base> element.
+        Description: Base URL and default target navigable for hyperlinks and forms
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param href: Document base URL
+            | Valid URL potentially surrounded by spaces
+        :param target: Default navigable for hyperlink navigation and form submission
+            | Valid navigable target name or keyword
+        """
         super().__init__(
             "base",
             void_element=True,
@@ -397,6 +530,15 @@ class bdi(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <bdi> element.
+        Description: Text directionality isolation
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "bdi",
             void_element=False,
@@ -427,6 +569,15 @@ class bdo(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <bdo> element.
+        Description: Text directionality formatting
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "bdo",
             void_element=False,
@@ -458,6 +609,17 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <blockquote> element.
+        Description: A section quoted from another source
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param cite: Link to the source of the quotation or more information about the edit
+            | Valid URL potentially surrounded by spaces
+        """
         super().__init__(
             "blockquote",
             void_element=False,
@@ -507,6 +669,51 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <body> element.
+        Description: Document body
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param onafterprint: afterprint event handler for Window object
+            | Event handler content attribute
+        :param onbeforeprint: beforeprint event handler for Window object
+            | Event handler content attribute
+        :param onbeforeunload: beforeunload event handler for Window object
+            | Event handler content attribute
+        :param onhashchange: hashchange event handler for Window object
+            | Event handler content attribute
+        :param onlanguagechange: languagechange event handler for Window object
+            | Event handler content attribute
+        :param onmessage: message event handler for Window object
+            | Event handler content attribute
+        :param onmessageerror: messageerror event handler for Window object
+            | Event handler content attribute
+        :param onoffline: offline event handler for Window object
+            | Event handler content attribute
+        :param ononline: online event handler for Window object
+            | Event handler content attribute
+        :param onpagehide: pagehide event handler for Window object
+            | Event handler content attribute
+        :param onpagereveal: pagereveal event handler for Window object
+            | Event handler content attribute
+        :param onpageshow: pageshow event handler for Window object
+            | Event handler content attribute
+        :param onpageswap: pageswap event handler for Window object
+            | Event handler content attribute
+        :param onpopstate: popstate event handler for Window object
+            | Event handler content attribute
+        :param onrejectionhandled: rejectionhandled event handler for Window object
+            | Event handler content attribute
+        :param onstorage: storage event handler for Window object
+            | Event handler content attribute
+        :param onunhandledrejection: unhandledrejection event handler for Window object
+            | Event handler content attribute
+        :param onunload: unload event handler for Window object
+            | Event handler content attribute
+        """
         super().__init__(
             "body",
             void_element=False,
@@ -555,6 +762,15 @@ class br(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <br> element.
+        Description: Line break, e.g. in poem or postal address
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "br",
             void_element=True,
@@ -597,6 +813,39 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <button> element.
+        Description: Button control
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param disabled: Whether the form control is disabled
+            | Boolean attribute
+        :param form: Associates the element with a form element
+            | ID*
+        :param formaction: URL to use for form submission
+            | Valid non-empty URL potentially surrounded by spaces
+        :param formenctype: Entry list encoding type to use for form submission
+            | ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']
+        :param formmethod: Variant to use for form submission
+            | ['GET', 'POST', 'dialog']
+        :param formnovalidate: Bypass form control validation for form submission
+            | Boolean attribute
+        :param formtarget: Navigable for form submission
+            | Valid navigable target name or keyword
+        :param name: Name of the element to use for form submission and in the form.elements API
+            | Text*
+        :param popovertarget: Targets a popover element to toggle, show, or hide
+            | ID*
+        :param popovertargetaction: Indicates whether a targeted popover element is to be toggled, shown, or hidden
+            | ['toggle', 'show', 'hide']
+        :param type: Type of button
+            | ['submit', 'reset', 'button']
+        :param value: Value to be used for form submission
+            | Text
+        """
         super().__init__(
             "button",
             void_element=False,
@@ -641,6 +890,19 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <canvas> element.
+        Description: Scriptable bitmap canvas
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param height: Vertical dimension
+            | Valid non-negative integer
+        :param width: Horizontal dimension
+            | Valid non-negative integer
+        """
         super().__init__(
             "canvas",
             void_element=False,
@@ -673,6 +935,15 @@ class caption(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <caption> element.
+        Description: Table caption
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "caption",
             void_element=False,
@@ -703,6 +974,15 @@ class cite(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <cite> element.
+        Description: Title of a work
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "cite",
             void_element=False,
@@ -733,6 +1013,15 @@ class code(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <code> element.
+        Description: Computer code
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "code",
             void_element=False,
@@ -764,6 +1053,17 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <col> element.
+        Description: Table column
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param span: Number of columns spanned by the element
+            | Valid non-negative integer greater than zero
+        """
         super().__init__(
             "col",
             void_element=True,
@@ -796,6 +1096,17 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <colgroup> element.
+        Description: Group of columns in a table
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param span: Number of columns spanned by the element
+            | Valid non-negative integer greater than zero
+        """
         super().__init__(
             "colgroup",
             void_element=False,
@@ -828,6 +1139,17 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <data> element.
+        Description: Machine-readable equivalent
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param value: Machine-readable value
+            | Text*
+        """
         super().__init__(
             "data",
             void_element=False,
@@ -859,6 +1181,15 @@ class datalist(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <datalist> element.
+        Description: Container for options for combo box control
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "datalist",
             void_element=False,
@@ -889,6 +1220,15 @@ class dd(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <dd> element.
+        Description: Content for corresponding dt element(s)
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "dd",
             void_element=False,
@@ -921,6 +1261,19 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <del> element.
+        Description: A removal from the document
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param cite: Link to the source of the quotation or more information about the edit
+            | Valid URL potentially surrounded by spaces
+        :param datetime: Date and (optionally) time of the change
+            | Valid date string with optional time
+        """
         super().__init__(
             "del",
             void_element=False,
@@ -955,6 +1308,19 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <details> element.
+        Description: Disclosure control for hiding details
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param name: Name of group of mutually-exclusive details elements
+            | Text*
+        :param open: Whether the details are visible
+            | Boolean attribute
+        """
         super().__init__(
             "details",
             void_element=False,
@@ -987,6 +1353,15 @@ class dfn(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <dfn> element.
+        Description: Defining instance
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "dfn",
             void_element=False,
@@ -1018,6 +1393,17 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <dialog> element.
+        Description: Dialog box or window
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param open: Whether the dialog box is showing
+            | Boolean attribute
+        """
         super().__init__(
             "dialog",
             void_element=False,
@@ -1049,6 +1435,15 @@ class div(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <div> element.
+        Description: Generic flow container, or container for name-value groups in dl elements
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "div",
             void_element=False,
@@ -1079,6 +1474,15 @@ class dl(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <dl> element.
+        Description: Association list consisting of zero or more name-value groups
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "dl",
             void_element=False,
@@ -1109,6 +1513,15 @@ class dt(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <dt> element.
+        Description: Legend for corresponding dd element(s)
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "dt",
             void_element=False,
@@ -1139,6 +1552,15 @@ class em(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <em> element.
+        Description: Stress emphasis
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "em",
             void_element=False,
@@ -1173,6 +1595,23 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <embed> element.
+        Description: Plugin
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param height: Vertical dimension
+            | Valid non-negative integer
+        :param src: Address of the resource
+            | Valid non-empty URL potentially surrounded by spaces
+        :param type: Type of embedded resource
+            | Valid MIME type string
+        :param width: Horizontal dimension
+            | Valid non-negative integer
+        """
         super().__init__(
             "embed",
             void_element=True,
@@ -1210,6 +1649,21 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <fieldset> element.
+        Description: Group of form controls
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param disabled: Whether the descendant form controls, except any inside legend, are disabled
+            | Boolean attribute
+        :param form: Associates the element with a form element
+            | ID*
+        :param name: Name of the element to use for form submission and in the form.elements API
+            | Text*
+        """
         super().__init__(
             "fieldset",
             void_element=False,
@@ -1243,6 +1697,15 @@ class figcaption(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <figcaption> element.
+        Description: Caption for figure
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "figcaption",
             void_element=False,
@@ -1273,6 +1736,15 @@ class figure(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <figure> element.
+        Description: Figure with optional caption
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "figure",
             void_element=False,
@@ -1303,6 +1775,15 @@ class footer(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <footer> element.
+        Description: Footer for a page or section
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "footer",
             void_element=False,
@@ -1341,6 +1822,31 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <form> element.
+        Description: User-submittable form
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param accept_charset: Character encodings to use for form submission
+            | ASCII case-insensitive match for "UTF-8"
+        :param action: URL to use for form submission
+            | Valid non-empty URL potentially surrounded by spaces
+        :param autocomplete: Default setting for autofill feature for controls in the form
+            | ['on', 'off']
+        :param enctype: Entry list encoding type to use for form submission
+            | ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']
+        :param method: Variant to use for form submission
+            | ['GET', 'POST', 'dialog']
+        :param name: Name of form to use in the document.forms API
+            | Text*
+        :param novalidate: Bypass form control validation for form submission
+            | Boolean attribute
+        :param target: Navigable for form submission
+            | Valid navigable target name or keyword
+        """
         super().__init__(
             "form",
             void_element=False,
@@ -1379,6 +1885,15 @@ class h1(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <h1> element.
+        Description: Heading
+        Documentation: None
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "h1",
             void_element=False,
@@ -1409,6 +1924,15 @@ class h2(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <h2> element.
+        Description: Heading
+        Documentation: None
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "h2",
             void_element=False,
@@ -1439,6 +1963,15 @@ class h3(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <h3> element.
+        Description: Heading
+        Documentation: None
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "h3",
             void_element=False,
@@ -1469,6 +2002,15 @@ class h4(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <h4> element.
+        Description: Heading
+        Documentation: None
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "h4",
             void_element=False,
@@ -1499,6 +2041,15 @@ class h5(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <h5> element.
+        Description: Heading
+        Documentation: None
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "h5",
             void_element=False,
@@ -1529,6 +2080,15 @@ class h6(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <h6> element.
+        Description: Heading
+        Documentation: None
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "h6",
             void_element=False,
@@ -1559,6 +2119,15 @@ class head(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <head> element.
+        Description: Container for document metadata
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "head",
             void_element=False,
@@ -1589,6 +2158,15 @@ class header(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <header> element.
+        Description: Introductory or navigational aids for a page or section
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "header",
             void_element=False,
@@ -1619,6 +2197,15 @@ class hgroup(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <hgroup> element.
+        Description: Heading container
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "hgroup",
             void_element=False,
@@ -1649,6 +2236,15 @@ class hr(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <hr> element.
+        Description: Thematic break
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "hr",
             void_element=True,
@@ -1679,6 +2275,15 @@ class html(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <html> element.
+        Description: Root element
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "html",
             void_element=False,
@@ -1709,6 +2314,15 @@ class i(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <i> element.
+        Description: Alternate voice
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "i",
             void_element=False,
@@ -1749,6 +2363,35 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <iframe> element.
+        Description: Child navigable
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param allow: Permissions policy to be applied to the iframe's contents
+            | Serialized permissions policy
+        :param allowfullscreen: Whether to allow the iframe's contents to use requestFullscreen()
+            | Boolean attribute
+        :param height: Vertical dimension
+            | Valid non-negative integer
+        :param loading: Used when determining loading deferral
+            | ['lazy', 'eager']
+        :param name: Name of content navigable
+            | Valid navigable target name or keyword
+        :param referrerpolicy: Referrer policy for fetches initiated by the element
+            | Referrer policy
+        :param sandbox: Security rules for nested content
+            | Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads" "allow-forms" "allow-modals" "allow-orientation-lock" "allow-pointer-lock" "allow-popups" "allow-popups-to-escape-sandbox" "allow-presentation" "allow-same-origin" "allow-scripts" "allow-top-navigation" "allow-top-navigation-by-user-activation" "allow-top-navigation-to-custom-protocols"
+        :param src: Address of the resource
+            | Valid non-empty URL potentially surrounded by spaces
+        :param srcdoc: A document to render in the iframe
+            | The source of an iframe srcdoc document*
+        :param width: Horizontal dimension
+            | Valid non-negative integer
+        """
         super().__init__(
             "iframe",
             void_element=True,
@@ -1802,6 +2445,41 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <img> element.
+        Description: Image
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param alt: Replacement text for use when images are not available
+            | Text*
+        :param crossorigin: How the element handles crossorigin requests
+            | ['anonymous', 'use-credentials']
+        :param decoding: Decoding hint to use when processing this image for presentation
+            | ['sync', 'async', 'auto']
+        :param fetchpriority: Sets the priority for fetches initiated by the element
+            | ['auto', 'high', 'low']
+        :param height: Vertical dimension
+            | Valid non-negative integer
+        :param ismap: Whether the image is a server-side image map
+            | Boolean attribute
+        :param loading: Used when determining loading deferral
+            | ['lazy', 'eager']
+        :param referrerpolicy: Referrer policy for fetches initiated by the element
+            | Referrer policy
+        :param sizes: Image sizes for different page layouts
+            | Valid source size list
+        :param src: Address of the resource
+            | Valid non-empty URL potentially surrounded by spaces
+        :param srcset: Images to use in different situations, e.g., high-resolution displays, small monitors, etc.
+            | Comma-separated list of image candidate strings
+        :param usemap: Name of image map to use
+            | Valid hash-name reference*
+        :param width: Horizontal dimension
+            | Valid non-negative integer
+        """
         super().__init__(
             "img",
             void_element=True,
@@ -1880,6 +2558,85 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <input> element.
+        Description: Form control
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param accept: Hint for expected file type in file upload controls
+            | Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*
+        :param alpha: Allow the color's alpha component to be set
+            | Boolean attribute
+        :param alt: Replacement text for use when images are not available
+            | Text*
+        :param autocomplete: Hint for form autofill feature
+            | Autofill field name and related tokens*
+        :param checked: Whether the control is checked
+            | Boolean attribute
+        :param colorspace: The color space of the serialized color
+            | ['limited-srgb', 'display-p3']
+        :param dirname: Name of form control to use for sending the element's directionality in form submission
+            | Text*
+        :param disabled: Whether the form control is disabled
+            | Boolean attribute
+        :param form: Associates the element with a form element
+            | ID*
+        :param formaction: URL to use for form submission
+            | Valid non-empty URL potentially surrounded by spaces
+        :param formenctype: Entry list encoding type to use for form submission
+            | ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']
+        :param formmethod: Variant to use for form submission
+            | ['GET', 'POST', 'dialog']
+        :param formnovalidate: Bypass form control validation for form submission
+            | Boolean attribute
+        :param formtarget: Navigable for form submission
+            | Valid navigable target name or keyword
+        :param height: Vertical dimension
+            | Valid non-negative integer
+        :param list: List of autocomplete options
+            | ID*
+        :param max: Maximum value
+            | Varies*
+        :param maxlength: Maximum length of value
+            | Valid non-negative integer
+        :param min: Minimum value
+            | Varies*
+        :param minlength: Minimum length of value
+            | Valid non-negative integer
+        :param multiple: Whether to allow multiple values
+            | Boolean attribute
+        :param name: Name of the element to use for form submission and in the form.elements API
+            | Text*
+        :param pattern: Pattern to be matched by the form control's value
+            | Regular expression matching the JavaScript Pattern production
+        :param placeholder: User-visible label to be placed within the form control
+            | Text*
+        :param popovertarget: Targets a popover element to toggle, show, or hide
+            | ID*
+        :param popovertargetaction: Indicates whether a targeted popover element is to be toggled, shown, or hidden
+            | ['toggle', 'show', 'hide']
+        :param readonly: Whether to allow the value to be edited by the user
+            | Boolean attribute
+        :param required: Whether the control is required for form submission
+            | Boolean attribute
+        :param size: Size of the control
+            | Valid non-negative integer greater than zero
+        :param src: Address of the resource
+            | Valid non-empty URL potentially surrounded by spaces
+        :param step: Granularity to be matched by the form control's value
+            | Valid floating-point number greater than zero, or "any"
+        :param title: Description of pattern (when used with pattern attribute)
+            | Text
+        :param type: Type of form control
+            | input type keyword
+        :param value: Value of the form control
+            | Varies*
+        :param width: Horizontal dimension
+            | Valid non-negative integer
+        """
         super().__init__(
             "input",
             void_element=True,
@@ -1947,6 +2704,19 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <ins> element.
+        Description: An addition to the document
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param cite: Link to the source of the quotation or more information about the edit
+            | Valid URL potentially surrounded by spaces
+        :param datetime: Date and (optionally) time of the change
+            | Valid date string with optional time
+        """
         super().__init__(
             "ins",
             void_element=False,
@@ -1979,6 +2749,15 @@ class kbd(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <kbd> element.
+        Description: User input
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "kbd",
             void_element=False,
@@ -2010,6 +2789,17 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <label> element.
+        Description: Caption for a form control
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param for_: Associate the label with form control
+            | ID*
+        """
         super().__init__(
             "label",
             void_element=False,
@@ -2041,6 +2831,15 @@ class legend(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <legend> element.
+        Description: Caption for fieldset
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "legend",
             void_element=False,
@@ -2072,6 +2871,17 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <li> element.
+        Description: List item
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param value: Ordinal value of the list item
+            | Valid integer
+        """
         super().__init__(
             "li",
             void_element=False,
@@ -2120,6 +2930,51 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <link> element.
+        Description: Link metadata
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param as_: Potential destination for a preload request (for rel="preload" and rel="modulepreload")
+            | Potential destination, for rel="preload"; script-like destination, for rel="modulepreload"
+        :param blocking: Whether the element is potentially render-blocking
+            | Unordered set of unique space-separated tokens*
+        :param color: Color to use when customizing a site's icon (for rel="mask-icon")
+            | CSS <color>
+        :param crossorigin: How the element handles crossorigin requests
+            | ['anonymous', 'use-credentials']
+        :param disabled: Whether the link is disabled
+            | Boolean attribute
+        :param fetchpriority: Sets the priority for fetches initiated by the element
+            | ['auto', 'high', 'low']
+        :param href: Address of the hyperlink
+            | Valid non-empty URL potentially surrounded by spaces
+        :param hreflang: Language of the linked resource
+            | Valid BCP 47 language tag
+        :param imagesizes: Image sizes for different page layouts (for rel="preload")
+            | Valid source size list
+        :param imagesrcset: Images to use in different situations, e.g., high-resolution displays, small monitors, etc. (for rel="preload")
+            | Comma-separated list of image candidate strings
+        :param integrity: Integrity metadata used in Subresource Integrity checks [SRI]
+            | Text
+        :param media: Applicable media
+            | Valid media query list
+        :param referrerpolicy: Referrer policy for fetches initiated by the element
+            | Referrer policy
+        :param rel: Relationship between the document containing the hyperlink and the destination resource
+            | Unordered set of unique space-separated tokens*
+        :param sizes: Sizes of the icons (for rel="icon")
+            | Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of sizes*
+        :param title: Title of the link
+            | Text
+        :param title: CSS style sheet set name
+            | Text
+        :param type: Hint for the type of the referenced resource
+            | Valid MIME type string
+        """
         super().__init__(
             "link",
             void_element=True,
@@ -2167,6 +3022,15 @@ class main(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <main> element.
+        Description: Container for the dominant contents of the document
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "main",
             void_element=False,
@@ -2198,6 +3062,17 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <map> element.
+        Description: Image map
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param name: Name of image map to reference from the usemap attribute
+            | Text*
+        """
         super().__init__(
             "map",
             void_element=False,
@@ -2229,6 +3104,15 @@ class mark(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <mark> element.
+        Description: Highlight
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "mark",
             void_element=False,
@@ -2259,6 +3143,15 @@ class menu(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <menu> element.
+        Description: Menu of commands
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "menu",
             void_element=False,
@@ -2294,6 +3187,25 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <meta> element.
+        Description: Text metadata
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param charset: Character encoding declaration
+            | ['utf-8']
+        :param content: Value of the element
+            | Text*
+        :param http_equiv: Pragma directive
+            | ['content-type', 'default-style', 'refresh', 'x-ua-compatible', 'content-security-policy']
+        :param media: Applicable media
+            | Valid media query list
+        :param name: Metadata name
+            | Text*
+        """
         super().__init__(
             "meta",
             void_element=True,
@@ -2335,6 +3247,27 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <meter> element.
+        Description: Gauge
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param high: Low limit of high range
+            | Valid floating-point number*
+        :param low: High limit of low range
+            | Valid floating-point number*
+        :param max: Upper bound of range
+            | Valid floating-point number*
+        :param min: Lower bound of range
+            | Valid floating-point number*
+        :param optimum: Optimum value in gauge
+            | Valid floating-point number*
+        :param value: Current value of the element
+            | Valid floating-point number
+        """
         super().__init__(
             "meter",
             void_element=False,
@@ -2371,6 +3304,15 @@ class nav(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <nav> element.
+        Description: Section with navigational links
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "nav",
             void_element=False,
@@ -2401,6 +3343,15 @@ class noscript(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <noscript> element.
+        Description: Fallback content for script
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "noscript",
             void_element=False,
@@ -2437,6 +3388,27 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <object> element.
+        Description: Image, child navigable, or plugin
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param data: Address of the resource
+            | Valid non-empty URL potentially surrounded by spaces
+        :param form: Associates the element with a form element
+            | ID*
+        :param height: Vertical dimension
+            | Valid non-negative integer
+        :param name: Name of content navigable
+            | Valid navigable target name or keyword
+        :param type: Type of embedded resource
+            | Valid MIME type string
+        :param width: Horizontal dimension
+            | Valid non-negative integer
+        """
         super().__init__(
             "object",
             void_element=False,
@@ -2476,6 +3448,21 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <ol> element.
+        Description: Ordered list
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param reversed: Number the list backwards
+            | Boolean attribute
+        :param start: Starting value of the list
+            | Valid integer
+        :param type: Kind of list marker
+            | ['1', 'a', 'A', 'i', 'I']
+        """
         super().__init__(
             "ol",
             void_element=False,
@@ -2511,6 +3498,19 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <optgroup> element.
+        Description: Group of options in a list box
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param disabled: Whether the form control is disabled
+            | Boolean attribute
+        :param label: User-visible label
+            | Text
+        """
         super().__init__(
             "optgroup",
             void_element=False,
@@ -2547,6 +3547,23 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <option> element.
+        Description: Option in a list box or combo box control
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param disabled: Whether the form control is disabled
+            | Boolean attribute
+        :param label: User-visible label
+            | Text
+        :param selected: Whether the option is selected by default
+            | Boolean attribute
+        :param value: Value to be used for form submission
+            | Text
+        """
         super().__init__(
             "option",
             void_element=False,
@@ -2584,6 +3601,21 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <output> element.
+        Description: Calculated output value
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param for_: Specifies controls from which the output was calculated
+            | Unordered set of unique space-separated tokens consisting of IDs*
+        :param form: Associates the element with a form element
+            | ID*
+        :param name: Name of the element to use for form submission and in the form.elements API
+            | Text*
+        """
         super().__init__(
             "output",
             void_element=False,
@@ -2617,6 +3649,15 @@ class p(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <p> element.
+        Description: Paragraph
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "p",
             void_element=False,
@@ -2647,6 +3688,15 @@ class picture(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <picture> element.
+        Description: Image
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "picture",
             void_element=False,
@@ -2677,6 +3727,15 @@ class pre(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <pre> element.
+        Description: Block of preformatted text
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "pre",
             void_element=False,
@@ -2709,6 +3768,19 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <progress> element.
+        Description: Progress bar
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param max: Upper bound of range
+            | Valid floating-point number*
+        :param value: Current value of the element
+            | Valid floating-point number
+        """
         super().__init__(
             "progress",
             void_element=False,
@@ -2742,6 +3814,17 @@ class q(BaseElement, GlobalAttrs, QAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <q> element.
+        Description: Quotation
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param cite: Link to the source of the quotation or more information about the edit
+            | Valid URL potentially surrounded by spaces
+        """
         super().__init__(
             "q",
             void_element=False,
@@ -2773,6 +3856,15 @@ class rp(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <rp> element.
+        Description: Parenthesis for ruby annotation text
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "rp",
             void_element=False,
@@ -2803,6 +3895,15 @@ class rt(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <rt> element.
+        Description: Ruby annotation text
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "rt",
             void_element=False,
@@ -2833,6 +3934,15 @@ class ruby(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <ruby> element.
+        Description: Ruby annotation(s)
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "ruby",
             void_element=False,
@@ -2863,6 +3973,15 @@ class s(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <s> element.
+        Description: Inaccurate text
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "s",
             void_element=False,
@@ -2893,6 +4012,15 @@ class samp(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <samp> element.
+        Description: Computer output
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "samp",
             void_element=False,
@@ -2933,6 +4061,35 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <script> element.
+        Description: Embedded script
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param async_: Execute script when available, without blocking while fetching
+            | Boolean attribute
+        :param blocking: Whether the element is potentially render-blocking
+            | Unordered set of unique space-separated tokens*
+        :param crossorigin: How the element handles crossorigin requests
+            | ['anonymous', 'use-credentials']
+        :param defer: Defer script execution
+            | Boolean attribute
+        :param fetchpriority: Sets the priority for fetches initiated by the element
+            | ['auto', 'high', 'low']
+        :param integrity: Integrity metadata used in Subresource Integrity checks [SRI]
+            | Text
+        :param nomodule: Prevents execution in user agents that support module scripts
+            | Boolean attribute
+        :param referrerpolicy: Referrer policy for fetches initiated by the element
+            | Referrer policy
+        :param src: Address of the resource
+            | Valid non-empty URL potentially surrounded by spaces
+        :param type: Type of script
+            | "module"; a valid MIME type string that is not a JavaScript MIME type essence match
+        """
         super().__init__(
             "script",
             void_element=False,
@@ -2973,6 +4130,15 @@ class search(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <search> element.
+        Description: Container for search controls
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "search",
             void_element=False,
@@ -3003,6 +4169,15 @@ class section(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <section> element.
+        Description: Generic document or application section
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "section",
             void_element=False,
@@ -3040,6 +4215,29 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <select> element.
+        Description: List box control
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param autocomplete: Hint for form autofill feature
+            | Autofill field name and related tokens*
+        :param disabled: Whether the form control is disabled
+            | Boolean attribute
+        :param form: Associates the element with a form element
+            | ID*
+        :param multiple: Whether to allow multiple values
+            | Boolean attribute
+        :param name: Name of the element to use for form submission and in the form.elements API
+            | Text*
+        :param required: Whether the control is required for form submission
+            | Boolean attribute
+        :param size: Size of the control
+            | Valid non-negative integer greater than zero
+        """
         super().__init__(
             "select",
             void_element=False,
@@ -3078,6 +4276,17 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <slot> element.
+        Description: Shadow tree slot
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param name: Name of shadow tree slot
+            | Text
+        """
         super().__init__(
             "slot",
             void_element=False,
@@ -3109,6 +4318,15 @@ class small(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <small> element.
+        Description: Side comment
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "small",
             void_element=False,
@@ -3146,6 +4364,29 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <source> element.
+        Description: Image source for img or media source for video or audio
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param height: Vertical dimension
+            | Valid non-negative integer
+        :param media: Applicable media
+            | Valid media query list
+        :param sizes: Image sizes for different page layouts
+            | Valid source size list
+        :param src: Address of the resource
+            | Valid non-empty URL potentially surrounded by spaces
+        :param srcset: Images to use in different situations, e.g., high-resolution displays, small monitors, etc.
+            | Comma-separated list of image candidate strings
+        :param type: Type of embedded resource
+            | Valid MIME type string
+        :param width: Horizontal dimension
+            | Valid non-negative integer
+        """
         super().__init__(
             "source",
             void_element=True,
@@ -3183,6 +4424,15 @@ class span(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <span> element.
+        Description: Generic phrasing container
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "span",
             void_element=False,
@@ -3213,6 +4463,15 @@ class strong(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <strong> element.
+        Description: Importance
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "strong",
             void_element=False,
@@ -3246,6 +4505,21 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <style> element.
+        Description: Embedded styling information
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param blocking: Whether the element is potentially render-blocking
+            | Unordered set of unique space-separated tokens*
+        :param media: Applicable media
+            | Valid media query list
+        :param title: CSS style sheet set name
+            | Text
+        """
         super().__init__(
             "style",
             void_element=False,
@@ -3279,6 +4553,15 @@ class sub(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <sub> element.
+        Description: Subscript
+        Documentation: None
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "sub",
             void_element=False,
@@ -3309,6 +4592,15 @@ class summary(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <summary> element.
+        Description: Caption for details
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "summary",
             void_element=False,
@@ -3339,6 +4631,15 @@ class sup(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <sup> element.
+        Description: Superscript
+        Documentation: None
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "sup",
             void_element=False,
@@ -3369,6 +4670,15 @@ class svg(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <svg> element.
+        Description: SVG root
+        Documentation: None
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "svg",
             void_element=False,
@@ -3399,6 +4709,15 @@ class table(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <table> element.
+        Description: Table
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "table",
             void_element=False,
@@ -3429,6 +4748,15 @@ class tbody(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <tbody> element.
+        Description: Group of rows in a table
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "tbody",
             void_element=False,
@@ -3462,6 +4790,21 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <td> element.
+        Description: Table cell
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param colspan: Number of columns that the cell is to span
+            | Valid non-negative integer greater than zero
+        :param headers: The header cells for this cell
+            | Unordered set of unique space-separated tokens consisting of IDs*
+        :param rowspan: Number of rows that the cell is to span
+            | Valid non-negative integer
+        """
         super().__init__(
             "td",
             void_element=False,
@@ -3503,6 +4846,23 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <template> element.
+        Description: Template
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param shadowrootclonable: Sets clonable on a declarative shadow root
+            | Boolean attribute
+        :param shadowrootdelegatesfocus: Sets delegates focus on a declarative shadow root
+            | Boolean attribute
+        :param shadowrootmode: Enables streaming declarative shadow roots
+            | ['open', 'closed']
+        :param shadowrootserializable: Sets serializable on a declarative shadow root
+            | Boolean attribute
+        """
         super().__init__(
             "template",
             void_element=True,
@@ -3550,6 +4910,41 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <textarea> element.
+        Description: Multiline text controls
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param autocomplete: Hint for form autofill feature
+            | Autofill field name and related tokens*
+        :param cols: Maximum number of characters per line
+            | Valid non-negative integer greater than zero
+        :param dirname: Name of form control to use for sending the element's directionality in form submission
+            | Text*
+        :param disabled: Whether the form control is disabled
+            | Boolean attribute
+        :param form: Associates the element with a form element
+            | ID*
+        :param maxlength: Maximum length of value
+            | Valid non-negative integer
+        :param minlength: Minimum length of value
+            | Valid non-negative integer
+        :param name: Name of the element to use for form submission and in the form.elements API
+            | Text*
+        :param placeholder: User-visible label to be placed within the form control
+            | Text*
+        :param readonly: Whether to allow the value to be edited by the user
+            | Boolean attribute
+        :param required: Whether the control is required for form submission
+            | Boolean attribute
+        :param rows: Number of lines to show
+            | Valid non-negative integer greater than zero
+        :param wrap: How the value of the form control is to be wrapped for form submission
+            | ['soft', 'hard']
+        """
         super().__init__(
             "textarea",
             void_element=False,
@@ -3593,6 +4988,15 @@ class tfoot(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <tfoot> element.
+        Description: Group of footer rows in a table
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "tfoot",
             void_element=False,
@@ -3628,6 +5032,25 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <th> element.
+        Description: Table header cell
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param abbr: Alternative label to use for the header cell when referencing the cell in other contexts
+            | Text*
+        :param colspan: Number of columns that the cell is to span
+            | Valid non-negative integer greater than zero
+        :param headers: The header cells for this cell
+            | Unordered set of unique space-separated tokens consisting of IDs*
+        :param rowspan: Number of rows that the cell is to span
+            | Valid non-negative integer
+        :param scope: Specifies which cells the header cell applies to
+            | ['row', 'col', 'rowgroup', 'colgroup']
+        """
         super().__init__(
             "th",
             void_element=False,
@@ -3663,6 +5086,15 @@ class thead(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <thead> element.
+        Description: Group of heading rows in a table
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "thead",
             void_element=False,
@@ -3694,6 +5126,17 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <time> element.
+        Description: Machine-readable equivalent of date- or time-related data
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param datetime: Machine-readable value
+            | Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string
+        """
         super().__init__(
             "time",
             void_element=False,
@@ -3725,6 +5168,15 @@ class title(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <title> element.
+        Description: Document title
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "title",
             void_element=False,
@@ -3755,6 +5207,15 @@ class tr(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <tr> element.
+        Description: Table row
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "tr",
             void_element=False,
@@ -3790,6 +5251,25 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <track> element.
+        Description: Timed text track
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param default: Enable the track if no other text track is more suitable
+            | Boolean attribute
+        :param kind: The type of text track
+            | ['subtitles', 'captions', 'descriptions', 'chapters', 'metadata']
+        :param label: User-visible label
+            | Text
+        :param src: Address of the resource
+            | Valid non-empty URL potentially surrounded by spaces
+        :param srclang: Language of the text track
+            | Valid BCP 47 language tag
+        """
         super().__init__(
             "track",
             void_element=True,
@@ -3825,6 +5305,15 @@ class u(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <u> element.
+        Description: Unarticulated annotation
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "u",
             void_element=False,
@@ -3855,6 +5344,15 @@ class ul(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <ul> element.
+        Description: List
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "ul",
             void_element=False,
@@ -3885,6 +5383,15 @@ class var(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <var> element.
+        Description: Variable
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "var",
             void_element=False,
@@ -3926,6 +5433,37 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <video> element.
+        Description: Video player
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        :param autoplay: Hint that the media resource can be started automatically when the page is loaded
+            | Boolean attribute
+        :param controls: Show user agent controls
+            | Boolean attribute
+        :param crossorigin: How the element handles crossorigin requests
+            | ['anonymous', 'use-credentials']
+        :param height: Vertical dimension
+            | Valid non-negative integer
+        :param loop: Whether to loop the media resource
+            | Boolean attribute
+        :param muted: Whether to mute the media resource by default
+            | Boolean attribute
+        :param playsinline: Encourage the user agent to display video content within the element's playback area
+            | Boolean attribute
+        :param poster: Poster frame to show prior to video playback
+            | Valid non-empty URL potentially surrounded by spaces
+        :param preload: Hints how much buffering the media resource will likely need
+            | ['none', 'metadata', 'auto']
+        :param src: Address of the resource
+            | Valid non-empty URL potentially surrounded by spaces
+        :param width: Horizontal dimension
+            | Valid non-negative integer
+        """
         super().__init__(
             "video",
             void_element=False,
@@ -3967,6 +5505,15 @@ class wbr(BaseElement, GlobalAttrs):
         attrs: attr_type = None,
         children: list = None,
     ) -> None:
+        """
+        Initialize a <wbr> element.
+        Description: Line breaking opportunity
+        Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr
+
+        :param id: The ID of the element
+        :param class_ The class of the element
+        :param attrs: A list or dictionary of attributes for the element
+        """
         super().__init__(
             "wbr",
             void_element=True,

@@ -121,3 +121,17 @@ def test_doc():
             ]
         ].render()
     )
+    # h.form(enctype=h.form.enctype()
+
+
+def test_generic_attr():
+    from html_compose.attributes import BaseAttribute
+
+    el = div(
+        attrs={
+            "data-foo": "bar",
+        }
+    )
+    assert el.render() == '<div data-foo="bar"></div>'
+    el = div(attrs=[BaseAttribute("data-foo", "bar")])
+    assert el.render() == '<div data-foo="bar"></div>'

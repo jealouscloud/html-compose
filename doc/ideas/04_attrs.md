@@ -1,34 +1,139 @@
 # Idea
-There are multiple ways to design attribute setting for an html element i.e.
+There are multiple ways to define attributes for an html element i.e.
 
 ```python
+from html_compose import div
+is_error = False
+
+# keyword arg syntax (preferred)
+# note that attrs that conflict with python keywords
+# have an underscore_ appended. This was chosen so autocomplete still works.
+
+div(class_="flex")
+div(class_=["flex", "items-center"])
+div(class_={
+    "flex": True,
+    "error": is_error == True
+})
+div(class_=div.class("flex"))
+
+# attrs dict syntax
+div(attrs={"class": "flex"})
+div(attrs={"class": ["flex"]})
+div(attrs={"class": {
+    "flex": True,
+    "error": is_error
+}})
+
+# Also technically works
+div(attrs={"class": div.class("flex")})
+
+# attrs list syntax
+div(attrs=[div.class("flex")])
+div(attrs=[div.class(["flex", "items-center"])])
+div(attrs=[div.class({
+    "flex": True,
+    "error": is_error == True
+})])
+
+
+```
+
+## BaseAttribute
+All attributes inherit BaseAttribute which defines a key and a value and resolves at render time.
+
+The class attribute and style attribute have rules to split by their correct delimeter.
+
+```python
+from html_compose import div
 is_red = False
 # dict of dicts str:bool
 # truthy = rendered
 # falsey = ignored
-div(attrs={
-    "class": {
+
+div.class_({
         'red': is_red,
         'blue': not is_red
     }
+)
+# "blue"
+
+# list of values (joined by whitespace)
+div.class_(["red", "center"])
+# "red center"
+
+div.class_("red")
+# "red"
+```
+
+## attrs= parameter syntax
+
+In the constructor for any element you can specify the attrs paramter.
+
+It can be either a list or a dictionary.
+
+### list
+```python
+from html_compose.elements import a, div
+
+div(attrs=[div.class_("red")])
+
+a(attrs=[
+    a.href("https://google.com"),
+    a.tabindex(1),
+    a.class_(["flex", "flex-col"])
+]
+)
+
+# string / list of string is explicitly NOT supported
+# it requires disabling sanitization and is therefore quietly prone to XSS
+div(attrs=['class="red"']) # ❌
+```
+
+### dict
+
+```python
+a(attrs={
+    "href": a.href("https://google.com")
+    "tabindex': 1
 })
 
-# dict of lists (the lists are joined with whitespace)
-div[attrs={
-    "class": ["red", "center"]
-}]
-
-# dict of strs
 div(attrs={
     "class": "red"
 })
 
-# list of BaseAttribute
-div(attrs=[div.class_("red")])
 
-# string / list of string is explicitly NOT supported
 
-# it requires disabling sanitization and is therefore quietly prone to XSS
-div(attrs=['class="red"']) # ❌
-
+div(attrs={
+    "class": ["flex", "items-center"]
+})
 ```
+
+## Keyword argument extension
+An extention of the attr syntax was generated for all built-in HTML elements. It would be time-consuming to do this for custom element types, but code generation leans well into this case.
+
+Traditionally, kwargs would be too non-descript to provide helpful editor hints.
+
+To aid with fluent document writing, each element was generated with its attributes and a paired docstring
+i.e.
+`:param href: Address of the hyperlink`
+
+```python
+a(href="https://google.com", tabindex=1)
+```
+
+Under the hood, it's all translated to the BaseAttribute class before rendering. 
+# Breakdown
+
+There's a number of options for declaring an attribute value defined below. These are to aid in very common operations such as building a `class` string.
+
+## Attribute definitions
+Care was put into generating attribute definitions for each class.
+
+Anything found in the HTML specification document is available in an element's cousin attribute class.
+
+i.e. the `img` class has a cousin class `ImgAttrs`.
+
+We can access the definition of an attribute for that element via `ImgAttrs.$attr` i.e. `ImgAttrs.alt(value="demo")`. Each element, like `img`, is an inheritor of its sibling attrs class  - `img` inherits `ImgAttrs` so you can access the same definition via `img.alt("...")`.
+
+The purpose of this system is to provide full type hints.

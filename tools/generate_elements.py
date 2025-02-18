@@ -47,12 +47,25 @@ def gen_elements():
             attr_class = "GlobalAttrs"
             extra_attrs = ""
             attr_assignment = ""
+            attr_docstrings = [
+                ":param id: The ID of the element",
+                ":param class_ The class of the element",
+                ":param attrs: A list or dictionary of attributes for the element",
+            ]
+
             if attrs != "globals":
                 attr_class = f"{attr_name}Attrs"
                 attr_string = f", {attr_class}"
                 attr_imports.append(attr_class)
                 attr_list = _spec["attributes"]
                 if attr_list:
+                    for attr in attr_list:
+                        attr_name = attr["Attribute"]
+
+                        attr_docstrings.append(
+                            f":param {safe_name(attr_name)}: {attr['Description']}"
+                        )
+                        attr_docstrings.append(f"    | {attr['Value']}")
                     attr_list = sorted(set(x["Attribute"] for x in attr_list))
                     extra_attrs = "\n".join(
                         [
@@ -96,6 +109,13 @@ def gen_elements():
                 "        attrs: attr_type = None,",
                 "        children: list = None",
                 "    ) -> None:",
+                '        """',
+                f"        Initialize a <{real_element}> element.",
+                f"        Description: {desc}",
+                f"        Documentation: {docs}",
+                "",
+                "        " + "\n        ".join(attr_docstrings),
+                '        """',
                 "        super().__init__(",
                 f'            "{real_element}",',
                 f"            void_element={is_void_element},",

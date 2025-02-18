@@ -44,7 +44,8 @@ The code base is littered with "**Magic**"" decisions to make your life easier, 
 ### Children
 
 The children iterator/resolver makes some decisions to marshal input into strings
-
+- All text elements and attribute values are escaped by default to prevent XSS
+  - To inject unsafe text it must explicitly be marked unsafe via `html_compose.unsafe_text`.
 - bools are translated to string `true`/`false`
 - floats passed as-is are converted to strings using a fixed precision. The default is defined in `ElementBase.FLOAT_PRECISION` and can be overridden in two ways
   - Set `ElementBase.FLOAT_PRECISION` to the desired value - global
