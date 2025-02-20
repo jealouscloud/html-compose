@@ -72,6 +72,13 @@ In the constructor for any element you can specify the attrs paramter.
 
 It can be either a list or a dictionary.
 
+### Positional argument caveat
+Although the documentation is explicit in using the `attrs` kwarg, `attrs` is
+actually the first argument of the constructor and can be excluded i.e.
+```python
+div({"class": "flex"})
+```
+
 ### list
 ```python
 from html_compose.elements import a, div
@@ -122,7 +129,9 @@ i.e.
 a(href="https://google.com", tabindex=1)
 ```
 
-Under the hood, it's all translated to the BaseAttribute class before rendering. 
+Under the hood, it's all translated to the BaseAttribute class and the value is
+escaped before rendering.
+
 # Breakdown
 
 There's a number of options for declaring an attribute value defined below. These are to aid in very common operations such as building a `class` string.
