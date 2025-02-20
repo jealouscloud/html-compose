@@ -67,9 +67,9 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
         Initialize '<a>' (Hyperlink) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param download: Whether to download the resource instead of navigating to it, and its filename if so
         :param href: Address of the hyperlink
             | Valid URL potentially surrounded by spaces
@@ -254,9 +254,9 @@ class abbr(BaseElement, GlobalAttrs):
         Initialize '<abbr>' (Abbreviation) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -410,9 +410,9 @@ class address(BaseElement, GlobalAttrs):
         Initialize '<address>' (Contact information for a page or article element) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -575,9 +575,9 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
         Initialize '<area>' (Hyperlink or dead area on an image map) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param alt: Replacement text for use when images are not available
         :param coords: Coordinates for the shape to be created in an image map
             | Valid list of floating-point numbers*
@@ -764,9 +764,9 @@ class article(BaseElement, GlobalAttrs):
         Initialize '<article>' (Self-contained syndicatable or reusable composition) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -920,9 +920,9 @@ class aside(BaseElement, GlobalAttrs):
         Initialize '<aside>' (Sidebar for tangentially related content) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -1083,9 +1083,9 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
         Initialize '<audio>' (Audio player) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param autoplay: Hint that the media resource can be started automatically when the page is loaded
         :param controls: Show user agent controls
         :param crossorigin: How the element handles crossorigin requests
@@ -1261,9 +1261,9 @@ class b(BaseElement, GlobalAttrs):
         Initialize '<b>' (Keywords) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -1419,9 +1419,9 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
         Initialize '<base>' (Base URL and default target navigable for hyperlinks and forms) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param href: Document base URL
             | Valid URL potentially surrounded by spaces
         :param target: Default navigable for hyperlink navigation and form submission
@@ -1583,9 +1583,9 @@ class bdi(BaseElement, GlobalAttrs):
         Initialize '<bdi>' (Text directionality isolation) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -1739,9 +1739,9 @@ class bdo(BaseElement, GlobalAttrs):
         Initialize '<bdo>' (Text directionality formatting) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -1896,9 +1896,9 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
         Initialize '<blockquote>' (A section quoted from another source) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param cite: Link to the source of the quotation or more information about the edit
             | Valid URL potentially surrounded by spaces
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -2056,9 +2056,9 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
         Initialize '<body>' (Document body) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -2212,9 +2212,9 @@ class br(BaseElement, GlobalAttrs):
         Initialize '<br>' (Line break, e.g. in poem or postal address) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -2380,9 +2380,9 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
         Initialize '<button>' (Button control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param disabled: Whether the form control is disabled
         :param form: Associates the element with a form element
             | ID*
@@ -2578,9 +2578,9 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
         Initialize '<canvas>' (Scriptable bitmap canvas) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param height: Vertical dimension
         :param width: Horizontal dimension
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -2740,9 +2740,9 @@ class caption(BaseElement, GlobalAttrs):
         Initialize '<caption>' (Table caption) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -2896,9 +2896,9 @@ class cite(BaseElement, GlobalAttrs):
         Initialize '<cite>' (Title of a work) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -3052,9 +3052,9 @@ class code(BaseElement, GlobalAttrs):
         Initialize '<code>' (Computer code) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -3209,9 +3209,9 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
         Initialize '<col>' (Table column) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param span: Number of columns spanned by the element
             | Valid non-negative integer greater than zero
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -3370,9 +3370,9 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
         Initialize '<colgroup>' (Group of columns in a table) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param span: Number of columns spanned by the element
             | Valid non-negative integer greater than zero
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -3531,9 +3531,9 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
         Initialize '<data>' (Machine-readable equivalent) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param value: Machine-readable value
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
@@ -3690,9 +3690,9 @@ class datalist(BaseElement, GlobalAttrs):
         Initialize '<datalist>' (Container for options for combo box control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -3846,9 +3846,9 @@ class dd(BaseElement, GlobalAttrs):
         Initialize '<dd>' (Content for corresponding dt element(s)) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -4004,9 +4004,9 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
         Initialize '<del>' (A removal from the document) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param cite: Link to the source of the quotation or more information about the edit
             | Valid URL potentially surrounded by spaces
         :param datetime: Date and (optionally) time of the change
@@ -4170,9 +4170,9 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
         Initialize '<details>' (Disclosure control for hiding details) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param name: Name of group of mutually-exclusive details elements
         :param open: Whether the details are visible
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -4332,9 +4332,9 @@ class dfn(BaseElement, GlobalAttrs):
         Initialize '<dfn>' (Defining instance) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -4489,9 +4489,9 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
         Initialize '<dialog>' (Dialog box or window) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param open: Whether the dialog box is showing
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
@@ -4648,9 +4648,9 @@ class div(BaseElement, GlobalAttrs):
         Initialize '<div>' (Generic flow container, or container for name-value groups in dl elements) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -4804,9 +4804,9 @@ class dl(BaseElement, GlobalAttrs):
         Initialize '<dl>' (Association list consisting of zero or more name-value groups) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -4960,9 +4960,9 @@ class dt(BaseElement, GlobalAttrs):
         Initialize '<dt>' (Legend for corresponding dd element(s)) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -5116,9 +5116,9 @@ class em(BaseElement, GlobalAttrs):
         Initialize '<em>' (Stress emphasis) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -5276,9 +5276,9 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
         Initialize '<embed>' (Plugin) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param height: Vertical dimension
         :param src: Address of the resource
             | Valid non-empty URL potentially surrounded by spaces
@@ -5449,9 +5449,9 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
         Initialize '<fieldset>' (Group of form controls) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param disabled: Whether the descendant form controls, except any inside legend, are disabled
         :param form: Associates the element with a form element
             | ID*
@@ -5615,9 +5615,9 @@ class figcaption(BaseElement, GlobalAttrs):
         Initialize '<figcaption>' (Caption for figure) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -5771,9 +5771,9 @@ class figure(BaseElement, GlobalAttrs):
         Initialize '<figure>' (Figure with optional caption) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -5927,9 +5927,9 @@ class footer(BaseElement, GlobalAttrs):
         Initialize '<footer>' (Footer for a page or section) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -6091,9 +6091,9 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
         Initialize '<form>' (User-submittable form) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accept_charset: Character encodings to use for form submission
             | ASCII case-insensitive match for "UTF-8"
         :param action: URL to use for form submission
@@ -6274,9 +6274,9 @@ class h1(BaseElement, GlobalAttrs):
         Initialize '<h1>' (Heading) element.
         Documentation: None
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -6430,9 +6430,9 @@ class h2(BaseElement, GlobalAttrs):
         Initialize '<h2>' (Heading) element.
         Documentation: None
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -6586,9 +6586,9 @@ class h3(BaseElement, GlobalAttrs):
         Initialize '<h3>' (Heading) element.
         Documentation: None
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -6742,9 +6742,9 @@ class h4(BaseElement, GlobalAttrs):
         Initialize '<h4>' (Heading) element.
         Documentation: None
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -6898,9 +6898,9 @@ class h5(BaseElement, GlobalAttrs):
         Initialize '<h5>' (Heading) element.
         Documentation: None
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7054,9 +7054,9 @@ class h6(BaseElement, GlobalAttrs):
         Initialize '<h6>' (Heading) element.
         Documentation: None
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7210,9 +7210,9 @@ class head(BaseElement, GlobalAttrs):
         Initialize '<head>' (Container for document metadata) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7366,9 +7366,9 @@ class header(BaseElement, GlobalAttrs):
         Initialize '<header>' (Introductory or navigational aids for a page or section) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7522,9 +7522,9 @@ class hgroup(BaseElement, GlobalAttrs):
         Initialize '<hgroup>' (Heading container) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7678,9 +7678,9 @@ class hr(BaseElement, GlobalAttrs):
         Initialize '<hr>' (Thematic break) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7834,9 +7834,9 @@ class html(BaseElement, GlobalAttrs):
         Initialize '<html>' (Root element) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7990,9 +7990,9 @@ class i(BaseElement, GlobalAttrs):
         Initialize '<i>' (Alternate voice) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -8156,9 +8156,9 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
         Initialize '<iframe>' (Child navigable) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param allow: Permissions policy to be applied to the iframe's contents
             | Serialized permissions policy
         :param allowfullscreen: Whether to allow the iframe's contents to use requestFullscreen()
@@ -8361,9 +8361,9 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         Initialize '<img>' (Image) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param alt: Replacement text for use when images are not available
         :param crossorigin: How the element handles crossorigin requests
         :param decoding: Decoding hint to use when processing this image for presentation
@@ -8595,9 +8595,9 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
         Initialize '<input>' (Form control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accept: Hint for expected file type in file upload controls
             | Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*
         :param alpha: Allow the color's alpha component to be set
@@ -8869,9 +8869,9 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
         Initialize '<ins>' (An addition to the document) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param cite: Link to the source of the quotation or more information about the edit
             | Valid URL potentially surrounded by spaces
         :param datetime: Date and (optionally) time of the change
@@ -9033,9 +9033,9 @@ class kbd(BaseElement, GlobalAttrs):
         Initialize '<kbd>' (User input) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -9190,9 +9190,9 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
         Initialize '<label>' (Caption for a form control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param for_: Associate the label with form control
             | ID*
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -9350,9 +9350,9 @@ class legend(BaseElement, GlobalAttrs):
         Initialize '<legend>' (Caption for fieldset) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -9507,9 +9507,9 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
         Initialize '<li>' (List item) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param value: Ordinal value of the list item
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
@@ -9682,9 +9682,9 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
         Initialize '<link>' (Link metadata) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param as_: Potential destination for a preload request (for rel="preload" and rel="modulepreload")
             | Potential destination, for rel="preload"; script-like destination, for rel="modulepreload"
         :param blocking: Whether the element is potentially render-blocking
@@ -9899,9 +9899,9 @@ class main(BaseElement, GlobalAttrs):
         Initialize '<main>' (Container for the dominant contents of the document) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -10056,9 +10056,9 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
         Initialize '<map>' (Image map) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param name: Name of image map to reference from the usemap attribute
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
@@ -10215,9 +10215,9 @@ class mark(BaseElement, GlobalAttrs):
         Initialize '<mark>' (Highlight) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -10371,9 +10371,9 @@ class menu(BaseElement, GlobalAttrs):
         Initialize '<menu>' (Menu of commands) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -10532,9 +10532,9 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
         Initialize '<meta>' (Text metadata) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param charset: Character encoding declaration
         :param content: Value of the element
         :param http_equiv: Pragma directive
@@ -10710,9 +10710,9 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
         Initialize '<meter>' (Gauge) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param high: Low limit of high range
         :param low: High limit of low range
         :param max: Upper bound of range
@@ -10884,9 +10884,9 @@ class nav(BaseElement, GlobalAttrs):
         Initialize '<nav>' (Section with navigational links) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -11040,9 +11040,9 @@ class noscript(BaseElement, GlobalAttrs):
         Initialize '<noscript>' (Fallback content for script) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -11202,9 +11202,9 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
         Initialize '<object>' (Image, child navigable, or plugin) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param data: Address of the resource
             | Valid non-empty URL potentially surrounded by spaces
         :param form: Associates the element with a form element
@@ -11383,9 +11383,9 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
         Initialize '<ol>' (Ordered list) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param reversed: Number the list backwards
         :param start: Starting value of the list
         :param type: Kind of list marker
@@ -11550,9 +11550,9 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
         Initialize '<optgroup>' (Group of options in a list box) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param disabled: Whether the form control is disabled
         :param label: User-visible label
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -11716,9 +11716,9 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
         Initialize '<option>' (Option in a list box or combo box control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param disabled: Whether the form control is disabled
         :param label: User-visible label
         :param selected: Whether the option is selected by default
@@ -11887,9 +11887,9 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
         Initialize '<output>' (Calculated output value) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param for_: Specifies controls from which the output was calculated
             | Unordered set of unique space-separated tokens consisting of IDs*
         :param form: Associates the element with a form element
@@ -12054,9 +12054,9 @@ class p(BaseElement, GlobalAttrs):
         Initialize '<p>' (Paragraph) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -12210,9 +12210,9 @@ class picture(BaseElement, GlobalAttrs):
         Initialize '<picture>' (Image) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -12366,9 +12366,9 @@ class pre(BaseElement, GlobalAttrs):
         Initialize '<pre>' (Block of preformatted text) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -12524,9 +12524,9 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
         Initialize '<progress>' (Progress bar) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param max: Upper bound of range
         :param value: Current value of the element
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -12687,9 +12687,9 @@ class q(BaseElement, GlobalAttrs, QAttrs):
         Initialize '<q>' (Quotation) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param cite: Link to the source of the quotation or more information about the edit
             | Valid URL potentially surrounded by spaces
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -12847,9 +12847,9 @@ class rp(BaseElement, GlobalAttrs):
         Initialize '<rp>' (Parenthesis for ruby annotation text) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -13003,9 +13003,9 @@ class rt(BaseElement, GlobalAttrs):
         Initialize '<rt>' (Ruby annotation text) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -13159,9 +13159,9 @@ class ruby(BaseElement, GlobalAttrs):
         Initialize '<ruby>' (Ruby annotation(s)) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -13315,9 +13315,9 @@ class s(BaseElement, GlobalAttrs):
         Initialize '<s>' (Inaccurate text) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -13471,9 +13471,9 @@ class samp(BaseElement, GlobalAttrs):
         Initialize '<samp>' (Computer output) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -13637,9 +13637,9 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
         Initialize '<script>' (Embedded script) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param async_: Execute script when available, without blocking while fetching
         :param blocking: Whether the element is potentially render-blocking
             | Unordered set of unique space-separated tokens*
@@ -13827,9 +13827,9 @@ class search(BaseElement, GlobalAttrs):
         Initialize '<search>' (Container for search controls) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -13983,9 +13983,9 @@ class section(BaseElement, GlobalAttrs):
         Initialize '<section>' (Generic document or application section) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -14146,9 +14146,9 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
         Initialize '<select>' (List box control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param autocomplete: Hint for form autofill feature
             | Autofill field name and related tokens*
         :param disabled: Whether the form control is disabled
@@ -14327,9 +14327,9 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
         Initialize '<slot>' (Shadow tree slot) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param name: Name of shadow tree slot
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
@@ -14486,9 +14486,9 @@ class small(BaseElement, GlobalAttrs):
         Initialize '<small>' (Side comment) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -14649,9 +14649,9 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
         Initialize '<source>' (Image source for img or media source for video or audio) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param height: Vertical dimension
         :param media: Applicable media
             | Valid media query list
@@ -14831,9 +14831,9 @@ class span(BaseElement, GlobalAttrs):
         Initialize '<span>' (Generic phrasing container) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -14987,9 +14987,9 @@ class strong(BaseElement, GlobalAttrs):
         Initialize '<strong>' (Importance) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -15145,9 +15145,9 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
         Initialize '<style>' (Embedded styling information) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param blocking: Whether the element is potentially render-blocking
             | Unordered set of unique space-separated tokens*
         :param media: Applicable media
@@ -15309,9 +15309,9 @@ class sub(BaseElement, GlobalAttrs):
         Initialize '<sub>' (Subscript) element.
         Documentation: None
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -15465,9 +15465,9 @@ class summary(BaseElement, GlobalAttrs):
         Initialize '<summary>' (Caption for details) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -15621,9 +15621,9 @@ class sup(BaseElement, GlobalAttrs):
         Initialize '<sup>' (Superscript) element.
         Documentation: None
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -15777,9 +15777,9 @@ class svg(BaseElement, GlobalAttrs):
         Initialize '<svg>' (SVG root) element.
         Documentation: None
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -15933,9 +15933,9 @@ class table(BaseElement, GlobalAttrs):
         Initialize '<table>' (Table) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -16089,9 +16089,9 @@ class tbody(BaseElement, GlobalAttrs):
         Initialize '<tbody>' (Group of rows in a table) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -16248,9 +16248,9 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
         Initialize '<td>' (Table cell) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param colspan: Number of columns that the cell is to span
             | Valid non-negative integer greater than zero
         :param headers: The header cells for this cell
@@ -16419,9 +16419,9 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
         Initialize '<template>' (Template) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param shadowrootclonable: Sets clonable on a declarative shadow root
         :param shadowrootdelegatesfocus: Sets delegates focus on a declarative shadow root
         :param shadowrootmode: Enables streaming declarative shadow roots
@@ -16600,9 +16600,9 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
         Initialize '<textarea>' (Multiline text controls) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param autocomplete: Hint for form autofill feature
             | Autofill field name and related tokens*
         :param cols: Maximum number of characters per line
@@ -16799,9 +16799,9 @@ class tfoot(BaseElement, GlobalAttrs):
         Initialize '<tfoot>' (Group of footer rows in a table) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -16960,9 +16960,9 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
         Initialize '<th>' (Table header cell) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param abbr: Alternative label to use for the header cell when referencing the cell in other contexts
         :param colspan: Number of columns that the cell is to span
             | Valid non-negative integer greater than zero
@@ -17133,9 +17133,9 @@ class thead(BaseElement, GlobalAttrs):
         Initialize '<thead>' (Group of heading rows in a table) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -17290,9 +17290,9 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
         Initialize '<time>' (Machine-readable equivalent of date- or time-related data) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param datetime: Machine-readable value
             | Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -17450,9 +17450,9 @@ class title(BaseElement, GlobalAttrs):
         Initialize '<title>' (Document title) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -17606,9 +17606,9 @@ class tr(BaseElement, GlobalAttrs):
         Initialize '<tr>' (Table row) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -17767,9 +17767,9 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
         Initialize '<track>' (Timed text track) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param default: Enable the track if no other text track is more suitable
         :param kind: The type of text track
         :param label: User-visible label
@@ -17940,9 +17940,9 @@ class u(BaseElement, GlobalAttrs):
         Initialize '<u>' (Unarticulated annotation) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -18096,9 +18096,9 @@ class ul(BaseElement, GlobalAttrs):
         Initialize '<ul>' (List) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -18252,9 +18252,9 @@ class var(BaseElement, GlobalAttrs):
         Initialize '<var>' (Variable) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -18419,9 +18419,9 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
         Initialize '<video>' (Video player) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param autoplay: Hint that the media resource can be started automatically when the page is loaded
         :param controls: Show user agent controls
         :param crossorigin: How the element handles crossorigin requests
@@ -18610,9 +18610,9 @@ class wbr(BaseElement, GlobalAttrs):
         Initialize '<wbr>' (Line breaking opportunity) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr
 
+        :param attrs: A list or dictionary of attributes for the element
         :param id: The ID of the element
         :param class_ The class of the element
-        :param attrs: A list or dictionary of attributes for the element
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
