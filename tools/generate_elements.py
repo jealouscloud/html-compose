@@ -174,7 +174,7 @@ def gen_elements():
                 f"    Documentation: {docs}",
                 '    """',
                 "    attr_type: TypeAlias = Union[",
-                "        dict, list[BaseAttribute]",
+                f"        dict, list[BaseAttribute], list[{attr_class}]",
                 "    ]",
                 "",
                 "",
