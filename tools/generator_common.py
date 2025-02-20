@@ -35,3 +35,26 @@ def ReadAttr(attr_spec) -> AttrDefinition:
     attr_desc = attr_spec["Description"]
     value_desc = attr_spec["Value"]
     return AttrDefinition(name, safe_attr_name, value_desc, attr_desc)
+
+
+def value_hint_to_python_type(value):
+    if isinstance(value, list):
+        # Since the list looks like ["a", "b", "c"]
+        # this works
+        return f"Literal{value}"
+    if value in ("Text", "Text*"):
+        return "str"
+    if value == "Boolean attribute":
+        return "bool"
+    if value in ("Valid non-negative integer", "Valid integer"):
+        return "int"
+    if value.startswith("Valid floating-point number"):
+        return "float"
+    return None
+
+
+def type_for_value(value):
+    new_type = value_hint_to_python_type(value)
+    if new_type:
+        return f": {new_type}"
+    return ""
