@@ -110,7 +110,7 @@ class BaseElement(ElementBase, GlobalAttrs):
                     )
                 else:
                     raise ValueError(
-                        f"Attribute {attr_name} waas passed twice. "
+                        f"Attribute {attr_name} was passed twice. "
                         "We don't know how to merge it."
                     )
             else:
