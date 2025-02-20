@@ -1,6 +1,9 @@
-# 0.1.3
-* Generate descriptions for attrs in elements
+# 0.2.0
+* Generate descriptions for attrs in elements along with full keyword arguments. We intentionally excluded onclick= and other onX attributes to avoid overloading the language server.
+* Element constructor docstring is a little nicer to read
 * Add attrs documentation
+* [breaking] attrs is now first parameter
+* Prevent re-escaping _HasHtml from our code
 
 # 0.1.2
 * [bugfix] Pass children arg in elements
