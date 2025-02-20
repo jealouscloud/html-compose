@@ -135,3 +135,10 @@ def test_generic_attr():
     assert el.render() == '<div data-foo="bar"></div>'
     el = div(attrs=[BaseAttribute("data-foo", "bar")])
     assert el.render() == '<div data-foo="bar"></div>'
+
+
+def test_kw_arg_attr():
+    el = div(id="test", class_="test-class", tabindex=1)
+    assert (
+        el.render() == '<div id="test" class="test-class" tabindex="1"></div>'
+    )
