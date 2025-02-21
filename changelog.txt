@@ -1,3 +1,9 @@
+# 0.2.1
+* [breaking] BaseElement now places keyword arg `class` / `style` after `attrs=` when you include definitions for both 
+* [bug] Fix attr resolution breaking for dictionary values
+* Add constructor "skip" via __class_getitem__. Where you had to do li()["demo"] you can now li["demo"]
+* Docs/readme improvements
+
 # 0.2.0
 * Generate descriptions for attrs in elements along with full keyword arguments. We intentionally excluded onclick= and other onX attributes to avoid overloading the language server.
 * Element constructor docstring is a little nicer to read
