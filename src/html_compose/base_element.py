@@ -114,11 +114,11 @@ class BaseElement(ElementBase, GlobalAttrs):
             if attr_name in self._attrs:
                 if attr_name == "class":
                     self._attrs[attr_name] = (
-                        f"{resolved_value} {self._attrs[attr_name]}"
+                        f"{self._attrs[attr_name]} {resolved_value}"
                     )
                 elif attr_name == "style":
                     self._attrs[attr_name] = (
-                        f"{resolved_value}; {self._attrs[attr_name]}"
+                        f"{self._attrs[attr_name]}; {resolved_value}"
                     )
                 else:
                     raise ValueError(
