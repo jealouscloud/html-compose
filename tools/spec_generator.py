@@ -2,12 +2,13 @@
 Generate machine readable HTML SPEC from MDN and w3c spec document
 """
 
-import requests
-from pathlib import Path
-from dataclasses import dataclass, field, asdict
 import json
 import re
+from dataclasses import asdict, dataclass, field
+from pathlib import Path
+
 import hext
+import requests
 
 SPECS_BASE = (
     "https://raw.githubusercontent.com/mdn/browser-compat-data/refs/heads/main/"
@@ -207,6 +208,10 @@ class Hextract:
             # Most values will just be strings
             # But some are enums so we can at least try to parse them
             values = attr["Value"].split("; ")
+            # This bit fixes some arrays like "one; two;"
+            # which, at this time, occurs on the popover element
+            if values[-1].endswith(";"):
+                values[-1] = values[-1].rstrip(";")
             if all(
                 [
                     (v.startswith('"') and v.endswith('"'))

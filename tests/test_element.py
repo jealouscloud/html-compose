@@ -121,3 +121,24 @@ def test_doc():
             ]
         ].render()
     )
+    # h.form(enctype=h.form.enctype()
+
+
+def test_generic_attr():
+    from html_compose.attributes import BaseAttribute
+
+    el = div(
+        attrs={
+            "data-foo": "bar",
+        }
+    )
+    assert el.render() == '<div data-foo="bar"></div>'
+    el = div(attrs=[BaseAttribute("data-foo", "bar")])
+    assert el.render() == '<div data-foo="bar"></div>'
+
+
+def test_kw_arg_attr():
+    el = div(id="test", class_="test-class", tabindex=1)
+    assert (
+        el.render() == '<div id="test" class="test-class" tabindex="1"></div>'
+    )

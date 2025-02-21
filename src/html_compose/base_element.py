@@ -84,6 +84,15 @@ class BaseElement(ElementBase, GlobalAttrs):
         self.is_void_element = void_element
 
     def _process_attr(self, attr_name, attr_data):
+        """
+        Add an attribute for the element to the internal _attrs dict
+        We technically allow stacking for supported attributes.
+        This allows us to support (combine) attributes like "class" and "style".
+
+        Args:
+            attr_name (str): The name of the attribute.
+            attr_data (Union[str, BaseAttribute]): The data for the attribute.
+        """
         if attr_data is None or attr_data is False:
             return  # noop
 
@@ -110,7 +119,7 @@ class BaseElement(ElementBase, GlobalAttrs):
                     )
                 else:
                     raise ValueError(
-                        f"Attribute {attr_name} waas passed twice. "
+                        f"Attribute {attr_name} was passed twice. "
                         "We don't know how to merge it."
                     )
             else:
@@ -234,7 +243,12 @@ class BaseElement(ElementBase, GlobalAttrs):
             # ]
             yield from ()
 
+        elif isinstance(child, _HasHtml):
+            # Fetch raw HTML from object
+            yield unsafe_text(child.__html__())
+
         elif isinstance(child, str):
+            # Magic: If the string is already escaped, this never has to fire.
             yield escape_text(child)
 
         elif isinstance(child, int):
@@ -257,10 +271,6 @@ class BaseElement(ElementBase, GlobalAttrs):
             child: ElementBase
             # Recursively resolve the element tree
             yield from child.resolve(self)
-
-        elif isinstance(child, _HasHtml):
-            # Fetch raw HTML from object
-            yield unsafe_text(child.__html__())
 
         elif util_funcs.is_iterable_but_not_str(child):
             for el in util_funcs.flatten_iterable(child):
@@ -335,6 +345,7 @@ class BaseElement(ElementBase, GlobalAttrs):
         # Generate the key="value" pairs for the attributes
         # The value escape step lives here because we trust no
         # previous step in the pipeline.
+        # Magic: Security: Escape all attr values
         attr_string = " ".join(
             (join_attrs(k, escape_text(v)) for k, v in attrs.items())
         )

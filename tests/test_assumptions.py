@@ -5,6 +5,8 @@ They usually have no bearing on the code functionality itself
 
 """
 
+from time import perf_counter
+
 
 def test_args():
     """
@@ -41,7 +43,6 @@ def test_join_perf():
     import random
     import string
     from functools import lru_cache
-    from time import perf_counter
 
     random.seed(0)
     ATTRS_PER_ELEMENT = 10000
@@ -80,7 +81,7 @@ def test_join_perf():
 
     end = perf_counter()
     no_cache = end - start
-    print(f"\nTime taken without cache: {end-start}")
+    print(f"\nTime taken without cache: {end - start}")
     top_attrs = generate_attrs(TOP_ATTR_COUNT, ATTR_MAX_SIZE)
     infrequent_attrs = generate_attrs(10000, 100)  # Big spread
     infr_keys = list(infrequent_attrs.keys())
@@ -114,7 +115,7 @@ def test_join_perf():
         _ = " ".join((join_attr(k, v) for k, v in element.items()))
 
     end = perf_counter()
-    print(f"Time taken with cache: {end-start}")
+    print(f"Time taken with cache: {end - start}")
 
     with_cache = end - start
 
@@ -131,3 +132,128 @@ def test_yield_from():
 
     gen_2 = (x for x in arr)
     assert list(gen_2) == arr
+
+
+def test_disassembly():
+    """
+    Test work actually done in python for a big argument list
+    """
+
+    def demo(**kwargs):
+        pass
+
+    class DemoDict:
+        """
+        Theory: Dictionary is optimized and building one with a generator
+        May be faster than stacking
+        """
+
+        def _process_attr(self, attr_name, attr_value):
+            pass
+
+        def __init__(
+            self,
+            id=None,
+            class_=None,
+            download=None,
+            href=None,
+            hreflang=None,
+            ping=None,
+            referrerpolicy=None,
+            rel=None,
+            target=None,
+            type=None,
+            attrs=None,
+            children=None,
+        ) -> None:
+            demo(
+                type="a",
+                void_element=False,
+                id=id,
+                class_=class_,
+                attrs=attrs,
+                children=children,
+            )
+            attrs = {
+                k: v
+                for k, v in {
+                    "download": download,
+                    "href": href,
+                    "hreflang": hreflang,
+                    "ping": ping,
+                    "referrerpolicy": referrerpolicy,
+                    "rel": rel,
+                    "target": target,
+                    "type": type,
+                }.items()
+                if v is not None and v is not False
+            }
+
+    class Demo:
+        def _process_attr(self, attr_name, attr_value):
+            pass
+
+        def __init__(
+            self,
+            id=None,
+            class_=None,
+            download=None,
+            href=None,
+            hreflang=None,
+            ping=None,
+            referrerpolicy=None,
+            rel=None,
+            target=None,
+            type=None,
+            attrs=None,
+            children=None,
+        ) -> None:
+            demo(
+                type="a",
+                void_element=False,
+                id=id,
+                class_=class_,
+                attrs=attrs,
+                children=children,
+            )
+            if not (download is None or download is False):
+                self._process_attr("download", download)
+            if not (href is None or href is False):
+                self._process_attr("href", href)
+            if not (hreflang is None or hreflang is False):
+                self._process_attr("hreflang", hreflang)
+            if not (ping is None or ping is False):
+                self._process_attr("ping", ping)
+            if not (referrerpolicy is None or referrerpolicy is False):
+                self._process_attr("referrerpolicy", referrerpolicy)
+            if not (rel is None or rel is False):
+                self._process_attr("rel", rel)
+            if not (target is None or target is False):
+                self._process_attr("target", target)
+            if not (type is None or type is False):
+                self._process_attr("type", type)
+
+    # Uncomment to view disassembly
+    # import dis
+
+    # dis.dis(Demo.__init__)
+    # dis.dis(DemoDict.__init__)
+    # raise Exception("Disassemble and analyze disassembly output")
+
+    d2start = perf_counter()
+    for i in range(100000):
+        DemoDict(href="https://example.com")
+    d2end = perf_counter()
+
+    dstart = perf_counter()
+    for i in range(100000):
+        Demo(href="https://example.com")
+    dend = perf_counter()
+
+    test1_delta = dend - dstart
+    test2_delta = d2end - d2start
+    print(f"Test 1: {test1_delta} seconds")
+    print(f"Test 2: {test2_delta} seconds")
+    # If this test passes, then a huge attr list of if (not x is or x is)
+    # is faster. The library uses this assumption.
+    assert test2_delta > test1_delta
