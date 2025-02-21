@@ -152,3 +152,8 @@ def test_class_getitem():
     """
     el = div["demo"]
     assert el.render() == "<div>demo</div>"
+
+
+def test_doubled_class():
+    el = div(attrs=[div.class_("flex")], class_={"dark-mode": True})
+    assert el.render() == '<div class="flex dark-mode"></div>'
