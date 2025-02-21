@@ -64,9 +64,9 @@ def test_nested_callables():
 
 
 def test_resolve_none():
-    assert (
-        div()[None].render() == "<div></div>"
-    ), "Nonetype should result in empty string"
+    assert div()[None].render() == "<div></div>", (
+        "Nonetype should result in empty string"
+    )
 
 
 def test_xss():
@@ -142,3 +142,13 @@ def test_kw_arg_attr():
     assert (
         el.render() == '<div id="test" class="test-class" tabindex="1"></div>'
     )
+
+
+def test_class_getitem():
+    """
+    Sometimes I forget to construct elements that only contain a string.
+
+    A syntax alteration was added __class_getitem__ which this test verifies.
+    """
+    el = div["demo"]
+    assert el.render() == "<div>demo</div>"

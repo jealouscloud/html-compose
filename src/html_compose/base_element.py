@@ -25,10 +25,13 @@ class BaseElement(ElementBase, GlobalAttrs):
 
     @classmethod
     def __class_getitem__(cls, key):
-        raise TypeError(
-            "Cannot use [] directly on the class. "
-            "Did you mean to call the class first? Example: div()['elements'] instead of div['elements']"
-        )
+        """
+        This implements a shortcut to the constructor for a given element.
+
+        Example:
+        If the user passes `h1["Demo"]` the user likely expects h1()["Demo"]
+        """
+        return cls()[key]
 
     def __getitem__(self, key):
         """
