@@ -1,6 +1,6 @@
 # html-compose
 
-Composable HTML generation in python with extensive type hinting
+Composable HTML generation in Python 3.10+ with extensive type hinting
 
 ```python
 from html_compose import a, article, body, br, head, html, p, strong, title
