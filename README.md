@@ -27,15 +27,54 @@ from html_compose import a, article, body, br, head, html, p, strong, title
 
 ## Features
 
-- Lazy evaluation
-- Natural syntax: Self attrs in `__init__`, children in `[brackets]` via `__getitem__`
+- Lazy evaluation leading to performance gains
+* Define children via `[]` syntax:
+  ```python
+  from html_compose import p, strong
+  p()["a", strong()["bold"], "statement"]
+  #<p>a <strong>bold</strong> statement
+  # The above is identical to
+  p().append(["a", strong()["bold"], "statement"])
+  ```
+* Skip constructor via same `[]` syntax:
+  ```python
+  from html_compose import ul, li
+  ul[
+      li["because sometimes"]
+      li["I forget"], 
+      li["the constructor"],
+      li["for text"],
+      li["elements"]
+  ]
+  ```
+* Define arguments in a variety of ways: 
+  ```python
+  from html_compose import div
+
+  ## With type hints
+  div(tabindex=1) 
+  div(attrs=[div.tabindex(1)])
+  ## Positionally
+  div([div.tabindex(1)])
+  div({"data-for-something": "foo"})
+
+  ## With class dictionary resolution
+  is_dark_mode = False
+  div(class_={"dark-mode": is_dark_mode, "flex": True})
+  # <div class="flex"></div>
+  
+  ## Combine the two `
+  div(attrs=[div.class_("flex")], class_={"dark-mode": True})
+  # <div class="flex dark-mode"></div>
+
 - Type hints for the editor generated from WhatWG spec
 
 ## Goals
 
 - Be a stable layer for further abstraction of client-server model applications and libraries
 - Put web developer documentation in the hands of developers via their IDE
-- Opinionate as few things as possible favoring expression, stay out of the way
+- Opinionate as few things as possible favoring expression; stay out of the way
+- Clearly mark any potentially breaking changes through discovered development optimizations in changelog
 
 ## Magic decisions
 
