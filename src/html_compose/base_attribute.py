@@ -88,7 +88,7 @@ class BaseAttribute:
             _resolved = self.list_string_generator(data)
         # dictionary of key value pairs
         elif isinstance(data, dict):
-            _resolved = self.dict_string_generator()
+            _resolved = self.dict_string_generator(data)
         else:
             raise ValueError(f"Input data type {data} not supported")
 
