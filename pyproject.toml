@@ -1,6 +1,6 @@
 [project]
 name = "html-compose"
-version = "0.2.1"
+version = "0.3.0"
 description = "Composable HTML generation in python"
 authors = [
     { name = "jealouscloud", email = "github@noaha.org" }
@@ -10,7 +10,7 @@ dependencies = [
     "beautifulsoup4>=4.12.3",
 ]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.10"
 license = { text = "MIT" }
 
 classifiers = [
@@ -95,5 +95,5 @@ exclude = [
 line-length = 80
 indent-width = 4
 
-# Assume Python 3.8
-target-version = "py38"
+# Assume Python 3.10
+target-version = "py310"
