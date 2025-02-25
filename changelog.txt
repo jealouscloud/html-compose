@@ -1,3 +1,11 @@
+# 0.3.0
+* Add HTML5Document function, wrapping some boilerplate.
+* Minor fix: Remove trailing space when no attrs are defined in void elements.
+* Add equality check override which compares rendered elements
+* When FLOATING_PRECISION is 0, convert float to int.
+* Add html_compose.notebook.render which displays HTML in a Jupyter notebook
+* More tests
+
 # 0.2.1
 * [breaking] BaseElement now places keyword arg `class` / `style` after `attrs=` when you include definitions for both 
 * [bug] Fix attr resolution breaking for dictionary values
