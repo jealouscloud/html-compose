@@ -64,9 +64,9 @@ def test_nested_callables():
 
 
 def test_resolve_none():
-    assert div()[None].render() == "<div></div>", (
-        "Nonetype should result in empty string"
-    )
+    assert (
+        div()[None].render() == "<div></div>"
+    ), "Nonetype should result in empty string"
 
 
 def test_xss():
