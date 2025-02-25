@@ -163,3 +163,18 @@ def test_equivalent():
     a = h.meta(name="viewport", content="width=device-width, initial-scale=1.0")
     b = h.meta(name="viewport", content="width=device-width, initial-scale=1.0")
     assert a == b
+
+def test_float_precision():
+    """Test float precision and setting per-element settings"""
+    num = 1 / 3
+    a = h.p[num].render()
+    assert a == "<p>0.333</p>"
+    h.p.FLOAT_PRECISION = 0
+    b = h.p[num].render()
+    assert b == "<p>0</p>"
+    c = h.h1[num].render()
+    assert c == "<h1>0.333</h1>"
+    # Now set globally
+    h.elements.BaseElement.FLOAT_PRECISION = 0
+    d = h.h1[num].render()
+    assert d == "<h1>0</h1>"

@@ -268,7 +268,12 @@ class BaseElement(ElementBase, GlobalAttrs):
         elif isinstance(child, float):
             # Magic: Convert float to string with fixed ndigits
             # This avoids weird output like 6.33333333333...
-            yield escape_text(round(child, self.__class__.FLOAT_PRECISION))
+            precision = self.__class__.FLOAT_PRECISION
+            rounded = round(child, precision)
+            if precision == 0:
+                # Cut off decimal point in this case.
+                rounded = int(rounded)
+            yield escape_text(rounded)
 
         elif isinstance(child, bool):
             # Magic: Convert to 'typical' true/false
