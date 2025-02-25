@@ -164,6 +164,23 @@ def test_equivalent():
     b = h.meta(name="viewport", content="width=device-width, initial-scale=1.0")
     assert a == b
 
+
+def test_document():
+    doc = h.HTML5Document(
+        "Test",
+        lang="en",
+        head=None,
+        body=[h.button["Button"], h.br(), h.p["demo 2"]],
+    )
+    expected = "\n".join(
+        [
+            "<!DOCTYPE html>",
+            '<html lang="en"><head><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Test</title></head><body><button>Button</button><br/><p>demo 2</p></body></html>',
+        ]
+    )
+    assert doc == expected
+
+
 def test_float_precision():
     """Test float precision and setting per-element settings"""
     num = 1 / 3
