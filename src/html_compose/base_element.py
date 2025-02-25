@@ -86,6 +86,13 @@ class BaseElement(ElementBase, GlobalAttrs):
         self._children = children if children else []
         self.is_void_element = void_element
 
+    def __eq__(self, other):
+        """Compare rendered HTML instead of class data"""
+        if isinstance(other, self.__class__):
+            return self.render() == other.render()
+
+        return False
+
     def _process_attr(self, attr_name, attr_data):
         """
         Add an attribute for the element to the internal _attrs dict
@@ -261,7 +268,12 @@ class BaseElement(ElementBase, GlobalAttrs):
         elif isinstance(child, float):
             # Magic: Convert float to string with fixed ndigits
             # This avoids weird output like 6.33333333333...
-            yield escape_text(round(child, self.__class__.FLOAT_PRECISION))
+            precision = self.__class__.FLOAT_PRECISION
+            rounded = round(child, precision)
+            if precision == 0:
+                # Cut off decimal point in this case.
+                rounded = int(rounded)
+            yield escape_text(rounded)
 
         elif isinstance(child, bool):
             # Magic: Convert to 'typical' true/false
@@ -354,7 +366,10 @@ class BaseElement(ElementBase, GlobalAttrs):
         )
 
         if self.is_void_element:
-            yield f"<{self.name} {attr_string}/>"
+            if attr_string:
+                yield f"<{self.name} {attr_string}/>"
+            else:
+                yield f"<{self.name}/>"
         else:
             if attr_string:
                 yield f"<{self.name} {attr_string}>"

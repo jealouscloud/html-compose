@@ -27,6 +27,8 @@ def unsafe_text(value: Union[str, Markup]) -> Markup:
     return Markup(str(value))
 
 
+from .document import HTML5Document
+
 # ruff: noqa: F401, E402
 from .elements import (
     a,

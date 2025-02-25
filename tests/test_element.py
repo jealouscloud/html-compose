@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-import html_compose.elements as h
+import html_compose as h
 from html_compose import a, div, img
 
 
@@ -64,9 +64,9 @@ def test_nested_callables():
 
 
 def test_resolve_none():
-    assert div()[None].render() == "<div></div>", (
-        "Nonetype should result in empty string"
-    )
+    assert (
+        div()[None].render() == "<div></div>"
+    ), "Nonetype should result in empty string"
 
 
 def test_xss():
@@ -157,3 +157,41 @@ def test_class_getitem():
 def test_doubled_class():
     el = div(attrs=[div.class_("flex")], class_={"dark-mode": True})
     assert el.render() == '<div class="flex dark-mode"></div>'
+
+
+def test_equivalent():
+    a = h.meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    b = h.meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    assert a == b
+
+
+def test_document():
+    doc = h.HTML5Document(
+        "Test",
+        lang="en",
+        head=None,
+        body=[h.button["Button"], h.br(), h.p["demo 2"]],
+    )
+    expected = "\n".join(
+        [
+            "<!DOCTYPE html>",
+            '<html lang="en"><head><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Test</title></head><body><button>Button</button><br/><p>demo 2</p></body></html>',
+        ]
+    )
+    assert doc == expected
+
+
+def test_float_precision():
+    """Test float precision and setting per-element settings"""
+    num = 1 / 3
+    a = h.p[num].render()
+    assert a == "<p>0.333</p>"
+    h.p.FLOAT_PRECISION = 0
+    b = h.p[num].render()
+    assert b == "<p>0</p>"
+    c = h.h1[num].render()
+    assert c == "<h1>0.333</h1>"
+    # Now set globally
+    h.elements.BaseElement.FLOAT_PRECISION = 0
+    d = h.h1[num].render()
+    assert d == "<h1>0</h1>"
