@@ -354,7 +354,10 @@ class BaseElement(ElementBase, GlobalAttrs):
         )
 
         if self.is_void_element:
-            yield f"<{self.name} {attr_string}/>"
+            if attr_string:
+                yield f"<{self.name} {attr_string}/>"
+            else:
+                yield f"<{self.name}/>"
         else:
             if attr_string:
                 yield f"<{self.name} {attr_string}>"
