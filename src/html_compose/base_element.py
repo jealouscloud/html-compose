@@ -86,6 +86,13 @@ class BaseElement(ElementBase, GlobalAttrs):
         self._children = children if children else []
         self.is_void_element = void_element
 
+    def __eq__(self, other):
+        """Compare rendered HTML instead of class data"""
+        if isinstance(other, self.__class__):
+            return self.render() == other.render()
+
+        return False
+
     def _process_attr(self, attr_name, attr_data):
         """
         Add an attribute for the element to the internal _attrs dict

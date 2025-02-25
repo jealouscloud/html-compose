@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-import html_compose.elements as h
+import html_compose as h
 from html_compose import a, div, img
 
 
@@ -157,3 +157,9 @@ def test_class_getitem():
 def test_doubled_class():
     el = div(attrs=[div.class_("flex")], class_={"dark-mode": True})
     assert el.render() == '<div class="flex dark-mode"></div>'
+
+
+def test_equivalent():
+    a = h.meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    b = h.meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    assert a == b
