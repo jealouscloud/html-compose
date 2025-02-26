@@ -8,7 +8,7 @@ from .base_element import BaseElement
 
 class a(BaseElement, GlobalAttrs, AnchorAttrs):
     """
-    The <a> element.
+    The 'a' element.
     Description: Hyperlink
     Categories: flow phrasing* interactive palpable
     Parents: phrasing
@@ -64,7 +64,7 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<a>' (Hyperlink) element.
+        Initialize 'a' (Hyperlink) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 
         :param attrs: A list or dictionary of attributes for the element
@@ -203,7 +203,7 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
 
 class abbr(BaseElement, GlobalAttrs):
     """
-    The <abbr> element.
+    The 'abbr' element.
     Description: Abbreviation
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -251,7 +251,7 @@ class abbr(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<abbr>' (Abbreviation) element.
+        Initialize 'abbr' (Abbreviation) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
 
         :param attrs: A list or dictionary of attributes for the element
@@ -359,7 +359,7 @@ class abbr(BaseElement, GlobalAttrs):
 
 class address(BaseElement, GlobalAttrs):
     """
-    The <address> element.
+    The 'address' element.
     Description: Contact information for a page or article element
     Categories: flow palpable
     Parents: flow
@@ -407,7 +407,7 @@ class address(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<address>' (Contact information for a page or article element) element.
+        Initialize 'address' (Contact information for a page or article element) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
 
         :param attrs: A list or dictionary of attributes for the element
@@ -515,7 +515,7 @@ class address(BaseElement, GlobalAttrs):
 
 class area(BaseElement, GlobalAttrs, AreaAttrs):
     """
-    The <area> element.
+    The 'area' element.
     Description: Hyperlink or dead area on an image map
     Categories: flow phrasing
     Parents: phrasing*
@@ -572,7 +572,7 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<area>' (Hyperlink or dead area on an image map) element.
+        Initialize 'area' (Hyperlink or dead area on an image map) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
 
         :param attrs: A list or dictionary of attributes for the element
@@ -713,7 +713,7 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
 
 class article(BaseElement, GlobalAttrs):
     """
-    The <article> element.
+    The 'article' element.
     Description: Self-contained syndicatable or reusable composition
     Categories: flow sectioning palpable
     Parents: flow
@@ -761,7 +761,7 @@ class article(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<article>' (Self-contained syndicatable or reusable composition) element.
+        Initialize 'article' (Self-contained syndicatable or reusable composition) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
 
         :param attrs: A list or dictionary of attributes for the element
@@ -869,7 +869,7 @@ class article(BaseElement, GlobalAttrs):
 
 class aside(BaseElement, GlobalAttrs):
     """
-    The <aside> element.
+    The 'aside' element.
     Description: Sidebar for tangentially related content
     Categories: flow sectioning palpable
     Parents: flow
@@ -917,7 +917,7 @@ class aside(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<aside>' (Sidebar for tangentially related content) element.
+        Initialize 'aside' (Sidebar for tangentially related content) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1025,7 +1025,7 @@ class aside(BaseElement, GlobalAttrs):
 
 class audio(BaseElement, GlobalAttrs, AudioAttrs):
     """
-    The <audio> element.
+    The 'audio' element.
     Description: Audio player
     Categories: flow phrasing embedded interactive palpable*
     Parents: phrasing
@@ -1080,7 +1080,7 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<audio>' (Audio player) element.
+        Initialize 'audio' (Audio player) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1210,7 +1210,7 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
 
 class b(BaseElement, GlobalAttrs):
     """
-    The <b> element.
+    The 'b' element.
     Description: Keywords
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -1258,7 +1258,7 @@ class b(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<b>' (Keywords) element.
+        Initialize 'b' (Keywords) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1366,7 +1366,7 @@ class b(BaseElement, GlobalAttrs):
 
 class base(BaseElement, GlobalAttrs, BaseAttrs):
     """
-    The <base> element.
+    The 'base' element.
     Description: Base URL and default target navigable for hyperlinks and forms
     Categories: metadata
     Parents: head
@@ -1416,7 +1416,7 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<base>' (Base URL and default target navigable for hyperlinks and forms) element.
+        Initialize 'base' (Base URL and default target navigable for hyperlinks and forms) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1532,7 +1532,7 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
 
 class bdi(BaseElement, GlobalAttrs):
     """
-    The <bdi> element.
+    The 'bdi' element.
     Description: Text directionality isolation
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -1580,7 +1580,7 @@ class bdi(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<bdi>' (Text directionality isolation) element.
+        Initialize 'bdi' (Text directionality isolation) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1688,7 +1688,7 @@ class bdi(BaseElement, GlobalAttrs):
 
 class bdo(BaseElement, GlobalAttrs):
     """
-    The <bdo> element.
+    The 'bdo' element.
     Description: Text directionality formatting
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -1736,7 +1736,7 @@ class bdo(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<bdo>' (Text directionality formatting) element.
+        Initialize 'bdo' (Text directionality formatting) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1844,7 +1844,7 @@ class bdo(BaseElement, GlobalAttrs):
 
 class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
     """
-    The <blockquote> element.
+    The 'blockquote' element.
     Description: A section quoted from another source
     Categories: flow palpable
     Parents: flow
@@ -1893,7 +1893,7 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<blockquote>' (A section quoted from another source) element.
+        Initialize 'blockquote' (A section quoted from another source) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2005,7 +2005,7 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
 
 class body(BaseElement, GlobalAttrs, BodyAttrs):
     """
-    The <body> element.
+    The 'body' element.
     Description: Document body
     Categories: none
     Parents: html
@@ -2053,7 +2053,7 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<body>' (Document body) element.
+        Initialize 'body' (Document body) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2161,7 +2161,7 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
 
 class br(BaseElement, GlobalAttrs):
     """
-    The <br> element.
+    The 'br' element.
     Description: Line break, e.g. in poem or postal address
     Categories: flow phrasing
     Parents: phrasing
@@ -2209,7 +2209,7 @@ class br(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<br>' (Line break, e.g. in poem or postal address) element.
+        Initialize 'br' (Line break, e.g. in poem or postal address) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2317,7 +2317,7 @@ class br(BaseElement, GlobalAttrs):
 
 class button(BaseElement, GlobalAttrs, ButtonAttrs):
     """
-    The <button> element.
+    The 'button' element.
     Description: Button control
     Categories: flow phrasing interactive listed labelable submittable form-associated palpable
     Parents: phrasing
@@ -2377,7 +2377,7 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<button>' (Button control) element.
+        Initialize 'button' (Button control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2525,7 +2525,7 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
 
 class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
     """
-    The <canvas> element.
+    The 'canvas' element.
     Description: Scriptable bitmap canvas
     Categories: flow phrasing embedded palpable
     Parents: phrasing
@@ -2575,7 +2575,7 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<canvas>' (Scriptable bitmap canvas) element.
+        Initialize 'canvas' (Scriptable bitmap canvas) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2689,7 +2689,7 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
 
 class caption(BaseElement, GlobalAttrs):
     """
-    The <caption> element.
+    The 'caption' element.
     Description: Table caption
     Categories: none
     Parents: table
@@ -2737,7 +2737,7 @@ class caption(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<caption>' (Table caption) element.
+        Initialize 'caption' (Table caption) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2845,7 +2845,7 @@ class caption(BaseElement, GlobalAttrs):
 
 class cite(BaseElement, GlobalAttrs):
     """
-    The <cite> element.
+    The 'cite' element.
     Description: Title of a work
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -2893,7 +2893,7 @@ class cite(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<cite>' (Title of a work) element.
+        Initialize 'cite' (Title of a work) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3001,7 +3001,7 @@ class cite(BaseElement, GlobalAttrs):
 
 class code(BaseElement, GlobalAttrs):
     """
-    The <code> element.
+    The 'code' element.
     Description: Computer code
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -3049,7 +3049,7 @@ class code(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<code>' (Computer code) element.
+        Initialize 'code' (Computer code) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3157,7 +3157,7 @@ class code(BaseElement, GlobalAttrs):
 
 class col(BaseElement, GlobalAttrs, ColAttrs):
     """
-    The <col> element.
+    The 'col' element.
     Description: Table column
     Categories: none
     Parents: colgroup
@@ -3206,7 +3206,7 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<col>' (Table column) element.
+        Initialize 'col' (Table column) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3318,7 +3318,7 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
 
 class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
     """
-    The <colgroup> element.
+    The 'colgroup' element.
     Description: Group of columns in a table
     Categories: none
     Parents: table
@@ -3367,7 +3367,7 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<colgroup>' (Group of columns in a table) element.
+        Initialize 'colgroup' (Group of columns in a table) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3479,7 +3479,7 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
 
 class data(BaseElement, GlobalAttrs, DataAttrs):
     """
-    The <data> element.
+    The 'data' element.
     Description: Machine-readable equivalent
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -3528,7 +3528,7 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<data>' (Machine-readable equivalent) element.
+        Initialize 'data' (Machine-readable equivalent) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3639,7 +3639,7 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
 
 class datalist(BaseElement, GlobalAttrs):
     """
-    The <datalist> element.
+    The 'datalist' element.
     Description: Container for options for combo box control
     Categories: flow phrasing
     Parents: phrasing
@@ -3687,7 +3687,7 @@ class datalist(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<datalist>' (Container for options for combo box control) element.
+        Initialize 'datalist' (Container for options for combo box control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3795,7 +3795,7 @@ class datalist(BaseElement, GlobalAttrs):
 
 class dd(BaseElement, GlobalAttrs):
     """
-    The <dd> element.
+    The 'dd' element.
     Description: Content for corresponding dt element(s)
     Categories: none
     Parents: dl div*
@@ -3843,7 +3843,7 @@ class dd(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<dd>' (Content for corresponding dt element(s)) element.
+        Initialize 'dd' (Content for corresponding dt element(s)) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3951,7 +3951,7 @@ class dd(BaseElement, GlobalAttrs):
 
 class del_(BaseElement, GlobalAttrs, DelAttrs):
     """
-    The <del> element.
+    The 'del' element.
     Description: A removal from the document
     Categories: flow phrasing* palpable
     Parents: phrasing
@@ -4001,7 +4001,7 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<del>' (A removal from the document) element.
+        Initialize 'del' (A removal from the document) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4117,7 +4117,7 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
 
 class details(BaseElement, GlobalAttrs, DetailsAttrs):
     """
-    The <details> element.
+    The 'details' element.
     Description: Disclosure control for hiding details
     Categories: flow interactive palpable
     Parents: flow
@@ -4167,7 +4167,7 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<details>' (Disclosure control for hiding details) element.
+        Initialize 'details' (Disclosure control for hiding details) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4281,7 +4281,7 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
 
 class dfn(BaseElement, GlobalAttrs):
     """
-    The <dfn> element.
+    The 'dfn' element.
     Description: Defining instance
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -4329,7 +4329,7 @@ class dfn(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<dfn>' (Defining instance) element.
+        Initialize 'dfn' (Defining instance) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4437,7 +4437,7 @@ class dfn(BaseElement, GlobalAttrs):
 
 class dialog(BaseElement, GlobalAttrs, DialogAttrs):
     """
-    The <dialog> element.
+    The 'dialog' element.
     Description: Dialog box or window
     Categories: flow
     Parents: flow
@@ -4486,7 +4486,7 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<dialog>' (Dialog box or window) element.
+        Initialize 'dialog' (Dialog box or window) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4597,7 +4597,7 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
 
 class div(BaseElement, GlobalAttrs):
     """
-    The <div> element.
+    The 'div' element.
     Description: Generic flow container, or container for name-value groups in dl elements
     Categories: flow palpable
     Parents: flow dl
@@ -4645,7 +4645,7 @@ class div(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<div>' (Generic flow container, or container for name-value groups in dl elements) element.
+        Initialize 'div' (Generic flow container, or container for name-value groups in dl elements) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4753,7 +4753,7 @@ class div(BaseElement, GlobalAttrs):
 
 class dl(BaseElement, GlobalAttrs):
     """
-    The <dl> element.
+    The 'dl' element.
     Description: Association list consisting of zero or more name-value groups
     Categories: flow palpable
     Parents: flow
@@ -4801,7 +4801,7 @@ class dl(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<dl>' (Association list consisting of zero or more name-value groups) element.
+        Initialize 'dl' (Association list consisting of zero or more name-value groups) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4909,7 +4909,7 @@ class dl(BaseElement, GlobalAttrs):
 
 class dt(BaseElement, GlobalAttrs):
     """
-    The <dt> element.
+    The 'dt' element.
     Description: Legend for corresponding dd element(s)
     Categories: none
     Parents: dl div*
@@ -4957,7 +4957,7 @@ class dt(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<dt>' (Legend for corresponding dd element(s)) element.
+        Initialize 'dt' (Legend for corresponding dd element(s)) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5065,7 +5065,7 @@ class dt(BaseElement, GlobalAttrs):
 
 class em(BaseElement, GlobalAttrs):
     """
-    The <em> element.
+    The 'em' element.
     Description: Stress emphasis
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -5113,7 +5113,7 @@ class em(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<em>' (Stress emphasis) element.
+        Initialize 'em' (Stress emphasis) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5221,7 +5221,7 @@ class em(BaseElement, GlobalAttrs):
 
 class embed(BaseElement, GlobalAttrs, EmbedAttrs):
     """
-    The <embed> element.
+    The 'embed' element.
     Description: Plugin
     Categories: flow phrasing embedded interactive palpable
     Parents: phrasing
@@ -5273,7 +5273,7 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<embed>' (Plugin) element.
+        Initialize 'embed' (Plugin) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5395,7 +5395,7 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
 
 class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
     """
-    The <fieldset> element.
+    The 'fieldset' element.
     Description: Group of form controls
     Categories: flow listed form-associated palpable
     Parents: flow
@@ -5446,7 +5446,7 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<fieldset>' (Group of form controls) element.
+        Initialize 'fieldset' (Group of form controls) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5564,7 +5564,7 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
 
 class figcaption(BaseElement, GlobalAttrs):
     """
-    The <figcaption> element.
+    The 'figcaption' element.
     Description: Caption for figure
     Categories: none
     Parents: figure
@@ -5612,7 +5612,7 @@ class figcaption(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<figcaption>' (Caption for figure) element.
+        Initialize 'figcaption' (Caption for figure) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5720,7 +5720,7 @@ class figcaption(BaseElement, GlobalAttrs):
 
 class figure(BaseElement, GlobalAttrs):
     """
-    The <figure> element.
+    The 'figure' element.
     Description: Figure with optional caption
     Categories: flow palpable
     Parents: flow
@@ -5768,7 +5768,7 @@ class figure(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<figure>' (Figure with optional caption) element.
+        Initialize 'figure' (Figure with optional caption) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5876,7 +5876,7 @@ class figure(BaseElement, GlobalAttrs):
 
 class footer(BaseElement, GlobalAttrs):
     """
-    The <footer> element.
+    The 'footer' element.
     Description: Footer for a page or section
     Categories: flow palpable
     Parents: flow
@@ -5924,7 +5924,7 @@ class footer(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<footer>' (Footer for a page or section) element.
+        Initialize 'footer' (Footer for a page or section) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6032,7 +6032,7 @@ class footer(BaseElement, GlobalAttrs):
 
 class form(BaseElement, GlobalAttrs, FormAttrs):
     """
-    The <form> element.
+    The 'form' element.
     Description: User-submittable form
     Categories: flow palpable
     Parents: flow
@@ -6088,7 +6088,7 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<form>' (User-submittable form) element.
+        Initialize 'form' (User-submittable form) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6223,7 +6223,7 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
 
 class h1(BaseElement, GlobalAttrs):
     """
-    The <h1> element.
+    The 'h1' element.
     Description: Heading
     Categories: flow heading palpable
     Parents: legend summary flow
@@ -6271,7 +6271,7 @@ class h1(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<h1>' (Heading) element.
+        Initialize 'h1' (Heading) element.
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6379,7 +6379,7 @@ class h1(BaseElement, GlobalAttrs):
 
 class h2(BaseElement, GlobalAttrs):
     """
-    The <h2> element.
+    The 'h2' element.
     Description: Heading
     Categories: flow heading palpable
     Parents: legend summary flow
@@ -6427,7 +6427,7 @@ class h2(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<h2>' (Heading) element.
+        Initialize 'h2' (Heading) element.
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6535,7 +6535,7 @@ class h2(BaseElement, GlobalAttrs):
 
 class h3(BaseElement, GlobalAttrs):
     """
-    The <h3> element.
+    The 'h3' element.
     Description: Heading
     Categories: flow heading palpable
     Parents: legend summary flow
@@ -6583,7 +6583,7 @@ class h3(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<h3>' (Heading) element.
+        Initialize 'h3' (Heading) element.
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6691,7 +6691,7 @@ class h3(BaseElement, GlobalAttrs):
 
 class h4(BaseElement, GlobalAttrs):
     """
-    The <h4> element.
+    The 'h4' element.
     Description: Heading
     Categories: flow heading palpable
     Parents: legend summary flow
@@ -6739,7 +6739,7 @@ class h4(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<h4>' (Heading) element.
+        Initialize 'h4' (Heading) element.
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6847,7 +6847,7 @@ class h4(BaseElement, GlobalAttrs):
 
 class h5(BaseElement, GlobalAttrs):
     """
-    The <h5> element.
+    The 'h5' element.
     Description: Heading
     Categories: flow heading palpable
     Parents: legend summary flow
@@ -6895,7 +6895,7 @@ class h5(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<h5>' (Heading) element.
+        Initialize 'h5' (Heading) element.
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7003,7 +7003,7 @@ class h5(BaseElement, GlobalAttrs):
 
 class h6(BaseElement, GlobalAttrs):
     """
-    The <h6> element.
+    The 'h6' element.
     Description: Heading
     Categories: flow heading palpable
     Parents: legend summary flow
@@ -7051,7 +7051,7 @@ class h6(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<h6>' (Heading) element.
+        Initialize 'h6' (Heading) element.
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7159,7 +7159,7 @@ class h6(BaseElement, GlobalAttrs):
 
 class head(BaseElement, GlobalAttrs):
     """
-    The <head> element.
+    The 'head' element.
     Description: Container for document metadata
     Categories: none
     Parents: html
@@ -7207,7 +7207,7 @@ class head(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<head>' (Container for document metadata) element.
+        Initialize 'head' (Container for document metadata) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7315,7 +7315,7 @@ class head(BaseElement, GlobalAttrs):
 
 class header(BaseElement, GlobalAttrs):
     """
-    The <header> element.
+    The 'header' element.
     Description: Introductory or navigational aids for a page or section
     Categories: flow palpable
     Parents: flow
@@ -7363,7 +7363,7 @@ class header(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<header>' (Introductory or navigational aids for a page or section) element.
+        Initialize 'header' (Introductory or navigational aids for a page or section) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7471,7 +7471,7 @@ class header(BaseElement, GlobalAttrs):
 
 class hgroup(BaseElement, GlobalAttrs):
     """
-    The <hgroup> element.
+    The 'hgroup' element.
     Description: Heading container
     Categories: flow palpable
     Parents: legend summary flow
@@ -7519,7 +7519,7 @@ class hgroup(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<hgroup>' (Heading container) element.
+        Initialize 'hgroup' (Heading container) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7627,7 +7627,7 @@ class hgroup(BaseElement, GlobalAttrs):
 
 class hr(BaseElement, GlobalAttrs):
     """
-    The <hr> element.
+    The 'hr' element.
     Description: Thematic break
     Categories: flow
     Parents: flow
@@ -7675,7 +7675,7 @@ class hr(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<hr>' (Thematic break) element.
+        Initialize 'hr' (Thematic break) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7783,7 +7783,7 @@ class hr(BaseElement, GlobalAttrs):
 
 class html(BaseElement, GlobalAttrs):
     """
-    The <html> element.
+    The 'html' element.
     Description: Root element
     Categories: none
     Parents: none*
@@ -7831,7 +7831,7 @@ class html(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<html>' (Root element) element.
+        Initialize 'html' (Root element) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7939,7 +7939,7 @@ class html(BaseElement, GlobalAttrs):
 
 class i(BaseElement, GlobalAttrs):
     """
-    The <i> element.
+    The 'i' element.
     Description: Alternate voice
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -7987,7 +7987,7 @@ class i(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<i>' (Alternate voice) element.
+        Initialize 'i' (Alternate voice) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8095,7 +8095,7 @@ class i(BaseElement, GlobalAttrs):
 
 class iframe(BaseElement, GlobalAttrs, IframeAttrs):
     """
-    The <iframe> element.
+    The 'iframe' element.
     Description: Child navigable
     Categories: flow phrasing embedded interactive palpable
     Parents: phrasing
@@ -8153,7 +8153,7 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<iframe>' (Child navigable) element.
+        Initialize 'iframe' (Child navigable) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8297,7 +8297,7 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
 
 class img(BaseElement, GlobalAttrs, ImgAttrs):
     """
-    The <img> element.
+    The 'img' element.
     Description: Image
     Categories: flow phrasing embedded interactive* form-associated palpable
     Parents: phrasing picture
@@ -8358,7 +8358,7 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<img>' (Image) element.
+        Initialize 'img' (Image) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8510,7 +8510,7 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
 
 class input(BaseElement, GlobalAttrs, InputAttrs):
     """
-    The <input> element.
+    The 'input' element.
     Description: Form control
     Categories: flow phrasing interactive* listed labelable submittable resettable form-associated palpable*
     Parents: phrasing
@@ -8592,7 +8592,7 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<input>' (Form control) element.
+        Initialize 'input' (Form control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8816,7 +8816,7 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
 
 class ins(BaseElement, GlobalAttrs, InsAttrs):
     """
-    The <ins> element.
+    The 'ins' element.
     Description: An addition to the document
     Categories: flow phrasing* palpable
     Parents: phrasing
@@ -8866,7 +8866,7 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<ins>' (An addition to the document) element.
+        Initialize 'ins' (An addition to the document) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8982,7 +8982,7 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
 
 class kbd(BaseElement, GlobalAttrs):
     """
-    The <kbd> element.
+    The 'kbd' element.
     Description: User input
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -9030,7 +9030,7 @@ class kbd(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<kbd>' (User input) element.
+        Initialize 'kbd' (User input) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9138,7 +9138,7 @@ class kbd(BaseElement, GlobalAttrs):
 
 class label(BaseElement, GlobalAttrs, LabelAttrs):
     """
-    The <label> element.
+    The 'label' element.
     Description: Caption for a form control
     Categories: flow phrasing interactive palpable
     Parents: phrasing
@@ -9187,7 +9187,7 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<label>' (Caption for a form control) element.
+        Initialize 'label' (Caption for a form control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9299,7 +9299,7 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
 
 class legend(BaseElement, GlobalAttrs):
     """
-    The <legend> element.
+    The 'legend' element.
     Description: Caption for fieldset
     Categories: none
     Parents: fieldset
@@ -9347,7 +9347,7 @@ class legend(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<legend>' (Caption for fieldset) element.
+        Initialize 'legend' (Caption for fieldset) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9455,7 +9455,7 @@ class legend(BaseElement, GlobalAttrs):
 
 class li(BaseElement, GlobalAttrs, LiAttrs):
     """
-    The <li> element.
+    The 'li' element.
     Description: List item
     Categories: none
     Parents: ol ul menu*
@@ -9504,7 +9504,7 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<li>' (List item) element.
+        Initialize 'li' (List item) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9615,7 +9615,7 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
 
 class link(BaseElement, GlobalAttrs, LinkAttrs):
     """
-    The <link> element.
+    The 'link' element.
     Description: Link metadata
     Categories: metadata flow* phrasing*
     Parents: head noscript* phrasing*
@@ -9679,7 +9679,7 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<link>' (Link metadata) element.
+        Initialize 'link' (Link metadata) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9848,7 +9848,7 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
 
 class main(BaseElement, GlobalAttrs):
     """
-    The <main> element.
+    The 'main' element.
     Description: Container for the dominant contents of the document
     Categories: flow palpable
     Parents: flow*
@@ -9896,7 +9896,7 @@ class main(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<main>' (Container for the dominant contents of the document) element.
+        Initialize 'main' (Container for the dominant contents of the document) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10004,7 +10004,7 @@ class main(BaseElement, GlobalAttrs):
 
 class map(BaseElement, GlobalAttrs, MapAttrs):
     """
-    The <map> element.
+    The 'map' element.
     Description: Image map
     Categories: flow phrasing* palpable
     Parents: phrasing
@@ -10053,7 +10053,7 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<map>' (Image map) element.
+        Initialize 'map' (Image map) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10164,7 +10164,7 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
 
 class mark(BaseElement, GlobalAttrs):
     """
-    The <mark> element.
+    The 'mark' element.
     Description: Highlight
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -10212,7 +10212,7 @@ class mark(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<mark>' (Highlight) element.
+        Initialize 'mark' (Highlight) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10320,7 +10320,7 @@ class mark(BaseElement, GlobalAttrs):
 
 class menu(BaseElement, GlobalAttrs):
     """
-    The <menu> element.
+    The 'menu' element.
     Description: Menu of commands
     Categories: flow palpable*
     Parents: flow
@@ -10368,7 +10368,7 @@ class menu(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<menu>' (Menu of commands) element.
+        Initialize 'menu' (Menu of commands) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10476,7 +10476,7 @@ class menu(BaseElement, GlobalAttrs):
 
 class meta(BaseElement, GlobalAttrs, MetaAttrs):
     """
-    The <meta> element.
+    The 'meta' element.
     Description: Text metadata
     Categories: metadata flow* phrasing*
     Parents: head noscript* phrasing*
@@ -10529,7 +10529,7 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<meta>' (Text metadata) element.
+        Initialize 'meta' (Text metadata) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10653,7 +10653,7 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
 
 class meter(BaseElement, GlobalAttrs, MeterAttrs):
     """
-    The <meter> element.
+    The 'meter' element.
     Description: Gauge
     Categories: flow phrasing labelable palpable
     Parents: phrasing
@@ -10707,7 +10707,7 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<meter>' (Gauge) element.
+        Initialize 'meter' (Gauge) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10833,7 +10833,7 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
 
 class nav(BaseElement, GlobalAttrs):
     """
-    The <nav> element.
+    The 'nav' element.
     Description: Section with navigational links
     Categories: flow sectioning palpable
     Parents: flow
@@ -10881,7 +10881,7 @@ class nav(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<nav>' (Section with navigational links) element.
+        Initialize 'nav' (Section with navigational links) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10989,7 +10989,7 @@ class nav(BaseElement, GlobalAttrs):
 
 class noscript(BaseElement, GlobalAttrs):
     """
-    The <noscript> element.
+    The 'noscript' element.
     Description: Fallback content for script
     Categories: metadata flow phrasing
     Parents: head* phrasing*
@@ -11037,7 +11037,7 @@ class noscript(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<noscript>' (Fallback content for script) element.
+        Initialize 'noscript' (Fallback content for script) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11145,7 +11145,7 @@ class noscript(BaseElement, GlobalAttrs):
 
 class object(BaseElement, GlobalAttrs, ObjectAttrs):
     """
-    The <object> element.
+    The 'object' element.
     Description: Image, child navigable, or plugin
     Categories: flow phrasing embedded interactive* listed form-associated palpable
     Parents: phrasing
@@ -11199,7 +11199,7 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<object>' (Image, child navigable, or plugin) element.
+        Initialize 'object' (Image, child navigable, or plugin) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11329,7 +11329,7 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
 
 class ol(BaseElement, GlobalAttrs, OlAttrs):
     """
-    The <ol> element.
+    The 'ol' element.
     Description: Ordered list
     Categories: flow palpable*
     Parents: flow
@@ -11380,7 +11380,7 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<ol>' (Ordered list) element.
+        Initialize 'ol' (Ordered list) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11497,7 +11497,7 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
 
 class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
     """
-    The <optgroup> element.
+    The 'optgroup' element.
     Description: Group of options in a list box
     Categories: none
     Parents: select
@@ -11547,7 +11547,7 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<optgroup>' (Group of options in a list box) element.
+        Initialize 'optgroup' (Group of options in a list box) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11661,7 +11661,7 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
 
 class option(BaseElement, GlobalAttrs, OptionAttrs):
     """
-    The <option> element.
+    The 'option' element.
     Description: Option in a list box or combo box control
     Categories: none
     Parents: select datalist optgroup
@@ -11713,7 +11713,7 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<option>' (Option in a list box or combo box control) element.
+        Initialize 'option' (Option in a list box or combo box control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11833,7 +11833,7 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
 
 class output(BaseElement, GlobalAttrs, OutputAttrs):
     """
-    The <output> element.
+    The 'output' element.
     Description: Calculated output value
     Categories: flow phrasing listed labelable resettable form-associated palpable
     Parents: phrasing
@@ -11884,7 +11884,7 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<output>' (Calculated output value) element.
+        Initialize 'output' (Calculated output value) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12003,7 +12003,7 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
 
 class p(BaseElement, GlobalAttrs):
     """
-    The <p> element.
+    The 'p' element.
     Description: Paragraph
     Categories: flow palpable
     Parents: flow
@@ -12051,7 +12051,7 @@ class p(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<p>' (Paragraph) element.
+        Initialize 'p' (Paragraph) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12159,7 +12159,7 @@ class p(BaseElement, GlobalAttrs):
 
 class picture(BaseElement, GlobalAttrs):
     """
-    The <picture> element.
+    The 'picture' element.
     Description: Image
     Categories: flow phrasing embedded palpable
     Parents: phrasing
@@ -12207,7 +12207,7 @@ class picture(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<picture>' (Image) element.
+        Initialize 'picture' (Image) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12315,7 +12315,7 @@ class picture(BaseElement, GlobalAttrs):
 
 class pre(BaseElement, GlobalAttrs):
     """
-    The <pre> element.
+    The 'pre' element.
     Description: Block of preformatted text
     Categories: flow palpable
     Parents: flow
@@ -12363,7 +12363,7 @@ class pre(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<pre>' (Block of preformatted text) element.
+        Initialize 'pre' (Block of preformatted text) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12471,7 +12471,7 @@ class pre(BaseElement, GlobalAttrs):
 
 class progress(BaseElement, GlobalAttrs, ProgressAttrs):
     """
-    The <progress> element.
+    The 'progress' element.
     Description: Progress bar
     Categories: flow phrasing labelable palpable
     Parents: phrasing
@@ -12521,7 +12521,7 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<progress>' (Progress bar) element.
+        Initialize 'progress' (Progress bar) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12635,7 +12635,7 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
 
 class q(BaseElement, GlobalAttrs, QAttrs):
     """
-    The <q> element.
+    The 'q' element.
     Description: Quotation
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -12684,7 +12684,7 @@ class q(BaseElement, GlobalAttrs, QAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<q>' (Quotation) element.
+        Initialize 'q' (Quotation) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12796,7 +12796,7 @@ class q(BaseElement, GlobalAttrs, QAttrs):
 
 class rp(BaseElement, GlobalAttrs):
     """
-    The <rp> element.
+    The 'rp' element.
     Description: Parenthesis for ruby annotation text
     Categories: none
     Parents: ruby
@@ -12844,7 +12844,7 @@ class rp(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<rp>' (Parenthesis for ruby annotation text) element.
+        Initialize 'rp' (Parenthesis for ruby annotation text) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12952,7 +12952,7 @@ class rp(BaseElement, GlobalAttrs):
 
 class rt(BaseElement, GlobalAttrs):
     """
-    The <rt> element.
+    The 'rt' element.
     Description: Ruby annotation text
     Categories: none
     Parents: ruby
@@ -13000,7 +13000,7 @@ class rt(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<rt>' (Ruby annotation text) element.
+        Initialize 'rt' (Ruby annotation text) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13108,7 +13108,7 @@ class rt(BaseElement, GlobalAttrs):
 
 class ruby(BaseElement, GlobalAttrs):
     """
-    The <ruby> element.
+    The 'ruby' element.
     Description: Ruby annotation(s)
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -13156,7 +13156,7 @@ class ruby(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<ruby>' (Ruby annotation(s)) element.
+        Initialize 'ruby' (Ruby annotation(s)) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13264,7 +13264,7 @@ class ruby(BaseElement, GlobalAttrs):
 
 class s(BaseElement, GlobalAttrs):
     """
-    The <s> element.
+    The 's' element.
     Description: Inaccurate text
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -13312,7 +13312,7 @@ class s(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<s>' (Inaccurate text) element.
+        Initialize 's' (Inaccurate text) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13420,7 +13420,7 @@ class s(BaseElement, GlobalAttrs):
 
 class samp(BaseElement, GlobalAttrs):
     """
-    The <samp> element.
+    The 'samp' element.
     Description: Computer output
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -13468,7 +13468,7 @@ class samp(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<samp>' (Computer output) element.
+        Initialize 'samp' (Computer output) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13576,7 +13576,7 @@ class samp(BaseElement, GlobalAttrs):
 
 class script(BaseElement, GlobalAttrs, ScriptAttrs):
     """
-    The <script> element.
+    The 'script' element.
     Description: Embedded script
     Categories: metadata flow phrasing script-supporting
     Parents: head phrasing script-supporting
@@ -13634,7 +13634,7 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<script>' (Embedded script) element.
+        Initialize 'script' (Embedded script) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13776,7 +13776,7 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
 
 class search(BaseElement, GlobalAttrs):
     """
-    The <search> element.
+    The 'search' element.
     Description: Container for search controls
     Categories: flow palpable
     Parents: flow
@@ -13824,7 +13824,7 @@ class search(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<search>' (Container for search controls) element.
+        Initialize 'search' (Container for search controls) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13932,7 +13932,7 @@ class search(BaseElement, GlobalAttrs):
 
 class section(BaseElement, GlobalAttrs):
     """
-    The <section> element.
+    The 'section' element.
     Description: Generic document or application section
     Categories: flow sectioning palpable
     Parents: flow
@@ -13980,7 +13980,7 @@ class section(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<section>' (Generic document or application section) element.
+        Initialize 'section' (Generic document or application section) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14088,7 +14088,7 @@ class section(BaseElement, GlobalAttrs):
 
 class select(BaseElement, GlobalAttrs, SelectAttrs):
     """
-    The <select> element.
+    The 'select' element.
     Description: List box control
     Categories: flow phrasing interactive listed labelable submittable resettable form-associated palpable
     Parents: phrasing
@@ -14143,7 +14143,7 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<select>' (List box control) element.
+        Initialize 'select' (List box control) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14275,7 +14275,7 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
 
 class slot(BaseElement, GlobalAttrs, SlotAttrs):
     """
-    The <slot> element.
+    The 'slot' element.
     Description: Shadow tree slot
     Categories: flow phrasing
     Parents: phrasing
@@ -14324,7 +14324,7 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<slot>' (Shadow tree slot) element.
+        Initialize 'slot' (Shadow tree slot) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14435,7 +14435,7 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
 
 class small(BaseElement, GlobalAttrs):
     """
-    The <small> element.
+    The 'small' element.
     Description: Side comment
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -14483,7 +14483,7 @@ class small(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<small>' (Side comment) element.
+        Initialize 'small' (Side comment) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14591,7 +14591,7 @@ class small(BaseElement, GlobalAttrs):
 
 class source(BaseElement, GlobalAttrs, SourceAttrs):
     """
-    The <source> element.
+    The 'source' element.
     Description: Image source for img or media source for video or audio
     Categories: none
     Parents: picture video audio
@@ -14646,7 +14646,7 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<source>' (Image source for img or media source for video or audio) element.
+        Initialize 'source' (Image source for img or media source for video or audio) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14780,7 +14780,7 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
 
 class span(BaseElement, GlobalAttrs):
     """
-    The <span> element.
+    The 'span' element.
     Description: Generic phrasing container
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -14828,7 +14828,7 @@ class span(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<span>' (Generic phrasing container) element.
+        Initialize 'span' (Generic phrasing container) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14936,7 +14936,7 @@ class span(BaseElement, GlobalAttrs):
 
 class strong(BaseElement, GlobalAttrs):
     """
-    The <strong> element.
+    The 'strong' element.
     Description: Importance
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -14984,7 +14984,7 @@ class strong(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<strong>' (Importance) element.
+        Initialize 'strong' (Importance) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15092,7 +15092,7 @@ class strong(BaseElement, GlobalAttrs):
 
 class style(BaseElement, GlobalAttrs, StyleAttrs):
     """
-    The <style> element.
+    The 'style' element.
     Description: Embedded styling information
     Categories: metadata
     Parents: head noscript*
@@ -15142,7 +15142,7 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<style>' (Embedded styling information) element.
+        Initialize 'style' (Embedded styling information) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15258,7 +15258,7 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
 
 class sub(BaseElement, GlobalAttrs):
     """
-    The <sub> element.
+    The 'sub' element.
     Description: Subscript
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -15306,7 +15306,7 @@ class sub(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<sub>' (Subscript) element.
+        Initialize 'sub' (Subscript) element.
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15414,7 +15414,7 @@ class sub(BaseElement, GlobalAttrs):
 
 class summary(BaseElement, GlobalAttrs):
     """
-    The <summary> element.
+    The 'summary' element.
     Description: Caption for details
     Categories: none
     Parents: details
@@ -15462,7 +15462,7 @@ class summary(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<summary>' (Caption for details) element.
+        Initialize 'summary' (Caption for details) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15570,7 +15570,7 @@ class summary(BaseElement, GlobalAttrs):
 
 class sup(BaseElement, GlobalAttrs):
     """
-    The <sup> element.
+    The 'sup' element.
     Description: Superscript
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -15618,7 +15618,7 @@ class sup(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<sup>' (Superscript) element.
+        Initialize 'sup' (Superscript) element.
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15726,7 +15726,7 @@ class sup(BaseElement, GlobalAttrs):
 
 class svg(BaseElement, GlobalAttrs):
     """
-    The <svg> element.
+    The 'svg' element.
     Description: SVG root
     Categories: flow phrasing embedded palpable
     Parents: phrasing
@@ -15774,7 +15774,7 @@ class svg(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<svg>' (SVG root) element.
+        Initialize 'svg' (SVG root) element.
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15882,7 +15882,7 @@ class svg(BaseElement, GlobalAttrs):
 
 class table(BaseElement, GlobalAttrs):
     """
-    The <table> element.
+    The 'table' element.
     Description: Table
     Categories: flow palpable
     Parents: flow
@@ -15930,7 +15930,7 @@ class table(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<table>' (Table) element.
+        Initialize 'table' (Table) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16038,7 +16038,7 @@ class table(BaseElement, GlobalAttrs):
 
 class tbody(BaseElement, GlobalAttrs):
     """
-    The <tbody> element.
+    The 'tbody' element.
     Description: Group of rows in a table
     Categories: none
     Parents: table
@@ -16086,7 +16086,7 @@ class tbody(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<tbody>' (Group of rows in a table) element.
+        Initialize 'tbody' (Group of rows in a table) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16194,7 +16194,7 @@ class tbody(BaseElement, GlobalAttrs):
 
 class td(BaseElement, GlobalAttrs, TdAttrs):
     """
-    The <td> element.
+    The 'td' element.
     Description: Table cell
     Categories: none
     Parents: tr
@@ -16245,7 +16245,7 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<td>' (Table cell) element.
+        Initialize 'td' (Table cell) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16364,7 +16364,7 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
 
 class template(BaseElement, GlobalAttrs, TemplateAttrs):
     """
-    The <template> element.
+    The 'template' element.
     Description: Template
     Categories: metadata flow phrasing script-supporting
     Parents: metadata phrasing script-supporting colgroup*
@@ -16416,7 +16416,7 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<template>' (Template) element.
+        Initialize 'template' (Template) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16536,7 +16536,7 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
 
 class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
     """
-    The <textarea> element.
+    The 'textarea' element.
     Description: Multiline text controls
     Categories: flow phrasing interactive listed labelable submittable resettable form-associated palpable
     Parents: phrasing
@@ -16597,7 +16597,7 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<textarea>' (Multiline text controls) element.
+        Initialize 'textarea' (Multiline text controls) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16748,7 +16748,7 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
 
 class tfoot(BaseElement, GlobalAttrs):
     """
-    The <tfoot> element.
+    The 'tfoot' element.
     Description: Group of footer rows in a table
     Categories: none
     Parents: table
@@ -16796,7 +16796,7 @@ class tfoot(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<tfoot>' (Group of footer rows in a table) element.
+        Initialize 'tfoot' (Group of footer rows in a table) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16904,7 +16904,7 @@ class tfoot(BaseElement, GlobalAttrs):
 
 class th(BaseElement, GlobalAttrs, ThAttrs):
     """
-    The <th> element.
+    The 'th' element.
     Description: Table header cell
     Categories: interactive*
     Parents: tr
@@ -16957,7 +16957,7 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<th>' (Table header cell) element.
+        Initialize 'th' (Table header cell) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17082,7 +17082,7 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
 
 class thead(BaseElement, GlobalAttrs):
     """
-    The <thead> element.
+    The 'thead' element.
     Description: Group of heading rows in a table
     Categories: none
     Parents: table
@@ -17130,7 +17130,7 @@ class thead(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<thead>' (Group of heading rows in a table) element.
+        Initialize 'thead' (Group of heading rows in a table) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17238,7 +17238,7 @@ class thead(BaseElement, GlobalAttrs):
 
 class time(BaseElement, GlobalAttrs, TimeAttrs):
     """
-    The <time> element.
+    The 'time' element.
     Description: Machine-readable equivalent of date- or time-related data
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -17287,7 +17287,7 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<time>' (Machine-readable equivalent of date- or time-related data) element.
+        Initialize 'time' (Machine-readable equivalent of date- or time-related data) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17399,7 +17399,7 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
 
 class title(BaseElement, GlobalAttrs):
     """
-    The <title> element.
+    The 'title' element.
     Description: Document title
     Categories: metadata
     Parents: head
@@ -17447,7 +17447,7 @@ class title(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<title>' (Document title) element.
+        Initialize 'title' (Document title) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17555,7 +17555,7 @@ class title(BaseElement, GlobalAttrs):
 
 class tr(BaseElement, GlobalAttrs):
     """
-    The <tr> element.
+    The 'tr' element.
     Description: Table row
     Categories: none
     Parents: table thead tbody tfoot
@@ -17603,7 +17603,7 @@ class tr(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<tr>' (Table row) element.
+        Initialize 'tr' (Table row) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17711,7 +17711,7 @@ class tr(BaseElement, GlobalAttrs):
 
 class track(BaseElement, GlobalAttrs, TrackAttrs):
     """
-    The <track> element.
+    The 'track' element.
     Description: Timed text track
     Categories: none
     Parents: audio video
@@ -17764,7 +17764,7 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<track>' (Timed text track) element.
+        Initialize 'track' (Timed text track) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17889,7 +17889,7 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
 
 class u(BaseElement, GlobalAttrs):
     """
-    The <u> element.
+    The 'u' element.
     Description: Unarticulated annotation
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -17937,7 +17937,7 @@ class u(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<u>' (Unarticulated annotation) element.
+        Initialize 'u' (Unarticulated annotation) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18045,7 +18045,7 @@ class u(BaseElement, GlobalAttrs):
 
 class ul(BaseElement, GlobalAttrs):
     """
-    The <ul> element.
+    The 'ul' element.
     Description: List
     Categories: flow palpable*
     Parents: flow
@@ -18093,7 +18093,7 @@ class ul(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<ul>' (List) element.
+        Initialize 'ul' (List) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18201,7 +18201,7 @@ class ul(BaseElement, GlobalAttrs):
 
 class var(BaseElement, GlobalAttrs):
     """
-    The <var> element.
+    The 'var' element.
     Description: Variable
     Categories: flow phrasing palpable
     Parents: phrasing
@@ -18249,7 +18249,7 @@ class var(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<var>' (Variable) element.
+        Initialize 'var' (Variable) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18357,7 +18357,7 @@ class var(BaseElement, GlobalAttrs):
 
 class video(BaseElement, GlobalAttrs, VideoAttrs):
     """
-    The <video> element.
+    The 'video' element.
     Description: Video player
     Categories: flow phrasing embedded interactive palpable
     Parents: phrasing
@@ -18416,7 +18416,7 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<video>' (Video player) element.
+        Initialize 'video' (Video player) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18559,7 +18559,7 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
 
 class wbr(BaseElement, GlobalAttrs):
     """
-    The <wbr> element.
+    The 'wbr' element.
     Description: Line breaking opportunity
     Categories: flow phrasing
     Parents: phrasing
@@ -18607,7 +18607,7 @@ class wbr(BaseElement, GlobalAttrs):
         children: list = None
     ) -> None:
         """
-        Initialize '<wbr>' (Line breaking opportunity) element.
+        Initialize 'wbr' (Line breaking opportunity) element.
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr
 
         :param attrs: A list or dictionary of attributes for the element
