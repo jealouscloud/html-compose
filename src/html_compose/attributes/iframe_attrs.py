@@ -34,7 +34,7 @@ class IframeAttrs:
         Value: Valid non-negative integer
         """
 
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("height", value)
 
     class loading(BaseAttribute):
@@ -104,5 +104,5 @@ class IframeAttrs:
         Value: Valid non-negative integer
         """
 
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("width", value)

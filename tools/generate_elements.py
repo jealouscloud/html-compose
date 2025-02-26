@@ -64,7 +64,7 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
             if param_type and param_type not in param_types:
                 param_types.append(param_type)
 
-        param = f"        {attrdef.safe_name}: Union[{', '.join(param_types)}] = None,"
+        param = f"        {attrdef.safe_name}: Union[{', '.join(param_types)}, None] = None,"
         processed.append(
             processed_attr(
                 name=attr_name,
@@ -184,16 +184,16 @@ def gen_elements():
                 f"    Interface: {interface}",
                 f"    Documentation: {docs}",
                 '    """',
-                "    attr_type: TypeAlias = Union[",
-                f"        dict, list[BaseAttribute], list[{attr_class}]",
+                "    attr_list_type: TypeAlias = Union[",
+                "        dict[str, Union[str, dict, list]], list[BaseAttribute]",
                 "    ]",
                 "",
                 "",
                 "    def __init__(",
                 "        self,",
-                "        attrs: attr_type = None,",
+                "        attrs: Optional[attr_list_type] = None,",
                 extra_attrs,
-                "        children: list = None",
+                "        children: Optional[list] = None",
                 "    ) -> None:",
                 '        """',
                 f"        Initialize '{real_element}' ({desc}) element.",
@@ -211,7 +211,7 @@ def gen_elements():
             ]
             result.append("\n".join(template))
 
-    header = f"""from typing import TypeAlias, Union, Literal
+    header = f"""from typing import TypeAlias, Union, Literal, Optional
 
 from .attributes import GlobalAttrs, {", ".join(attr_imports)}
 from .base_attribute import BaseAttribute

@@ -1,4 +1,4 @@
-from typing import TypeAlias, Union, Literal
+from typing import TypeAlias, Union, Literal, Optional
 
 from .attributes import (
     GlobalAttrs,
@@ -66,39 +66,45 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[AnchorAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        download: Union[str, AnchorAttrs.download, str] = None,
-        href: Union[str, AnchorAttrs.href] = None,
-        hreflang: Union[str, AnchorAttrs.hreflang] = None,
-        ping: Union[str, AnchorAttrs.ping] = None,
-        referrerpolicy: Union[str, AnchorAttrs.referrerpolicy] = None,
-        rel: Union[str, AnchorAttrs.rel] = None,
-        target: Union[str, AnchorAttrs.target] = None,
-        type: Union[str, AnchorAttrs.type] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        download: Union[str, AnchorAttrs.download, str, None] = None,
+        href: Union[str, AnchorAttrs.href, None] = None,
+        hreflang: Union[str, AnchorAttrs.hreflang, None] = None,
+        ping: Union[str, AnchorAttrs.ping, None] = None,
+        referrerpolicy: Union[str, AnchorAttrs.referrerpolicy, None] = None,
+        rel: Union[str, AnchorAttrs.rel, None] = None,
+        target: Union[str, AnchorAttrs.target, None] = None,
+        type: Union[str, AnchorAttrs.type, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -106,11 +112,12 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -124,32 +131,36 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'a' (Hyperlink) element.
@@ -300,31 +311,37 @@ class abbr(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -332,11 +349,12 @@ class abbr(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -350,32 +368,36 @@ class abbr(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'abbr' (Abbreviation) element.
@@ -495,31 +517,37 @@ class address(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -527,11 +555,12 @@ class address(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -545,32 +574,36 @@ class address(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'address' (Contact information for a page or article element) element.
@@ -690,42 +723,51 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[AreaAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        alt: Union[str, AreaAttrs.alt, str] = None,
-        coords: Union[str, AreaAttrs.coords] = None,
-        download: Union[str, AreaAttrs.download, str] = None,
-        href: Union[str, AreaAttrs.href] = None,
-        ping: Union[str, AreaAttrs.ping] = None,
-        referrerpolicy: Union[str, AreaAttrs.referrerpolicy] = None,
-        rel: Union[str, AreaAttrs.rel] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        alt: Union[str, AreaAttrs.alt, str, None] = None,
+        coords: Union[str, AreaAttrs.coords, None] = None,
+        download: Union[str, AreaAttrs.download, str, None] = None,
+        href: Union[str, AreaAttrs.href, None] = None,
+        ping: Union[str, AreaAttrs.ping, None] = None,
+        referrerpolicy: Union[str, AreaAttrs.referrerpolicy, None] = None,
+        rel: Union[str, AreaAttrs.rel, None] = None,
         shape: Union[
-            str, AreaAttrs.shape, Literal["circle", "default", "poly", "rect"]
+            str,
+            AreaAttrs.shape,
+            Literal["circle", "default", "poly", "rect"],
+            None,
         ] = None,
-        target: Union[str, AreaAttrs.target] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        target: Union[str, AreaAttrs.target, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -733,11 +775,12 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -751,32 +794,36 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'area' (Hyperlink or dead area on an image map) element.
@@ -929,31 +976,37 @@ class article(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -961,11 +1014,12 @@ class article(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -979,32 +1033,36 @@ class article(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'article' (Self-contained syndicatable or reusable composition) element.
@@ -1124,31 +1182,37 @@ class aside(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -1156,11 +1220,12 @@ class aside(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -1174,32 +1239,36 @@ class aside(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'aside' (Sidebar for tangentially related content) element.
@@ -1319,42 +1388,51 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[AudioAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        autoplay: Union[str, AudioAttrs.autoplay, bool] = None,
-        controls: Union[str, AudioAttrs.controls, bool] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        autoplay: Union[str, AudioAttrs.autoplay, bool, None] = None,
+        controls: Union[str, AudioAttrs.controls, bool, None] = None,
         crossorigin: Union[
-            str, AudioAttrs.crossorigin, Literal["anonymous", "use-credentials"]
+            str,
+            AudioAttrs.crossorigin,
+            Literal["anonymous", "use-credentials"],
+            None,
         ] = None,
-        loop: Union[str, AudioAttrs.loop, bool] = None,
-        muted: Union[str, AudioAttrs.muted, bool] = None,
+        loop: Union[str, AudioAttrs.loop, bool, None] = None,
+        muted: Union[str, AudioAttrs.muted, bool, None] = None,
         preload: Union[
-            str, AudioAttrs.preload, Literal["none", "metadata", "auto"]
+            str, AudioAttrs.preload, Literal["none", "metadata", "auto"], None
         ] = None,
-        src: Union[str, AudioAttrs.src] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        src: Union[str, AudioAttrs.src, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -1362,11 +1440,12 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -1380,32 +1459,36 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'audio' (Audio player) element.
@@ -1547,31 +1630,37 @@ class b(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -1579,11 +1668,12 @@ class b(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -1597,32 +1687,36 @@ class b(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'b' (Keywords) element.
@@ -1742,33 +1836,39 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[BaseAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        href: Union[str, BaseAttrs.href] = None,
-        target: Union[str, BaseAttrs.target] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        href: Union[str, BaseAttrs.href, None] = None,
+        target: Union[str, BaseAttrs.target, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -1776,11 +1876,12 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -1794,32 +1895,36 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'base' (Base URL and default target navigable for hyperlinks and forms) element.
@@ -1947,31 +2052,37 @@ class bdi(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -1979,11 +2090,12 @@ class bdi(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -1997,32 +2109,36 @@ class bdi(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'bdi' (Text directionality isolation) element.
@@ -2142,31 +2258,37 @@ class bdo(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -2174,11 +2296,12 @@ class bdo(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -2192,32 +2315,36 @@ class bdo(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'bdo' (Text directionality formatting) element.
@@ -2337,34 +2464,38 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
     """
 
-    attr_type: TypeAlias = Union[
-        dict, list[BaseAttribute], list[BlockquoteAttrs]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        cite: Union[str, BlockquoteAttrs.cite] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        cite: Union[str, BlockquoteAttrs.cite, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -2372,11 +2503,12 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -2390,32 +2522,36 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'blockquote' (A section quoted from another source) element.
@@ -2539,31 +2675,37 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[BodyAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -2571,11 +2713,12 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -2589,32 +2732,36 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'body' (Document body) element.
@@ -2734,31 +2881,37 @@ class br(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -2766,11 +2919,12 @@ class br(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -2784,32 +2938,36 @@ class br(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'br' (Line break, e.g. in poem or postal address) element.
@@ -2929,16 +3087,18 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[ButtonAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        disabled: Union[str, ButtonAttrs.disabled, bool] = None,
-        form: Union[str, ButtonAttrs.form] = None,
-        formaction: Union[str, ButtonAttrs.formaction] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        disabled: Union[str, ButtonAttrs.disabled, bool, None] = None,
+        form: Union[str, ButtonAttrs.form, None] = None,
+        formaction: Union[str, ButtonAttrs.formaction, None] = None,
         formenctype: Union[
             str,
             ButtonAttrs.formenctype,
@@ -2947,41 +3107,49 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
                 "multipart/form-data",
                 "text/plain",
             ],
+            None,
         ] = None,
         formmethod: Union[
-            str, ButtonAttrs.formmethod, Literal["GET", "POST", "dialog"]
+            str, ButtonAttrs.formmethod, Literal["GET", "POST", "dialog"], None
         ] = None,
-        formnovalidate: Union[str, ButtonAttrs.formnovalidate, bool] = None,
-        formtarget: Union[str, ButtonAttrs.formtarget] = None,
-        name: Union[str, ButtonAttrs.name, str] = None,
-        popovertarget: Union[str, ButtonAttrs.popovertarget] = None,
+        formnovalidate: Union[
+            str, ButtonAttrs.formnovalidate, bool, None
+        ] = None,
+        formtarget: Union[str, ButtonAttrs.formtarget, None] = None,
+        name: Union[str, ButtonAttrs.name, str, None] = None,
+        popovertarget: Union[str, ButtonAttrs.popovertarget, None] = None,
         popovertargetaction: Union[
             str,
             ButtonAttrs.popovertargetaction,
             Literal["toggle", "show", "hide"],
+            None,
         ] = None,
         type: Union[
-            str, ButtonAttrs.type, Literal["submit", "reset", "button"]
+            str, ButtonAttrs.type, Literal["submit", "reset", "button"], None
         ] = None,
-        value: Union[str, ButtonAttrs.value, str] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        value: Union[str, ButtonAttrs.value, str, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -2989,11 +3157,12 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -3007,32 +3176,36 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'button' (Button control) element.
@@ -3192,33 +3365,39 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[CanvasAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        height: Union[str, CanvasAttrs.height, int] = None,
-        width: Union[str, CanvasAttrs.width, int] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        height: Union[str, CanvasAttrs.height, int, None] = None,
+        width: Union[str, CanvasAttrs.width, int, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -3226,11 +3405,12 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -3244,32 +3424,36 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'canvas' (Scriptable bitmap canvas) element.
@@ -3395,31 +3579,37 @@ class caption(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -3427,11 +3617,12 @@ class caption(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -3445,32 +3636,36 @@ class caption(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'caption' (Table caption) element.
@@ -3590,31 +3785,37 @@ class cite(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -3622,11 +3823,12 @@ class cite(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -3640,32 +3842,36 @@ class cite(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'cite' (Title of a work) element.
@@ -3785,31 +3991,37 @@ class code(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -3817,11 +4029,12 @@ class code(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -3835,32 +4048,36 @@ class code(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'code' (Computer code) element.
@@ -3980,32 +4197,38 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[ColAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        span: Union[str, ColAttrs.span] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        span: Union[str, ColAttrs.span, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -4013,11 +4236,12 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -4031,32 +4255,36 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'col' (Table column) element.
@@ -4180,32 +4408,38 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[ColgroupAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        span: Union[str, ColgroupAttrs.span] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        span: Union[str, ColgroupAttrs.span, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -4213,11 +4447,12 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -4231,32 +4466,36 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'colgroup' (Group of columns in a table) element.
@@ -4380,32 +4619,38 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[DataAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        value: Union[str, DataAttrs.value, str] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        value: Union[str, DataAttrs.value, str, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -4413,11 +4658,12 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -4431,32 +4677,36 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'data' (Machine-readable equivalent) element.
@@ -4579,31 +4829,37 @@ class datalist(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -4611,11 +4867,12 @@ class datalist(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -4629,32 +4886,36 @@ class datalist(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'datalist' (Container for options for combo box control) element.
@@ -4774,31 +5035,37 @@ class dd(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -4806,11 +5073,12 @@ class dd(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -4824,32 +5092,36 @@ class dd(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'dd' (Content for corresponding dt element(s)) element.
@@ -4969,33 +5241,39 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[DelAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        cite: Union[str, DelAttrs.cite] = None,
-        datetime: Union[str, DelAttrs.datetime] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        cite: Union[str, DelAttrs.cite, None] = None,
+        datetime: Union[str, DelAttrs.datetime, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -5003,11 +5281,12 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -5021,32 +5300,36 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'del' (A removal from the document) element.
@@ -5174,33 +5457,39 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[DetailsAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        name: Union[str, DetailsAttrs.name, str] = None,
-        open: Union[str, DetailsAttrs.open, bool] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        name: Union[str, DetailsAttrs.name, str, None] = None,
+        open: Union[str, DetailsAttrs.open, bool, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -5208,11 +5497,12 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -5226,32 +5516,36 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'details' (Disclosure control for hiding details) element.
@@ -5377,31 +5671,37 @@ class dfn(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -5409,11 +5709,12 @@ class dfn(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -5427,32 +5728,36 @@ class dfn(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'dfn' (Defining instance) element.
@@ -5572,32 +5877,38 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[DialogAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        open: Union[str, DialogAttrs.open, bool] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        open: Union[str, DialogAttrs.open, bool, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -5605,11 +5916,12 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -5623,32 +5935,36 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'dialog' (Dialog box or window) element.
@@ -5771,31 +6087,37 @@ class div(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -5803,11 +6125,12 @@ class div(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -5821,32 +6144,36 @@ class div(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'div' (Generic flow container, or container for name-value groups in dl elements) element.
@@ -5966,31 +6293,37 @@ class dl(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -5998,11 +6331,12 @@ class dl(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -6016,32 +6350,36 @@ class dl(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'dl' (Association list consisting of zero or more name-value groups) element.
@@ -6161,31 +6499,37 @@ class dt(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -6193,11 +6537,12 @@ class dt(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -6211,32 +6556,36 @@ class dt(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'dt' (Legend for corresponding dd element(s)) element.
@@ -6356,31 +6705,37 @@ class em(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -6388,11 +6743,12 @@ class em(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -6406,32 +6762,36 @@ class em(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'em' (Stress emphasis) element.
@@ -6551,35 +6911,41 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[EmbedAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        height: Union[str, EmbedAttrs.height, int] = None,
-        src: Union[str, EmbedAttrs.src] = None,
-        type: Union[str, EmbedAttrs.type] = None,
-        width: Union[str, EmbedAttrs.width, int] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        height: Union[str, EmbedAttrs.height, int, None] = None,
+        src: Union[str, EmbedAttrs.src, None] = None,
+        type: Union[str, EmbedAttrs.type, None] = None,
+        width: Union[str, EmbedAttrs.width, int, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -6587,11 +6953,12 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -6605,32 +6972,36 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'embed' (Plugin) element.
@@ -6764,34 +7135,40 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[FieldsetAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        disabled: Union[str, FieldsetAttrs.disabled, bool] = None,
-        form: Union[str, FieldsetAttrs.form] = None,
-        name: Union[str, FieldsetAttrs.name, str] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        disabled: Union[str, FieldsetAttrs.disabled, bool, None] = None,
+        form: Union[str, FieldsetAttrs.form, None] = None,
+        name: Union[str, FieldsetAttrs.name, str, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -6799,11 +7176,12 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -6817,32 +7195,36 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'fieldset' (Group of form controls) element.
@@ -6972,31 +7354,37 @@ class figcaption(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -7004,11 +7392,12 @@ class figcaption(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -7022,32 +7411,36 @@ class figcaption(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'figcaption' (Caption for figure) element.
@@ -7167,31 +7560,37 @@ class figure(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -7199,11 +7598,12 @@ class figure(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -7217,32 +7617,36 @@ class figure(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'figure' (Figure with optional caption) element.
@@ -7362,31 +7766,37 @@ class footer(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -7394,11 +7804,12 @@ class footer(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -7412,32 +7823,36 @@ class footer(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'footer' (Footer for a page or section) element.
@@ -7557,17 +7972,19 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[FormAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accept_charset: Union[str, FormAttrs.accept_charset] = None,
-        action: Union[str, FormAttrs.action] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accept_charset: Union[str, FormAttrs.accept_charset, None] = None,
+        action: Union[str, FormAttrs.action, None] = None,
         autocomplete: Union[
-            str, FormAttrs.autocomplete, Literal["on", "off"]
+            str, FormAttrs.autocomplete, Literal["on", "off"], None
         ] = None,
         enctype: Union[
             str,
@@ -7577,31 +7994,36 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
                 "multipart/form-data",
                 "text/plain",
             ],
+            None,
         ] = None,
         method: Union[
-            str, FormAttrs.method, Literal["GET", "POST", "dialog"]
+            str, FormAttrs.method, Literal["GET", "POST", "dialog"], None
         ] = None,
-        name: Union[str, FormAttrs.name, str] = None,
-        novalidate: Union[str, FormAttrs.novalidate, bool] = None,
-        target: Union[str, FormAttrs.target] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        name: Union[str, FormAttrs.name, str, None] = None,
+        novalidate: Union[str, FormAttrs.novalidate, bool, None] = None,
+        target: Union[str, FormAttrs.target, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -7609,11 +8031,12 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -7627,32 +8050,36 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'form' (User-submittable form) element.
@@ -7799,31 +8226,37 @@ class h1(BaseElement, GlobalAttrs):
     Documentation: None
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -7831,11 +8264,12 @@ class h1(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -7849,32 +8283,36 @@ class h1(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'h1' (Heading) element.
@@ -7994,31 +8432,37 @@ class h2(BaseElement, GlobalAttrs):
     Documentation: None
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -8026,11 +8470,12 @@ class h2(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -8044,32 +8489,36 @@ class h2(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'h2' (Heading) element.
@@ -8189,31 +8638,37 @@ class h3(BaseElement, GlobalAttrs):
     Documentation: None
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -8221,11 +8676,12 @@ class h3(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -8239,32 +8695,36 @@ class h3(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'h3' (Heading) element.
@@ -8384,31 +8844,37 @@ class h4(BaseElement, GlobalAttrs):
     Documentation: None
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -8416,11 +8882,12 @@ class h4(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -8434,32 +8901,36 @@ class h4(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'h4' (Heading) element.
@@ -8579,31 +9050,37 @@ class h5(BaseElement, GlobalAttrs):
     Documentation: None
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -8611,11 +9088,12 @@ class h5(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -8629,32 +9107,36 @@ class h5(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'h5' (Heading) element.
@@ -8774,31 +9256,37 @@ class h6(BaseElement, GlobalAttrs):
     Documentation: None
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -8806,11 +9294,12 @@ class h6(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -8824,32 +9313,36 @@ class h6(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'h6' (Heading) element.
@@ -8969,31 +9462,37 @@ class head(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -9001,11 +9500,12 @@ class head(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -9019,32 +9519,36 @@ class head(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'head' (Container for document metadata) element.
@@ -9164,31 +9668,37 @@ class header(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -9196,11 +9706,12 @@ class header(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -9214,32 +9725,36 @@ class header(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'header' (Introductory or navigational aids for a page or section) element.
@@ -9359,31 +9874,37 @@ class hgroup(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -9391,11 +9912,12 @@ class hgroup(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -9409,32 +9931,36 @@ class hgroup(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'hgroup' (Heading container) element.
@@ -9554,31 +10080,37 @@ class hr(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -9586,11 +10118,12 @@ class hr(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -9604,32 +10137,36 @@ class hr(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'hr' (Thematic break) element.
@@ -9749,31 +10286,37 @@ class html(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -9781,11 +10324,12 @@ class html(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -9799,32 +10343,36 @@ class html(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'html' (Root element) element.
@@ -9944,31 +10492,37 @@ class i(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -9976,11 +10530,12 @@ class i(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -9994,32 +10549,36 @@ class i(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'i' (Alternate voice) element.
@@ -10139,43 +10698,51 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[IframeAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        allow: Union[str, IframeAttrs.allow] = None,
-        allowfullscreen: Union[str, IframeAttrs.allowfullscreen, bool] = None,
-        height: Union[str, IframeAttrs.height, int] = None,
-        loading: Union[
-            str, IframeAttrs.loading, Literal["lazy", "eager"]
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        allow: Union[str, IframeAttrs.allow, None] = None,
+        allowfullscreen: Union[
+            str, IframeAttrs.allowfullscreen, bool, None
         ] = None,
-        name: Union[str, IframeAttrs.name] = None,
-        referrerpolicy: Union[str, IframeAttrs.referrerpolicy] = None,
-        sandbox: Union[str, IframeAttrs.sandbox] = None,
-        src: Union[str, IframeAttrs.src] = None,
-        srcdoc: Union[str, IframeAttrs.srcdoc] = None,
-        width: Union[str, IframeAttrs.width, int] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        height: Union[str, IframeAttrs.height, int, None] = None,
+        loading: Union[
+            str, IframeAttrs.loading, Literal["lazy", "eager"], None
+        ] = None,
+        name: Union[str, IframeAttrs.name, None] = None,
+        referrerpolicy: Union[str, IframeAttrs.referrerpolicy, None] = None,
+        sandbox: Union[str, IframeAttrs.sandbox, None] = None,
+        src: Union[str, IframeAttrs.src, None] = None,
+        srcdoc: Union[str, IframeAttrs.srcdoc, None] = None,
+        width: Union[str, IframeAttrs.width, int, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -10183,11 +10750,12 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -10201,32 +10769,36 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'iframe' (Child navigable) element.
@@ -10382,50 +10954,61 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[ImgAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        alt: Union[str, ImgAttrs.alt, str] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        alt: Union[str, ImgAttrs.alt, str, None] = None,
         crossorigin: Union[
-            str, ImgAttrs.crossorigin, Literal["anonymous", "use-credentials"]
+            str,
+            ImgAttrs.crossorigin,
+            Literal["anonymous", "use-credentials"],
+            None,
         ] = None,
         decoding: Union[
-            str, ImgAttrs.decoding, Literal["sync", "async", "auto"]
+            str, ImgAttrs.decoding, Literal["sync", "async", "auto"], None
         ] = None,
         fetchpriority: Union[
-            str, ImgAttrs.fetchpriority, Literal["auto", "high", "low"]
+            str, ImgAttrs.fetchpriority, Literal["auto", "high", "low"], None
         ] = None,
-        height: Union[str, ImgAttrs.height, int] = None,
-        ismap: Union[str, ImgAttrs.ismap, bool] = None,
-        loading: Union[str, ImgAttrs.loading, Literal["lazy", "eager"]] = None,
-        referrerpolicy: Union[str, ImgAttrs.referrerpolicy] = None,
-        sizes: Union[str, ImgAttrs.sizes] = None,
-        src: Union[str, ImgAttrs.src] = None,
-        srcset: Union[str, ImgAttrs.srcset] = None,
-        usemap: Union[str, ImgAttrs.usemap] = None,
-        width: Union[str, ImgAttrs.width, int] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        height: Union[str, ImgAttrs.height, int, None] = None,
+        ismap: Union[str, ImgAttrs.ismap, bool, None] = None,
+        loading: Union[
+            str, ImgAttrs.loading, Literal["lazy", "eager"], None
+        ] = None,
+        referrerpolicy: Union[str, ImgAttrs.referrerpolicy, None] = None,
+        sizes: Union[str, ImgAttrs.sizes, None] = None,
+        src: Union[str, ImgAttrs.src, None] = None,
+        srcset: Union[str, ImgAttrs.srcset, None] = None,
+        usemap: Union[str, ImgAttrs.usemap, None] = None,
+        width: Union[str, ImgAttrs.width, int, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -10433,11 +11016,12 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -10451,32 +11035,36 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'img' (Image) element.
@@ -10640,25 +11228,30 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[InputAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accept: Union[str, InputAttrs.accept] = None,
-        alpha: Union[str, InputAttrs.alpha, bool] = None,
-        alt: Union[str, InputAttrs.alt, str] = None,
-        autocomplete: Union[str, InputAttrs.autocomplete] = None,
-        checked: Union[str, InputAttrs.checked, bool] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accept: Union[str, InputAttrs.accept, None] = None,
+        alpha: Union[str, InputAttrs.alpha, bool, None] = None,
+        alt: Union[str, InputAttrs.alt, str, None] = None,
+        autocomplete: Union[str, InputAttrs.autocomplete, None] = None,
+        checked: Union[str, InputAttrs.checked, bool, None] = None,
         colorspace: Union[
-            str, InputAttrs.colorspace, Literal["limited-srgb", "display-p3"]
+            str,
+            InputAttrs.colorspace,
+            Literal["limited-srgb", "display-p3"],
+            None,
         ] = None,
-        dirname: Union[str, InputAttrs.dirname, str] = None,
-        disabled: Union[str, InputAttrs.disabled, bool] = None,
-        form: Union[str, InputAttrs.form] = None,
-        formaction: Union[str, InputAttrs.formaction] = None,
+        dirname: Union[str, InputAttrs.dirname, str, None] = None,
+        disabled: Union[str, InputAttrs.disabled, bool, None] = None,
+        form: Union[str, InputAttrs.form, None] = None,
+        formaction: Union[str, InputAttrs.formaction, None] = None,
         formenctype: Union[
             str,
             InputAttrs.formenctype,
@@ -10667,55 +11260,63 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
                 "multipart/form-data",
                 "text/plain",
             ],
+            None,
         ] = None,
         formmethod: Union[
-            str, InputAttrs.formmethod, Literal["GET", "POST", "dialog"]
+            str, InputAttrs.formmethod, Literal["GET", "POST", "dialog"], None
         ] = None,
-        formnovalidate: Union[str, InputAttrs.formnovalidate, bool] = None,
-        formtarget: Union[str, InputAttrs.formtarget] = None,
-        height: Union[str, InputAttrs.height, int] = None,
-        list: Union[str, InputAttrs.list] = None,
-        max: Union[str, InputAttrs.max] = None,
-        maxlength: Union[str, InputAttrs.maxlength, int] = None,
-        min: Union[str, InputAttrs.min] = None,
-        minlength: Union[str, InputAttrs.minlength, int] = None,
-        multiple: Union[str, InputAttrs.multiple, bool] = None,
-        name: Union[str, InputAttrs.name, str] = None,
-        pattern: Union[str, InputAttrs.pattern] = None,
-        placeholder: Union[str, InputAttrs.placeholder, str] = None,
-        popovertarget: Union[str, InputAttrs.popovertarget] = None,
+        formnovalidate: Union[
+            str, InputAttrs.formnovalidate, bool, None
+        ] = None,
+        formtarget: Union[str, InputAttrs.formtarget, None] = None,
+        height: Union[str, InputAttrs.height, int, None] = None,
+        list: Union[str, InputAttrs.list, None] = None,
+        max: Union[str, InputAttrs.max, None] = None,
+        maxlength: Union[str, InputAttrs.maxlength, int, None] = None,
+        min: Union[str, InputAttrs.min, None] = None,
+        minlength: Union[str, InputAttrs.minlength, int, None] = None,
+        multiple: Union[str, InputAttrs.multiple, bool, None] = None,
+        name: Union[str, InputAttrs.name, str, None] = None,
+        pattern: Union[str, InputAttrs.pattern, None] = None,
+        placeholder: Union[str, InputAttrs.placeholder, str, None] = None,
+        popovertarget: Union[str, InputAttrs.popovertarget, None] = None,
         popovertargetaction: Union[
             str,
             InputAttrs.popovertargetaction,
             Literal["toggle", "show", "hide"],
+            None,
         ] = None,
-        readonly: Union[str, InputAttrs.readonly, bool] = None,
-        required: Union[str, InputAttrs.required, bool] = None,
-        size: Union[str, InputAttrs.size] = None,
-        src: Union[str, InputAttrs.src] = None,
-        step: Union[str, InputAttrs.step, float] = None,
-        title: Union[str, InputAttrs.title, str] = None,
-        type: Union[str, InputAttrs.type] = None,
-        value: Union[str, InputAttrs.value] = None,
-        width: Union[str, InputAttrs.width, int] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        readonly: Union[str, InputAttrs.readonly, bool, None] = None,
+        required: Union[str, InputAttrs.required, bool, None] = None,
+        size: Union[str, InputAttrs.size, None] = None,
+        src: Union[str, InputAttrs.src, None] = None,
+        step: Union[str, InputAttrs.step, float, None] = None,
+        title: Union[str, InputAttrs.title, str, None] = None,
+        type: Union[str, InputAttrs.type, None] = None,
+        value: Union[str, InputAttrs.value, None] = None,
+        width: Union[str, InputAttrs.width, int, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -10723,11 +11324,12 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -10741,31 +11343,35 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'input' (Form control) element.
@@ -11001,33 +11607,39 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[InsAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        cite: Union[str, InsAttrs.cite] = None,
-        datetime: Union[str, InsAttrs.datetime] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        cite: Union[str, InsAttrs.cite, None] = None,
+        datetime: Union[str, InsAttrs.datetime, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -11035,11 +11647,12 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -11053,32 +11666,36 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'ins' (An addition to the document) element.
@@ -11206,31 +11823,37 @@ class kbd(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -11238,11 +11861,12 @@ class kbd(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -11256,32 +11880,36 @@ class kbd(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'kbd' (User input) element.
@@ -11401,32 +12029,38 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[LabelAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        for_: Union[str, LabelAttrs.for_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        for_: Union[str, LabelAttrs.for_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -11434,11 +12068,12 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -11452,32 +12087,36 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'label' (Caption for a form control) element.
@@ -11601,31 +12240,37 @@ class legend(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -11633,11 +12278,12 @@ class legend(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -11651,32 +12297,36 @@ class legend(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'legend' (Caption for fieldset) element.
@@ -11796,32 +12446,38 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[LiAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        value: Union[str, LiAttrs.value, int] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        value: Union[str, LiAttrs.value, int, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -11829,11 +12485,12 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -11847,32 +12504,36 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'li' (List item) element.
@@ -11995,52 +12656,61 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[LinkAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        as_: Union[str, LinkAttrs.as_] = None,
-        blocking: Union[str, LinkAttrs.blocking] = None,
-        color: Union[str, LinkAttrs.color] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        as_: Union[str, LinkAttrs.as_, None] = None,
+        blocking: Union[str, LinkAttrs.blocking, None] = None,
+        color: Union[str, LinkAttrs.color, None] = None,
         crossorigin: Union[
-            str, LinkAttrs.crossorigin, Literal["anonymous", "use-credentials"]
+            str,
+            LinkAttrs.crossorigin,
+            Literal["anonymous", "use-credentials"],
+            None,
         ] = None,
-        disabled: Union[str, LinkAttrs.disabled, bool] = None,
+        disabled: Union[str, LinkAttrs.disabled, bool, None] = None,
         fetchpriority: Union[
-            str, LinkAttrs.fetchpriority, Literal["auto", "high", "low"]
+            str, LinkAttrs.fetchpriority, Literal["auto", "high", "low"], None
         ] = None,
-        href: Union[str, LinkAttrs.href] = None,
-        hreflang: Union[str, LinkAttrs.hreflang] = None,
-        imagesizes: Union[str, LinkAttrs.imagesizes] = None,
-        imagesrcset: Union[str, LinkAttrs.imagesrcset] = None,
-        integrity: Union[str, LinkAttrs.integrity, str] = None,
-        media: Union[str, LinkAttrs.media] = None,
-        referrerpolicy: Union[str, LinkAttrs.referrerpolicy] = None,
-        rel: Union[str, LinkAttrs.rel] = None,
-        sizes: Union[str, LinkAttrs.sizes] = None,
-        title: Union[str, LinkAttrs.title, str] = None,
-        type: Union[str, LinkAttrs.type] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        href: Union[str, LinkAttrs.href, None] = None,
+        hreflang: Union[str, LinkAttrs.hreflang, None] = None,
+        imagesizes: Union[str, LinkAttrs.imagesizes, None] = None,
+        imagesrcset: Union[str, LinkAttrs.imagesrcset, None] = None,
+        integrity: Union[str, LinkAttrs.integrity, str, None] = None,
+        media: Union[str, LinkAttrs.media, None] = None,
+        referrerpolicy: Union[str, LinkAttrs.referrerpolicy, None] = None,
+        rel: Union[str, LinkAttrs.rel, None] = None,
+        sizes: Union[str, LinkAttrs.sizes, None] = None,
+        title: Union[str, LinkAttrs.title, str, None] = None,
+        type: Union[str, LinkAttrs.type, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -12048,11 +12718,12 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -12066,31 +12737,35 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'link' (Link metadata) element.
@@ -12271,31 +12946,37 @@ class main(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -12303,11 +12984,12 @@ class main(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -12321,32 +13003,36 @@ class main(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'main' (Container for the dominant contents of the document) element.
@@ -12466,32 +13152,38 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[MapAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        name: Union[str, MapAttrs.name, str] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        name: Union[str, MapAttrs.name, str, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -12499,11 +13191,12 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -12517,32 +13210,36 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'map' (Image map) element.
@@ -12665,31 +13362,37 @@ class mark(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -12697,11 +13400,12 @@ class mark(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -12715,32 +13419,36 @@ class mark(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'mark' (Highlight) element.
@@ -12860,31 +13568,37 @@ class menu(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -12892,11 +13606,12 @@ class menu(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -12910,32 +13625,36 @@ class menu(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'menu' (Menu of commands) element.
@@ -13055,15 +13774,17 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[MetaAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        charset: Union[str, MetaAttrs.charset, Literal["utf-8"]] = None,
-        content: Union[str, MetaAttrs.content, str] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        charset: Union[str, MetaAttrs.charset, Literal["utf-8"], None] = None,
+        content: Union[str, MetaAttrs.content, str, None] = None,
         http_equiv: Union[
             str,
             MetaAttrs.http_equiv,
@@ -13074,27 +13795,32 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
                 "x-ua-compatible",
                 "content-security-policy",
             ],
+            None,
         ] = None,
-        media: Union[str, MetaAttrs.media] = None,
-        name: Union[str, MetaAttrs.name, str] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        media: Union[str, MetaAttrs.media, None] = None,
+        name: Union[str, MetaAttrs.name, str, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -13102,11 +13828,12 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -13120,32 +13847,36 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'meta' (Text metadata) element.
@@ -13281,37 +14012,43 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[MeterAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        high: Union[str, MeterAttrs.high, float] = None,
-        low: Union[str, MeterAttrs.low, float] = None,
-        max: Union[str, MeterAttrs.max, float] = None,
-        min: Union[str, MeterAttrs.min, float] = None,
-        optimum: Union[str, MeterAttrs.optimum, float] = None,
-        value: Union[str, MeterAttrs.value, float] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        high: Union[str, MeterAttrs.high, float, None] = None,
+        low: Union[str, MeterAttrs.low, float, None] = None,
+        max: Union[str, MeterAttrs.max, float, None] = None,
+        min: Union[str, MeterAttrs.min, float, None] = None,
+        optimum: Union[str, MeterAttrs.optimum, float, None] = None,
+        value: Union[str, MeterAttrs.value, float, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -13319,11 +14056,12 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -13337,32 +14075,36 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'meter' (Gauge) element.
@@ -13500,31 +14242,37 @@ class nav(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -13532,11 +14280,12 @@ class nav(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -13550,32 +14299,36 @@ class nav(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'nav' (Section with navigational links) element.
@@ -13695,31 +14448,37 @@ class noscript(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -13727,11 +14486,12 @@ class noscript(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -13745,32 +14505,36 @@ class noscript(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'noscript' (Fallback content for script) element.
@@ -13890,37 +14654,43 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[ObjectAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        data: Union[str, ObjectAttrs.data] = None,
-        form: Union[str, ObjectAttrs.form] = None,
-        height: Union[str, ObjectAttrs.height, int] = None,
-        name: Union[str, ObjectAttrs.name] = None,
-        type: Union[str, ObjectAttrs.type] = None,
-        width: Union[str, ObjectAttrs.width, int] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        data: Union[str, ObjectAttrs.data, None] = None,
+        form: Union[str, ObjectAttrs.form, None] = None,
+        height: Union[str, ObjectAttrs.height, int, None] = None,
+        name: Union[str, ObjectAttrs.name, None] = None,
+        type: Union[str, ObjectAttrs.type, None] = None,
+        width: Union[str, ObjectAttrs.width, int, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -13928,11 +14698,12 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -13946,32 +14717,36 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'object' (Image, child navigable, or plugin) element.
@@ -14113,34 +14888,42 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[OlAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        reversed: Union[str, OlAttrs.reversed, bool] = None,
-        start: Union[str, OlAttrs.start, int] = None,
-        type: Union[str, OlAttrs.type, Literal["1", "a", "A", "i", "I"]] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        reversed: Union[str, OlAttrs.reversed, bool, None] = None,
+        start: Union[str, OlAttrs.start, int, None] = None,
+        type: Union[
+            str, OlAttrs.type, Literal["1", "a", "A", "i", "I"], None
+        ] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -14148,11 +14931,12 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -14166,32 +14950,36 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'ol' (Ordered list) element.
@@ -14320,33 +15108,39 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[OptgroupAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        disabled: Union[str, OptgroupAttrs.disabled, bool] = None,
-        label: Union[str, OptgroupAttrs.label, str] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        disabled: Union[str, OptgroupAttrs.disabled, bool, None] = None,
+        label: Union[str, OptgroupAttrs.label, str, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -14354,11 +15148,12 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -14372,32 +15167,36 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'optgroup' (Group of options in a list box) element.
@@ -14523,35 +15322,41 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[OptionAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        disabled: Union[str, OptionAttrs.disabled, bool] = None,
-        label: Union[str, OptionAttrs.label, str] = None,
-        selected: Union[str, OptionAttrs.selected, bool] = None,
-        value: Union[str, OptionAttrs.value, str] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        disabled: Union[str, OptionAttrs.disabled, bool, None] = None,
+        label: Union[str, OptionAttrs.label, str, None] = None,
+        selected: Union[str, OptionAttrs.selected, bool, None] = None,
+        value: Union[str, OptionAttrs.value, str, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -14559,11 +15364,12 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -14577,32 +15383,36 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'option' (Option in a list box or combo box control) element.
@@ -14734,34 +15544,40 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[OutputAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        for_: Union[str, OutputAttrs.for_] = None,
-        form: Union[str, OutputAttrs.form] = None,
-        name: Union[str, OutputAttrs.name, str] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        for_: Union[str, OutputAttrs.for_, None] = None,
+        form: Union[str, OutputAttrs.form, None] = None,
+        name: Union[str, OutputAttrs.name, str, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -14769,11 +15585,12 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -14787,32 +15604,36 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'output' (Calculated output value) element.
@@ -14943,31 +15764,37 @@ class p(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -14975,11 +15802,12 @@ class p(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -14993,32 +15821,36 @@ class p(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'p' (Paragraph) element.
@@ -15138,31 +15970,37 @@ class picture(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -15170,11 +16008,12 @@ class picture(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -15188,32 +16027,36 @@ class picture(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'picture' (Image) element.
@@ -15333,31 +16176,37 @@ class pre(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -15365,11 +16214,12 @@ class pre(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -15383,32 +16233,36 @@ class pre(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'pre' (Block of preformatted text) element.
@@ -15528,33 +16382,39 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[ProgressAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        max: Union[str, ProgressAttrs.max, float] = None,
-        value: Union[str, ProgressAttrs.value, float] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        max: Union[str, ProgressAttrs.max, float, None] = None,
+        value: Union[str, ProgressAttrs.value, float, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -15562,11 +16422,12 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -15580,32 +16441,36 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'progress' (Progress bar) element.
@@ -15731,32 +16596,38 @@ class q(BaseElement, GlobalAttrs, QAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[QAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        cite: Union[str, QAttrs.cite] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        cite: Union[str, QAttrs.cite, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -15764,11 +16635,12 @@ class q(BaseElement, GlobalAttrs, QAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -15782,32 +16654,36 @@ class q(BaseElement, GlobalAttrs, QAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'q' (Quotation) element.
@@ -15931,31 +16807,37 @@ class rp(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -15963,11 +16845,12 @@ class rp(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -15981,32 +16864,36 @@ class rp(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'rp' (Parenthesis for ruby annotation text) element.
@@ -16126,31 +17013,37 @@ class rt(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -16158,11 +17051,12 @@ class rt(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -16176,32 +17070,36 @@ class rt(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'rt' (Ruby annotation text) element.
@@ -16321,31 +17219,37 @@ class ruby(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -16353,11 +17257,12 @@ class ruby(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -16371,32 +17276,36 @@ class ruby(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'ruby' (Ruby annotation(s)) element.
@@ -16516,31 +17425,37 @@ class s(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -16548,11 +17463,12 @@ class s(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -16566,32 +17482,36 @@ class s(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 's' (Inaccurate text) element.
@@ -16711,31 +17631,37 @@ class samp(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -16743,11 +17669,12 @@ class samp(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -16761,32 +17688,36 @@ class samp(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'samp' (Computer output) element.
@@ -16906,47 +17837,54 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[ScriptAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        async_: Union[str, ScriptAttrs.async_, bool] = None,
-        blocking: Union[str, ScriptAttrs.blocking] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        async_: Union[str, ScriptAttrs.async_, bool, None] = None,
+        blocking: Union[str, ScriptAttrs.blocking, None] = None,
         crossorigin: Union[
             str,
             ScriptAttrs.crossorigin,
             Literal["anonymous", "use-credentials"],
+            None,
         ] = None,
-        defer: Union[str, ScriptAttrs.defer, bool] = None,
+        defer: Union[str, ScriptAttrs.defer, bool, None] = None,
         fetchpriority: Union[
-            str, ScriptAttrs.fetchpriority, Literal["auto", "high", "low"]
+            str, ScriptAttrs.fetchpriority, Literal["auto", "high", "low"], None
         ] = None,
-        integrity: Union[str, ScriptAttrs.integrity, str] = None,
-        nomodule: Union[str, ScriptAttrs.nomodule, bool] = None,
-        referrerpolicy: Union[str, ScriptAttrs.referrerpolicy] = None,
-        src: Union[str, ScriptAttrs.src] = None,
-        type: Union[str, ScriptAttrs.type] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        integrity: Union[str, ScriptAttrs.integrity, str, None] = None,
+        nomodule: Union[str, ScriptAttrs.nomodule, bool, None] = None,
+        referrerpolicy: Union[str, ScriptAttrs.referrerpolicy, None] = None,
+        src: Union[str, ScriptAttrs.src, None] = None,
+        type: Union[str, ScriptAttrs.type, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -16954,11 +17892,12 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -16972,32 +17911,36 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'script' (Embedded script) element.
@@ -17151,31 +18094,37 @@ class search(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -17183,11 +18132,12 @@ class search(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -17201,32 +18151,36 @@ class search(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'search' (Container for search controls) element.
@@ -17346,31 +18300,37 @@ class section(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -17378,11 +18338,12 @@ class section(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -17396,32 +18357,36 @@ class section(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'section' (Generic document or application section) element.
@@ -17541,38 +18506,44 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[SelectAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        autocomplete: Union[str, SelectAttrs.autocomplete] = None,
-        disabled: Union[str, SelectAttrs.disabled, bool] = None,
-        form: Union[str, SelectAttrs.form] = None,
-        multiple: Union[str, SelectAttrs.multiple, bool] = None,
-        name: Union[str, SelectAttrs.name, str] = None,
-        required: Union[str, SelectAttrs.required, bool] = None,
-        size: Union[str, SelectAttrs.size] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        autocomplete: Union[str, SelectAttrs.autocomplete, None] = None,
+        disabled: Union[str, SelectAttrs.disabled, bool, None] = None,
+        form: Union[str, SelectAttrs.form, None] = None,
+        multiple: Union[str, SelectAttrs.multiple, bool, None] = None,
+        name: Union[str, SelectAttrs.name, str, None] = None,
+        required: Union[str, SelectAttrs.required, bool, None] = None,
+        size: Union[str, SelectAttrs.size, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -17580,11 +18551,12 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -17598,32 +18570,36 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'select' (List box control) element.
@@ -17767,32 +18743,38 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[SlotAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        name: Union[str, SlotAttrs.name, str] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        name: Union[str, SlotAttrs.name, str, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -17800,11 +18782,12 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -17818,32 +18801,36 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'slot' (Shadow tree slot) element.
@@ -17966,31 +18953,37 @@ class small(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -17998,11 +18991,12 @@ class small(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -18016,32 +19010,36 @@ class small(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'small' (Side comment) element.
@@ -18161,38 +19159,44 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[SourceAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        height: Union[str, SourceAttrs.height, int] = None,
-        media: Union[str, SourceAttrs.media] = None,
-        sizes: Union[str, SourceAttrs.sizes] = None,
-        src: Union[str, SourceAttrs.src] = None,
-        srcset: Union[str, SourceAttrs.srcset] = None,
-        type: Union[str, SourceAttrs.type] = None,
-        width: Union[str, SourceAttrs.width, int] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        height: Union[str, SourceAttrs.height, int, None] = None,
+        media: Union[str, SourceAttrs.media, None] = None,
+        sizes: Union[str, SourceAttrs.sizes, None] = None,
+        src: Union[str, SourceAttrs.src, None] = None,
+        srcset: Union[str, SourceAttrs.srcset, None] = None,
+        type: Union[str, SourceAttrs.type, None] = None,
+        width: Union[str, SourceAttrs.width, int, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -18200,11 +19204,12 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -18218,32 +19223,36 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'source' (Image source for img or media source for video or audio) element.
@@ -18389,31 +19398,37 @@ class span(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -18421,11 +19436,12 @@ class span(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -18439,32 +19455,36 @@ class span(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'span' (Generic phrasing container) element.
@@ -18584,31 +19604,37 @@ class strong(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -18616,11 +19642,12 @@ class strong(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -18634,32 +19661,36 @@ class strong(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'strong' (Importance) element.
@@ -18779,34 +19810,40 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[StyleAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        blocking: Union[str, StyleAttrs.blocking] = None,
-        media: Union[str, StyleAttrs.media] = None,
-        title: Union[str, StyleAttrs.title, str] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        blocking: Union[str, StyleAttrs.blocking, None] = None,
+        media: Union[str, StyleAttrs.media, None] = None,
+        title: Union[str, StyleAttrs.title, str, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -18814,11 +19851,12 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -18832,31 +19870,35 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'style' (Embedded styling information) element.
@@ -18984,31 +20026,37 @@ class sub(BaseElement, GlobalAttrs):
     Documentation: None
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -19016,11 +20064,12 @@ class sub(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -19034,32 +20083,36 @@ class sub(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'sub' (Subscript) element.
@@ -19179,31 +20232,37 @@ class summary(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -19211,11 +20270,12 @@ class summary(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -19229,32 +20289,36 @@ class summary(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'summary' (Caption for details) element.
@@ -19374,31 +20438,37 @@ class sup(BaseElement, GlobalAttrs):
     Documentation: None
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -19406,11 +20476,12 @@ class sup(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -19424,32 +20495,36 @@ class sup(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'sup' (Superscript) element.
@@ -19569,31 +20644,37 @@ class svg(BaseElement, GlobalAttrs):
     Documentation: None
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -19601,11 +20682,12 @@ class svg(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -19619,32 +20701,36 @@ class svg(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'svg' (SVG root) element.
@@ -19764,31 +20850,37 @@ class table(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -19796,11 +20888,12 @@ class table(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -19814,32 +20907,36 @@ class table(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'table' (Table) element.
@@ -19959,31 +21056,37 @@ class tbody(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -19991,11 +21094,12 @@ class tbody(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -20009,32 +21113,36 @@ class tbody(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'tbody' (Group of rows in a table) element.
@@ -20154,34 +21262,40 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[TdAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        colspan: Union[str, TdAttrs.colspan] = None,
-        headers: Union[str, TdAttrs.headers] = None,
-        rowspan: Union[str, TdAttrs.rowspan, int] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        colspan: Union[str, TdAttrs.colspan, None] = None,
+        headers: Union[str, TdAttrs.headers, None] = None,
+        rowspan: Union[str, TdAttrs.rowspan, int, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -20189,11 +21303,12 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -20207,32 +21322,36 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'td' (Table cell) element.
@@ -20363,43 +21482,49 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[TemplateAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
         shadowrootclonable: Union[
-            str, TemplateAttrs.shadowrootclonable, bool
+            str, TemplateAttrs.shadowrootclonable, bool, None
         ] = None,
         shadowrootdelegatesfocus: Union[
-            str, TemplateAttrs.shadowrootdelegatesfocus, bool
+            str, TemplateAttrs.shadowrootdelegatesfocus, bool, None
         ] = None,
         shadowrootmode: Union[
-            str, TemplateAttrs.shadowrootmode, Literal["open", "closed"]
+            str, TemplateAttrs.shadowrootmode, Literal["open", "closed"], None
         ] = None,
         shadowrootserializable: Union[
-            str, TemplateAttrs.shadowrootserializable, bool
+            str, TemplateAttrs.shadowrootserializable, bool, None
         ] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -20407,11 +21532,12 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -20425,32 +21551,36 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'template' (Template) element.
@@ -20589,44 +21719,52 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[TextareaAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        autocomplete: Union[str, TextareaAttrs.autocomplete] = None,
-        cols: Union[str, TextareaAttrs.cols] = None,
-        dirname: Union[str, TextareaAttrs.dirname, str] = None,
-        disabled: Union[str, TextareaAttrs.disabled, bool] = None,
-        form: Union[str, TextareaAttrs.form] = None,
-        maxlength: Union[str, TextareaAttrs.maxlength, int] = None,
-        minlength: Union[str, TextareaAttrs.minlength, int] = None,
-        name: Union[str, TextareaAttrs.name, str] = None,
-        placeholder: Union[str, TextareaAttrs.placeholder, str] = None,
-        readonly: Union[str, TextareaAttrs.readonly, bool] = None,
-        required: Union[str, TextareaAttrs.required, bool] = None,
-        rows: Union[str, TextareaAttrs.rows] = None,
-        wrap: Union[str, TextareaAttrs.wrap, Literal["soft", "hard"]] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        autocomplete: Union[str, TextareaAttrs.autocomplete, None] = None,
+        cols: Union[str, TextareaAttrs.cols, None] = None,
+        dirname: Union[str, TextareaAttrs.dirname, str, None] = None,
+        disabled: Union[str, TextareaAttrs.disabled, bool, None] = None,
+        form: Union[str, TextareaAttrs.form, None] = None,
+        maxlength: Union[str, TextareaAttrs.maxlength, int, None] = None,
+        minlength: Union[str, TextareaAttrs.minlength, int, None] = None,
+        name: Union[str, TextareaAttrs.name, str, None] = None,
+        placeholder: Union[str, TextareaAttrs.placeholder, str, None] = None,
+        readonly: Union[str, TextareaAttrs.readonly, bool, None] = None,
+        required: Union[str, TextareaAttrs.required, bool, None] = None,
+        rows: Union[str, TextareaAttrs.rows, None] = None,
+        wrap: Union[
+            str, TextareaAttrs.wrap, Literal["soft", "hard"], None
+        ] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -20634,11 +21772,12 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -20652,32 +21791,36 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'textarea' (Multiline text controls) element.
@@ -20840,31 +21983,37 @@ class tfoot(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -20872,11 +22021,12 @@ class tfoot(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -20890,32 +22040,36 @@ class tfoot(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'tfoot' (Group of footer rows in a table) element.
@@ -21035,38 +22189,47 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[ThAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        abbr: Union[str, ThAttrs.abbr, str] = None,
-        colspan: Union[str, ThAttrs.colspan] = None,
-        headers: Union[str, ThAttrs.headers] = None,
-        rowspan: Union[str, ThAttrs.rowspan, int] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        abbr: Union[str, ThAttrs.abbr, str, None] = None,
+        colspan: Union[str, ThAttrs.colspan, None] = None,
+        headers: Union[str, ThAttrs.headers, None] = None,
+        rowspan: Union[str, ThAttrs.rowspan, int, None] = None,
         scope: Union[
-            str, ThAttrs.scope, Literal["row", "col", "rowgroup", "colgroup"]
+            str,
+            ThAttrs.scope,
+            Literal["row", "col", "rowgroup", "colgroup"],
+            None,
         ] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -21074,11 +22237,12 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -21092,32 +22256,36 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'th' (Table header cell) element.
@@ -21254,31 +22422,37 @@ class thead(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -21286,11 +22460,12 @@ class thead(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -21304,32 +22479,36 @@ class thead(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'thead' (Group of heading rows in a table) element.
@@ -21449,32 +22628,38 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[TimeAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        datetime: Union[str, TimeAttrs.datetime] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        datetime: Union[str, TimeAttrs.datetime, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -21482,11 +22667,12 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -21500,32 +22686,36 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'time' (Machine-readable equivalent of date- or time-related data) element.
@@ -21649,31 +22839,37 @@ class title(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -21681,11 +22877,12 @@ class title(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -21699,32 +22896,36 @@ class title(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'title' (Document title) element.
@@ -21844,31 +23045,37 @@ class tr(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -21876,11 +23083,12 @@ class tr(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -21894,32 +23102,36 @@ class tr(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'tr' (Table row) element.
@@ -22039,42 +23251,49 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[TrackAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        default: Union[str, TrackAttrs.default, bool] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        default: Union[str, TrackAttrs.default, bool, None] = None,
         kind: Union[
             str,
             TrackAttrs.kind,
             Literal[
                 "subtitles", "captions", "descriptions", "chapters", "metadata"
             ],
+            None,
         ] = None,
-        label: Union[str, TrackAttrs.label, str] = None,
-        src: Union[str, TrackAttrs.src] = None,
-        srclang: Union[str, TrackAttrs.srclang] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        label: Union[str, TrackAttrs.label, str, None] = None,
+        src: Union[str, TrackAttrs.src, None] = None,
+        srclang: Union[str, TrackAttrs.srclang, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -22082,11 +23301,12 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -22100,32 +23320,36 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'track' (Timed text track) element.
@@ -22262,31 +23486,37 @@ class u(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -22294,11 +23524,12 @@ class u(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -22312,32 +23543,36 @@ class u(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'u' (Unarticulated annotation) element.
@@ -22457,31 +23692,37 @@ class ul(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -22489,11 +23730,12 @@ class ul(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -22507,32 +23749,36 @@ class ul(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'ul' (List) element.
@@ -22652,31 +23898,37 @@ class var(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -22684,11 +23936,12 @@ class var(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -22702,32 +23955,36 @@ class var(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'var' (Variable) element.
@@ -22847,46 +24104,55 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[VideoAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        autoplay: Union[str, VideoAttrs.autoplay, bool] = None,
-        controls: Union[str, VideoAttrs.controls, bool] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        autoplay: Union[str, VideoAttrs.autoplay, bool, None] = None,
+        controls: Union[str, VideoAttrs.controls, bool, None] = None,
         crossorigin: Union[
-            str, VideoAttrs.crossorigin, Literal["anonymous", "use-credentials"]
+            str,
+            VideoAttrs.crossorigin,
+            Literal["anonymous", "use-credentials"],
+            None,
         ] = None,
-        height: Union[str, VideoAttrs.height, int] = None,
-        loop: Union[str, VideoAttrs.loop, bool] = None,
-        muted: Union[str, VideoAttrs.muted, bool] = None,
-        playsinline: Union[str, VideoAttrs.playsinline, bool] = None,
-        poster: Union[str, VideoAttrs.poster] = None,
+        height: Union[str, VideoAttrs.height, int, None] = None,
+        loop: Union[str, VideoAttrs.loop, bool, None] = None,
+        muted: Union[str, VideoAttrs.muted, bool, None] = None,
+        playsinline: Union[str, VideoAttrs.playsinline, bool, None] = None,
+        poster: Union[str, VideoAttrs.poster, None] = None,
         preload: Union[
-            str, VideoAttrs.preload, Literal["none", "metadata", "auto"]
+            str, VideoAttrs.preload, Literal["none", "metadata", "auto"], None
         ] = None,
-        src: Union[str, VideoAttrs.src] = None,
-        width: Union[str, VideoAttrs.width, int] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        src: Union[str, VideoAttrs.src, None] = None,
+        width: Union[str, VideoAttrs.width, int, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -22894,11 +24160,12 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -22912,32 +24179,36 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'video' (Video player) element.
@@ -23092,31 +24363,37 @@ class wbr(BaseElement, GlobalAttrs):
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr
     """
 
-    attr_type: TypeAlias = Union[dict, list[BaseAttribute], list[GlobalAttrs]]
+    attr_list_type: TypeAlias = Union[
+        dict[str, Union[str, dict, list]], list[BaseAttribute]
+    ]
 
     def __init__(
         self,
-        attrs: attr_type = None,
-        id: Union[str, GlobalAttrs.id, str] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
-        accesskey: Union[str, GlobalAttrs.accesskey] = None,
+        attrs: Optional[attr_list_type] = None,
+        id: Union[str, GlobalAttrs.id, str, None] = None,
+        class_: Union[str, GlobalAttrs.class_, None] = None,
+        accesskey: Union[str, GlobalAttrs.accesskey, None] = None,
         autocapitalize: Union[
             str,
             GlobalAttrs.autocapitalize,
             Literal["on", "off", "none", "sentences", "words", "characters"],
+            None,
         ] = None,
         autocorrect: Union[
-            str, GlobalAttrs.autocorrect, Literal["on", "off"]
+            str, GlobalAttrs.autocorrect, Literal["on", "off"], None
         ] = None,
-        autofocus: Union[str, GlobalAttrs.autofocus, bool] = None,
+        autofocus: Union[str, GlobalAttrs.autofocus, bool, None] = None,
         contenteditable: Union[
             str,
             GlobalAttrs.contenteditable,
             Literal["true", "plaintext-only", "false"],
+            None,
         ] = None,
-        dir: Union[str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"]] = None,
+        dir: Union[
+            str, GlobalAttrs.dir, Literal["ltr", "rtl", "auto"], None
+        ] = None,
         draggable: Union[
-            str, GlobalAttrs.draggable, Literal["true", "false"]
+            str, GlobalAttrs.draggable, Literal["true", "false"], None
         ] = None,
         enterkeyhint: Union[
             str,
@@ -23124,11 +24401,12 @@ class wbr(BaseElement, GlobalAttrs):
             Literal[
                 "enter", "done", "go", "next", "previous", "search", "send"
             ],
+            None,
         ] = None,
         hidden: Union[
-            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""]
+            str, GlobalAttrs.hidden, Literal["until-found", "hidden", ""], None
         ] = None,
-        inert: Union[str, GlobalAttrs.inert, bool] = None,
+        inert: Union[str, GlobalAttrs.inert, bool, None] = None,
         inputmode: Union[
             str,
             GlobalAttrs.inputmode,
@@ -23142,32 +24420,36 @@ class wbr(BaseElement, GlobalAttrs):
                 "decimal",
                 "search",
             ],
+            None,
         ] = None,
-        is_: Union[str, GlobalAttrs.is_] = None,
-        itemid: Union[str, GlobalAttrs.itemid] = None,
-        itemprop: Union[str, GlobalAttrs.itemprop] = None,
-        itemref: Union[str, GlobalAttrs.itemref] = None,
-        itemscope: Union[str, GlobalAttrs.itemscope, bool] = None,
-        itemtype: Union[str, GlobalAttrs.itemtype] = None,
-        lang: Union[str, GlobalAttrs.lang] = None,
-        nonce: Union[str, GlobalAttrs.nonce, str] = None,
+        is_: Union[str, GlobalAttrs.is_, None] = None,
+        itemid: Union[str, GlobalAttrs.itemid, None] = None,
+        itemprop: Union[str, GlobalAttrs.itemprop, None] = None,
+        itemref: Union[str, GlobalAttrs.itemref, None] = None,
+        itemscope: Union[str, GlobalAttrs.itemscope, bool, None] = None,
+        itemtype: Union[str, GlobalAttrs.itemtype, None] = None,
+        lang: Union[str, GlobalAttrs.lang, None] = None,
+        nonce: Union[str, GlobalAttrs.nonce, str, None] = None,
         popover: Union[
-            str, GlobalAttrs.popover, Literal["auto", "manual"]
+            str, GlobalAttrs.popover, Literal["auto", "manual"], None
         ] = None,
-        slot: Union[str, GlobalAttrs.slot, str] = None,
+        slot: Union[str, GlobalAttrs.slot, str, None] = None,
         spellcheck: Union[
-            str, GlobalAttrs.spellcheck, Literal["true", "false", ""]
+            str, GlobalAttrs.spellcheck, Literal["true", "false", ""], None
         ] = None,
-        style: Union[str, GlobalAttrs.style] = None,
-        tabindex: Union[str, GlobalAttrs.tabindex, int] = None,
-        title: Union[str, GlobalAttrs.title, str] = None,
+        style: Union[str, GlobalAttrs.style, None] = None,
+        tabindex: Union[str, GlobalAttrs.tabindex, int, None] = None,
+        title: Union[str, GlobalAttrs.title, str, None] = None,
         translate: Union[
-            str, GlobalAttrs.translate, Literal["yes", "no"]
+            str, GlobalAttrs.translate, Literal["yes", "no"], None
         ] = None,
         writingsuggestions: Union[
-            str, GlobalAttrs.writingsuggestions, Literal["true", "false", ""]
+            str,
+            GlobalAttrs.writingsuggestions,
+            Literal["true", "false", ""],
+            None,
         ] = None,
-        children: list = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize 'wbr' (Line breaking opportunity) element.

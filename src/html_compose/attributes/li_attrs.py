@@ -14,5 +14,5 @@ class LiAttrs:
         Value: Valid integer
         """
 
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("value", value)

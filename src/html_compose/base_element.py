@@ -59,8 +59,10 @@ class BaseElement(ElementBase, GlobalAttrs):
         self,
         tag: str,
         void_element: bool = False,
-        attrs: Union[dict[str, str], list[BaseAttribute]] = None,
-        children: list = None,
+        attrs: Union[
+            dict[str, Union[str, list, dict]], list[BaseAttribute], None
+        ] = None,
+        children: Optional[list] = None,
     ) -> None:
         """
         Initialize an HTML element
@@ -130,7 +132,7 @@ class BaseElement(ElementBase, GlobalAttrs):
             else:
                 self._attrs[attr_name] = resolved_value
 
-    def _resolve_attrs(self, attrs) -> dict[str]:
+    def _resolve_attrs(self, attrs) -> dict[str, str]:
         """
         Resolve attributes into key/value pairs
         """
@@ -255,19 +257,18 @@ class BaseElement(ElementBase, GlobalAttrs):
             yield unsafe_text("true" if child else "false")
 
         elif isinstance(child, ElementBase):
-            child: ElementBase
             # Recursively resolve the element tree
             yield from child.resolve(self)
 
         elif util_funcs.is_iterable_but_not_str(child):
-            for el in util_funcs.flatten_iterable(child):
+            for el in util_funcs.flatten_iterable(child):  # type: ignore[arg-type]
                 yield from self._resolve_child(el, call_callables, parent)
 
         elif callable(child):
             if not call_callables:
                 # In deferred resolve state,
                 # callables are yielded instead of resolved
-                yield child
+                yield child  # type: ignore[misc]
             else:
                 result = child
                 while callable(result):
@@ -290,7 +291,6 @@ class BaseElement(ElementBase, GlobalAttrs):
         """
 
         for child in self._children:
-            child: Node
             yield from self._resolve_child(
                 child, call_callables=False, parent=parent
             )
@@ -371,7 +371,7 @@ class BaseElement(ElementBase, GlobalAttrs):
             else:
                 yield f"<{self.tag}>"
 
-            yield from children
+            yield from children  # type: ignore[misc]
             yield f"</{self.tag}>"
 
     def resolve(self, parent=None) -> Generator[str, None, None]:

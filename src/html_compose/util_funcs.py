@@ -2,7 +2,7 @@ import inspect
 from functools import lru_cache
 from typing import Any, Generator, Iterable
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup  # type: ignore[import-untyped]
 
 
 def pretty_print(html: str) -> str:

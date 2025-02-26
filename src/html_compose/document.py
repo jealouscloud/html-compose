@@ -1,14 +1,14 @@
-from typing import Union
+from typing import Optional, Union
 
 from . import base_types, unsafe_text
 from . import elements as el
 
 
 def HTML5Document(
-    title: str = None,
-    lang: str = None,
-    head: list = None,
-    body: Union[list[base_types.Node], el.body] = None,
+    title: Optional[str] = None,
+    lang: Optional[str] = None,
+    head: Optional[list] = None,
+    body: Union[list[base_types.Node], el.body, None] = None,
 ) -> str:
     """
     Return an HTML5 document with the given title and content.

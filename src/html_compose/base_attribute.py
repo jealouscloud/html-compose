@@ -8,10 +8,7 @@ def unsafe_text(value) -> str:
 
 
 Resolveable: TypeAlias = Union[
-    None,
-    str,
-    list[str],
-    dict[str, str],
+    None, str, list[str], dict[str, str], float, int, bool
 ]
 
 

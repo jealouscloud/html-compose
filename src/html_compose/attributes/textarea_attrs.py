@@ -64,7 +64,7 @@ class TextareaAttrs:
         Value: Valid non-negative integer
         """
 
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("maxlength", value)
 
     class minlength(BaseAttribute):
@@ -74,7 +74,7 @@ class TextareaAttrs:
         Value: Valid non-negative integer
         """
 
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("minlength", value)
 
     class name(BaseAttribute):
