@@ -1,4 +1,4 @@
-from typing import Callable, Generator, Union
+from typing import Callable, Generator, Optional, Union
 
 from . import escape_text, unsafe_text, util_funcs
 from .attributes import BaseAttribute, GlobalAttrs
@@ -21,7 +21,7 @@ class BaseElement(ElementBase, GlobalAttrs):
     All elements derive from this class
     """
 
-    __slots__ = ("tag", "_attrs", "_children")
+    __slots__ = ("tag", "_attrs", "_children", "is_void_element")
 
     @classmethod
     def __class_getitem__(cls, key):
