@@ -59,7 +59,7 @@ def test_nested_callables():
     Test that nesting callables works correctly.
     """
     a = div()
-    a.append("text", lambda x: div()[x.name, lambda y: y.name])
+    a.append("text", lambda x: div()[x.tag, lambda y: y.tag])
     assert a.render() == "<div>text<div>divdiv</div></div>"
 
 
