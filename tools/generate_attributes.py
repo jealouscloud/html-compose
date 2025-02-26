@@ -1,4 +1,7 @@
+import argparse
 import json
+import shutil
+from pathlib import Path
 
 from generator_common import get_path, safe_name, type_for_value
 
@@ -121,8 +124,26 @@ def other_attrs():
         get_path(f"generated/{element}_attrs.py").write_text(doc)
 
 
-spec = json.loads(get_path("spec_reference.json").read_text())
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate HTML attrs.")
+    parser.add_argument(
+        "--copy",
+        action="store_true",
+        help="Copy the output to project",
+    )
+    args = parser.parse_args()
+    spec = json.loads(get_path("spec_reference.json").read_text())
 
-global_attrs()
+    global_attrs()
 
-other_attrs()
+    other_attrs()
+    if args.copy:
+        path_base = "src/html_compose/attributes"
+        output_path = Path(path_base)
+        if not output_path.exists():
+            output_path = Path("..") / output_path
+            if not output_path.exists():
+                print("Error: Could not find output path to copy to")
+                exit(1)
+        for attrscript in get_path("generated").glob("*_attrs.py"):
+            shutil.copy(attrscript, output_path)
