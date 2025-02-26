@@ -122,13 +122,29 @@ def gen_elements():
             attr_assignment = ""
             attr_docstrings = [
                 ":param attrs: A list or dictionary of attributes for the element",
-                ":param id: The ID of the element",
-                ":param class_ The class of the element",
             ]
 
             attr_list = []
             assign_list = []
             attr_names = set()
+            global_processed = generate_attrs("GlobalAttrs", global_attrs)
+
+            def add_param(p):
+                if p.name in attr_names:
+                    return
+                attr_docstrings.extend(p.docstrings)
+                attr_list.append(p.param)
+                assign_list.append(p.assignment)
+                attr_names.add(p.name)
+
+            # Prefer id and class as first args
+            for p in sorted(
+                [x for x in global_processed if x.name in ("id", "class")],
+                key=lambda x: x.name,
+                reverse=True,
+            ):
+                add_param(p)
+
             if attrs != "globals":
                 attr_class = f"{attr_name}Attrs"
                 attr_string = f", {attr_class}"
@@ -140,24 +156,17 @@ def gen_elements():
                         x for x in processed if not x.name.startswith("on")
                     ]
                     for p in shifted:
-                        attr_docstrings.extend(p.docstrings)
-                        attr_list.append(p.param)
-                        assign_list.append(p.assignment)
-                        attr_names.add(p.name)
+                        add_param(p)
                     extra_attrs = "\n".join(attr_list)
                     attr_assignment = "\n".join(assign_list)
 
-            global_processed = generate_attrs("GlobalAttrs", global_attrs)
-
             global_shifted = [
-                x for x in global_processed if not x.name.startswith("on")
+                x
+                for x in global_processed
+                if not x.name.startswith("on") and x.name not in ("id", "class")
             ]
             for p in global_shifted:
-                if p.name in ("id", "class") or p.name in attr_names:
-                    continue
-                attr_docstrings.extend(p.docstrings)
-                attr_list.append(p.param)
-                assign_list.append(p.assignment)
+                add_param(p)
 
             extra_attrs = "\n".join(attr_list)
             attr_assignment = "\n".join(assign_list)
@@ -183,8 +192,6 @@ def gen_elements():
                 "    def __init__(",
                 "        self,",
                 "        attrs: attr_type = None,",
-                "        id: GlobalAttrs.id = None,",
-                "        class_: GlobalAttrs.class_ = None,",
                 extra_attrs,
                 "        children: list = None",
                 "    ) -> None:",
@@ -197,8 +204,6 @@ def gen_elements():
                 "        super().__init__(",
                 f'            "{real_element}",',
                 f"            void_element={is_void_element},",
-                "            id=id,",
-                "            class_=class_,",
                 "            attrs=attrs,",
                 "            children=children",
                 "        )",
@@ -206,7 +211,7 @@ def gen_elements():
             ]
             result.append("\n".join(template))
 
-    header = f"""from typing import Any, Optional, TypeAlias, Union, Literal
+    header = f"""from typing import TypeAlias, Union, Literal
 
 from .attributes import GlobalAttrs, {", ".join(attr_imports)}
 from .base_attribute import BaseAttribute

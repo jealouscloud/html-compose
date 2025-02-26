@@ -1,4 +1,4 @@
-from typing import Any, Optional, TypeAlias, Union, Literal
+from typing import TypeAlias, Union, Literal
 
 from .attributes import GlobalAttrs, AnchorAttrs, AreaAttrs, AudioAttrs, BaseAttrs, BlockquoteAttrs, BodyAttrs, ButtonAttrs, CanvasAttrs, ColAttrs, ColgroupAttrs, DataAttrs, DelAttrs, DetailsAttrs, DialogAttrs, EmbedAttrs, FieldsetAttrs, FormAttrs, IframeAttrs, ImgAttrs, InputAttrs, InsAttrs, LabelAttrs, LiAttrs, LinkAttrs, MapAttrs, MetaAttrs, MeterAttrs, ObjectAttrs, OlAttrs, OptgroupAttrs, OptionAttrs, OutputAttrs, ProgressAttrs, QAttrs, ScriptAttrs, SelectAttrs, SlotAttrs, SourceAttrs, StyleAttrs, TdAttrs, TemplateAttrs, TextareaAttrs, ThAttrs, TimeAttrs, TrackAttrs, VideoAttrs
 from .base_attribute import BaseAttribute
@@ -24,8 +24,8 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         download: Union[str, AnchorAttrs.download, str] = None,
         href: Union[str, AnchorAttrs.href] = None,
         hreflang: Union[str, AnchorAttrs.hreflang] = None,
@@ -68,8 +68,9 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param download: Whether to download the resource instead of navigating to it, and its filename if so
         :param href: Address of the hyperlink
             | Valid URL potentially surrounded by spaces
@@ -124,11 +125,13 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
         super().__init__(
             "a",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (download is None or download is False):
             self._process_attr("download", download)
         if not (href is None or href is False):
@@ -219,8 +222,8 @@ class abbr(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -255,8 +258,9 @@ class abbr(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -296,11 +300,13 @@ class abbr(BaseElement, GlobalAttrs):
         super().__init__(
             "abbr",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -375,8 +381,8 @@ class address(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -411,8 +417,9 @@ class address(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -452,11 +459,13 @@ class address(BaseElement, GlobalAttrs):
         super().__init__(
             "address",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -531,8 +540,8 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         alt: Union[str, AreaAttrs.alt, str] = None,
         coords: Union[str, AreaAttrs.coords] = None,
         download: Union[str, AreaAttrs.download, str] = None,
@@ -576,8 +585,9 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param alt: Replacement text for use when images are not available
         :param coords: Coordinates for the shape to be created in an image map
             | Valid list of floating-point numbers*
@@ -632,11 +642,13 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
         super().__init__(
             "area",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (alt is None or alt is False):
             self._process_attr("alt", alt)
         if not (coords is None or coords is False):
@@ -729,8 +741,8 @@ class article(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -765,8 +777,9 @@ class article(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -806,11 +819,13 @@ class article(BaseElement, GlobalAttrs):
         super().__init__(
             "article",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -885,8 +900,8 @@ class aside(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -921,8 +936,9 @@ class aside(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -962,11 +978,13 @@ class aside(BaseElement, GlobalAttrs):
         super().__init__(
             "aside",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -1041,8 +1059,8 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         autoplay: Union[str, AudioAttrs.autoplay, bool] = None,
         controls: Union[str, AudioAttrs.controls, bool] = None,
         crossorigin: Union[str, AudioAttrs.crossorigin, Literal['anonymous', 'use-credentials']] = None,
@@ -1084,8 +1102,9 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param autoplay: Hint that the media resource can be started automatically when the page is loaded
         :param controls: Show user agent controls
         :param crossorigin: How the element handles crossorigin requests
@@ -1133,11 +1152,13 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
         super().__init__(
             "audio",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (autoplay is None or autoplay is False):
             self._process_attr("autoplay", autoplay)
         if not (controls is None or controls is False):
@@ -1226,8 +1247,8 @@ class b(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -1262,8 +1283,9 @@ class b(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -1303,11 +1325,13 @@ class b(BaseElement, GlobalAttrs):
         super().__init__(
             "b",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -1382,8 +1406,8 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         href: Union[str, BaseAttrs.href] = None,
         target: Union[str, BaseAttrs.target] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
@@ -1420,8 +1444,9 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param href: Document base URL
             | Valid URL potentially surrounded by spaces
         :param target: Default navigable for hyperlink navigation and form submission
@@ -1465,11 +1490,13 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
         super().__init__(
             "base",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (href is None or href is False):
             self._process_attr("href", href)
         if not (target is None or target is False):
@@ -1548,8 +1575,8 @@ class bdi(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -1584,8 +1611,9 @@ class bdi(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -1625,11 +1653,13 @@ class bdi(BaseElement, GlobalAttrs):
         super().__init__(
             "bdi",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -1704,8 +1734,8 @@ class bdo(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -1740,8 +1770,9 @@ class bdo(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -1781,11 +1812,13 @@ class bdo(BaseElement, GlobalAttrs):
         super().__init__(
             "bdo",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -1860,8 +1893,8 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         cite: Union[str, BlockquoteAttrs.cite] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
@@ -1897,8 +1930,9 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param cite: Link to the source of the quotation or more information about the edit
             | Valid URL potentially surrounded by spaces
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -1940,11 +1974,13 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
         super().__init__(
             "blockquote",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (cite is None or cite is False):
             self._process_attr("cite", cite)
         if not (accesskey is None or accesskey is False):
@@ -2021,8 +2057,8 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -2057,8 +2093,9 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -2098,11 +2135,13 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
         super().__init__(
             "body",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -2177,8 +2216,8 @@ class br(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -2213,8 +2252,9 @@ class br(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -2254,11 +2294,13 @@ class br(BaseElement, GlobalAttrs):
         super().__init__(
             "br",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -2333,8 +2375,8 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         disabled: Union[str, ButtonAttrs.disabled, bool] = None,
         form: Union[str, ButtonAttrs.form] = None,
         formaction: Union[str, ButtonAttrs.formaction] = None,
@@ -2381,8 +2423,9 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param disabled: Whether the form control is disabled
         :param form: Associates the element with a form element
             | ID*
@@ -2438,11 +2481,13 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
         super().__init__(
             "button",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (disabled is None or disabled is False):
             self._process_attr("disabled", disabled)
         if not (form is None or form is False):
@@ -2541,8 +2586,8 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         height: Union[str, CanvasAttrs.height, int] = None,
         width: Union[str, CanvasAttrs.width, int] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
@@ -2579,8 +2624,9 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param height: Vertical dimension
         :param width: Horizontal dimension
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -2622,11 +2668,13 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
         super().__init__(
             "canvas",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (height is None or height is False):
             self._process_attr("height", height)
         if not (width is None or width is False):
@@ -2705,8 +2753,8 @@ class caption(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -2741,8 +2789,9 @@ class caption(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -2782,11 +2831,13 @@ class caption(BaseElement, GlobalAttrs):
         super().__init__(
             "caption",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -2861,8 +2912,8 @@ class cite(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -2897,8 +2948,9 @@ class cite(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -2938,11 +2990,13 @@ class cite(BaseElement, GlobalAttrs):
         super().__init__(
             "cite",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -3017,8 +3071,8 @@ class code(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -3053,8 +3107,9 @@ class code(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -3094,11 +3149,13 @@ class code(BaseElement, GlobalAttrs):
         super().__init__(
             "code",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -3173,8 +3230,8 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         span: Union[str, ColAttrs.span] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
@@ -3210,8 +3267,9 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param span: Number of columns spanned by the element
             | Valid non-negative integer greater than zero
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -3253,11 +3311,13 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
         super().__init__(
             "col",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (span is None or span is False):
             self._process_attr("span", span)
         if not (accesskey is None or accesskey is False):
@@ -3334,8 +3394,8 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         span: Union[str, ColgroupAttrs.span] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
@@ -3371,8 +3431,9 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param span: Number of columns spanned by the element
             | Valid non-negative integer greater than zero
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -3414,11 +3475,13 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
         super().__init__(
             "colgroup",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (span is None or span is False):
             self._process_attr("span", span)
         if not (accesskey is None or accesskey is False):
@@ -3495,8 +3558,8 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         value: Union[str, DataAttrs.value, str] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
@@ -3532,8 +3595,9 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param value: Machine-readable value
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
@@ -3574,11 +3638,13 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
         super().__init__(
             "data",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (value is None or value is False):
             self._process_attr("value", value)
         if not (accesskey is None or accesskey is False):
@@ -3655,8 +3721,8 @@ class datalist(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -3691,8 +3757,9 @@ class datalist(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -3732,11 +3799,13 @@ class datalist(BaseElement, GlobalAttrs):
         super().__init__(
             "datalist",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -3811,8 +3880,8 @@ class dd(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -3847,8 +3916,9 @@ class dd(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -3888,11 +3958,13 @@ class dd(BaseElement, GlobalAttrs):
         super().__init__(
             "dd",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -3967,8 +4039,8 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         cite: Union[str, DelAttrs.cite] = None,
         datetime: Union[str, DelAttrs.datetime] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
@@ -4005,8 +4077,9 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param cite: Link to the source of the quotation or more information about the edit
             | Valid URL potentially surrounded by spaces
         :param datetime: Date and (optionally) time of the change
@@ -4050,11 +4123,13 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
         super().__init__(
             "del",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (cite is None or cite is False):
             self._process_attr("cite", cite)
         if not (datetime is None or datetime is False):
@@ -4133,8 +4208,8 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         name: Union[str, DetailsAttrs.name, str] = None,
         open: Union[str, DetailsAttrs.open, bool] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
@@ -4171,8 +4246,9 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param name: Name of group of mutually-exclusive details elements
         :param open: Whether the details are visible
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -4214,11 +4290,13 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
         super().__init__(
             "details",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (name is None or name is False):
             self._process_attr("name", name)
         if not (open is None or open is False):
@@ -4297,8 +4375,8 @@ class dfn(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -4333,8 +4411,9 @@ class dfn(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -4374,11 +4453,13 @@ class dfn(BaseElement, GlobalAttrs):
         super().__init__(
             "dfn",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -4453,8 +4534,8 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         open: Union[str, DialogAttrs.open, bool] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
@@ -4490,8 +4571,9 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param open: Whether the dialog box is showing
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
@@ -4532,11 +4614,13 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
         super().__init__(
             "dialog",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (open is None or open is False):
             self._process_attr("open", open)
         if not (accesskey is None or accesskey is False):
@@ -4613,8 +4697,8 @@ class div(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -4649,8 +4733,9 @@ class div(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -4690,11 +4775,13 @@ class div(BaseElement, GlobalAttrs):
         super().__init__(
             "div",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -4769,8 +4856,8 @@ class dl(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -4805,8 +4892,9 @@ class dl(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -4846,11 +4934,13 @@ class dl(BaseElement, GlobalAttrs):
         super().__init__(
             "dl",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -4925,8 +5015,8 @@ class dt(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -4961,8 +5051,9 @@ class dt(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -5002,11 +5093,13 @@ class dt(BaseElement, GlobalAttrs):
         super().__init__(
             "dt",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -5081,8 +5174,8 @@ class em(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -5117,8 +5210,9 @@ class em(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -5158,11 +5252,13 @@ class em(BaseElement, GlobalAttrs):
         super().__init__(
             "em",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -5237,8 +5333,8 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         height: Union[str, EmbedAttrs.height, int] = None,
         src: Union[str, EmbedAttrs.src] = None,
         type: Union[str, EmbedAttrs.type] = None,
@@ -5277,8 +5373,9 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param height: Vertical dimension
         :param src: Address of the resource
             | Valid non-empty URL potentially surrounded by spaces
@@ -5324,11 +5421,13 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
         super().__init__(
             "embed",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (height is None or height is False):
             self._process_attr("height", height)
         if not (src is None or src is False):
@@ -5411,8 +5510,8 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         disabled: Union[str, FieldsetAttrs.disabled, bool] = None,
         form: Union[str, FieldsetAttrs.form] = None,
         name: Union[str, FieldsetAttrs.name, str] = None,
@@ -5450,8 +5549,9 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param disabled: Whether the descendant form controls, except any inside legend, are disabled
         :param form: Associates the element with a form element
             | ID*
@@ -5495,11 +5595,13 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
         super().__init__(
             "fieldset",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (disabled is None or disabled is False):
             self._process_attr("disabled", disabled)
         if not (form is None or form is False):
@@ -5580,8 +5682,8 @@ class figcaption(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -5616,8 +5718,9 @@ class figcaption(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -5657,11 +5760,13 @@ class figcaption(BaseElement, GlobalAttrs):
         super().__init__(
             "figcaption",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -5736,8 +5841,8 @@ class figure(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -5772,8 +5877,9 @@ class figure(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -5813,11 +5919,13 @@ class figure(BaseElement, GlobalAttrs):
         super().__init__(
             "figure",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -5892,8 +6000,8 @@ class footer(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -5928,8 +6036,9 @@ class footer(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -5969,11 +6078,13 @@ class footer(BaseElement, GlobalAttrs):
         super().__init__(
             "footer",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -6048,8 +6159,8 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accept_charset: Union[str, FormAttrs.accept_charset] = None,
         action: Union[str, FormAttrs.action] = None,
         autocomplete: Union[str, FormAttrs.autocomplete, Literal['on', 'off']] = None,
@@ -6092,8 +6203,9 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accept_charset: Character encodings to use for form submission
             | ASCII case-insensitive match for "UTF-8"
         :param action: URL to use for form submission
@@ -6144,11 +6256,13 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
         super().__init__(
             "form",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accept_charset is None or accept_charset is False):
             self._process_attr("accept-charset", accept_charset)
         if not (action is None or action is False):
@@ -6239,8 +6353,8 @@ class h1(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -6275,8 +6389,9 @@ class h1(BaseElement, GlobalAttrs):
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -6316,11 +6431,13 @@ class h1(BaseElement, GlobalAttrs):
         super().__init__(
             "h1",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -6395,8 +6512,8 @@ class h2(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -6431,8 +6548,9 @@ class h2(BaseElement, GlobalAttrs):
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -6472,11 +6590,13 @@ class h2(BaseElement, GlobalAttrs):
         super().__init__(
             "h2",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -6551,8 +6671,8 @@ class h3(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -6587,8 +6707,9 @@ class h3(BaseElement, GlobalAttrs):
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -6628,11 +6749,13 @@ class h3(BaseElement, GlobalAttrs):
         super().__init__(
             "h3",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -6707,8 +6830,8 @@ class h4(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -6743,8 +6866,9 @@ class h4(BaseElement, GlobalAttrs):
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -6784,11 +6908,13 @@ class h4(BaseElement, GlobalAttrs):
         super().__init__(
             "h4",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -6863,8 +6989,8 @@ class h5(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -6899,8 +7025,9 @@ class h5(BaseElement, GlobalAttrs):
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -6940,11 +7067,13 @@ class h5(BaseElement, GlobalAttrs):
         super().__init__(
             "h5",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -7019,8 +7148,8 @@ class h6(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -7055,8 +7184,9 @@ class h6(BaseElement, GlobalAttrs):
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7096,11 +7226,13 @@ class h6(BaseElement, GlobalAttrs):
         super().__init__(
             "h6",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -7175,8 +7307,8 @@ class head(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -7211,8 +7343,9 @@ class head(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7252,11 +7385,13 @@ class head(BaseElement, GlobalAttrs):
         super().__init__(
             "head",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -7331,8 +7466,8 @@ class header(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -7367,8 +7502,9 @@ class header(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7408,11 +7544,13 @@ class header(BaseElement, GlobalAttrs):
         super().__init__(
             "header",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -7487,8 +7625,8 @@ class hgroup(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -7523,8 +7661,9 @@ class hgroup(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7564,11 +7703,13 @@ class hgroup(BaseElement, GlobalAttrs):
         super().__init__(
             "hgroup",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -7643,8 +7784,8 @@ class hr(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -7679,8 +7820,9 @@ class hr(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7720,11 +7862,13 @@ class hr(BaseElement, GlobalAttrs):
         super().__init__(
             "hr",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -7799,8 +7943,8 @@ class html(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -7835,8 +7979,9 @@ class html(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -7876,11 +8021,13 @@ class html(BaseElement, GlobalAttrs):
         super().__init__(
             "html",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -7955,8 +8102,8 @@ class i(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -7991,8 +8138,9 @@ class i(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -8032,11 +8180,13 @@ class i(BaseElement, GlobalAttrs):
         super().__init__(
             "i",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -8111,8 +8261,8 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         allow: Union[str, IframeAttrs.allow] = None,
         allowfullscreen: Union[str, IframeAttrs.allowfullscreen, bool] = None,
         height: Union[str, IframeAttrs.height, int] = None,
@@ -8157,8 +8307,9 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param allow: Permissions policy to be applied to the iframe's contents
             | Serialized permissions policy
         :param allowfullscreen: Whether to allow the iframe's contents to use requestFullscreen()
@@ -8214,11 +8365,13 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
         super().__init__(
             "iframe",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (allow is None or allow is False):
             self._process_attr("allow", allow)
         if not (allowfullscreen is None or allowfullscreen is False):
@@ -8313,8 +8466,8 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         alt: Union[str, ImgAttrs.alt, str] = None,
         crossorigin: Union[str, ImgAttrs.crossorigin, Literal['anonymous', 'use-credentials']] = None,
         decoding: Union[str, ImgAttrs.decoding, Literal['sync', 'async', 'auto']] = None,
@@ -8362,8 +8515,9 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param alt: Replacement text for use when images are not available
         :param crossorigin: How the element handles crossorigin requests
         :param decoding: Decoding hint to use when processing this image for presentation
@@ -8421,11 +8575,13 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         super().__init__(
             "img",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (alt is None or alt is False):
             self._process_attr("alt", alt)
         if not (crossorigin is None or crossorigin is False):
@@ -8526,8 +8682,8 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accept: Union[str, InputAttrs.accept] = None,
         alpha: Union[str, InputAttrs.alpha, bool] = None,
         alt: Union[str, InputAttrs.alt, str] = None,
@@ -8596,8 +8752,9 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accept: Hint for expected file type in file upload controls
             | Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*
         :param alpha: Allow the color's alpha component to be set
@@ -8685,11 +8842,13 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
         super().__init__(
             "input",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accept is None or accept is False):
             self._process_attr("accept", accept)
         if not (alpha is None or alpha is False):
@@ -8832,8 +8991,8 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         cite: Union[str, InsAttrs.cite] = None,
         datetime: Union[str, InsAttrs.datetime] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
@@ -8870,8 +9029,9 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param cite: Link to the source of the quotation or more information about the edit
             | Valid URL potentially surrounded by spaces
         :param datetime: Date and (optionally) time of the change
@@ -8915,11 +9075,13 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
         super().__init__(
             "ins",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (cite is None or cite is False):
             self._process_attr("cite", cite)
         if not (datetime is None or datetime is False):
@@ -8998,8 +9160,8 @@ class kbd(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -9034,8 +9196,9 @@ class kbd(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -9075,11 +9238,13 @@ class kbd(BaseElement, GlobalAttrs):
         super().__init__(
             "kbd",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -9154,8 +9319,8 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         for_: Union[str, LabelAttrs.for_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
@@ -9191,8 +9356,9 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param for_: Associate the label with form control
             | ID*
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -9234,11 +9400,13 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
         super().__init__(
             "label",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (for_ is None or for_ is False):
             self._process_attr("for", for_)
         if not (accesskey is None or accesskey is False):
@@ -9315,8 +9483,8 @@ class legend(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -9351,8 +9519,9 @@ class legend(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -9392,11 +9561,13 @@ class legend(BaseElement, GlobalAttrs):
         super().__init__(
             "legend",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -9471,8 +9642,8 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         value: Union[str, LiAttrs.value, int] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
@@ -9508,8 +9679,9 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param value: Ordinal value of the list item
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
@@ -9550,11 +9722,13 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
         super().__init__(
             "li",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (value is None or value is False):
             self._process_attr("value", value)
         if not (accesskey is None or accesskey is False):
@@ -9631,8 +9805,8 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         as_: Union[str, LinkAttrs.as_] = None,
         blocking: Union[str, LinkAttrs.blocking] = None,
         color: Union[str, LinkAttrs.color] = None,
@@ -9683,8 +9857,9 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param as_: Potential destination for a preload request (for rel="preload" and rel="modulepreload")
             | Potential destination, for rel="preload"; script-like destination, for rel="modulepreload"
         :param blocking: Whether the element is potentially render-blocking
@@ -9753,11 +9928,13 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
         super().__init__(
             "link",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (as_ is None or as_ is False):
             self._process_attr("as", as_)
         if not (blocking is None or blocking is False):
@@ -9864,8 +10041,8 @@ class main(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -9900,8 +10077,9 @@ class main(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -9941,11 +10119,13 @@ class main(BaseElement, GlobalAttrs):
         super().__init__(
             "main",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -10020,8 +10200,8 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         name: Union[str, MapAttrs.name, str] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
@@ -10057,8 +10237,9 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param name: Name of image map to reference from the usemap attribute
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
@@ -10099,11 +10280,13 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
         super().__init__(
             "map",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (name is None or name is False):
             self._process_attr("name", name)
         if not (accesskey is None or accesskey is False):
@@ -10180,8 +10363,8 @@ class mark(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -10216,8 +10399,9 @@ class mark(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -10257,11 +10441,13 @@ class mark(BaseElement, GlobalAttrs):
         super().__init__(
             "mark",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -10336,8 +10522,8 @@ class menu(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -10372,8 +10558,9 @@ class menu(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -10413,11 +10600,13 @@ class menu(BaseElement, GlobalAttrs):
         super().__init__(
             "menu",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -10492,8 +10681,8 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         charset: Union[str, MetaAttrs.charset, Literal['utf-8']] = None,
         content: Union[str, MetaAttrs.content, str] = None,
         http_equiv: Union[str, MetaAttrs.http_equiv, Literal['content-type', 'default-style', 'refresh', 'x-ua-compatible', 'content-security-policy']] = None,
@@ -10533,8 +10722,9 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param charset: Character encoding declaration
         :param content: Value of the element
         :param http_equiv: Pragma directive
@@ -10580,11 +10770,13 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
         super().__init__(
             "meta",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (charset is None or charset is False):
             self._process_attr("charset", charset)
         if not (content is None or content is False):
@@ -10669,8 +10861,8 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         high: Union[str, MeterAttrs.high, float] = None,
         low: Union[str, MeterAttrs.low, float] = None,
         max: Union[str, MeterAttrs.max, float] = None,
@@ -10711,8 +10903,9 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param high: Low limit of high range
         :param low: High limit of low range
         :param max: Upper bound of range
@@ -10758,11 +10951,13 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
         super().__init__(
             "meter",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (high is None or high is False):
             self._process_attr("high", high)
         if not (low is None or low is False):
@@ -10849,8 +11044,8 @@ class nav(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -10885,8 +11080,9 @@ class nav(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -10926,11 +11122,13 @@ class nav(BaseElement, GlobalAttrs):
         super().__init__(
             "nav",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -11005,8 +11203,8 @@ class noscript(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -11041,8 +11239,9 @@ class noscript(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -11082,11 +11281,13 @@ class noscript(BaseElement, GlobalAttrs):
         super().__init__(
             "noscript",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -11161,8 +11362,8 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         data: Union[str, ObjectAttrs.data] = None,
         form: Union[str, ObjectAttrs.form] = None,
         height: Union[str, ObjectAttrs.height, int] = None,
@@ -11203,8 +11404,9 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param data: Address of the resource
             | Valid non-empty URL potentially surrounded by spaces
         :param form: Associates the element with a form element
@@ -11254,11 +11456,13 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
         super().__init__(
             "object",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (data is None or data is False):
             self._process_attr("data", data)
         if not (form is None or form is False):
@@ -11345,8 +11549,8 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         reversed: Union[str, OlAttrs.reversed, bool] = None,
         start: Union[str, OlAttrs.start, int] = None,
         type: Union[str, OlAttrs.type, Literal['1', 'a', 'A', 'i', 'I']] = None,
@@ -11384,8 +11588,9 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param reversed: Number the list backwards
         :param start: Starting value of the list
         :param type: Kind of list marker
@@ -11428,11 +11633,13 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
         super().__init__(
             "ol",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (reversed is None or reversed is False):
             self._process_attr("reversed", reversed)
         if not (start is None or start is False):
@@ -11513,8 +11720,8 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         disabled: Union[str, OptgroupAttrs.disabled, bool] = None,
         label: Union[str, OptgroupAttrs.label, str] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
@@ -11551,8 +11758,9 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param disabled: Whether the form control is disabled
         :param label: User-visible label
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -11594,11 +11802,13 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
         super().__init__(
             "optgroup",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (disabled is None or disabled is False):
             self._process_attr("disabled", disabled)
         if not (label is None or label is False):
@@ -11677,8 +11887,8 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         disabled: Union[str, OptionAttrs.disabled, bool] = None,
         label: Union[str, OptionAttrs.label, str] = None,
         selected: Union[str, OptionAttrs.selected, bool] = None,
@@ -11717,8 +11927,9 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param disabled: Whether the form control is disabled
         :param label: User-visible label
         :param selected: Whether the option is selected by default
@@ -11762,11 +11973,13 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
         super().__init__(
             "option",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (disabled is None or disabled is False):
             self._process_attr("disabled", disabled)
         if not (label is None or label is False):
@@ -11849,8 +12062,8 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         for_: Union[str, OutputAttrs.for_] = None,
         form: Union[str, OutputAttrs.form] = None,
         name: Union[str, OutputAttrs.name, str] = None,
@@ -11888,8 +12101,9 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param for_: Specifies controls from which the output was calculated
             | Unordered set of unique space-separated tokens consisting of IDs*
         :param form: Associates the element with a form element
@@ -11934,11 +12148,13 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
         super().__init__(
             "output",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (for_ is None or for_ is False):
             self._process_attr("for", for_)
         if not (form is None or form is False):
@@ -12019,8 +12235,8 @@ class p(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -12055,8 +12271,9 @@ class p(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -12096,11 +12313,13 @@ class p(BaseElement, GlobalAttrs):
         super().__init__(
             "p",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -12175,8 +12394,8 @@ class picture(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -12211,8 +12430,9 @@ class picture(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -12252,11 +12472,13 @@ class picture(BaseElement, GlobalAttrs):
         super().__init__(
             "picture",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -12331,8 +12553,8 @@ class pre(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -12367,8 +12589,9 @@ class pre(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -12408,11 +12631,13 @@ class pre(BaseElement, GlobalAttrs):
         super().__init__(
             "pre",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -12487,8 +12712,8 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         max: Union[str, ProgressAttrs.max, float] = None,
         value: Union[str, ProgressAttrs.value, float] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
@@ -12525,8 +12750,9 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param max: Upper bound of range
         :param value: Current value of the element
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -12568,11 +12794,13 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
         super().__init__(
             "progress",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (max is None or max is False):
             self._process_attr("max", max)
         if not (value is None or value is False):
@@ -12651,8 +12879,8 @@ class q(BaseElement, GlobalAttrs, QAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         cite: Union[str, QAttrs.cite] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
@@ -12688,8 +12916,9 @@ class q(BaseElement, GlobalAttrs, QAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param cite: Link to the source of the quotation or more information about the edit
             | Valid URL potentially surrounded by spaces
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -12731,11 +12960,13 @@ class q(BaseElement, GlobalAttrs, QAttrs):
         super().__init__(
             "q",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (cite is None or cite is False):
             self._process_attr("cite", cite)
         if not (accesskey is None or accesskey is False):
@@ -12812,8 +13043,8 @@ class rp(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -12848,8 +13079,9 @@ class rp(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -12889,11 +13121,13 @@ class rp(BaseElement, GlobalAttrs):
         super().__init__(
             "rp",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -12968,8 +13202,8 @@ class rt(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -13004,8 +13238,9 @@ class rt(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -13045,11 +13280,13 @@ class rt(BaseElement, GlobalAttrs):
         super().__init__(
             "rt",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -13124,8 +13361,8 @@ class ruby(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -13160,8 +13397,9 @@ class ruby(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -13201,11 +13439,13 @@ class ruby(BaseElement, GlobalAttrs):
         super().__init__(
             "ruby",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -13280,8 +13520,8 @@ class s(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -13316,8 +13556,9 @@ class s(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -13357,11 +13598,13 @@ class s(BaseElement, GlobalAttrs):
         super().__init__(
             "s",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -13436,8 +13679,8 @@ class samp(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -13472,8 +13715,9 @@ class samp(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -13513,11 +13757,13 @@ class samp(BaseElement, GlobalAttrs):
         super().__init__(
             "samp",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -13592,8 +13838,8 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         async_: Union[str, ScriptAttrs.async_, bool] = None,
         blocking: Union[str, ScriptAttrs.blocking] = None,
         crossorigin: Union[str, ScriptAttrs.crossorigin, Literal['anonymous', 'use-credentials']] = None,
@@ -13638,8 +13884,9 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param async_: Execute script when available, without blocking while fetching
         :param blocking: Whether the element is potentially render-blocking
             | Unordered set of unique space-separated tokens*
@@ -13693,11 +13940,13 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
         super().__init__(
             "script",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (async_ is None or async_ is False):
             self._process_attr("async", async_)
         if not (blocking is None or blocking is False):
@@ -13792,8 +14041,8 @@ class search(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -13828,8 +14077,9 @@ class search(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -13869,11 +14119,13 @@ class search(BaseElement, GlobalAttrs):
         super().__init__(
             "search",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -13948,8 +14200,8 @@ class section(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -13984,8 +14236,9 @@ class section(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -14025,11 +14278,13 @@ class section(BaseElement, GlobalAttrs):
         super().__init__(
             "section",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -14104,8 +14359,8 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         autocomplete: Union[str, SelectAttrs.autocomplete] = None,
         disabled: Union[str, SelectAttrs.disabled, bool] = None,
         form: Union[str, SelectAttrs.form] = None,
@@ -14147,8 +14402,9 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param autocomplete: Hint for form autofill feature
             | Autofill field name and related tokens*
         :param disabled: Whether the form control is disabled
@@ -14198,11 +14454,13 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
         super().__init__(
             "select",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (autocomplete is None or autocomplete is False):
             self._process_attr("autocomplete", autocomplete)
         if not (disabled is None or disabled is False):
@@ -14291,8 +14549,8 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         name: Union[str, SlotAttrs.name, str] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
@@ -14328,8 +14586,9 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param name: Name of shadow tree slot
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
@@ -14370,11 +14629,13 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
         super().__init__(
             "slot",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (name is None or name is False):
             self._process_attr("name", name)
         if not (accesskey is None or accesskey is False):
@@ -14451,8 +14712,8 @@ class small(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -14487,8 +14748,9 @@ class small(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -14528,11 +14790,13 @@ class small(BaseElement, GlobalAttrs):
         super().__init__(
             "small",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -14607,8 +14871,8 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         height: Union[str, SourceAttrs.height, int] = None,
         media: Union[str, SourceAttrs.media] = None,
         sizes: Union[str, SourceAttrs.sizes] = None,
@@ -14650,8 +14914,9 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param height: Vertical dimension
         :param media: Applicable media
             | Valid media query list
@@ -14703,11 +14968,13 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
         super().__init__(
             "source",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (height is None or height is False):
             self._process_attr("height", height)
         if not (media is None or media is False):
@@ -14796,8 +15063,8 @@ class span(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -14832,8 +15099,9 @@ class span(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -14873,11 +15141,13 @@ class span(BaseElement, GlobalAttrs):
         super().__init__(
             "span",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -14952,8 +15222,8 @@ class strong(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -14988,8 +15258,9 @@ class strong(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -15029,11 +15300,13 @@ class strong(BaseElement, GlobalAttrs):
         super().__init__(
             "strong",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -15108,8 +15381,8 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         blocking: Union[str, StyleAttrs.blocking] = None,
         media: Union[str, StyleAttrs.media] = None,
         title: Union[str, StyleAttrs.title, str] = None,
@@ -15146,8 +15419,9 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param blocking: Whether the element is potentially render-blocking
             | Unordered set of unique space-separated tokens*
         :param media: Applicable media
@@ -15191,11 +15465,13 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
         super().__init__(
             "style",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (blocking is None or blocking is False):
             self._process_attr("blocking", blocking)
         if not (media is None or media is False):
@@ -15274,8 +15550,8 @@ class sub(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -15310,8 +15586,9 @@ class sub(BaseElement, GlobalAttrs):
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -15351,11 +15628,13 @@ class sub(BaseElement, GlobalAttrs):
         super().__init__(
             "sub",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -15430,8 +15709,8 @@ class summary(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -15466,8 +15745,9 @@ class summary(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -15507,11 +15787,13 @@ class summary(BaseElement, GlobalAttrs):
         super().__init__(
             "summary",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -15586,8 +15868,8 @@ class sup(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -15622,8 +15904,9 @@ class sup(BaseElement, GlobalAttrs):
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -15663,11 +15946,13 @@ class sup(BaseElement, GlobalAttrs):
         super().__init__(
             "sup",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -15742,8 +16027,8 @@ class svg(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -15778,8 +16063,9 @@ class svg(BaseElement, GlobalAttrs):
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -15819,11 +16105,13 @@ class svg(BaseElement, GlobalAttrs):
         super().__init__(
             "svg",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -15898,8 +16186,8 @@ class table(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -15934,8 +16222,9 @@ class table(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -15975,11 +16264,13 @@ class table(BaseElement, GlobalAttrs):
         super().__init__(
             "table",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -16054,8 +16345,8 @@ class tbody(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -16090,8 +16381,9 @@ class tbody(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -16131,11 +16423,13 @@ class tbody(BaseElement, GlobalAttrs):
         super().__init__(
             "tbody",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -16210,8 +16504,8 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         colspan: Union[str, TdAttrs.colspan] = None,
         headers: Union[str, TdAttrs.headers] = None,
         rowspan: Union[str, TdAttrs.rowspan, int] = None,
@@ -16249,8 +16543,9 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param colspan: Number of columns that the cell is to span
             | Valid non-negative integer greater than zero
         :param headers: The header cells for this cell
@@ -16295,11 +16590,13 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
         super().__init__(
             "td",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (colspan is None or colspan is False):
             self._process_attr("colspan", colspan)
         if not (headers is None or headers is False):
@@ -16380,8 +16677,8 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         shadowrootclonable: Union[str, TemplateAttrs.shadowrootclonable, bool] = None,
         shadowrootdelegatesfocus: Union[str, TemplateAttrs.shadowrootdelegatesfocus, bool] = None,
         shadowrootmode: Union[str, TemplateAttrs.shadowrootmode, Literal['open', 'closed']] = None,
@@ -16420,8 +16717,9 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param shadowrootclonable: Sets clonable on a declarative shadow root
         :param shadowrootdelegatesfocus: Sets delegates focus on a declarative shadow root
         :param shadowrootmode: Enables streaming declarative shadow roots
@@ -16465,11 +16763,13 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
         super().__init__(
             "template",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (shadowrootclonable is None or shadowrootclonable is False):
             self._process_attr("shadowrootclonable", shadowrootclonable)
         if not (shadowrootdelegatesfocus is None or shadowrootdelegatesfocus is False):
@@ -16552,8 +16852,8 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         autocomplete: Union[str, TextareaAttrs.autocomplete] = None,
         cols: Union[str, TextareaAttrs.cols] = None,
         dirname: Union[str, TextareaAttrs.dirname, str] = None,
@@ -16601,8 +16901,9 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param autocomplete: Hint for form autofill feature
             | Autofill field name and related tokens*
         :param cols: Maximum number of characters per line
@@ -16659,11 +16960,13 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
         super().__init__(
             "textarea",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (autocomplete is None or autocomplete is False):
             self._process_attr("autocomplete", autocomplete)
         if not (cols is None or cols is False):
@@ -16764,8 +17067,8 @@ class tfoot(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -16800,8 +17103,9 @@ class tfoot(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -16841,11 +17145,13 @@ class tfoot(BaseElement, GlobalAttrs):
         super().__init__(
             "tfoot",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -16920,8 +17226,8 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         abbr: Union[str, ThAttrs.abbr, str] = None,
         colspan: Union[str, ThAttrs.colspan] = None,
         headers: Union[str, ThAttrs.headers] = None,
@@ -16961,8 +17267,9 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param abbr: Alternative label to use for the header cell when referencing the cell in other contexts
         :param colspan: Number of columns that the cell is to span
             | Valid non-negative integer greater than zero
@@ -17009,11 +17316,13 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
         super().__init__(
             "th",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (abbr is None or abbr is False):
             self._process_attr("abbr", abbr)
         if not (colspan is None or colspan is False):
@@ -17098,8 +17407,8 @@ class thead(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -17134,8 +17443,9 @@ class thead(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -17175,11 +17485,13 @@ class thead(BaseElement, GlobalAttrs):
         super().__init__(
             "thead",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -17254,8 +17566,8 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         datetime: Union[str, TimeAttrs.datetime] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
@@ -17291,8 +17603,9 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param datetime: Machine-readable value
             | Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string
         :param accesskey: Keyboard shortcut to activate or focus element
@@ -17334,11 +17647,13 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
         super().__init__(
             "time",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (datetime is None or datetime is False):
             self._process_attr("datetime", datetime)
         if not (accesskey is None or accesskey is False):
@@ -17415,8 +17730,8 @@ class title(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -17451,8 +17766,9 @@ class title(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -17492,11 +17808,13 @@ class title(BaseElement, GlobalAttrs):
         super().__init__(
             "title",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -17571,8 +17889,8 @@ class tr(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -17607,8 +17925,9 @@ class tr(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -17648,11 +17967,13 @@ class tr(BaseElement, GlobalAttrs):
         super().__init__(
             "tr",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -17727,8 +18048,8 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         default: Union[str, TrackAttrs.default, bool] = None,
         kind: Union[str, TrackAttrs.kind, Literal['subtitles', 'captions', 'descriptions', 'chapters', 'metadata']] = None,
         label: Union[str, TrackAttrs.label, str] = None,
@@ -17768,8 +18089,9 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param default: Enable the track if no other text track is more suitable
         :param kind: The type of text track
         :param label: User-visible label
@@ -17816,11 +18138,13 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
         super().__init__(
             "track",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (default is None or default is False):
             self._process_attr("default", default)
         if not (kind is None or kind is False):
@@ -17905,8 +18229,8 @@ class u(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -17941,8 +18265,9 @@ class u(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -17982,11 +18307,13 @@ class u(BaseElement, GlobalAttrs):
         super().__init__(
             "u",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -18061,8 +18388,8 @@ class ul(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -18097,8 +18424,9 @@ class ul(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -18138,11 +18466,13 @@ class ul(BaseElement, GlobalAttrs):
         super().__init__(
             "ul",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -18217,8 +18547,8 @@ class var(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -18253,8 +18583,9 @@ class var(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -18294,11 +18625,13 @@ class var(BaseElement, GlobalAttrs):
         super().__init__(
             "var",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):
@@ -18373,8 +18706,8 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         autoplay: Union[str, VideoAttrs.autoplay, bool] = None,
         controls: Union[str, VideoAttrs.controls, bool] = None,
         crossorigin: Union[str, VideoAttrs.crossorigin, Literal['anonymous', 'use-credentials']] = None,
@@ -18420,8 +18753,9 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param autoplay: Hint that the media resource can be started automatically when the page is loaded
         :param controls: Show user agent controls
         :param crossorigin: How the element handles crossorigin requests
@@ -18474,11 +18808,13 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
         super().__init__(
             "video",
             void_element=False,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (autoplay is None or autoplay is False):
             self._process_attr("autoplay", autoplay)
         if not (controls is None or controls is False):
@@ -18575,8 +18911,8 @@ class wbr(BaseElement, GlobalAttrs):
     def __init__(
         self,
         attrs: attr_type = None,
-        id: GlobalAttrs.id = None,
-        class_: GlobalAttrs.class_ = None,
+        id: Union[str, GlobalAttrs.id, str] = None,
+        class_: Union[str, GlobalAttrs.class_] = None,
         accesskey: Union[str, GlobalAttrs.accesskey] = None,
         autocapitalize: Union[str, GlobalAttrs.autocapitalize, Literal['on', 'off', 'none', 'sentences', 'words', 'characters']] = None,
         autocorrect: Union[str, GlobalAttrs.autocorrect, Literal['on', 'off']] = None,
@@ -18611,8 +18947,9 @@ class wbr(BaseElement, GlobalAttrs):
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr
 
         :param attrs: A list or dictionary of attributes for the element
-        :param id: The ID of the element
-        :param class_ The class of the element
+        :param id: The element's ID
+        :param class_: Classes to which the element belongs
+            | Set of space-separated tokens
         :param accesskey: Keyboard shortcut to activate or focus element
             | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
         :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
@@ -18652,11 +18989,13 @@ class wbr(BaseElement, GlobalAttrs):
         super().__init__(
             "wbr",
             void_element=True,
-            id=id,
-            class_=class_,
             attrs=attrs,
             children=children
         )
+        if not (id is None or id is False):
+            self._process_attr("id", id)
+        if not (class_ is None or class_ is False):
+            self._process_attr("class", class_)
         if not (accesskey is None or accesskey is False):
             self._process_attr("accesskey", accesskey)
         if not (autocapitalize is None or autocapitalize is False):

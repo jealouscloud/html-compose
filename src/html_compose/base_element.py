@@ -21,7 +21,7 @@ class BaseElement(ElementBase, GlobalAttrs):
     All elements derive from this class
     """
 
-    __slots__ = ("name", "_attrs", "_children", "data")
+    __slots__ = ("tag", "_attrs", "_children")
 
     @classmethod
     def __class_getitem__(cls, key):
@@ -57,10 +57,8 @@ class BaseElement(ElementBase, GlobalAttrs):
 
     def __init__(
         self,
-        name: str,
+        tag: str,
         void_element: bool = False,
-        id: Union[str, GlobalAttrs.id] = None,
-        class_: Union[str, GlobalAttrs.class_] = None,
         attrs: Union[dict[str, str], list[BaseAttribute]] = None,
         children: list = None,
     ) -> None:
@@ -77,11 +75,8 @@ class BaseElement(ElementBase, GlobalAttrs):
                 Defaults to None.
             children: A list of child elements. Defaults to None.
         """
-        self.name = name
+        self.tag = tag
         self._attrs = self._resolve_attrs(attrs)
-
-        self._process_attr("id", id)
-        self._process_attr("class", class_)
 
         self._children = children if children else []
         self.is_void_element = void_element
@@ -185,29 +180,6 @@ class BaseElement(ElementBase, GlobalAttrs):
 
         return attr_dict
 
-    def append(self, *child_or_childs: Node):
-        if self.is_void_element:
-            raise ValueError(f"Void element {self.name} cannot have children")
-
-        args = child_or_childs
-        # Special case: We may have been passed a literal tuple
-        # If it has one child that itself is a tuple, unbox it.
-        if (
-            isinstance(args, tuple)
-            and len(args) == 1
-            and isinstance(args[0], tuple)
-        ):
-            args = args[0]
-
-        # Unbox any literal tuple, lists
-        if isinstance(args, tuple) or isinstance(args, list):
-            for k in args:
-                self._children.append(k)
-        else:
-            # Let the child resolver step handle it
-            # Applies to iterables, callables, literal elements
-            self._children.append(args)
-
     def _call_callable(self, func, parent):
         """
         Executor for callable elements
@@ -234,7 +206,7 @@ class BaseElement(ElementBase, GlobalAttrs):
 
         return result
 
-    def resolve_child(
+    def _resolve_child(
         self, child: Node, call_callables, parent
     ) -> Generator[str, None, None]:
         """
@@ -289,7 +261,7 @@ class BaseElement(ElementBase, GlobalAttrs):
 
         elif util_funcs.is_iterable_but_not_str(child):
             for el in util_funcs.flatten_iterable(child):
-                yield from self.resolve_child(el, call_callables, parent)
+                yield from self._resolve_child(el, call_callables, parent)
 
         elif callable(child):
             if not call_callables:
@@ -301,11 +273,11 @@ class BaseElement(ElementBase, GlobalAttrs):
                 while callable(result):
                     result = self._call_callable(child, parent)
 
-                yield from self.resolve_child(result, call_callables, parent)
+                yield from self._resolve_child(result, call_callables, parent)
         else:
             raise ValueError(f"Unknown child type: {type(child)}")
 
-    def resolve_tree(
+    def _resolve_tree(
         self, parent=None
     ) -> Generator[Union[str, Callable], None, None]:
         """
@@ -319,9 +291,32 @@ class BaseElement(ElementBase, GlobalAttrs):
 
         for child in self._children:
             child: Node
-            yield from self.resolve_child(
+            yield from self._resolve_child(
                 child, call_callables=False, parent=parent
             )
+
+    def append(self, *child_or_childs: Node):
+        if self.is_void_element:
+            raise ValueError(f"Void element {self.tag} cannot have children")
+
+        args = child_or_childs
+        # Special case: We may have been passed a literal tuple
+        # If it has one child that itself is a tuple, unbox it.
+        if (
+            isinstance(args, tuple)
+            and len(args) == 1
+            and isinstance(args[0], tuple)
+        ):
+            args = args[0]
+
+        # Unbox any literal tuple, lists
+        if isinstance(args, tuple) or isinstance(args, list):
+            for k in args:
+                self._children.append(k)
+        else:
+            # Let the child resolver step handle it
+            # Applies to iterables, callables, literal elements
+            self._children.append(args)
 
     def deferred_resolve(self, parent) -> Generator[str, None, None]:
         """
@@ -352,7 +347,7 @@ class BaseElement(ElementBase, GlobalAttrs):
         children = None
 
         if not self.is_void_element:
-            children = [child for child in self.resolve_tree()]
+            children = [child for child in self._resolve_tree(parent)]
 
         # join_attrs has a configurable lru_cache
         join_attrs = self.get_attr_join()
@@ -367,17 +362,17 @@ class BaseElement(ElementBase, GlobalAttrs):
 
         if self.is_void_element:
             if attr_string:
-                yield f"<{self.name} {attr_string}/>"
+                yield f"<{self.tag} {attr_string}/>"
             else:
-                yield f"<{self.name}/>"
+                yield f"<{self.tag}/>"
         else:
             if attr_string:
-                yield f"<{self.name} {attr_string}>"
+                yield f"<{self.tag} {attr_string}>"
             else:
-                yield f"<{self.name}>"
+                yield f"<{self.tag}>"
 
             yield from children
-            yield f"</{self.name}>"
+            yield f"</{self.tag}>"
 
     def resolve(self, parent=None) -> Generator[str, None, None]:
         """
@@ -387,7 +382,7 @@ class BaseElement(ElementBase, GlobalAttrs):
         for element in resolver:
             if callable(element):
                 # Feature: nested calling similar to a functional programming style
-                yield from self.resolve_child(
+                yield from self._resolve_child(
                     element, call_callables=True, parent=parent
                 )
             else:
@@ -401,6 +396,22 @@ class BaseElement(ElementBase, GlobalAttrs):
 
     def __str__(self) -> str:
         return self.__html__()
+
+    def __repr__(self) -> str:
+        children = [
+            child for child in util_funcs.flatten_iterable(self._children)
+        ]
+        children_info = ", ".join(
+            repr(child) if not callable(child) else "<callable>"
+            for child in children
+        )
+        astring = ""
+        if self._attrs:
+            astring = f"{self._attrs}"
+        cstring = ""
+        if children:
+            cstring = f"[{children_info}]"
+        return f"{self.__class__.__name__}({astring}){cstring}"
 
     def __html__(self):
         """
