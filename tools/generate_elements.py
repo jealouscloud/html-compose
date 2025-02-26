@@ -1,5 +1,7 @@
+import argparse
 import json
 from collections import namedtuple
+from pathlib import Path
 
 from generator_common import (
     AttrDefinition,
@@ -215,5 +217,27 @@ from .base_element import BaseElement
     return header + "\n\n".join(result)
 
 
-elements = gen_elements()
-get_path("generated/elements.py").write_text(elements)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate HTML elements.")
+    parser.add_argument(
+        "--copy",
+        action="store_true",
+        help="Copy the output to a hardcoded path",
+    )
+    args = parser.parse_args()
+
+    elements = gen_elements()
+    default_output_path = get_path("generated/elements.py")
+    default_output_path.write_text(elements)
+
+    print(f"Generated elements written to: {default_output_path}")
+    if args.copy:
+        path_name = "./src/html_compose/elements.py"
+        real_path = Path(path_name)
+        if not real_path.exists():
+            real_path = Path("..") / path_name
+            if not real_path.exists():
+                raise FileNotFoundError(f"Unable to find {path_name}")
+
+        real_path.write_text(elements)
+        print(f"Copied generated elements to: {real_path}")

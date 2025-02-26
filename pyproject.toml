@@ -49,6 +49,17 @@ dev-dependencies = [
     "pytest>=8.3.3",
 ]
 
+[tool.rye.scripts]  # Run as "rye run <command>"
+build-elements = { chain = ["python tools/generate_elements.py --copy", 'fix-lint', 'fix-fmt' ] }
+"check-lint" = "rye lint"
+"check-fmt" = "rye fmt --check"
+fix = { chain = ["fix-lint", "fix-fmt" ] }
+"fix-lint" = "rye lint --fix"
+"fix-fmt" = "rye fmt"
+build = "rye build --clean --verbose"
+publish = "rye publish --verbose"
+release = { chain = ["check", "build", "publish"]}
+
 [tool.hatch.metadata]
 allow-direct-references = true
 
