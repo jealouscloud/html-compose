@@ -52,3 +52,19 @@ def flatten_iterable(input_iterable: Iterable) -> Generator[Any, None, None]:
 @lru_cache(maxsize=500)
 def get_param_count(func):
     return len(inspect.signature(func).parameters)
+
+
+def safe_name(name):
+    """
+    Some names are reserved in Python, so we need to add an underscore
+    An underscore after was chosen so type hints match what user is looking for
+    """
+    # Keywords
+    if name in ("class", "is", "for", "as", "async", "del"):
+        name = name + "_"
+
+    if "-" in name:
+        # Fixes for 'accept-charset' etc.
+        name = name.replace("-", "_")
+
+    return name
