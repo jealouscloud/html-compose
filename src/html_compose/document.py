@@ -1,6 +1,6 @@
 from typing import Optional, Union
 
-from . import base_types, unsafe_text
+from . import base_types, doctype
 from . import elements as el
 
 
@@ -19,10 +19,10 @@ def HTML5Document(
                  English is "en", or consult HTML documentation
     :param head: Children to add to the <head> element,
                  which already defines viewport and title
-    :param body: A <body> element or a list of children to add to the <body> element
+    :param body: A 'body' element or a list of children to add to the 'body' element
     """
     # Enable HTML5 and prevent quirks mode
-    header = unsafe_text("<!DOCTYPE html>")
+    header = doctype("html")
     head_el = el.head()[
         el.meta(  # enable mobile rendering
             name="viewport", content="width=device-width, initial-scale=1.0"
