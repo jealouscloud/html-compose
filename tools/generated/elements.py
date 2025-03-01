@@ -121,7 +121,7 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "a",
             void_element=False,
@@ -296,7 +296,7 @@ class abbr(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "abbr",
             void_element=False,
@@ -455,7 +455,7 @@ class address(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "address",
             void_element=False,
@@ -638,7 +638,7 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "area",
             void_element=True,
@@ -815,7 +815,7 @@ class article(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "article",
             void_element=False,
@@ -974,7 +974,7 @@ class aside(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "aside",
             void_element=False,
@@ -1148,7 +1148,7 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "audio",
             void_element=False,
@@ -1321,7 +1321,7 @@ class b(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "b",
             void_element=False,
@@ -1486,7 +1486,7 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "base",
             void_element=True,
@@ -1649,7 +1649,7 @@ class bdi(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "bdi",
             void_element=False,
@@ -1808,7 +1808,7 @@ class bdo(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "bdo",
             void_element=False,
@@ -1970,7 +1970,7 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "blockquote",
             void_element=False,
@@ -2131,7 +2131,7 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "body",
             void_element=False,
@@ -2290,7 +2290,7 @@ class br(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "br",
             void_element=True,
@@ -2477,7 +2477,7 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "button",
             void_element=False,
@@ -2664,7 +2664,7 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "canvas",
             void_element=False,
@@ -2827,7 +2827,7 @@ class caption(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "caption",
             void_element=False,
@@ -2986,7 +2986,7 @@ class cite(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "cite",
             void_element=False,
@@ -3145,7 +3145,7 @@ class code(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "code",
             void_element=False,
@@ -3307,7 +3307,7 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "col",
             void_element=True,
@@ -3471,7 +3471,7 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "colgroup",
             void_element=False,
@@ -3634,7 +3634,7 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "data",
             void_element=False,
@@ -3795,7 +3795,7 @@ class datalist(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "datalist",
             void_element=False,
@@ -3954,7 +3954,7 @@ class dd(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "dd",
             void_element=False,
@@ -4119,7 +4119,7 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "del",
             void_element=False,
@@ -4286,7 +4286,7 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "details",
             void_element=False,
@@ -4449,7 +4449,7 @@ class dfn(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "dfn",
             void_element=False,
@@ -4610,7 +4610,7 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "dialog",
             void_element=False,
@@ -4771,7 +4771,7 @@ class div(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "div",
             void_element=False,
@@ -4930,7 +4930,7 @@ class dl(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "dl",
             void_element=False,
@@ -5089,7 +5089,7 @@ class dt(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "dt",
             void_element=False,
@@ -5248,7 +5248,7 @@ class em(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "em",
             void_element=False,
@@ -5417,7 +5417,7 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "embed",
             void_element=True,
@@ -5591,7 +5591,7 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "fieldset",
             void_element=False,
@@ -5756,7 +5756,7 @@ class figcaption(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "figcaption",
             void_element=False,
@@ -5915,7 +5915,7 @@ class figure(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "figure",
             void_element=False,
@@ -6074,7 +6074,7 @@ class footer(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "footer",
             void_element=False,
@@ -6252,7 +6252,7 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "form",
             void_element=False,
@@ -6427,7 +6427,7 @@ class h1(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "h1",
             void_element=False,
@@ -6586,7 +6586,7 @@ class h2(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "h2",
             void_element=False,
@@ -6745,7 +6745,7 @@ class h3(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "h3",
             void_element=False,
@@ -6904,7 +6904,7 @@ class h4(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "h4",
             void_element=False,
@@ -7063,7 +7063,7 @@ class h5(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "h5",
             void_element=False,
@@ -7222,7 +7222,7 @@ class h6(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "h6",
             void_element=False,
@@ -7381,7 +7381,7 @@ class head(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "head",
             void_element=False,
@@ -7540,7 +7540,7 @@ class header(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "header",
             void_element=False,
@@ -7699,7 +7699,7 @@ class hgroup(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "hgroup",
             void_element=False,
@@ -7858,7 +7858,7 @@ class hr(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "hr",
             void_element=True,
@@ -8017,7 +8017,7 @@ class html(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "html",
             void_element=False,
@@ -8176,7 +8176,7 @@ class i(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "i",
             void_element=False,
@@ -8361,7 +8361,7 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "iframe",
             void_element=True,
@@ -8571,7 +8571,7 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "img",
             void_element=True,
@@ -8838,7 +8838,7 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
         :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "input",
             void_element=True,
@@ -9071,7 +9071,7 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "ins",
             void_element=False,
@@ -9234,7 +9234,7 @@ class kbd(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "kbd",
             void_element=False,
@@ -9396,7 +9396,7 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "label",
             void_element=False,
@@ -9557,7 +9557,7 @@ class legend(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "legend",
             void_element=False,
@@ -9718,7 +9718,7 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "li",
             void_element=False,
@@ -9924,7 +9924,7 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
         :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "link",
             void_element=True,
@@ -10115,7 +10115,7 @@ class main(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "main",
             void_element=False,
@@ -10276,7 +10276,7 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "map",
             void_element=False,
@@ -10437,7 +10437,7 @@ class mark(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "mark",
             void_element=False,
@@ -10596,7 +10596,7 @@ class menu(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "menu",
             void_element=False,
@@ -10766,7 +10766,7 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "meta",
             void_element=True,
@@ -10947,7 +10947,7 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "meter",
             void_element=False,
@@ -11118,7 +11118,7 @@ class nav(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "nav",
             void_element=False,
@@ -11277,7 +11277,7 @@ class noscript(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "noscript",
             void_element=False,
@@ -11452,7 +11452,7 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "object",
             void_element=False,
@@ -11629,7 +11629,7 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "ol",
             void_element=False,
@@ -11798,7 +11798,7 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "optgroup",
             void_element=False,
@@ -11969,7 +11969,7 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "option",
             void_element=False,
@@ -12144,7 +12144,7 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "output",
             void_element=False,
@@ -12309,7 +12309,7 @@ class p(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "p",
             void_element=False,
@@ -12468,7 +12468,7 @@ class picture(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "picture",
             void_element=False,
@@ -12627,7 +12627,7 @@ class pre(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "pre",
             void_element=False,
@@ -12790,7 +12790,7 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "progress",
             void_element=False,
@@ -12956,7 +12956,7 @@ class q(BaseElement, GlobalAttrs, QAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "q",
             void_element=False,
@@ -13117,7 +13117,7 @@ class rp(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "rp",
             void_element=False,
@@ -13276,7 +13276,7 @@ class rt(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "rt",
             void_element=False,
@@ -13435,7 +13435,7 @@ class ruby(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "ruby",
             void_element=False,
@@ -13594,7 +13594,7 @@ class s(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "s",
             void_element=False,
@@ -13753,7 +13753,7 @@ class samp(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "samp",
             void_element=False,
@@ -13936,7 +13936,7 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "script",
             void_element=False,
@@ -14115,7 +14115,7 @@ class search(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "search",
             void_element=False,
@@ -14274,7 +14274,7 @@ class section(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "section",
             void_element=False,
@@ -14450,7 +14450,7 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "select",
             void_element=False,
@@ -14625,7 +14625,7 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "slot",
             void_element=False,
@@ -14786,7 +14786,7 @@ class small(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "small",
             void_element=False,
@@ -14964,7 +14964,7 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "source",
             void_element=True,
@@ -15137,7 +15137,7 @@ class span(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "span",
             void_element=False,
@@ -15296,7 +15296,7 @@ class strong(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "strong",
             void_element=False,
@@ -15461,7 +15461,7 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
         :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "style",
             void_element=False,
@@ -15624,7 +15624,7 @@ class sub(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "sub",
             void_element=False,
@@ -15783,7 +15783,7 @@ class summary(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "summary",
             void_element=False,
@@ -15942,7 +15942,7 @@ class sup(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "sup",
             void_element=False,
@@ -16101,7 +16101,7 @@ class svg(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "svg",
             void_element=False,
@@ -16260,7 +16260,7 @@ class table(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "table",
             void_element=False,
@@ -16419,7 +16419,7 @@ class tbody(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "tbody",
             void_element=False,
@@ -16586,7 +16586,7 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "td",
             void_element=False,
@@ -16759,7 +16759,7 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "template",
             void_element=True,
@@ -16956,7 +16956,7 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "textarea",
             void_element=False,
@@ -17141,7 +17141,7 @@ class tfoot(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "tfoot",
             void_element=False,
@@ -17312,7 +17312,7 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "th",
             void_element=False,
@@ -17481,7 +17481,7 @@ class thead(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "thead",
             void_element=False,
@@ -17643,7 +17643,7 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "time",
             void_element=False,
@@ -17804,7 +17804,7 @@ class title(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "title",
             void_element=False,
@@ -17963,7 +17963,7 @@ class tr(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "tr",
             void_element=False,
@@ -18134,7 +18134,7 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "track",
             void_element=True,
@@ -18303,7 +18303,7 @@ class u(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "u",
             void_element=False,
@@ -18462,7 +18462,7 @@ class ul(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "ul",
             void_element=False,
@@ -18621,7 +18621,7 @@ class var(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "var",
             void_element=False,
@@ -18804,7 +18804,7 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "video",
             void_element=False,
@@ -18985,7 +18985,7 @@ class wbr(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """ #fmt: skip
         super().__init__(
             "wbr",
             void_element=True,

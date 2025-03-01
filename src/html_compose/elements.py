@@ -163,7 +163,7 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'a' (Hyperlink) element.
+        Initialize 'a' (Hyperlink) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 
         :param attrs: A list or dictionary of attributes for the element
@@ -220,7 +220,7 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "a", void_element=False, attrs=attrs, children=children
         )
@@ -400,7 +400,7 @@ class abbr(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'abbr' (Abbreviation) element.
+        Initialize 'abbr' (Abbreviation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
 
         :param attrs: A list or dictionary of attributes for the element
@@ -442,7 +442,7 @@ class abbr(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "abbr", void_element=False, attrs=attrs, children=children
         )
@@ -606,7 +606,7 @@ class address(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'address' (Contact information for a page or article element) element.
+        Initialize 'address' (Contact information for a page or article element) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
 
         :param attrs: A list or dictionary of attributes for the element
@@ -648,7 +648,7 @@ class address(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "address", void_element=False, attrs=attrs, children=children
         )
@@ -826,7 +826,7 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'area' (Hyperlink or dead area on an image map) element.
+        Initialize 'area' (Hyperlink or dead area on an image map) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
 
         :param attrs: A list or dictionary of attributes for the element
@@ -883,7 +883,7 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "area", void_element=True, attrs=attrs, children=children
         )
@@ -1065,7 +1065,7 @@ class article(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'article' (Self-contained syndicatable or reusable composition) element.
+        Initialize 'article' (Self-contained syndicatable or reusable composition) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1107,7 +1107,7 @@ class article(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "article", void_element=False, attrs=attrs, children=children
         )
@@ -1271,7 +1271,7 @@ class aside(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'aside' (Sidebar for tangentially related content) element.
+        Initialize 'aside' (Sidebar for tangentially related content) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1313,7 +1313,7 @@ class aside(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "aside", void_element=False, attrs=attrs, children=children
         )
@@ -1491,7 +1491,7 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'audio' (Audio player) element.
+        Initialize 'audio' (Audio player) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1541,7 +1541,7 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "audio", void_element=False, attrs=attrs, children=children
         )
@@ -1719,7 +1719,7 @@ class b(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'b' (Keywords) element.
+        Initialize 'b' (Keywords) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1761,7 +1761,7 @@ class b(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "b", void_element=False, attrs=attrs, children=children
         )
@@ -1927,7 +1927,7 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'base' (Base URL and default target navigable for hyperlinks and forms) element.
+        Initialize 'base' (Base URL and default target navigable for hyperlinks and forms) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1973,7 +1973,7 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "base", void_element=True, attrs=attrs, children=children
         )
@@ -2141,7 +2141,7 @@ class bdi(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'bdi' (Text directionality isolation) element.
+        Initialize 'bdi' (Text directionality isolation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2183,7 +2183,7 @@ class bdi(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "bdi", void_element=False, attrs=attrs, children=children
         )
@@ -2347,7 +2347,7 @@ class bdo(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'bdo' (Text directionality formatting) element.
+        Initialize 'bdo' (Text directionality formatting) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2389,7 +2389,7 @@ class bdo(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "bdo", void_element=False, attrs=attrs, children=children
         )
@@ -2554,7 +2554,7 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'blockquote' (A section quoted from another source) element.
+        Initialize 'blockquote' (A section quoted from another source) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2598,7 +2598,7 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "blockquote", void_element=False, attrs=attrs, children=children
         )
@@ -2764,7 +2764,7 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'body' (Document body) element.
+        Initialize 'body' (Document body) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2806,7 +2806,7 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "body", void_element=False, attrs=attrs, children=children
         )
@@ -2970,7 +2970,7 @@ class br(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'br' (Line break, e.g. in poem or postal address) element.
+        Initialize 'br' (Line break, e.g. in poem or postal address) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3012,7 +3012,7 @@ class br(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "br", void_element=True, attrs=attrs, children=children
         )
@@ -3208,7 +3208,7 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'button' (Button control) element.
+        Initialize 'button' (Button control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3266,7 +3266,7 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "button", void_element=False, attrs=attrs, children=children
         )
@@ -3456,7 +3456,7 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'canvas' (Scriptable bitmap canvas) element.
+        Initialize 'canvas' (Scriptable bitmap canvas) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3500,7 +3500,7 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "canvas", void_element=False, attrs=attrs, children=children
         )
@@ -3668,7 +3668,7 @@ class caption(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'caption' (Table caption) element.
+        Initialize 'caption' (Table caption) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3710,7 +3710,7 @@ class caption(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "caption", void_element=False, attrs=attrs, children=children
         )
@@ -3874,7 +3874,7 @@ class cite(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'cite' (Title of a work) element.
+        Initialize 'cite' (Title of a work) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3916,7 +3916,7 @@ class cite(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "cite", void_element=False, attrs=attrs, children=children
         )
@@ -4080,7 +4080,7 @@ class code(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'code' (Computer code) element.
+        Initialize 'code' (Computer code) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4122,7 +4122,7 @@ class code(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "code", void_element=False, attrs=attrs, children=children
         )
@@ -4287,7 +4287,7 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'col' (Table column) element.
+        Initialize 'col' (Table column) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4331,7 +4331,7 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "col", void_element=True, attrs=attrs, children=children
         )
@@ -4498,7 +4498,7 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'colgroup' (Group of columns in a table) element.
+        Initialize 'colgroup' (Group of columns in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4542,7 +4542,7 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "colgroup", void_element=False, attrs=attrs, children=children
         )
@@ -4709,7 +4709,7 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'data' (Machine-readable equivalent) element.
+        Initialize 'data' (Machine-readable equivalent) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4752,7 +4752,7 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "data", void_element=False, attrs=attrs, children=children
         )
@@ -4918,7 +4918,7 @@ class datalist(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'datalist' (Container for options for combo box control) element.
+        Initialize 'datalist' (Container for options for combo box control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4960,7 +4960,7 @@ class datalist(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "datalist", void_element=False, attrs=attrs, children=children
         )
@@ -5124,7 +5124,7 @@ class dd(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'dd' (Content for corresponding dt element(s)) element.
+        Initialize 'dd' (Content for corresponding dt element(s)) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5166,7 +5166,7 @@ class dd(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "dd", void_element=False, attrs=attrs, children=children
         )
@@ -5332,7 +5332,7 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'del' (A removal from the document) element.
+        Initialize 'del' (A removal from the document) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5378,7 +5378,7 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "del", void_element=False, attrs=attrs, children=children
         )
@@ -5548,7 +5548,7 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'details' (Disclosure control for hiding details) element.
+        Initialize 'details' (Disclosure control for hiding details) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5592,7 +5592,7 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "details", void_element=False, attrs=attrs, children=children
         )
@@ -5760,7 +5760,7 @@ class dfn(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'dfn' (Defining instance) element.
+        Initialize 'dfn' (Defining instance) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5802,7 +5802,7 @@ class dfn(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "dfn", void_element=False, attrs=attrs, children=children
         )
@@ -5967,7 +5967,7 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'dialog' (Dialog box or window) element.
+        Initialize 'dialog' (Dialog box or window) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6010,7 +6010,7 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "dialog", void_element=False, attrs=attrs, children=children
         )
@@ -6176,7 +6176,7 @@ class div(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'div' (Generic flow container, or container for name-value groups in dl elements) element.
+        Initialize 'div' (Generic flow container, or container for name-value groups in dl elements) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6218,7 +6218,7 @@ class div(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "div", void_element=False, attrs=attrs, children=children
         )
@@ -6382,7 +6382,7 @@ class dl(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'dl' (Association list consisting of zero or more name-value groups) element.
+        Initialize 'dl' (Association list consisting of zero or more name-value groups) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6424,7 +6424,7 @@ class dl(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "dl", void_element=False, attrs=attrs, children=children
         )
@@ -6588,7 +6588,7 @@ class dt(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'dt' (Legend for corresponding dd element(s)) element.
+        Initialize 'dt' (Legend for corresponding dd element(s)) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6630,7 +6630,7 @@ class dt(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "dt", void_element=False, attrs=attrs, children=children
         )
@@ -6794,7 +6794,7 @@ class em(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'em' (Stress emphasis) element.
+        Initialize 'em' (Stress emphasis) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6836,7 +6836,7 @@ class em(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "em", void_element=False, attrs=attrs, children=children
         )
@@ -7004,7 +7004,7 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'embed' (Plugin) element.
+        Initialize 'embed' (Plugin) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7052,7 +7052,7 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "embed", void_element=True, attrs=attrs, children=children
         )
@@ -7227,7 +7227,7 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'fieldset' (Group of form controls) element.
+        Initialize 'fieldset' (Group of form controls) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7273,7 +7273,7 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "fieldset", void_element=False, attrs=attrs, children=children
         )
@@ -7443,7 +7443,7 @@ class figcaption(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'figcaption' (Caption for figure) element.
+        Initialize 'figcaption' (Caption for figure) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7485,7 +7485,7 @@ class figcaption(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "figcaption", void_element=False, attrs=attrs, children=children
         )
@@ -7649,7 +7649,7 @@ class figure(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'figure' (Figure with optional caption) element.
+        Initialize 'figure' (Figure with optional caption) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7691,7 +7691,7 @@ class figure(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "figure", void_element=False, attrs=attrs, children=children
         )
@@ -7855,7 +7855,7 @@ class footer(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'footer' (Footer for a page or section) element.
+        Initialize 'footer' (Footer for a page or section) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7897,7 +7897,7 @@ class footer(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "footer", void_element=False, attrs=attrs, children=children
         )
@@ -8082,7 +8082,7 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'form' (User-submittable form) element.
+        Initialize 'form' (User-submittable form) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8135,7 +8135,7 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "form", void_element=False, attrs=attrs, children=children
         )
@@ -8315,7 +8315,7 @@ class h1(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'h1' (Heading) element.
+        Initialize 'h1' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8357,7 +8357,7 @@ class h1(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "h1", void_element=False, attrs=attrs, children=children
         )
@@ -8521,7 +8521,7 @@ class h2(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'h2' (Heading) element.
+        Initialize 'h2' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8563,7 +8563,7 @@ class h2(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "h2", void_element=False, attrs=attrs, children=children
         )
@@ -8727,7 +8727,7 @@ class h3(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'h3' (Heading) element.
+        Initialize 'h3' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8769,7 +8769,7 @@ class h3(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "h3", void_element=False, attrs=attrs, children=children
         )
@@ -8933,7 +8933,7 @@ class h4(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'h4' (Heading) element.
+        Initialize 'h4' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8975,7 +8975,7 @@ class h4(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "h4", void_element=False, attrs=attrs, children=children
         )
@@ -9139,7 +9139,7 @@ class h5(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'h5' (Heading) element.
+        Initialize 'h5' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9181,7 +9181,7 @@ class h5(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "h5", void_element=False, attrs=attrs, children=children
         )
@@ -9345,7 +9345,7 @@ class h6(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'h6' (Heading) element.
+        Initialize 'h6' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9387,7 +9387,7 @@ class h6(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "h6", void_element=False, attrs=attrs, children=children
         )
@@ -9551,7 +9551,7 @@ class head(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'head' (Container for document metadata) element.
+        Initialize 'head' (Container for document metadata) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9593,7 +9593,7 @@ class head(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "head", void_element=False, attrs=attrs, children=children
         )
@@ -9757,7 +9757,7 @@ class header(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'header' (Introductory or navigational aids for a page or section) element.
+        Initialize 'header' (Introductory or navigational aids for a page or section) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9799,7 +9799,7 @@ class header(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "header", void_element=False, attrs=attrs, children=children
         )
@@ -9963,7 +9963,7 @@ class hgroup(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'hgroup' (Heading container) element.
+        Initialize 'hgroup' (Heading container) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10005,7 +10005,7 @@ class hgroup(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "hgroup", void_element=False, attrs=attrs, children=children
         )
@@ -10169,7 +10169,7 @@ class hr(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'hr' (Thematic break) element.
+        Initialize 'hr' (Thematic break) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10211,7 +10211,7 @@ class hr(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "hr", void_element=True, attrs=attrs, children=children
         )
@@ -10375,7 +10375,7 @@ class html(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'html' (Root element) element.
+        Initialize 'html' (Root element) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10417,7 +10417,7 @@ class html(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "html", void_element=False, attrs=attrs, children=children
         )
@@ -10581,7 +10581,7 @@ class i(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'i' (Alternate voice) element.
+        Initialize 'i' (Alternate voice) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10623,7 +10623,7 @@ class i(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "i", void_element=False, attrs=attrs, children=children
         )
@@ -10801,7 +10801,7 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'iframe' (Child navigable) element.
+        Initialize 'iframe' (Child navigable) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10859,7 +10859,7 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "iframe", void_element=True, attrs=attrs, children=children
         )
@@ -11067,7 +11067,7 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'img' (Image) element.
+        Initialize 'img' (Image) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11127,7 +11127,7 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "img", void_element=True, attrs=attrs, children=children
         )
@@ -11374,7 +11374,7 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'input' (Form control) element.
+        Initialize 'input' (Form control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11464,7 +11464,7 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
         :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "input", void_element=True, attrs=attrs, children=children
         )
@@ -11698,7 +11698,7 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'ins' (An addition to the document) element.
+        Initialize 'ins' (An addition to the document) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11744,7 +11744,7 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "ins", void_element=False, attrs=attrs, children=children
         )
@@ -11912,7 +11912,7 @@ class kbd(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'kbd' (User input) element.
+        Initialize 'kbd' (User input) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11954,7 +11954,7 @@ class kbd(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "kbd", void_element=False, attrs=attrs, children=children
         )
@@ -12119,7 +12119,7 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'label' (Caption for a form control) element.
+        Initialize 'label' (Caption for a form control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12163,7 +12163,7 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "label", void_element=False, attrs=attrs, children=children
         )
@@ -12329,7 +12329,7 @@ class legend(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'legend' (Caption for fieldset) element.
+        Initialize 'legend' (Caption for fieldset) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12371,7 +12371,7 @@ class legend(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "legend", void_element=False, attrs=attrs, children=children
         )
@@ -12536,7 +12536,7 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'li' (List item) element.
+        Initialize 'li' (List item) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12579,7 +12579,7 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "li", void_element=False, attrs=attrs, children=children
         )
@@ -12768,7 +12768,7 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'link' (Link metadata) element.
+        Initialize 'link' (Link metadata) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12839,7 +12839,7 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
         :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "link", void_element=True, attrs=attrs, children=children
         )
@@ -13035,7 +13035,7 @@ class main(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'main' (Container for the dominant contents of the document) element.
+        Initialize 'main' (Container for the dominant contents of the document) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13077,7 +13077,7 @@ class main(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "main", void_element=False, attrs=attrs, children=children
         )
@@ -13242,7 +13242,7 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'map' (Image map) element.
+        Initialize 'map' (Image map) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13285,7 +13285,7 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "map", void_element=False, attrs=attrs, children=children
         )
@@ -13451,7 +13451,7 @@ class mark(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'mark' (Highlight) element.
+        Initialize 'mark' (Highlight) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13493,7 +13493,7 @@ class mark(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "mark", void_element=False, attrs=attrs, children=children
         )
@@ -13657,7 +13657,7 @@ class menu(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'menu' (Menu of commands) element.
+        Initialize 'menu' (Menu of commands) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13699,7 +13699,7 @@ class menu(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "menu", void_element=False, attrs=attrs, children=children
         )
@@ -13879,7 +13879,7 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'meta' (Text metadata) element.
+        Initialize 'meta' (Text metadata) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13927,7 +13927,7 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "meta", void_element=True, attrs=attrs, children=children
         )
@@ -14107,7 +14107,7 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'meter' (Gauge) element.
+        Initialize 'meter' (Gauge) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14155,7 +14155,7 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "meter", void_element=False, attrs=attrs, children=children
         )
@@ -14331,7 +14331,7 @@ class nav(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'nav' (Section with navigational links) element.
+        Initialize 'nav' (Section with navigational links) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14373,7 +14373,7 @@ class nav(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "nav", void_element=False, attrs=attrs, children=children
         )
@@ -14537,7 +14537,7 @@ class noscript(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'noscript' (Fallback content for script) element.
+        Initialize 'noscript' (Fallback content for script) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14579,7 +14579,7 @@ class noscript(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "noscript", void_element=False, attrs=attrs, children=children
         )
@@ -14749,7 +14749,7 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'object' (Image, child navigable, or plugin) element.
+        Initialize 'object' (Image, child navigable, or plugin) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14801,7 +14801,7 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "object", void_element=False, attrs=attrs, children=children
         )
@@ -14982,7 +14982,7 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'ol' (Ordered list) element.
+        Initialize 'ol' (Ordered list) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15027,7 +15027,7 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "ol", void_element=False, attrs=attrs, children=children
         )
@@ -15199,7 +15199,7 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'optgroup' (Group of options in a list box) element.
+        Initialize 'optgroup' (Group of options in a list box) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15243,7 +15243,7 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "optgroup", void_element=False, attrs=attrs, children=children
         )
@@ -15415,7 +15415,7 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'option' (Option in a list box or combo box control) element.
+        Initialize 'option' (Option in a list box or combo box control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15461,7 +15461,7 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "option", void_element=False, attrs=attrs, children=children
         )
@@ -15636,7 +15636,7 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'output' (Calculated output value) element.
+        Initialize 'output' (Calculated output value) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15683,7 +15683,7 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "output", void_element=False, attrs=attrs, children=children
         )
@@ -15853,7 +15853,7 @@ class p(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'p' (Paragraph) element.
+        Initialize 'p' (Paragraph) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15895,7 +15895,7 @@ class p(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "p", void_element=False, attrs=attrs, children=children
         )
@@ -16059,7 +16059,7 @@ class picture(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'picture' (Image) element.
+        Initialize 'picture' (Image) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16101,7 +16101,7 @@ class picture(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "picture", void_element=False, attrs=attrs, children=children
         )
@@ -16265,7 +16265,7 @@ class pre(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'pre' (Block of preformatted text) element.
+        Initialize 'pre' (Block of preformatted text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16307,7 +16307,7 @@ class pre(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "pre", void_element=False, attrs=attrs, children=children
         )
@@ -16473,7 +16473,7 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'progress' (Progress bar) element.
+        Initialize 'progress' (Progress bar) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16517,7 +16517,7 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "progress", void_element=False, attrs=attrs, children=children
         )
@@ -16686,7 +16686,7 @@ class q(BaseElement, GlobalAttrs, QAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'q' (Quotation) element.
+        Initialize 'q' (Quotation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16730,7 +16730,7 @@ class q(BaseElement, GlobalAttrs, QAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "q", void_element=False, attrs=attrs, children=children
         )
@@ -16896,7 +16896,7 @@ class rp(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'rp' (Parenthesis for ruby annotation text) element.
+        Initialize 'rp' (Parenthesis for ruby annotation text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16938,7 +16938,7 @@ class rp(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "rp", void_element=False, attrs=attrs, children=children
         )
@@ -17102,7 +17102,7 @@ class rt(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'rt' (Ruby annotation text) element.
+        Initialize 'rt' (Ruby annotation text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17144,7 +17144,7 @@ class rt(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "rt", void_element=False, attrs=attrs, children=children
         )
@@ -17308,7 +17308,7 @@ class ruby(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'ruby' (Ruby annotation(s)) element.
+        Initialize 'ruby' (Ruby annotation(s)) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17350,7 +17350,7 @@ class ruby(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "ruby", void_element=False, attrs=attrs, children=children
         )
@@ -17514,7 +17514,7 @@ class s(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 's' (Inaccurate text) element.
+        Initialize 's' (Inaccurate text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17556,7 +17556,7 @@ class s(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "s", void_element=False, attrs=attrs, children=children
         )
@@ -17720,7 +17720,7 @@ class samp(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'samp' (Computer output) element.
+        Initialize 'samp' (Computer output) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17762,7 +17762,7 @@ class samp(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "samp", void_element=False, attrs=attrs, children=children
         )
@@ -17943,7 +17943,7 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'script' (Embedded script) element.
+        Initialize 'script' (Embedded script) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17999,7 +17999,7 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "script", void_element=False, attrs=attrs, children=children
         )
@@ -18183,7 +18183,7 @@ class search(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'search' (Container for search controls) element.
+        Initialize 'search' (Container for search controls) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18225,7 +18225,7 @@ class search(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "search", void_element=False, attrs=attrs, children=children
         )
@@ -18389,7 +18389,7 @@ class section(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'section' (Generic document or application section) element.
+        Initialize 'section' (Generic document or application section) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18431,7 +18431,7 @@ class section(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "section", void_element=False, attrs=attrs, children=children
         )
@@ -18602,7 +18602,7 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'select' (List box control) element.
+        Initialize 'select' (List box control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18654,7 +18654,7 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "select", void_element=False, attrs=attrs, children=children
         )
@@ -18833,7 +18833,7 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'slot' (Shadow tree slot) element.
+        Initialize 'slot' (Shadow tree slot) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18876,7 +18876,7 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "slot", void_element=False, attrs=attrs, children=children
         )
@@ -19042,7 +19042,7 @@ class small(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'small' (Side comment) element.
+        Initialize 'small' (Side comment) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
 
         :param attrs: A list or dictionary of attributes for the element
@@ -19084,7 +19084,7 @@ class small(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "small", void_element=False, attrs=attrs, children=children
         )
@@ -19255,7 +19255,7 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'source' (Image source for img or media source for video or audio) element.
+        Initialize 'source' (Image source for img or media source for video or audio) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
 
         :param attrs: A list or dictionary of attributes for the element
@@ -19309,7 +19309,7 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "source", void_element=True, attrs=attrs, children=children
         )
@@ -19487,7 +19487,7 @@ class span(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'span' (Generic phrasing container) element.
+        Initialize 'span' (Generic phrasing container) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
 
         :param attrs: A list or dictionary of attributes for the element
@@ -19529,7 +19529,7 @@ class span(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "span", void_element=False, attrs=attrs, children=children
         )
@@ -19693,7 +19693,7 @@ class strong(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'strong' (Importance) element.
+        Initialize 'strong' (Importance) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
 
         :param attrs: A list or dictionary of attributes for the element
@@ -19735,7 +19735,7 @@ class strong(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "strong", void_element=False, attrs=attrs, children=children
         )
@@ -19901,7 +19901,7 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'style' (Embedded styling information) element.
+        Initialize 'style' (Embedded styling information) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
 
         :param attrs: A list or dictionary of attributes for the element
@@ -19947,7 +19947,7 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
         :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "style", void_element=False, attrs=attrs, children=children
         )
@@ -20115,7 +20115,7 @@ class sub(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'sub' (Subscript) element.
+        Initialize 'sub' (Subscript) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -20157,7 +20157,7 @@ class sub(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "sub", void_element=False, attrs=attrs, children=children
         )
@@ -20321,7 +20321,7 @@ class summary(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'summary' (Caption for details) element.
+        Initialize 'summary' (Caption for details) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
 
         :param attrs: A list or dictionary of attributes for the element
@@ -20363,7 +20363,7 @@ class summary(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "summary", void_element=False, attrs=attrs, children=children
         )
@@ -20527,7 +20527,7 @@ class sup(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'sup' (Superscript) element.
+        Initialize 'sup' (Superscript) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -20569,7 +20569,7 @@ class sup(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "sup", void_element=False, attrs=attrs, children=children
         )
@@ -20733,7 +20733,7 @@ class svg(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'svg' (SVG root) element.
+        Initialize 'svg' (SVG root) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -20775,7 +20775,7 @@ class svg(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "svg", void_element=False, attrs=attrs, children=children
         )
@@ -20939,7 +20939,7 @@ class table(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'table' (Table) element.
+        Initialize 'table' (Table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
 
         :param attrs: A list or dictionary of attributes for the element
@@ -20981,7 +20981,7 @@ class table(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "table", void_element=False, attrs=attrs, children=children
         )
@@ -21145,7 +21145,7 @@ class tbody(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'tbody' (Group of rows in a table) element.
+        Initialize 'tbody' (Group of rows in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
 
         :param attrs: A list or dictionary of attributes for the element
@@ -21187,7 +21187,7 @@ class tbody(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "tbody", void_element=False, attrs=attrs, children=children
         )
@@ -21354,7 +21354,7 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'td' (Table cell) element.
+        Initialize 'td' (Table cell) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
 
         :param attrs: A list or dictionary of attributes for the element
@@ -21401,7 +21401,7 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "td", void_element=False, attrs=attrs, children=children
         )
@@ -21583,7 +21583,7 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'template' (Template) element.
+        Initialize 'template' (Template) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 
         :param attrs: A list or dictionary of attributes for the element
@@ -21629,7 +21629,7 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "template", void_element=True, attrs=attrs, children=children
         )
@@ -21823,7 +21823,7 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'textarea' (Multiline text controls) element.
+        Initialize 'textarea' (Multiline text controls) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
 
         :param attrs: A list or dictionary of attributes for the element
@@ -21882,7 +21882,7 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "textarea", void_element=False, attrs=attrs, children=children
         )
@@ -22072,7 +22072,7 @@ class tfoot(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'tfoot' (Group of footer rows in a table) element.
+        Initialize 'tfoot' (Group of footer rows in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot
 
         :param attrs: A list or dictionary of attributes for the element
@@ -22114,7 +22114,7 @@ class tfoot(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "tfoot", void_element=False, attrs=attrs, children=children
         )
@@ -22288,7 +22288,7 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'th' (Table header cell) element.
+        Initialize 'th' (Table header cell) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
 
         :param attrs: A list or dictionary of attributes for the element
@@ -22337,7 +22337,7 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "th", void_element=False, attrs=attrs, children=children
         )
@@ -22511,7 +22511,7 @@ class thead(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'thead' (Group of heading rows in a table) element.
+        Initialize 'thead' (Group of heading rows in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
 
         :param attrs: A list or dictionary of attributes for the element
@@ -22553,7 +22553,7 @@ class thead(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "thead", void_element=False, attrs=attrs, children=children
         )
@@ -22718,7 +22718,7 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'time' (Machine-readable equivalent of date- or time-related data) element.
+        Initialize 'time' (Machine-readable equivalent of date- or time-related data) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
 
         :param attrs: A list or dictionary of attributes for the element
@@ -22762,7 +22762,7 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "time", void_element=False, attrs=attrs, children=children
         )
@@ -22928,7 +22928,7 @@ class title(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'title' (Document title) element.
+        Initialize 'title' (Document title) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
 
         :param attrs: A list or dictionary of attributes for the element
@@ -22970,7 +22970,7 @@ class title(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "title", void_element=False, attrs=attrs, children=children
         )
@@ -23134,7 +23134,7 @@ class tr(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'tr' (Table row) element.
+        Initialize 'tr' (Table row) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr
 
         :param attrs: A list or dictionary of attributes for the element
@@ -23176,7 +23176,7 @@ class tr(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "tr", void_element=False, attrs=attrs, children=children
         )
@@ -23352,7 +23352,7 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'track' (Timed text track) element.
+        Initialize 'track' (Timed text track) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
 
         :param attrs: A list or dictionary of attributes for the element
@@ -23401,7 +23401,7 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "track", void_element=True, attrs=attrs, children=children
         )
@@ -23575,7 +23575,7 @@ class u(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'u' (Unarticulated annotation) element.
+        Initialize 'u' (Unarticulated annotation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u
 
         :param attrs: A list or dictionary of attributes for the element
@@ -23617,7 +23617,7 @@ class u(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "u", void_element=False, attrs=attrs, children=children
         )
@@ -23781,7 +23781,7 @@ class ul(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'ul' (List) element.
+        Initialize 'ul' (List) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
 
         :param attrs: A list or dictionary of attributes for the element
@@ -23823,7 +23823,7 @@ class ul(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "ul", void_element=False, attrs=attrs, children=children
         )
@@ -23987,7 +23987,7 @@ class var(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'var' (Variable) element.
+        Initialize 'var' (Variable) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
 
         :param attrs: A list or dictionary of attributes for the element
@@ -24029,7 +24029,7 @@ class var(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "var", void_element=False, attrs=attrs, children=children
         )
@@ -24211,7 +24211,7 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'video' (Video player) element.
+        Initialize 'video' (Video player) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
 
         :param attrs: A list or dictionary of attributes for the element
@@ -24266,7 +24266,7 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "video", void_element=False, attrs=attrs, children=children
         )
@@ -24452,7 +24452,7 @@ class wbr(BaseElement, GlobalAttrs):
         children: Optional[list] = None,
     ) -> None:
         """
-        Initialize 'wbr' (Line breaking opportunity) element.
+        Initialize 'wbr' (Line breaking opportunity) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr
 
         :param attrs: A list or dictionary of attributes for the element
@@ -24494,7 +24494,7 @@ class wbr(BaseElement, GlobalAttrs):
         :param title: Advisory information for the element
         :param translate: Whether the element is to be translated when the page is localized
         :param writingsuggestions: Whether the element can offer writing suggestions or not.
-        """
+        """  # fmt: skip
         super().__init__(
             "wbr", void_element=True, attrs=attrs, children=children
         )
