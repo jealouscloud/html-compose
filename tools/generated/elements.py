@@ -8,14 +8,14 @@ from .base_element import BaseElement
 
 class a(BaseElement, GlobalAttrs, AnchorAttrs):
     """
-    The 'a' element.
-    Description: Hyperlink
-    Categories: flow phrasing* interactive palpable
-    Parents: phrasing
-    Children: transparent*
-    Interface: HTMLAnchorElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
-    """
+    The 'a' element.  
+    Description: Hyperlink  
+    Categories: flow phrasing* interactive palpable  
+    Parents: phrasing  
+    Children: transparent*  
+    Interface: HTMLAnchorElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -64,7 +64,7 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'a' (Hyperlink) element.
+        Initialize 'a' (Hyperlink) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 
         :param attrs: A list or dictionary of attributes for the element
@@ -206,14 +206,14 @@ class a(BaseElement, GlobalAttrs, AnchorAttrs):
 
 class abbr(BaseElement, GlobalAttrs):
     """
-    The 'abbr' element.
-    Description: Abbreviation
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
-    """
+    The 'abbr' element.  
+    Description: Abbreviation  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -254,7 +254,7 @@ class abbr(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'abbr' (Abbreviation) element.
+        Initialize 'abbr' (Abbreviation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
 
         :param attrs: A list or dictionary of attributes for the element
@@ -365,14 +365,14 @@ class abbr(BaseElement, GlobalAttrs):
 
 class address(BaseElement, GlobalAttrs):
     """
-    The 'address' element.
-    Description: Contact information for a page or article element
-    Categories: flow palpable
-    Parents: flow
-    Children: flow*
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
-    """
+    The 'address' element.  
+    Description: Contact information for a page or article element  
+    Categories: flow palpable  
+    Parents: flow  
+    Children: flow*  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -413,7 +413,7 @@ class address(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'address' (Contact information for a page or article element) element.
+        Initialize 'address' (Contact information for a page or article element) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
 
         :param attrs: A list or dictionary of attributes for the element
@@ -524,14 +524,14 @@ class address(BaseElement, GlobalAttrs):
 
 class area(BaseElement, GlobalAttrs, AreaAttrs):
     """
-    The 'area' element.
-    Description: Hyperlink or dead area on an image map
-    Categories: flow phrasing
-    Parents: phrasing*
-    Children: empty
-    Interface: HTMLAreaElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
-    """
+    The 'area' element.  
+    Description: Hyperlink or dead area on an image map  
+    Categories: flow phrasing  
+    Parents: phrasing*  
+    Children: empty  
+    Interface: HTMLAreaElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -581,7 +581,7 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'area' (Hyperlink or dead area on an image map) element.
+        Initialize 'area' (Hyperlink or dead area on an image map) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
 
         :param attrs: A list or dictionary of attributes for the element
@@ -725,14 +725,14 @@ class area(BaseElement, GlobalAttrs, AreaAttrs):
 
 class article(BaseElement, GlobalAttrs):
     """
-    The 'article' element.
-    Description: Self-contained syndicatable or reusable composition
-    Categories: flow sectioning palpable
-    Parents: flow
-    Children: flow
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
-    """
+    The 'article' element.  
+    Description: Self-contained syndicatable or reusable composition  
+    Categories: flow sectioning palpable  
+    Parents: flow  
+    Children: flow  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -773,7 +773,7 @@ class article(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'article' (Self-contained syndicatable or reusable composition) element.
+        Initialize 'article' (Self-contained syndicatable or reusable composition) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
 
         :param attrs: A list or dictionary of attributes for the element
@@ -884,14 +884,14 @@ class article(BaseElement, GlobalAttrs):
 
 class aside(BaseElement, GlobalAttrs):
     """
-    The 'aside' element.
-    Description: Sidebar for tangentially related content
-    Categories: flow sectioning palpable
-    Parents: flow
-    Children: flow
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
-    """
+    The 'aside' element.  
+    Description: Sidebar for tangentially related content  
+    Categories: flow sectioning palpable  
+    Parents: flow  
+    Children: flow  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -932,7 +932,7 @@ class aside(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'aside' (Sidebar for tangentially related content) element.
+        Initialize 'aside' (Sidebar for tangentially related content) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1043,14 +1043,14 @@ class aside(BaseElement, GlobalAttrs):
 
 class audio(BaseElement, GlobalAttrs, AudioAttrs):
     """
-    The 'audio' element.
-    Description: Audio player
-    Categories: flow phrasing embedded interactive palpable*
-    Parents: phrasing
-    Children: source* track* transparent*
-    Interface: HTMLAudioElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
-    """
+    The 'audio' element.  
+    Description: Audio player  
+    Categories: flow phrasing embedded interactive palpable*  
+    Parents: phrasing  
+    Children: source* track* transparent*  
+    Interface: HTMLAudioElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -1098,7 +1098,7 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'audio' (Audio player) element.
+        Initialize 'audio' (Audio player) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1231,14 +1231,14 @@ class audio(BaseElement, GlobalAttrs, AudioAttrs):
 
 class b(BaseElement, GlobalAttrs):
     """
-    The 'b' element.
-    Description: Keywords
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b
-    """
+    The 'b' element.  
+    Description: Keywords  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -1279,7 +1279,7 @@ class b(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'b' (Keywords) element.
+        Initialize 'b' (Keywords) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1390,14 +1390,14 @@ class b(BaseElement, GlobalAttrs):
 
 class base(BaseElement, GlobalAttrs, BaseAttrs):
     """
-    The 'base' element.
-    Description: Base URL and default target navigable for hyperlinks and forms
-    Categories: metadata
-    Parents: head
-    Children: empty
-    Interface: HTMLBaseElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-    """
+    The 'base' element.  
+    Description: Base URL and default target navigable for hyperlinks and forms  
+    Categories: metadata  
+    Parents: head  
+    Children: empty  
+    Interface: HTMLBaseElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -1440,7 +1440,7 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'base' (Base URL and default target navigable for hyperlinks and forms) element.
+        Initialize 'base' (Base URL and default target navigable for hyperlinks and forms) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1559,14 +1559,14 @@ class base(BaseElement, GlobalAttrs, BaseAttrs):
 
 class bdi(BaseElement, GlobalAttrs):
     """
-    The 'bdi' element.
-    Description: Text directionality isolation
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
-    """
+    The 'bdi' element.  
+    Description: Text directionality isolation  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -1607,7 +1607,7 @@ class bdi(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'bdi' (Text directionality isolation) element.
+        Initialize 'bdi' (Text directionality isolation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1718,14 +1718,14 @@ class bdi(BaseElement, GlobalAttrs):
 
 class bdo(BaseElement, GlobalAttrs):
     """
-    The 'bdo' element.
-    Description: Text directionality formatting
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
-    """
+    The 'bdo' element.  
+    Description: Text directionality formatting  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -1766,7 +1766,7 @@ class bdo(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'bdo' (Text directionality formatting) element.
+        Initialize 'bdo' (Text directionality formatting) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
 
         :param attrs: A list or dictionary of attributes for the element
@@ -1877,14 +1877,14 @@ class bdo(BaseElement, GlobalAttrs):
 
 class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
     """
-    The 'blockquote' element.
-    Description: A section quoted from another source
-    Categories: flow palpable
-    Parents: flow
-    Children: flow
-    Interface: HTMLQuoteElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
-    """
+    The 'blockquote' element.  
+    Description: A section quoted from another source  
+    Categories: flow palpable  
+    Parents: flow  
+    Children: flow  
+    Interface: HTMLQuoteElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -1926,7 +1926,7 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'blockquote' (A section quoted from another source) element.
+        Initialize 'blockquote' (A section quoted from another source) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2041,14 +2041,14 @@ class blockquote(BaseElement, GlobalAttrs, BlockquoteAttrs):
 
 class body(BaseElement, GlobalAttrs, BodyAttrs):
     """
-    The 'body' element.
-    Description: Document body
-    Categories: none
-    Parents: html
-    Children: flow
-    Interface: HTMLBodyElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
-    """
+    The 'body' element.  
+    Description: Document body  
+    Categories: none  
+    Parents: html  
+    Children: flow  
+    Interface: HTMLBodyElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -2089,7 +2089,7 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'body' (Document body) element.
+        Initialize 'body' (Document body) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2200,14 +2200,14 @@ class body(BaseElement, GlobalAttrs, BodyAttrs):
 
 class br(BaseElement, GlobalAttrs):
     """
-    The 'br' element.
-    Description: Line break, e.g. in poem or postal address
-    Categories: flow phrasing
-    Parents: phrasing
-    Children: empty
-    Interface: HTMLBRElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
-    """
+    The 'br' element.  
+    Description: Line break, e.g. in poem or postal address  
+    Categories: flow phrasing  
+    Parents: phrasing  
+    Children: empty  
+    Interface: HTMLBRElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -2248,7 +2248,7 @@ class br(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'br' (Line break, e.g. in poem or postal address) element.
+        Initialize 'br' (Line break, e.g. in poem or postal address) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2359,14 +2359,14 @@ class br(BaseElement, GlobalAttrs):
 
 class button(BaseElement, GlobalAttrs, ButtonAttrs):
     """
-    The 'button' element.
-    Description: Button control
-    Categories: flow phrasing interactive listed labelable submittable form-associated palpable
-    Parents: phrasing
-    Children: phrasing*
-    Interface: HTMLButtonElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
-    """
+    The 'button' element.  
+    Description: Button control  
+    Categories: flow phrasing interactive listed labelable submittable form-associated palpable  
+    Parents: phrasing  
+    Children: phrasing*  
+    Interface: HTMLButtonElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -2419,7 +2419,7 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'button' (Button control) element.
+        Initialize 'button' (Button control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2570,14 +2570,14 @@ class button(BaseElement, GlobalAttrs, ButtonAttrs):
 
 class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
     """
-    The 'canvas' element.
-    Description: Scriptable bitmap canvas
-    Categories: flow phrasing embedded palpable
-    Parents: phrasing
-    Children: transparent
-    Interface: HTMLCanvasElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
-    """
+    The 'canvas' element.  
+    Description: Scriptable bitmap canvas  
+    Categories: flow phrasing embedded palpable  
+    Parents: phrasing  
+    Children: transparent  
+    Interface: HTMLCanvasElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -2620,7 +2620,7 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'canvas' (Scriptable bitmap canvas) element.
+        Initialize 'canvas' (Scriptable bitmap canvas) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2737,14 +2737,14 @@ class canvas(BaseElement, GlobalAttrs, CanvasAttrs):
 
 class caption(BaseElement, GlobalAttrs):
     """
-    The 'caption' element.
-    Description: Table caption
-    Categories: none
-    Parents: table
-    Children: flow*
-    Interface: HTMLTableCaptionElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
-    """
+    The 'caption' element.  
+    Description: Table caption  
+    Categories: none  
+    Parents: table  
+    Children: flow*  
+    Interface: HTMLTableCaptionElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -2785,7 +2785,7 @@ class caption(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'caption' (Table caption) element.
+        Initialize 'caption' (Table caption) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
 
         :param attrs: A list or dictionary of attributes for the element
@@ -2896,14 +2896,14 @@ class caption(BaseElement, GlobalAttrs):
 
 class cite(BaseElement, GlobalAttrs):
     """
-    The 'cite' element.
-    Description: Title of a work
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
-    """
+    The 'cite' element.  
+    Description: Title of a work  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -2944,7 +2944,7 @@ class cite(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'cite' (Title of a work) element.
+        Initialize 'cite' (Title of a work) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3055,14 +3055,14 @@ class cite(BaseElement, GlobalAttrs):
 
 class code(BaseElement, GlobalAttrs):
     """
-    The 'code' element.
-    Description: Computer code
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
-    """
+    The 'code' element.  
+    Description: Computer code  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -3103,7 +3103,7 @@ class code(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'code' (Computer code) element.
+        Initialize 'code' (Computer code) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3214,14 +3214,14 @@ class code(BaseElement, GlobalAttrs):
 
 class col(BaseElement, GlobalAttrs, ColAttrs):
     """
-    The 'col' element.
-    Description: Table column
-    Categories: none
-    Parents: colgroup
-    Children: empty
-    Interface: HTMLTableColElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
-    """
+    The 'col' element.  
+    Description: Table column  
+    Categories: none  
+    Parents: colgroup  
+    Children: empty  
+    Interface: HTMLTableColElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -3263,7 +3263,7 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'col' (Table column) element.
+        Initialize 'col' (Table column) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3378,14 +3378,14 @@ class col(BaseElement, GlobalAttrs, ColAttrs):
 
 class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
     """
-    The 'colgroup' element.
-    Description: Group of columns in a table
-    Categories: none
-    Parents: table
-    Children: col* template*
-    Interface: HTMLTableColElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup
-    """
+    The 'colgroup' element.  
+    Description: Group of columns in a table  
+    Categories: none  
+    Parents: table  
+    Children: col* template*  
+    Interface: HTMLTableColElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -3427,7 +3427,7 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'colgroup' (Group of columns in a table) element.
+        Initialize 'colgroup' (Group of columns in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3542,14 +3542,14 @@ class colgroup(BaseElement, GlobalAttrs, ColgroupAttrs):
 
 class data(BaseElement, GlobalAttrs, DataAttrs):
     """
-    The 'data' element.
-    Description: Machine-readable equivalent
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLDataElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data
-    """
+    The 'data' element.  
+    Description: Machine-readable equivalent  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLDataElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -3591,7 +3591,7 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'data' (Machine-readable equivalent) element.
+        Initialize 'data' (Machine-readable equivalent) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3705,14 +3705,14 @@ class data(BaseElement, GlobalAttrs, DataAttrs):
 
 class datalist(BaseElement, GlobalAttrs):
     """
-    The 'datalist' element.
-    Description: Container for options for combo box control
-    Categories: flow phrasing
-    Parents: phrasing
-    Children: phrasing* option* script-supporting elements*
-    Interface: HTMLDataListElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
-    """
+    The 'datalist' element.  
+    Description: Container for options for combo box control  
+    Categories: flow phrasing  
+    Parents: phrasing  
+    Children: phrasing* option* script-supporting elements*  
+    Interface: HTMLDataListElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -3753,7 +3753,7 @@ class datalist(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'datalist' (Container for options for combo box control) element.
+        Initialize 'datalist' (Container for options for combo box control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 
         :param attrs: A list or dictionary of attributes for the element
@@ -3864,14 +3864,14 @@ class datalist(BaseElement, GlobalAttrs):
 
 class dd(BaseElement, GlobalAttrs):
     """
-    The 'dd' element.
-    Description: Content for corresponding dt element(s)
-    Categories: none
-    Parents: dl div*
-    Children: flow
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
-    """
+    The 'dd' element.  
+    Description: Content for corresponding dt element(s)  
+    Categories: none  
+    Parents: dl div*  
+    Children: flow  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -3912,7 +3912,7 @@ class dd(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'dd' (Content for corresponding dt element(s)) element.
+        Initialize 'dd' (Content for corresponding dt element(s)) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4023,14 +4023,14 @@ class dd(BaseElement, GlobalAttrs):
 
 class del_(BaseElement, GlobalAttrs, DelAttrs):
     """
-    The 'del' element.
-    Description: A removal from the document
-    Categories: flow phrasing* palpable
-    Parents: phrasing
-    Children: transparent
-    Interface: HTMLModElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
-    """
+    The 'del' element.  
+    Description: A removal from the document  
+    Categories: flow phrasing* palpable  
+    Parents: phrasing  
+    Children: transparent  
+    Interface: HTMLModElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -4073,7 +4073,7 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'del' (A removal from the document) element.
+        Initialize 'del' (A removal from the document) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4192,14 +4192,14 @@ class del_(BaseElement, GlobalAttrs, DelAttrs):
 
 class details(BaseElement, GlobalAttrs, DetailsAttrs):
     """
-    The 'details' element.
-    Description: Disclosure control for hiding details
-    Categories: flow interactive palpable
-    Parents: flow
-    Children: summary* flow
-    Interface: HTMLDetailsElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
-    """
+    The 'details' element.  
+    Description: Disclosure control for hiding details  
+    Categories: flow interactive palpable  
+    Parents: flow  
+    Children: summary* flow  
+    Interface: HTMLDetailsElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -4242,7 +4242,7 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'details' (Disclosure control for hiding details) element.
+        Initialize 'details' (Disclosure control for hiding details) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4359,14 +4359,14 @@ class details(BaseElement, GlobalAttrs, DetailsAttrs):
 
 class dfn(BaseElement, GlobalAttrs):
     """
-    The 'dfn' element.
-    Description: Defining instance
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing*
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
-    """
+    The 'dfn' element.  
+    Description: Defining instance  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing*  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -4407,7 +4407,7 @@ class dfn(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'dfn' (Defining instance) element.
+        Initialize 'dfn' (Defining instance) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4518,14 +4518,14 @@ class dfn(BaseElement, GlobalAttrs):
 
 class dialog(BaseElement, GlobalAttrs, DialogAttrs):
     """
-    The 'dialog' element.
-    Description: Dialog box or window
-    Categories: flow
-    Parents: flow
-    Children: flow
-    Interface: HTMLDialogElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
-    """
+    The 'dialog' element.  
+    Description: Dialog box or window  
+    Categories: flow  
+    Parents: flow  
+    Children: flow  
+    Interface: HTMLDialogElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -4567,7 +4567,7 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'dialog' (Dialog box or window) element.
+        Initialize 'dialog' (Dialog box or window) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4681,14 +4681,14 @@ class dialog(BaseElement, GlobalAttrs, DialogAttrs):
 
 class div(BaseElement, GlobalAttrs):
     """
-    The 'div' element.
-    Description: Generic flow container, or container for name-value groups in dl elements
-    Categories: flow palpable
-    Parents: flow dl
-    Children: flow
-    Interface: HTMLDivElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
-    """
+    The 'div' element.  
+    Description: Generic flow container, or container for name-value groups in dl elements  
+    Categories: flow palpable  
+    Parents: flow dl  
+    Children: flow  
+    Interface: HTMLDivElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -4729,7 +4729,7 @@ class div(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'div' (Generic flow container, or container for name-value groups in dl elements) element.
+        Initialize 'div' (Generic flow container, or container for name-value groups in dl elements) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4840,14 +4840,14 @@ class div(BaseElement, GlobalAttrs):
 
 class dl(BaseElement, GlobalAttrs):
     """
-    The 'dl' element.
-    Description: Association list consisting of zero or more name-value groups
-    Categories: flow palpable
-    Parents: flow
-    Children: dt* dd* div* script-supporting elements
-    Interface: HTMLDListElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
-    """
+    The 'dl' element.  
+    Description: Association list consisting of zero or more name-value groups  
+    Categories: flow palpable  
+    Parents: flow  
+    Children: dt* dd* div* script-supporting elements  
+    Interface: HTMLDListElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -4888,7 +4888,7 @@ class dl(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'dl' (Association list consisting of zero or more name-value groups) element.
+        Initialize 'dl' (Association list consisting of zero or more name-value groups) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
 
         :param attrs: A list or dictionary of attributes for the element
@@ -4999,14 +4999,14 @@ class dl(BaseElement, GlobalAttrs):
 
 class dt(BaseElement, GlobalAttrs):
     """
-    The 'dt' element.
-    Description: Legend for corresponding dd element(s)
-    Categories: none
-    Parents: dl div*
-    Children: flow*
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
-    """
+    The 'dt' element.  
+    Description: Legend for corresponding dd element(s)  
+    Categories: none  
+    Parents: dl div*  
+    Children: flow*  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -5047,7 +5047,7 @@ class dt(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'dt' (Legend for corresponding dd element(s)) element.
+        Initialize 'dt' (Legend for corresponding dd element(s)) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5158,14 +5158,14 @@ class dt(BaseElement, GlobalAttrs):
 
 class em(BaseElement, GlobalAttrs):
     """
-    The 'em' element.
-    Description: Stress emphasis
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
-    """
+    The 'em' element.  
+    Description: Stress emphasis  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -5206,7 +5206,7 @@ class em(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'em' (Stress emphasis) element.
+        Initialize 'em' (Stress emphasis) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5317,14 +5317,14 @@ class em(BaseElement, GlobalAttrs):
 
 class embed(BaseElement, GlobalAttrs, EmbedAttrs):
     """
-    The 'embed' element.
-    Description: Plugin
-    Categories: flow phrasing embedded interactive palpable
-    Parents: phrasing
-    Children: empty
-    Interface: HTMLEmbedElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
-    """
+    The 'embed' element.  
+    Description: Plugin  
+    Categories: flow phrasing embedded interactive palpable  
+    Parents: phrasing  
+    Children: empty  
+    Interface: HTMLEmbedElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -5369,7 +5369,7 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'embed' (Plugin) element.
+        Initialize 'embed' (Plugin) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5494,14 +5494,14 @@ class embed(BaseElement, GlobalAttrs, EmbedAttrs):
 
 class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
     """
-    The 'fieldset' element.
-    Description: Group of form controls
-    Categories: flow listed form-associated palpable
-    Parents: flow
-    Children: legend* flow
-    Interface: HTMLFieldSetElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
-    """
+    The 'fieldset' element.  
+    Description: Group of form controls  
+    Categories: flow listed form-associated palpable  
+    Parents: flow  
+    Children: legend* flow  
+    Interface: HTMLFieldSetElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -5545,7 +5545,7 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'fieldset' (Group of form controls) element.
+        Initialize 'fieldset' (Group of form controls) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5666,14 +5666,14 @@ class fieldset(BaseElement, GlobalAttrs, FieldsetAttrs):
 
 class figcaption(BaseElement, GlobalAttrs):
     """
-    The 'figcaption' element.
-    Description: Caption for figure
-    Categories: none
-    Parents: figure
-    Children: flow
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
-    """
+    The 'figcaption' element.  
+    Description: Caption for figure  
+    Categories: none  
+    Parents: figure  
+    Children: flow  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -5714,7 +5714,7 @@ class figcaption(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'figcaption' (Caption for figure) element.
+        Initialize 'figcaption' (Caption for figure) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5825,14 +5825,14 @@ class figcaption(BaseElement, GlobalAttrs):
 
 class figure(BaseElement, GlobalAttrs):
     """
-    The 'figure' element.
-    Description: Figure with optional caption
-    Categories: flow palpable
-    Parents: flow
-    Children: figcaption* flow
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure
-    """
+    The 'figure' element.  
+    Description: Figure with optional caption  
+    Categories: flow palpable  
+    Parents: flow  
+    Children: figcaption* flow  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -5873,7 +5873,7 @@ class figure(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'figure' (Figure with optional caption) element.
+        Initialize 'figure' (Figure with optional caption) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure
 
         :param attrs: A list or dictionary of attributes for the element
@@ -5984,14 +5984,14 @@ class figure(BaseElement, GlobalAttrs):
 
 class footer(BaseElement, GlobalAttrs):
     """
-    The 'footer' element.
-    Description: Footer for a page or section
-    Categories: flow palpable
-    Parents: flow
-    Children: flow*
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
-    """
+    The 'footer' element.  
+    Description: Footer for a page or section  
+    Categories: flow palpable  
+    Parents: flow  
+    Children: flow*  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -6032,7 +6032,7 @@ class footer(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'footer' (Footer for a page or section) element.
+        Initialize 'footer' (Footer for a page or section) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6143,14 +6143,14 @@ class footer(BaseElement, GlobalAttrs):
 
 class form(BaseElement, GlobalAttrs, FormAttrs):
     """
-    The 'form' element.
-    Description: User-submittable form
-    Categories: flow palpable
-    Parents: flow
-    Children: flow*
-    Interface: HTMLFormElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
-    """
+    The 'form' element.  
+    Description: User-submittable form  
+    Categories: flow palpable  
+    Parents: flow  
+    Children: flow*  
+    Interface: HTMLFormElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -6199,7 +6199,7 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'form' (User-submittable form) element.
+        Initialize 'form' (User-submittable form) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6337,14 +6337,14 @@ class form(BaseElement, GlobalAttrs, FormAttrs):
 
 class h1(BaseElement, GlobalAttrs):
     """
-    The 'h1' element.
-    Description: Heading
-    Categories: flow heading palpable
-    Parents: legend summary flow
-    Children: phrasing
-    Interface: HTMLHeadingElement
-    Documentation: None
-    """
+    The 'h1' element.  
+    Description: Heading  
+    Categories: flow heading palpable  
+    Parents: legend summary flow  
+    Children: phrasing  
+    Interface: HTMLHeadingElement  
+    Documentation: None  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -6385,7 +6385,7 @@ class h1(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'h1' (Heading) element.
+        Initialize 'h1' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6496,14 +6496,14 @@ class h1(BaseElement, GlobalAttrs):
 
 class h2(BaseElement, GlobalAttrs):
     """
-    The 'h2' element.
-    Description: Heading
-    Categories: flow heading palpable
-    Parents: legend summary flow
-    Children: phrasing
-    Interface: HTMLHeadingElement
-    Documentation: None
-    """
+    The 'h2' element.  
+    Description: Heading  
+    Categories: flow heading palpable  
+    Parents: legend summary flow  
+    Children: phrasing  
+    Interface: HTMLHeadingElement  
+    Documentation: None  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -6544,7 +6544,7 @@ class h2(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'h2' (Heading) element.
+        Initialize 'h2' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6655,14 +6655,14 @@ class h2(BaseElement, GlobalAttrs):
 
 class h3(BaseElement, GlobalAttrs):
     """
-    The 'h3' element.
-    Description: Heading
-    Categories: flow heading palpable
-    Parents: legend summary flow
-    Children: phrasing
-    Interface: HTMLHeadingElement
-    Documentation: None
-    """
+    The 'h3' element.  
+    Description: Heading  
+    Categories: flow heading palpable  
+    Parents: legend summary flow  
+    Children: phrasing  
+    Interface: HTMLHeadingElement  
+    Documentation: None  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -6703,7 +6703,7 @@ class h3(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'h3' (Heading) element.
+        Initialize 'h3' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6814,14 +6814,14 @@ class h3(BaseElement, GlobalAttrs):
 
 class h4(BaseElement, GlobalAttrs):
     """
-    The 'h4' element.
-    Description: Heading
-    Categories: flow heading palpable
-    Parents: legend summary flow
-    Children: phrasing
-    Interface: HTMLHeadingElement
-    Documentation: None
-    """
+    The 'h4' element.  
+    Description: Heading  
+    Categories: flow heading palpable  
+    Parents: legend summary flow  
+    Children: phrasing  
+    Interface: HTMLHeadingElement  
+    Documentation: None  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -6862,7 +6862,7 @@ class h4(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'h4' (Heading) element.
+        Initialize 'h4' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -6973,14 +6973,14 @@ class h4(BaseElement, GlobalAttrs):
 
 class h5(BaseElement, GlobalAttrs):
     """
-    The 'h5' element.
-    Description: Heading
-    Categories: flow heading palpable
-    Parents: legend summary flow
-    Children: phrasing
-    Interface: HTMLHeadingElement
-    Documentation: None
-    """
+    The 'h5' element.  
+    Description: Heading  
+    Categories: flow heading palpable  
+    Parents: legend summary flow  
+    Children: phrasing  
+    Interface: HTMLHeadingElement  
+    Documentation: None  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -7021,7 +7021,7 @@ class h5(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'h5' (Heading) element.
+        Initialize 'h5' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7132,14 +7132,14 @@ class h5(BaseElement, GlobalAttrs):
 
 class h6(BaseElement, GlobalAttrs):
     """
-    The 'h6' element.
-    Description: Heading
-    Categories: flow heading palpable
-    Parents: legend summary flow
-    Children: phrasing
-    Interface: HTMLHeadingElement
-    Documentation: None
-    """
+    The 'h6' element.  
+    Description: Heading  
+    Categories: flow heading palpable  
+    Parents: legend summary flow  
+    Children: phrasing  
+    Interface: HTMLHeadingElement  
+    Documentation: None  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -7180,7 +7180,7 @@ class h6(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'h6' (Heading) element.
+        Initialize 'h6' (Heading) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7291,14 +7291,14 @@ class h6(BaseElement, GlobalAttrs):
 
 class head(BaseElement, GlobalAttrs):
     """
-    The 'head' element.
-    Description: Container for document metadata
-    Categories: none
-    Parents: html
-    Children: metadata content*
-    Interface: HTMLHeadElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head
-    """
+    The 'head' element.  
+    Description: Container for document metadata  
+    Categories: none  
+    Parents: html  
+    Children: metadata content*  
+    Interface: HTMLHeadElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -7339,7 +7339,7 @@ class head(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'head' (Container for document metadata) element.
+        Initialize 'head' (Container for document metadata) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7450,14 +7450,14 @@ class head(BaseElement, GlobalAttrs):
 
 class header(BaseElement, GlobalAttrs):
     """
-    The 'header' element.
-    Description: Introductory or navigational aids for a page or section
-    Categories: flow palpable
-    Parents: flow
-    Children: flow*
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
-    """
+    The 'header' element.  
+    Description: Introductory or navigational aids for a page or section  
+    Categories: flow palpable  
+    Parents: flow  
+    Children: flow*  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -7498,7 +7498,7 @@ class header(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'header' (Introductory or navigational aids for a page or section) element.
+        Initialize 'header' (Introductory or navigational aids for a page or section) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7609,14 +7609,14 @@ class header(BaseElement, GlobalAttrs):
 
 class hgroup(BaseElement, GlobalAttrs):
     """
-    The 'hgroup' element.
-    Description: Heading container
-    Categories: flow palpable
-    Parents: legend summary flow
-    Children: h1 h2 h3 h4 h5 h6 script-supporting elements
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
-    """
+    The 'hgroup' element.  
+    Description: Heading container  
+    Categories: flow palpable  
+    Parents: legend summary flow  
+    Children: h1 h2 h3 h4 h5 h6 script-supporting elements  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -7657,7 +7657,7 @@ class hgroup(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'hgroup' (Heading container) element.
+        Initialize 'hgroup' (Heading container) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7768,14 +7768,14 @@ class hgroup(BaseElement, GlobalAttrs):
 
 class hr(BaseElement, GlobalAttrs):
     """
-    The 'hr' element.
-    Description: Thematic break
-    Categories: flow
-    Parents: flow
-    Children: empty
-    Interface: HTMLHRElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
-    """
+    The 'hr' element.  
+    Description: Thematic break  
+    Categories: flow  
+    Parents: flow  
+    Children: empty  
+    Interface: HTMLHRElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -7816,7 +7816,7 @@ class hr(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'hr' (Thematic break) element.
+        Initialize 'hr' (Thematic break) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
 
         :param attrs: A list or dictionary of attributes for the element
@@ -7927,14 +7927,14 @@ class hr(BaseElement, GlobalAttrs):
 
 class html(BaseElement, GlobalAttrs):
     """
-    The 'html' element.
-    Description: Root element
-    Categories: none
-    Parents: none*
-    Children: head* body*
-    Interface: HTMLHtmlElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
-    """
+    The 'html' element.  
+    Description: Root element  
+    Categories: none  
+    Parents: none*  
+    Children: head* body*  
+    Interface: HTMLHtmlElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -7975,7 +7975,7 @@ class html(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'html' (Root element) element.
+        Initialize 'html' (Root element) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8086,14 +8086,14 @@ class html(BaseElement, GlobalAttrs):
 
 class i(BaseElement, GlobalAttrs):
     """
-    The 'i' element.
-    Description: Alternate voice
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
-    """
+    The 'i' element.  
+    Description: Alternate voice  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -8134,7 +8134,7 @@ class i(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'i' (Alternate voice) element.
+        Initialize 'i' (Alternate voice) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8245,14 +8245,14 @@ class i(BaseElement, GlobalAttrs):
 
 class iframe(BaseElement, GlobalAttrs, IframeAttrs):
     """
-    The 'iframe' element.
-    Description: Child navigable
-    Categories: flow phrasing embedded interactive palpable
-    Parents: phrasing
-    Children: empty
-    Interface: HTMLIFrameElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
-    """
+    The 'iframe' element.  
+    Description: Child navigable  
+    Categories: flow phrasing embedded interactive palpable  
+    Parents: phrasing  
+    Children: empty  
+    Interface: HTMLIFrameElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -8303,7 +8303,7 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'iframe' (Child navigable) element.
+        Initialize 'iframe' (Child navigable) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8450,14 +8450,14 @@ class iframe(BaseElement, GlobalAttrs, IframeAttrs):
 
 class img(BaseElement, GlobalAttrs, ImgAttrs):
     """
-    The 'img' element.
-    Description: Image
-    Categories: flow phrasing embedded interactive* form-associated palpable
-    Parents: phrasing picture
-    Children: empty
-    Interface: HTMLImageElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
-    """
+    The 'img' element.  
+    Description: Image  
+    Categories: flow phrasing embedded interactive* form-associated palpable  
+    Parents: phrasing picture  
+    Children: empty  
+    Interface: HTMLImageElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -8511,7 +8511,7 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'img' (Image) element.
+        Initialize 'img' (Image) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8666,14 +8666,14 @@ class img(BaseElement, GlobalAttrs, ImgAttrs):
 
 class input(BaseElement, GlobalAttrs, InputAttrs):
     """
-    The 'input' element.
-    Description: Form control
-    Categories: flow phrasing interactive* listed labelable submittable resettable form-associated palpable*
-    Parents: phrasing
-    Children: empty
-    Interface: HTMLInputElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
-    """
+    The 'input' element.  
+    Description: Form control  
+    Categories: flow phrasing interactive* listed labelable submittable resettable form-associated palpable*  
+    Parents: phrasing  
+    Children: empty  
+    Interface: HTMLInputElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -8748,7 +8748,7 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'input' (Form control) element.
+        Initialize 'input' (Form control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 
         :param attrs: A list or dictionary of attributes for the element
@@ -8975,14 +8975,14 @@ class input(BaseElement, GlobalAttrs, InputAttrs):
 
 class ins(BaseElement, GlobalAttrs, InsAttrs):
     """
-    The 'ins' element.
-    Description: An addition to the document
-    Categories: flow phrasing* palpable
-    Parents: phrasing
-    Children: transparent
-    Interface: HTMLModElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
-    """
+    The 'ins' element.  
+    Description: An addition to the document  
+    Categories: flow phrasing* palpable  
+    Parents: phrasing  
+    Children: transparent  
+    Interface: HTMLModElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -9025,7 +9025,7 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'ins' (An addition to the document) element.
+        Initialize 'ins' (An addition to the document) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9144,14 +9144,14 @@ class ins(BaseElement, GlobalAttrs, InsAttrs):
 
 class kbd(BaseElement, GlobalAttrs):
     """
-    The 'kbd' element.
-    Description: User input
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
-    """
+    The 'kbd' element.  
+    Description: User input  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -9192,7 +9192,7 @@ class kbd(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'kbd' (User input) element.
+        Initialize 'kbd' (User input) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9303,14 +9303,14 @@ class kbd(BaseElement, GlobalAttrs):
 
 class label(BaseElement, GlobalAttrs, LabelAttrs):
     """
-    The 'label' element.
-    Description: Caption for a form control
-    Categories: flow phrasing interactive palpable
-    Parents: phrasing
-    Children: phrasing*
-    Interface: HTMLLabelElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
-    """
+    The 'label' element.  
+    Description: Caption for a form control  
+    Categories: flow phrasing interactive palpable  
+    Parents: phrasing  
+    Children: phrasing*  
+    Interface: HTMLLabelElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -9352,7 +9352,7 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'label' (Caption for a form control) element.
+        Initialize 'label' (Caption for a form control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9467,14 +9467,14 @@ class label(BaseElement, GlobalAttrs, LabelAttrs):
 
 class legend(BaseElement, GlobalAttrs):
     """
-    The 'legend' element.
-    Description: Caption for fieldset
-    Categories: none
-    Parents: fieldset
-    Children: phrasing heading content
-    Interface: HTMLLegendElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
-    """
+    The 'legend' element.  
+    Description: Caption for fieldset  
+    Categories: none  
+    Parents: fieldset  
+    Children: phrasing heading content  
+    Interface: HTMLLegendElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -9515,7 +9515,7 @@ class legend(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'legend' (Caption for fieldset) element.
+        Initialize 'legend' (Caption for fieldset) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9626,14 +9626,14 @@ class legend(BaseElement, GlobalAttrs):
 
 class li(BaseElement, GlobalAttrs, LiAttrs):
     """
-    The 'li' element.
-    Description: List item
-    Categories: none
-    Parents: ol ul menu*
-    Children: flow
-    Interface: HTMLLIElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
-    """
+    The 'li' element.  
+    Description: List item  
+    Categories: none  
+    Parents: ol ul menu*  
+    Children: flow  
+    Interface: HTMLLIElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -9675,7 +9675,7 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'li' (List item) element.
+        Initialize 'li' (List item) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
 
         :param attrs: A list or dictionary of attributes for the element
@@ -9789,14 +9789,14 @@ class li(BaseElement, GlobalAttrs, LiAttrs):
 
 class link(BaseElement, GlobalAttrs, LinkAttrs):
     """
-    The 'link' element.
-    Description: Link metadata
-    Categories: metadata flow* phrasing*
-    Parents: head noscript* phrasing*
-    Children: empty
-    Interface: HTMLLinkElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
-    """
+    The 'link' element.  
+    Description: Link metadata  
+    Categories: metadata flow* phrasing*  
+    Parents: head noscript* phrasing*  
+    Children: empty  
+    Interface: HTMLLinkElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -9853,7 +9853,7 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'link' (Link metadata) element.
+        Initialize 'link' (Link metadata) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10025,14 +10025,14 @@ class link(BaseElement, GlobalAttrs, LinkAttrs):
 
 class main(BaseElement, GlobalAttrs):
     """
-    The 'main' element.
-    Description: Container for the dominant contents of the document
-    Categories: flow palpable
-    Parents: flow*
-    Children: flow
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
-    """
+    The 'main' element.  
+    Description: Container for the dominant contents of the document  
+    Categories: flow palpable  
+    Parents: flow*  
+    Children: flow  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -10073,7 +10073,7 @@ class main(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'main' (Container for the dominant contents of the document) element.
+        Initialize 'main' (Container for the dominant contents of the document) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10184,14 +10184,14 @@ class main(BaseElement, GlobalAttrs):
 
 class map(BaseElement, GlobalAttrs, MapAttrs):
     """
-    The 'map' element.
-    Description: Image map
-    Categories: flow phrasing* palpable
-    Parents: phrasing
-    Children: transparent area*
-    Interface: HTMLMapElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map
-    """
+    The 'map' element.  
+    Description: Image map  
+    Categories: flow phrasing* palpable  
+    Parents: phrasing  
+    Children: transparent area*  
+    Interface: HTMLMapElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -10233,7 +10233,7 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'map' (Image map) element.
+        Initialize 'map' (Image map) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10347,14 +10347,14 @@ class map(BaseElement, GlobalAttrs, MapAttrs):
 
 class mark(BaseElement, GlobalAttrs):
     """
-    The 'mark' element.
-    Description: Highlight
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
-    """
+    The 'mark' element.  
+    Description: Highlight  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -10395,7 +10395,7 @@ class mark(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'mark' (Highlight) element.
+        Initialize 'mark' (Highlight) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10506,14 +10506,14 @@ class mark(BaseElement, GlobalAttrs):
 
 class menu(BaseElement, GlobalAttrs):
     """
-    The 'menu' element.
-    Description: Menu of commands
-    Categories: flow palpable*
-    Parents: flow
-    Children: li script-supporting elements
-    Interface: HTMLMenuElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
-    """
+    The 'menu' element.  
+    Description: Menu of commands  
+    Categories: flow palpable*  
+    Parents: flow  
+    Children: li script-supporting elements  
+    Interface: HTMLMenuElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -10554,7 +10554,7 @@ class menu(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'menu' (Menu of commands) element.
+        Initialize 'menu' (Menu of commands) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10665,14 +10665,14 @@ class menu(BaseElement, GlobalAttrs):
 
 class meta(BaseElement, GlobalAttrs, MetaAttrs):
     """
-    The 'meta' element.
-    Description: Text metadata
-    Categories: metadata flow* phrasing*
-    Parents: head noscript* phrasing*
-    Children: empty
-    Interface: HTMLMetaElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-    """
+    The 'meta' element.  
+    Description: Text metadata  
+    Categories: metadata flow* phrasing*  
+    Parents: head noscript* phrasing*  
+    Children: empty  
+    Interface: HTMLMetaElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -10718,7 +10718,7 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'meta' (Text metadata) element.
+        Initialize 'meta' (Text metadata) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 
         :param attrs: A list or dictionary of attributes for the element
@@ -10845,14 +10845,14 @@ class meta(BaseElement, GlobalAttrs, MetaAttrs):
 
 class meter(BaseElement, GlobalAttrs, MeterAttrs):
     """
-    The 'meter' element.
-    Description: Gauge
-    Categories: flow phrasing labelable palpable
-    Parents: phrasing
-    Children: phrasing*
-    Interface: HTMLMeterElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter
-    """
+    The 'meter' element.  
+    Description: Gauge  
+    Categories: flow phrasing labelable palpable  
+    Parents: phrasing  
+    Children: phrasing*  
+    Interface: HTMLMeterElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -10899,7 +10899,7 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'meter' (Gauge) element.
+        Initialize 'meter' (Gauge) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11028,14 +11028,14 @@ class meter(BaseElement, GlobalAttrs, MeterAttrs):
 
 class nav(BaseElement, GlobalAttrs):
     """
-    The 'nav' element.
-    Description: Section with navigational links
-    Categories: flow sectioning palpable
-    Parents: flow
-    Children: flow
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
-    """
+    The 'nav' element.  
+    Description: Section with navigational links  
+    Categories: flow sectioning palpable  
+    Parents: flow  
+    Children: flow  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -11076,7 +11076,7 @@ class nav(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'nav' (Section with navigational links) element.
+        Initialize 'nav' (Section with navigational links) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11187,14 +11187,14 @@ class nav(BaseElement, GlobalAttrs):
 
 class noscript(BaseElement, GlobalAttrs):
     """
-    The 'noscript' element.
-    Description: Fallback content for script
-    Categories: metadata flow phrasing
-    Parents: head* phrasing*
-    Children: varies*
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
-    """
+    The 'noscript' element.  
+    Description: Fallback content for script  
+    Categories: metadata flow phrasing  
+    Parents: head* phrasing*  
+    Children: varies*  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -11235,7 +11235,7 @@ class noscript(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'noscript' (Fallback content for script) element.
+        Initialize 'noscript' (Fallback content for script) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11346,14 +11346,14 @@ class noscript(BaseElement, GlobalAttrs):
 
 class object(BaseElement, GlobalAttrs, ObjectAttrs):
     """
-    The 'object' element.
-    Description: Image, child navigable, or plugin
-    Categories: flow phrasing embedded interactive* listed form-associated palpable
-    Parents: phrasing
-    Children: transparent
-    Interface: HTMLObjectElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
-    """
+    The 'object' element.  
+    Description: Image, child navigable, or plugin  
+    Categories: flow phrasing embedded interactive* listed form-associated palpable  
+    Parents: phrasing  
+    Children: transparent  
+    Interface: HTMLObjectElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -11400,7 +11400,7 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'object' (Image, child navigable, or plugin) element.
+        Initialize 'object' (Image, child navigable, or plugin) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11533,14 +11533,14 @@ class object(BaseElement, GlobalAttrs, ObjectAttrs):
 
 class ol(BaseElement, GlobalAttrs, OlAttrs):
     """
-    The 'ol' element.
-    Description: Ordered list
-    Categories: flow palpable*
-    Parents: flow
-    Children: li script-supporting elements
-    Interface: HTMLOListElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
-    """
+    The 'ol' element.  
+    Description: Ordered list  
+    Categories: flow palpable*  
+    Parents: flow  
+    Children: li script-supporting elements  
+    Interface: HTMLOListElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -11584,7 +11584,7 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'ol' (Ordered list) element.
+        Initialize 'ol' (Ordered list) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11704,14 +11704,14 @@ class ol(BaseElement, GlobalAttrs, OlAttrs):
 
 class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
     """
-    The 'optgroup' element.
-    Description: Group of options in a list box
-    Categories: none
-    Parents: select
-    Children: option script-supporting elements
-    Interface: HTMLOptGroupElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
-    """
+    The 'optgroup' element.  
+    Description: Group of options in a list box  
+    Categories: none  
+    Parents: select  
+    Children: option script-supporting elements  
+    Interface: HTMLOptGroupElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -11754,7 +11754,7 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'optgroup' (Group of options in a list box) element.
+        Initialize 'optgroup' (Group of options in a list box) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
 
         :param attrs: A list or dictionary of attributes for the element
@@ -11871,14 +11871,14 @@ class optgroup(BaseElement, GlobalAttrs, OptgroupAttrs):
 
 class option(BaseElement, GlobalAttrs, OptionAttrs):
     """
-    The 'option' element.
-    Description: Option in a list box or combo box control
-    Categories: none
-    Parents: select datalist optgroup
-    Children: text*
-    Interface: HTMLOptionElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
-    """
+    The 'option' element.  
+    Description: Option in a list box or combo box control  
+    Categories: none  
+    Parents: select datalist optgroup  
+    Children: text*  
+    Interface: HTMLOptionElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -11923,7 +11923,7 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'option' (Option in a list box or combo box control) element.
+        Initialize 'option' (Option in a list box or combo box control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12046,14 +12046,14 @@ class option(BaseElement, GlobalAttrs, OptionAttrs):
 
 class output(BaseElement, GlobalAttrs, OutputAttrs):
     """
-    The 'output' element.
-    Description: Calculated output value
-    Categories: flow phrasing listed labelable resettable form-associated palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLOutputElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
-    """
+    The 'output' element.  
+    Description: Calculated output value  
+    Categories: flow phrasing listed labelable resettable form-associated palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLOutputElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -12097,7 +12097,7 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'output' (Calculated output value) element.
+        Initialize 'output' (Calculated output value) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12219,14 +12219,14 @@ class output(BaseElement, GlobalAttrs, OutputAttrs):
 
 class p(BaseElement, GlobalAttrs):
     """
-    The 'p' element.
-    Description: Paragraph
-    Categories: flow palpable
-    Parents: flow
-    Children: phrasing
-    Interface: HTMLParagraphElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
-    """
+    The 'p' element.  
+    Description: Paragraph  
+    Categories: flow palpable  
+    Parents: flow  
+    Children: phrasing  
+    Interface: HTMLParagraphElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -12267,7 +12267,7 @@ class p(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'p' (Paragraph) element.
+        Initialize 'p' (Paragraph) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12378,14 +12378,14 @@ class p(BaseElement, GlobalAttrs):
 
 class picture(BaseElement, GlobalAttrs):
     """
-    The 'picture' element.
-    Description: Image
-    Categories: flow phrasing embedded palpable
-    Parents: phrasing
-    Children: source* one img script-supporting elements
-    Interface: HTMLPictureElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
-    """
+    The 'picture' element.  
+    Description: Image  
+    Categories: flow phrasing embedded palpable  
+    Parents: phrasing  
+    Children: source* one img script-supporting elements  
+    Interface: HTMLPictureElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -12426,7 +12426,7 @@ class picture(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'picture' (Image) element.
+        Initialize 'picture' (Image) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12537,14 +12537,14 @@ class picture(BaseElement, GlobalAttrs):
 
 class pre(BaseElement, GlobalAttrs):
     """
-    The 'pre' element.
-    Description: Block of preformatted text
-    Categories: flow palpable
-    Parents: flow
-    Children: phrasing
-    Interface: HTMLPreElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
-    """
+    The 'pre' element.  
+    Description: Block of preformatted text  
+    Categories: flow palpable  
+    Parents: flow  
+    Children: phrasing  
+    Interface: HTMLPreElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -12585,7 +12585,7 @@ class pre(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'pre' (Block of preformatted text) element.
+        Initialize 'pre' (Block of preformatted text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12696,14 +12696,14 @@ class pre(BaseElement, GlobalAttrs):
 
 class progress(BaseElement, GlobalAttrs, ProgressAttrs):
     """
-    The 'progress' element.
-    Description: Progress bar
-    Categories: flow phrasing labelable palpable
-    Parents: phrasing
-    Children: phrasing*
-    Interface: HTMLProgressElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
-    """
+    The 'progress' element.  
+    Description: Progress bar  
+    Categories: flow phrasing labelable palpable  
+    Parents: phrasing  
+    Children: phrasing*  
+    Interface: HTMLProgressElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -12746,7 +12746,7 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'progress' (Progress bar) element.
+        Initialize 'progress' (Progress bar) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
 
         :param attrs: A list or dictionary of attributes for the element
@@ -12863,14 +12863,14 @@ class progress(BaseElement, GlobalAttrs, ProgressAttrs):
 
 class q(BaseElement, GlobalAttrs, QAttrs):
     """
-    The 'q' element.
-    Description: Quotation
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLQuoteElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
-    """
+    The 'q' element.  
+    Description: Quotation  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLQuoteElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -12912,7 +12912,7 @@ class q(BaseElement, GlobalAttrs, QAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'q' (Quotation) element.
+        Initialize 'q' (Quotation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13027,14 +13027,14 @@ class q(BaseElement, GlobalAttrs, QAttrs):
 
 class rp(BaseElement, GlobalAttrs):
     """
-    The 'rp' element.
-    Description: Parenthesis for ruby annotation text
-    Categories: none
-    Parents: ruby
-    Children: text
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp
-    """
+    The 'rp' element.  
+    Description: Parenthesis for ruby annotation text  
+    Categories: none  
+    Parents: ruby  
+    Children: text  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -13075,7 +13075,7 @@ class rp(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'rp' (Parenthesis for ruby annotation text) element.
+        Initialize 'rp' (Parenthesis for ruby annotation text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13186,14 +13186,14 @@ class rp(BaseElement, GlobalAttrs):
 
 class rt(BaseElement, GlobalAttrs):
     """
-    The 'rt' element.
-    Description: Ruby annotation text
-    Categories: none
-    Parents: ruby
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt
-    """
+    The 'rt' element.  
+    Description: Ruby annotation text  
+    Categories: none  
+    Parents: ruby  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -13234,7 +13234,7 @@ class rt(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'rt' (Ruby annotation text) element.
+        Initialize 'rt' (Ruby annotation text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13345,14 +13345,14 @@ class rt(BaseElement, GlobalAttrs):
 
 class ruby(BaseElement, GlobalAttrs):
     """
-    The 'ruby' element.
-    Description: Ruby annotation(s)
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing rt rp*
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby
-    """
+    The 'ruby' element.  
+    Description: Ruby annotation(s)  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing rt rp*  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -13393,7 +13393,7 @@ class ruby(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'ruby' (Ruby annotation(s)) element.
+        Initialize 'ruby' (Ruby annotation(s)) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13504,14 +13504,14 @@ class ruby(BaseElement, GlobalAttrs):
 
 class s(BaseElement, GlobalAttrs):
     """
-    The 's' element.
-    Description: Inaccurate text
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s
-    """
+    The 's' element.  
+    Description: Inaccurate text  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -13552,7 +13552,7 @@ class s(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 's' (Inaccurate text) element.
+        Initialize 's' (Inaccurate text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13663,14 +13663,14 @@ class s(BaseElement, GlobalAttrs):
 
 class samp(BaseElement, GlobalAttrs):
     """
-    The 'samp' element.
-    Description: Computer output
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
-    """
+    The 'samp' element.  
+    Description: Computer output  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -13711,7 +13711,7 @@ class samp(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'samp' (Computer output) element.
+        Initialize 'samp' (Computer output) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
 
         :param attrs: A list or dictionary of attributes for the element
@@ -13822,14 +13822,14 @@ class samp(BaseElement, GlobalAttrs):
 
 class script(BaseElement, GlobalAttrs, ScriptAttrs):
     """
-    The 'script' element.
-    Description: Embedded script
-    Categories: metadata flow phrasing script-supporting
-    Parents: head phrasing script-supporting
-    Children: script, data, or script documentation*
-    Interface: HTMLScriptElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
-    """
+    The 'script' element.  
+    Description: Embedded script  
+    Categories: metadata flow phrasing script-supporting  
+    Parents: head phrasing script-supporting  
+    Children: script, data, or script documentation*  
+    Interface: HTMLScriptElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -13880,7 +13880,7 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'script' (Embedded script) element.
+        Initialize 'script' (Embedded script) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14025,14 +14025,14 @@ class script(BaseElement, GlobalAttrs, ScriptAttrs):
 
 class search(BaseElement, GlobalAttrs):
     """
-    The 'search' element.
-    Description: Container for search controls
-    Categories: flow palpable
-    Parents: flow
-    Children: flow
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
-    """
+    The 'search' element.  
+    Description: Container for search controls  
+    Categories: flow palpable  
+    Parents: flow  
+    Children: flow  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -14073,7 +14073,7 @@ class search(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'search' (Container for search controls) element.
+        Initialize 'search' (Container for search controls) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14184,14 +14184,14 @@ class search(BaseElement, GlobalAttrs):
 
 class section(BaseElement, GlobalAttrs):
     """
-    The 'section' element.
-    Description: Generic document or application section
-    Categories: flow sectioning palpable
-    Parents: flow
-    Children: flow
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
-    """
+    The 'section' element.  
+    Description: Generic document or application section  
+    Categories: flow sectioning palpable  
+    Parents: flow  
+    Children: flow  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -14232,7 +14232,7 @@ class section(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'section' (Generic document or application section) element.
+        Initialize 'section' (Generic document or application section) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14343,14 +14343,14 @@ class section(BaseElement, GlobalAttrs):
 
 class select(BaseElement, GlobalAttrs, SelectAttrs):
     """
-    The 'select' element.
-    Description: List box control
-    Categories: flow phrasing interactive listed labelable submittable resettable form-associated palpable
-    Parents: phrasing
-    Children: option optgroup script-supporting elements
-    Interface: HTMLSelectElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
-    """
+    The 'select' element.  
+    Description: List box control  
+    Categories: flow phrasing interactive listed labelable submittable resettable form-associated palpable  
+    Parents: phrasing  
+    Children: option optgroup script-supporting elements  
+    Interface: HTMLSelectElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -14398,7 +14398,7 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'select' (List box control) element.
+        Initialize 'select' (List box control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14533,14 +14533,14 @@ class select(BaseElement, GlobalAttrs, SelectAttrs):
 
 class slot(BaseElement, GlobalAttrs, SlotAttrs):
     """
-    The 'slot' element.
-    Description: Shadow tree slot
-    Categories: flow phrasing
-    Parents: phrasing
-    Children: transparent
-    Interface: HTMLSlotElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
-    """
+    The 'slot' element.  
+    Description: Shadow tree slot  
+    Categories: flow phrasing  
+    Parents: phrasing  
+    Children: transparent  
+    Interface: HTMLSlotElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -14582,7 +14582,7 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'slot' (Shadow tree slot) element.
+        Initialize 'slot' (Shadow tree slot) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14696,14 +14696,14 @@ class slot(BaseElement, GlobalAttrs, SlotAttrs):
 
 class small(BaseElement, GlobalAttrs):
     """
-    The 'small' element.
-    Description: Side comment
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
-    """
+    The 'small' element.  
+    Description: Side comment  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -14744,7 +14744,7 @@ class small(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'small' (Side comment) element.
+        Initialize 'small' (Side comment) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
 
         :param attrs: A list or dictionary of attributes for the element
@@ -14855,14 +14855,14 @@ class small(BaseElement, GlobalAttrs):
 
 class source(BaseElement, GlobalAttrs, SourceAttrs):
     """
-    The 'source' element.
-    Description: Image source for img or media source for video or audio
-    Categories: none
-    Parents: picture video audio
-    Children: empty
-    Interface: HTMLSourceElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
-    """
+    The 'source' element.  
+    Description: Image source for img or media source for video or audio  
+    Categories: none  
+    Parents: picture video audio  
+    Children: empty  
+    Interface: HTMLSourceElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -14910,7 +14910,7 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'source' (Image source for img or media source for video or audio) element.
+        Initialize 'source' (Image source for img or media source for video or audio) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15047,14 +15047,14 @@ class source(BaseElement, GlobalAttrs, SourceAttrs):
 
 class span(BaseElement, GlobalAttrs):
     """
-    The 'span' element.
-    Description: Generic phrasing container
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLSpanElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
-    """
+    The 'span' element.  
+    Description: Generic phrasing container  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLSpanElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -15095,7 +15095,7 @@ class span(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'span' (Generic phrasing container) element.
+        Initialize 'span' (Generic phrasing container) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15206,14 +15206,14 @@ class span(BaseElement, GlobalAttrs):
 
 class strong(BaseElement, GlobalAttrs):
     """
-    The 'strong' element.
-    Description: Importance
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
-    """
+    The 'strong' element.  
+    Description: Importance  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -15254,7 +15254,7 @@ class strong(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'strong' (Importance) element.
+        Initialize 'strong' (Importance) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15365,14 +15365,14 @@ class strong(BaseElement, GlobalAttrs):
 
 class style(BaseElement, GlobalAttrs, StyleAttrs):
     """
-    The 'style' element.
-    Description: Embedded styling information
-    Categories: metadata
-    Parents: head noscript*
-    Children: text*
-    Interface: HTMLStyleElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
-    """
+    The 'style' element.  
+    Description: Embedded styling information  
+    Categories: metadata  
+    Parents: head noscript*  
+    Children: text*  
+    Interface: HTMLStyleElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -15415,7 +15415,7 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'style' (Embedded styling information) element.
+        Initialize 'style' (Embedded styling information) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15534,14 +15534,14 @@ class style(BaseElement, GlobalAttrs, StyleAttrs):
 
 class sub(BaseElement, GlobalAttrs):
     """
-    The 'sub' element.
-    Description: Subscript
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: None
-    """
+    The 'sub' element.  
+    Description: Subscript  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: None  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -15582,7 +15582,7 @@ class sub(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'sub' (Subscript) element.
+        Initialize 'sub' (Subscript) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15693,14 +15693,14 @@ class sub(BaseElement, GlobalAttrs):
 
 class summary(BaseElement, GlobalAttrs):
     """
-    The 'summary' element.
-    Description: Caption for details
-    Categories: none
-    Parents: details
-    Children: phrasing heading content
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
-    """
+    The 'summary' element.  
+    Description: Caption for details  
+    Categories: none  
+    Parents: details  
+    Children: phrasing heading content  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -15741,7 +15741,7 @@ class summary(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'summary' (Caption for details) element.
+        Initialize 'summary' (Caption for details) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
 
         :param attrs: A list or dictionary of attributes for the element
@@ -15852,14 +15852,14 @@ class summary(BaseElement, GlobalAttrs):
 
 class sup(BaseElement, GlobalAttrs):
     """
-    The 'sup' element.
-    Description: Superscript
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: None
-    """
+    The 'sup' element.  
+    Description: Superscript  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: None  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -15900,7 +15900,7 @@ class sup(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'sup' (Superscript) element.
+        Initialize 'sup' (Superscript) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16011,14 +16011,14 @@ class sup(BaseElement, GlobalAttrs):
 
 class svg(BaseElement, GlobalAttrs):
     """
-    The 'svg' element.
-    Description: SVG root
-    Categories: flow phrasing embedded palpable
-    Parents: phrasing
-    Children: per [SVG]
-    Interface: SVGSVGElement
-    Documentation: None
-    """
+    The 'svg' element.  
+    Description: SVG root  
+    Categories: flow phrasing embedded palpable  
+    Parents: phrasing  
+    Children: per [SVG]  
+    Interface: SVGSVGElement  
+    Documentation: None  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -16059,7 +16059,7 @@ class svg(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'svg' (SVG root) element.
+        Initialize 'svg' (SVG root) element.  
         Documentation: None
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16170,14 +16170,14 @@ class svg(BaseElement, GlobalAttrs):
 
 class table(BaseElement, GlobalAttrs):
     """
-    The 'table' element.
-    Description: Table
-    Categories: flow palpable
-    Parents: flow
-    Children: caption* colgroup* thead* tbody* tfoot* tr* script-supporting elements
-    Interface: HTMLTableElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
-    """
+    The 'table' element.  
+    Description: Table  
+    Categories: flow palpable  
+    Parents: flow  
+    Children: caption* colgroup* thead* tbody* tfoot* tr* script-supporting elements  
+    Interface: HTMLTableElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -16218,7 +16218,7 @@ class table(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'table' (Table) element.
+        Initialize 'table' (Table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16329,14 +16329,14 @@ class table(BaseElement, GlobalAttrs):
 
 class tbody(BaseElement, GlobalAttrs):
     """
-    The 'tbody' element.
-    Description: Group of rows in a table
-    Categories: none
-    Parents: table
-    Children: tr script-supporting elements
-    Interface: HTMLTableSectionElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
-    """
+    The 'tbody' element.  
+    Description: Group of rows in a table  
+    Categories: none  
+    Parents: table  
+    Children: tr script-supporting elements  
+    Interface: HTMLTableSectionElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -16377,7 +16377,7 @@ class tbody(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'tbody' (Group of rows in a table) element.
+        Initialize 'tbody' (Group of rows in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16488,14 +16488,14 @@ class tbody(BaseElement, GlobalAttrs):
 
 class td(BaseElement, GlobalAttrs, TdAttrs):
     """
-    The 'td' element.
-    Description: Table cell
-    Categories: none
-    Parents: tr
-    Children: flow
-    Interface: HTMLTableCellElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
-    """
+    The 'td' element.  
+    Description: Table cell  
+    Categories: none  
+    Parents: tr  
+    Children: flow  
+    Interface: HTMLTableCellElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -16539,7 +16539,7 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'td' (Table cell) element.
+        Initialize 'td' (Table cell) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16661,14 +16661,14 @@ class td(BaseElement, GlobalAttrs, TdAttrs):
 
 class template(BaseElement, GlobalAttrs, TemplateAttrs):
     """
-    The 'template' element.
-    Description: Template
-    Categories: metadata flow phrasing script-supporting
-    Parents: metadata phrasing script-supporting colgroup*
-    Children: empty
-    Interface: HTMLTemplateElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
-    """
+    The 'template' element.  
+    Description: Template  
+    Categories: metadata flow phrasing script-supporting  
+    Parents: metadata phrasing script-supporting colgroup*  
+    Children: empty  
+    Interface: HTMLTemplateElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -16713,7 +16713,7 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'template' (Template) element.
+        Initialize 'template' (Template) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 
         :param attrs: A list or dictionary of attributes for the element
@@ -16836,14 +16836,14 @@ class template(BaseElement, GlobalAttrs, TemplateAttrs):
 
 class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
     """
-    The 'textarea' element.
-    Description: Multiline text controls
-    Categories: flow phrasing interactive listed labelable submittable resettable form-associated palpable
-    Parents: phrasing
-    Children: text
-    Interface: HTMLTextAreaElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
-    """
+    The 'textarea' element.  
+    Description: Multiline text controls  
+    Categories: flow phrasing interactive listed labelable submittable resettable form-associated palpable  
+    Parents: phrasing  
+    Children: text  
+    Interface: HTMLTextAreaElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -16897,7 +16897,7 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'textarea' (Multiline text controls) element.
+        Initialize 'textarea' (Multiline text controls) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17051,14 +17051,14 @@ class textarea(BaseElement, GlobalAttrs, TextareaAttrs):
 
 class tfoot(BaseElement, GlobalAttrs):
     """
-    The 'tfoot' element.
-    Description: Group of footer rows in a table
-    Categories: none
-    Parents: table
-    Children: tr script-supporting elements
-    Interface: HTMLTableSectionElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot
-    """
+    The 'tfoot' element.  
+    Description: Group of footer rows in a table  
+    Categories: none  
+    Parents: table  
+    Children: tr script-supporting elements  
+    Interface: HTMLTableSectionElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -17099,7 +17099,7 @@ class tfoot(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'tfoot' (Group of footer rows in a table) element.
+        Initialize 'tfoot' (Group of footer rows in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17210,14 +17210,14 @@ class tfoot(BaseElement, GlobalAttrs):
 
 class th(BaseElement, GlobalAttrs, ThAttrs):
     """
-    The 'th' element.
-    Description: Table header cell
-    Categories: interactive*
-    Parents: tr
-    Children: flow*
-    Interface: HTMLTableCellElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
-    """
+    The 'th' element.  
+    Description: Table header cell  
+    Categories: interactive*  
+    Parents: tr  
+    Children: flow*  
+    Interface: HTMLTableCellElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -17263,7 +17263,7 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'th' (Table header cell) element.
+        Initialize 'th' (Table header cell) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17391,14 +17391,14 @@ class th(BaseElement, GlobalAttrs, ThAttrs):
 
 class thead(BaseElement, GlobalAttrs):
     """
-    The 'thead' element.
-    Description: Group of heading rows in a table
-    Categories: none
-    Parents: table
-    Children: tr script-supporting elements
-    Interface: HTMLTableSectionElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
-    """
+    The 'thead' element.  
+    Description: Group of heading rows in a table  
+    Categories: none  
+    Parents: table  
+    Children: tr script-supporting elements  
+    Interface: HTMLTableSectionElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -17439,7 +17439,7 @@ class thead(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'thead' (Group of heading rows in a table) element.
+        Initialize 'thead' (Group of heading rows in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17550,14 +17550,14 @@ class thead(BaseElement, GlobalAttrs):
 
 class time(BaseElement, GlobalAttrs, TimeAttrs):
     """
-    The 'time' element.
-    Description: Machine-readable equivalent of date- or time-related data
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLTimeElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
-    """
+    The 'time' element.  
+    Description: Machine-readable equivalent of date- or time-related data  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLTimeElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -17599,7 +17599,7 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'time' (Machine-readable equivalent of date- or time-related data) element.
+        Initialize 'time' (Machine-readable equivalent of date- or time-related data) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17714,14 +17714,14 @@ class time(BaseElement, GlobalAttrs, TimeAttrs):
 
 class title(BaseElement, GlobalAttrs):
     """
-    The 'title' element.
-    Description: Document title
-    Categories: metadata
-    Parents: head
-    Children: text*
-    Interface: HTMLTitleElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
-    """
+    The 'title' element.  
+    Description: Document title  
+    Categories: metadata  
+    Parents: head  
+    Children: text*  
+    Interface: HTMLTitleElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -17762,7 +17762,7 @@ class title(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'title' (Document title) element.
+        Initialize 'title' (Document title) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
 
         :param attrs: A list or dictionary of attributes for the element
@@ -17873,14 +17873,14 @@ class title(BaseElement, GlobalAttrs):
 
 class tr(BaseElement, GlobalAttrs):
     """
-    The 'tr' element.
-    Description: Table row
-    Categories: none
-    Parents: table thead tbody tfoot
-    Children: th* td script-supporting elements
-    Interface: HTMLTableRowElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr
-    """
+    The 'tr' element.  
+    Description: Table row  
+    Categories: none  
+    Parents: table thead tbody tfoot  
+    Children: th* td script-supporting elements  
+    Interface: HTMLTableRowElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -17921,7 +17921,7 @@ class tr(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'tr' (Table row) element.
+        Initialize 'tr' (Table row) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18032,14 +18032,14 @@ class tr(BaseElement, GlobalAttrs):
 
 class track(BaseElement, GlobalAttrs, TrackAttrs):
     """
-    The 'track' element.
-    Description: Timed text track
-    Categories: none
-    Parents: audio video
-    Children: empty
-    Interface: HTMLTrackElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
-    """
+    The 'track' element.  
+    Description: Timed text track  
+    Categories: none  
+    Parents: audio video  
+    Children: empty  
+    Interface: HTMLTrackElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -18085,7 +18085,7 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'track' (Timed text track) element.
+        Initialize 'track' (Timed text track) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18213,14 +18213,14 @@ class track(BaseElement, GlobalAttrs, TrackAttrs):
 
 class u(BaseElement, GlobalAttrs):
     """
-    The 'u' element.
-    Description: Unarticulated annotation
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u
-    """
+    The 'u' element.  
+    Description: Unarticulated annotation  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -18261,7 +18261,7 @@ class u(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'u' (Unarticulated annotation) element.
+        Initialize 'u' (Unarticulated annotation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18372,14 +18372,14 @@ class u(BaseElement, GlobalAttrs):
 
 class ul(BaseElement, GlobalAttrs):
     """
-    The 'ul' element.
-    Description: List
-    Categories: flow palpable*
-    Parents: flow
-    Children: li script-supporting elements
-    Interface: HTMLUListElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
-    """
+    The 'ul' element.  
+    Description: List  
+    Categories: flow palpable*  
+    Parents: flow  
+    Children: li script-supporting elements  
+    Interface: HTMLUListElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -18420,7 +18420,7 @@ class ul(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'ul' (List) element.
+        Initialize 'ul' (List) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18531,14 +18531,14 @@ class ul(BaseElement, GlobalAttrs):
 
 class var(BaseElement, GlobalAttrs):
     """
-    The 'var' element.
-    Description: Variable
-    Categories: flow phrasing palpable
-    Parents: phrasing
-    Children: phrasing
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
-    """
+    The 'var' element.  
+    Description: Variable  
+    Categories: flow phrasing palpable  
+    Parents: phrasing  
+    Children: phrasing  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -18579,7 +18579,7 @@ class var(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'var' (Variable) element.
+        Initialize 'var' (Variable) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18690,14 +18690,14 @@ class var(BaseElement, GlobalAttrs):
 
 class video(BaseElement, GlobalAttrs, VideoAttrs):
     """
-    The 'video' element.
-    Description: Video player
-    Categories: flow phrasing embedded interactive palpable
-    Parents: phrasing
-    Children: source* track* transparent*
-    Interface: HTMLVideoElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
-    """
+    The 'video' element.  
+    Description: Video player  
+    Categories: flow phrasing embedded interactive palpable  
+    Parents: phrasing  
+    Children: source* track* transparent*  
+    Interface: HTMLVideoElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -18749,7 +18749,7 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'video' (Video player) element.
+        Initialize 'video' (Video player) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
 
         :param attrs: A list or dictionary of attributes for the element
@@ -18895,14 +18895,14 @@ class video(BaseElement, GlobalAttrs, VideoAttrs):
 
 class wbr(BaseElement, GlobalAttrs):
     """
-    The 'wbr' element.
-    Description: Line breaking opportunity
-    Categories: flow phrasing
-    Parents: phrasing
-    Children: empty
-    Interface: HTMLElement
-    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr
-    """
+    The 'wbr' element.  
+    Description: Line breaking opportunity  
+    Categories: flow phrasing  
+    Parents: phrasing  
+    Children: empty  
+    Interface: HTMLElement  
+    Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr  
+    """ # fmt: skip
     attr_list_type: TypeAlias = Union[
         dict[str, Union[str, dict, list]], list[BaseAttribute]
     ]
@@ -18943,7 +18943,7 @@ class wbr(BaseElement, GlobalAttrs):
         children: Optional[list] = None
     ) -> None:
         """
-        Initialize 'wbr' (Line breaking opportunity) element.
+        Initialize 'wbr' (Line breaking opportunity) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr
 
         :param attrs: A list or dictionary of attributes for the element
