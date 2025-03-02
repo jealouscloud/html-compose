@@ -51,7 +51,7 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
         dupes = attrdefs[attr_name].get("dupes", [])
         param_types = ["str", f"{attr_class}.{attrdef.safe_name}"]
         param_type = value_hint_to_python_type(attrdef.value_desc)
-        if param_type:
+        if param_type and param_type not in param_types:
             param_types.append(param_type)
         for dupe in dupes:
             # <link> has two tile defs, but they are the same attr.
@@ -64,7 +64,7 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
             if param_type and param_type not in param_types:
                 param_types.append(param_type)
 
-        param = f"        {attrdef.safe_name}: Union[{', '.join(param_types)}, None] = None,"
+        param = f"        {attrdef.safe_name}: Optional[Union[{', '.join(param_types)}]] = None,"
         processed.append(
             processed_attr(
                 name=attr_name,
@@ -172,9 +172,13 @@ def gen_elements():
             attr_assignment = "\n".join(assign_list)
             fixed_name = safe_name(real_element)
             is_void_element = children == "empty"
+            comment = ""
+            if real_element in ("link", "input", "style"):
+                # Duplicate "title" definition
+                comment = " # type: ignore[misc]"
             template = [
                 "",
-                f"class {fixed_name}(BaseElement, GlobalAttrs{attr_string}):",
+                f"class {fixed_name}(BaseElement, GlobalAttrs{attr_string}):{comment}",
                 '    """',
                 f"    The '{real_element}' element.  ",
                 f"    Description: {desc}  ",
@@ -184,14 +188,11 @@ def gen_elements():
                 f"    Interface: {interface}  ",
                 f"    Documentation: {docs}  ",
                 '    """ # fmt: skip',
-                "    attr_list_type: TypeAlias = Union[",
-                "        dict[str, Union[str, dict, list]], list[BaseAttribute]",
-                "    ]",
                 "",
                 "",
                 "    def __init__(",
                 "        self,",
-                "        attrs: Optional[attr_list_type] = None,",
+                "        attrs: Optional[Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]] = None,",
                 extra_attrs,
                 "        children: Optional[list] = None",
                 "    ) -> None:",

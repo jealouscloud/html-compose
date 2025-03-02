@@ -1,12 +1,17 @@
 import re
+from typing import Union
 
-from bs4 import BeautifulSoup, NavigableString, Tag
+from bs4 import (
+    BeautifulSoup,
+    NavigableString,
+    Tag,
+)
 from bs4.element import Doctype
 
 from .util_funcs import safe_name
 
 
-def read_string(e: NavigableString):
+def read_string(input_str: NavigableString) -> Union[str, None]:
     """
     Helper to sort of 'auto-translate' HTML formatted strings into what
     they would be viewed as in a browser, which can then be represented in
@@ -15,24 +20,26 @@ def read_string(e: NavigableString):
     Remove leading and trailing whitespace, and replace multiple spaces with a single space.
 
     """
-    e = re.sub(r"\s+", " ", str(e), flags=re.MULTILINE)
-    e = e.lstrip()  # Leading and trailing whitespace typically ignored
-    if not e:
+    result = re.sub(r"\s+", " ", str(input_str), flags=re.MULTILINE)
+    result = (
+        result.lstrip()
+    )  # Leading and trailing whitespace typically ignored
+    if not result:
         return None
-    return repr(e)
+    return repr(result)
 
 
-def read_pre_string(e: NavigableString):
+def read_pre_string(input_str: NavigableString) -> Union[str, None]:
     """
     pre elements do the same as above, but remove the first newline
     """
-    e = re.sub("^\n", "", e)
-    if not e:
+    result = re.sub("^\n", "", input_str)
+    if not result:
         return None
-    return repr(e)
+    return repr(result)
 
 
-def translate(html: str):
+def translate(html: str) -> str:
     """
     Translate HTML string into Python code representing a similar HTML structure
 
@@ -42,7 +49,7 @@ def translate(html: str):
 
     tags = set()
 
-    def process_element(element):
+    def process_element(element) -> Union[str, None]:
         if isinstance(element, Doctype):
             dt: Doctype = element
             tags.add("doctype")
@@ -60,10 +67,12 @@ def translate(html: str):
         else:
             result.append("()")
 
-        children = []
+        children: list[str] = []
         for child in element.children:
             if element.name == "pre" and isinstance(child, NavigableString):
-                children.append(read_pre_string(child))
+                processed = read_pre_string(child)
+                if processed:
+                    children.append(processed)
             else:
                 processed = process_element(child)
                 if processed:

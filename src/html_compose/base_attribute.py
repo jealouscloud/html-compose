@@ -100,10 +100,12 @@ class BaseAttribute:
             return None
 
         resolved = self.resolve_data()
-        if resolved is None or resolved is False:
+        if resolved is None:
             return None
 
         return (self.name, resolved)
 
     def __repr__(self):
-        return f"BaseAttribute{repr(self.evaluate())}"
+        return (
+            f"BaseAttribute{{name={repr(self.name)}, data={repr(self.data)}}}"
+        )
