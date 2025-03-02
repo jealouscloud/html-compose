@@ -21,7 +21,7 @@ class BaseElement(ElementBase, GlobalAttrs):
     All elements derive from this class
     """
 
-    __slots__ = ("tag", "_attrs", "_children", "is_void_element")
+    __slots__ = ("tag", "attrs", "_children", "is_void_element")
 
     @classmethod
     def __class_getitem__(cls, key):
@@ -78,7 +78,7 @@ class BaseElement(ElementBase, GlobalAttrs):
             children: A list of child elements. Defaults to None.
         """
         self.tag = tag
-        self._attrs = self._resolve_attrs(attrs)
+        self.attrs = self._resolve_attrs(attrs)
 
         self._children = children if children else []
         self.is_void_element = void_element
@@ -115,14 +115,14 @@ class BaseElement(ElementBase, GlobalAttrs):
         result = attr.evaluate()
         if result is not None:
             _, resolved_value = result
-            if attr_name in self._attrs:
+            if attr_name in self.attrs:
                 if attr_name == "class":
-                    self._attrs[attr_name] = (
-                        f"{self._attrs[attr_name]} {resolved_value}"
+                    self.attrs[attr_name] = (
+                        f"{self.attrs[attr_name]} {resolved_value}"
                     )
                 elif attr_name == "style":
-                    self._attrs[attr_name] = (
-                        f"{self._attrs[attr_name]}; {resolved_value}"
+                    self.attrs[attr_name] = (
+                        f"{self.attrs[attr_name]}; {resolved_value}"
                     )
                 else:
                     raise ValueError(
@@ -130,7 +130,7 @@ class BaseElement(ElementBase, GlobalAttrs):
                         "We don't know how to merge it."
                     )
             else:
-                self._attrs[attr_name] = resolved_value
+                self.attrs[attr_name] = resolved_value
 
     def _resolve_attrs(self, attrs) -> dict[str, str]:
         """
@@ -342,7 +342,7 @@ class BaseElement(ElementBase, GlobalAttrs):
 
         # attrs is a defaultdict of strings.
         # The key is the attr name, the value is the attr value unescaped.
-        attrs = self._attrs
+        attrs = self.attrs
 
         children = None
 
@@ -406,8 +406,8 @@ class BaseElement(ElementBase, GlobalAttrs):
             for child in children
         )
         astring = ""
-        if self._attrs:
-            astring = f"{self._attrs}"
+        if self.attrs:
+            astring = f"{self.attrs}"
         cstring = ""
         if children:
             cstring = f"[{children_info}]"
@@ -418,3 +418,12 @@ class BaseElement(ElementBase, GlobalAttrs):
         Render the HTML element
         """
         return self.render()
+
+
+# def ConstructElement(
+#         attrs: Optional[attr_list_type] = None,
+#         id: Union[str, GlobalAttrs.id, str, None] = None,
+#         class_: Union[str, GlobalAttrs.class_, None] = None)
+# def GenerateElement(tag):
+
+#     BaseElement(tag, void_element=False, )
