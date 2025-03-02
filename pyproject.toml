@@ -48,6 +48,8 @@ dev-dependencies = [
     "hext>=1.0.11",
     "pytest>=8.3.3",
 ]
+[project.scripts]
+"html-convert" = "html_compose:from_html"
 
 [tool.rye.scripts]  # Run as "rye run <command>"
 build-elements = { chain = ["python tools/generate_elements.py --copy", 'fix-lint', 'fix-fmt' ] }
