@@ -1,3 +1,11 @@
+# 0.4.0
+* [breaking] Changes to BaseElement, name -> tag, adding _ to some internal function names, cleanup.
+* Maintainers: Add command-line for generate attributes/elements, rye scripts.
+* Remove arrows in "<element>" from docstrings because vscode attempts to render the html element.
+* Multiline docstrings fixed with markdown rules - You have to double space the end to register as a newline.
+* Add "doctype" function to produce, for example, <!DOCTYPE html>
+* Integrate mypy type checking for development
+
 # 0.3.0
 * Add HTML5Document function, wrapping some boilerplate.
 * Minor fix: Remove trailing space when no attrs are defined in void elements.
