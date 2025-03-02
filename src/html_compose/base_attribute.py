@@ -1,4 +1,4 @@
-from typing import Iterable, TypeAlias, Union
+from typing import Iterable, Tuple, TypeAlias, Union
 
 from markupsafe import Markup
 
@@ -54,7 +54,7 @@ class BaseAttribute:
                 continue
             yield key
 
-    def resolve_data(self):
+    def resolve_data(self) -> Union[None, str]:
         """
         Resolve right half of attribute into a string
 
@@ -91,7 +91,7 @@ class BaseAttribute:
 
         return self.resolve_join(_resolved)
 
-    def evaluate(self):
+    def evaluate(self) -> Union[None, Tuple[str, str]]:
         """
         Evaluate attribute, return key, value as tuple
         or None if attribute is falsey
@@ -100,7 +100,10 @@ class BaseAttribute:
             return None
 
         resolved = self.resolve_data()
+        if resolved is None or resolved is False:
+            return None
+
         return (self.name, resolved)
 
     def __repr__(self):
-        return self.evaluate()
+        return f"BaseAttribute{repr(self.evaluate())}"
