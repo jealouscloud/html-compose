@@ -24,7 +24,7 @@ class OlAttrs:
         Value: Valid integer
         """
 
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("start", value)
 
     class type(BaseAttribute):

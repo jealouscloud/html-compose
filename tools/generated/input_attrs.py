@@ -182,7 +182,7 @@ class InputAttrs:
         Value: Valid non-negative integer
         """
         
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("height", value)
             
 
@@ -218,7 +218,7 @@ class InputAttrs:
         Value: Valid non-negative integer
         """
         
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("maxlength", value)
             
 
@@ -242,7 +242,7 @@ class InputAttrs:
         Value: Valid non-negative integer
         """
         
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("minlength", value)
             
 
@@ -374,7 +374,7 @@ class InputAttrs:
         Value: Valid floating-point number greater than zero, or "any"
         """
         
-        def __init__(self, value):
+        def __init__(self, value: float):
             super().__init__("step", value)
             
 
@@ -422,6 +422,6 @@ class InputAttrs:
         Value: Valid non-negative integer
         """
         
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("width", value)
             

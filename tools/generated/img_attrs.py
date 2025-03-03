@@ -62,7 +62,7 @@ class ImgAttrs:
         Value: Valid non-negative integer
         """
         
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("height", value)
             
 
@@ -158,6 +158,6 @@ class ImgAttrs:
         Value: Valid non-negative integer
         """
         
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("width", value)
             

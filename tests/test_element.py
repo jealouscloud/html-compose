@@ -59,14 +59,13 @@ def test_nested_callables():
     Test that nesting callables works correctly.
     """
     a = div()
-    a.append("text", lambda x: div()[x.name, lambda y: y.name])
+    a.append("text", lambda x: div()[x.tag, lambda y: y.tag])
     assert a.render() == "<div>text<div>divdiv</div></div>"
 
 
 def test_resolve_none():
-    assert (
-        div()[None].render() == "<div></div>"
-    ), "Nonetype should result in empty string"
+    el = div()[None].render()
+    assert el == "<div></div>", "Nonetype should result in empty string"
 
 
 def test_xss():

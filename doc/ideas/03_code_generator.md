@@ -14,7 +14,7 @@ the `tools` directory contains:
 
 * `tools/generated/*_attrs.py` is the intermediate directory so runs do not write to source control directory, but you can see when a new change has happened.
 
-## Extenion of this idea:
+## Extension of this idea:
 TBD
 
-caniusedata can be used to generate warnings based on browser targets
+caniuse data can be used to generate warnings based on browser targets

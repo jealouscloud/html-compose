@@ -1,6 +1,6 @@
 [project]
 name = "html-compose"
-version = "0.3.0"
+version = "0.4.0"
 description = "Composable HTML generation in python"
 authors = [
     { name = "jealouscloud", email = "github@noaha.org" }
@@ -48,6 +48,20 @@ dev-dependencies = [
     "hext>=1.0.11",
     "pytest>=8.3.3",
 ]
+[project.scripts]
+"html-convert" = "html_compose:from_html"
+
+[tool.rye.scripts]  # Run as "rye run <command>"
+build-elements = { chain = ["python tools/generate_elements.py --copy", 'fix-lint', 'fix-fmt' ] }
+build-attributes = { chain = ["python tools/generate_attributes.py --copy", 'fix-lint', 'fix-fmt' ] }
+"check-lint" = "rye lint"
+"check-fmt" = "rye fmt --check"
+fix = { chain = ["fix-lint", "fix-fmt" ] }
+"fix-lint" = "rye lint --fix"
+"fix-fmt" = "rye fmt"
+build = "rye build --clean --verbose"
+publish = "rye publish --verbose"
+release = { chain = ["check", "build", "publish"]}
 
 [tool.hatch.metadata]
 allow-direct-references = true

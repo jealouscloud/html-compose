@@ -44,15 +44,15 @@ class ElementBase(_HasHtml):
         if hasattr(cls, "_join_lru_maxsize"):
             live_size = cls._join_lru_maxsize
         else:
-            cls._join_lru_maxsize = cls.ATTR_CACHE_SIZE
+            cls._join_lru_maxsize = cls.ATTR_CACHE_SIZE  # type: ignore[attr-defined]
             live_size = None
 
         if live_size != cls.ATTR_CACHE_SIZE:
-            cls.join_attrs = lru_cache(maxsize=cls.ATTR_CACHE_SIZE)(
+            cls.join_attrs = lru_cache(maxsize=cls.ATTR_CACHE_SIZE)(  # type: ignore[attr-defined]
                 util_funcs.join_attrs
             )
 
-        return cls.join_attrs
+        return cls.join_attrs  # type: ignore[attr-defined]
 
     def render(self, parent=None):
         "".join(self.resolve(parent))

@@ -1,5 +1,7 @@
+import argparse
 import json
 from collections import namedtuple
+from pathlib import Path
 
 from generator_common import (
     AttrDefinition,
@@ -49,7 +51,7 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
         dupes = attrdefs[attr_name].get("dupes", [])
         param_types = ["str", f"{attr_class}.{attrdef.safe_name}"]
         param_type = value_hint_to_python_type(attrdef.value_desc)
-        if param_type:
+        if param_type and param_type not in param_types:
             param_types.append(param_type)
         for dupe in dupes:
             # <link> has two tile defs, but they are the same attr.
@@ -62,7 +64,7 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
             if param_type and param_type not in param_types:
                 param_types.append(param_type)
 
-        param = f"        {attrdef.safe_name}: Union[{', '.join(param_types)}] = None,"
+        param = f"        {attrdef.safe_name}: Optional[Union[{', '.join(param_types)}]] = None,"
         processed.append(
             processed_attr(
                 name=attr_name,
@@ -120,13 +122,29 @@ def gen_elements():
             attr_assignment = ""
             attr_docstrings = [
                 ":param attrs: A list or dictionary of attributes for the element",
-                ":param id: The ID of the element",
-                ":param class_ The class of the element",
             ]
 
             attr_list = []
             assign_list = []
             attr_names = set()
+            global_processed = generate_attrs("GlobalAttrs", global_attrs)
+
+            def add_param(p):
+                if p.name in attr_names:
+                    return
+                attr_docstrings.extend(p.docstrings)
+                attr_list.append(p.param)
+                assign_list.append(p.assignment)
+                attr_names.add(p.name)
+
+            # Prefer id and class as first args
+            for p in sorted(
+                [x for x in global_processed if x.name in ("id", "class")],
+                key=lambda x: x.name,
+                reverse=True,
+            ):
+                add_param(p)
+
             if attrs != "globals":
                 attr_class = f"{attr_name}Attrs"
                 attr_string = f", {attr_class}"
@@ -138,65 +156,55 @@ def gen_elements():
                         x for x in processed if not x.name.startswith("on")
                     ]
                     for p in shifted:
-                        attr_docstrings.extend(p.docstrings)
-                        attr_list.append(p.param)
-                        assign_list.append(p.assignment)
-                        attr_names.add(p.name)
+                        add_param(p)
                     extra_attrs = "\n".join(attr_list)
                     attr_assignment = "\n".join(assign_list)
 
-            global_processed = generate_attrs("GlobalAttrs", global_attrs)
-
             global_shifted = [
-                x for x in global_processed if not x.name.startswith("on")
+                x
+                for x in global_processed
+                if not x.name.startswith("on") and x.name not in ("id", "class")
             ]
             for p in global_shifted:
-                if p.name in ("id", "class") or p.name in attr_names:
-                    continue
-                attr_docstrings.extend(p.docstrings)
-                attr_list.append(p.param)
-                assign_list.append(p.assignment)
+                add_param(p)
 
             extra_attrs = "\n".join(attr_list)
             attr_assignment = "\n".join(assign_list)
             fixed_name = safe_name(real_element)
             is_void_element = children == "empty"
+            comment = ""
+            if real_element in ("link", "input", "style"):
+                # Duplicate "title" definition
+                comment = " # type: ignore[misc]"
             template = [
                 "",
-                f"class {fixed_name}(BaseElement, GlobalAttrs{attr_string}):",
+                f"class {fixed_name}(BaseElement, GlobalAttrs{attr_string}):{comment}",
                 '    """',
-                f"    The <{real_element}> element.",
-                f"    Description: {desc}",
-                f"    Categories: {categories}",
-                f"    Parents: {parents}",
-                f"    Children: {children}",
-                f"    Interface: {interface}",
-                f"    Documentation: {docs}",
-                '    """',
-                "    attr_type: TypeAlias = Union[",
-                f"        dict, list[BaseAttribute], list[{attr_class}]",
-                "    ]",
+                f"    The '{real_element}' element.  ",
+                f"    Description: {desc}  ",
+                f"    Categories: {categories}  ",
+                f"    Parents: {parents}  ",
+                f"    Children: {children}  ",
+                f"    Interface: {interface}  ",
+                f"    Documentation: {docs}  ",
+                '    """ # fmt: skip',
                 "",
                 "",
                 "    def __init__(",
                 "        self,",
-                "        attrs: attr_type = None,",
-                "        id: GlobalAttrs.id = None,",
-                "        class_: GlobalAttrs.class_ = None,",
+                "        attrs: Optional[Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]] = None,",
                 extra_attrs,
-                "        children: list = None",
+                "        children: Optional[list] = None",
                 "    ) -> None:",
                 '        """',
-                f"        Initialize '<{real_element}>' ({desc}) element.",
+                f"        Initialize '{real_element}' ({desc}) element.  ",
                 f"        Documentation: {docs}",
                 "",
                 "        " + "\n        ".join(attr_docstrings),
-                '        """',
+                '        """ #fmt: skip',
                 "        super().__init__(",
                 f'            "{real_element}",',
                 f"            void_element={is_void_element},",
-                "            id=id,",
-                "            class_=class_,",
                 "            attrs=attrs,",
                 "            children=children",
                 "        )",
@@ -204,7 +212,7 @@ def gen_elements():
             ]
             result.append("\n".join(template))
 
-    header = f"""from typing import Any, Optional, TypeAlias, Union, Literal
+    header = f"""from typing import TypeAlias, Union, Literal, Optional
 
 from .attributes import GlobalAttrs, {", ".join(attr_imports)}
 from .base_attribute import BaseAttribute
@@ -215,5 +223,27 @@ from .base_element import BaseElement
     return header + "\n\n".join(result)
 
 
-elements = gen_elements()
-get_path("generated/elements.py").write_text(elements)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate HTML elements.")
+    parser.add_argument(
+        "--copy",
+        action="store_true",
+        help="Copy the output to a hardcoded path",
+    )
+    args = parser.parse_args()
+
+    elements = gen_elements()
+    default_output_path = get_path("generated/elements.py")
+    default_output_path.write_text(elements)
+
+    print(f"Generated elements written to: {default_output_path}")
+    if args.copy:
+        path_name = "./src/html_compose/elements.py"
+        real_path = Path(path_name)
+        if not real_path.exists():
+            real_path = Path("..") / path_name
+            if not real_path.exists():
+                raise FileNotFoundError(f"Unable to find {path_name}")
+
+        real_path.write_text(elements)
+        print(f"Copied generated elements to: {real_path}")

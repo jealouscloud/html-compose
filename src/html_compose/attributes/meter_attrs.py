@@ -14,7 +14,7 @@ class MeterAttrs:
         Value: Valid floating-point number*
         """
 
-        def __init__(self, value):
+        def __init__(self, value: float):
             super().__init__("high", value)
 
     class low(BaseAttribute):
@@ -24,7 +24,7 @@ class MeterAttrs:
         Value: Valid floating-point number*
         """
 
-        def __init__(self, value):
+        def __init__(self, value: float):
             super().__init__("low", value)
 
     class max(BaseAttribute):
@@ -34,7 +34,7 @@ class MeterAttrs:
         Value: Valid floating-point number*
         """
 
-        def __init__(self, value):
+        def __init__(self, value: float):
             super().__init__("max", value)
 
     class min(BaseAttribute):
@@ -44,7 +44,7 @@ class MeterAttrs:
         Value: Valid floating-point number*
         """
 
-        def __init__(self, value):
+        def __init__(self, value: float):
             super().__init__("min", value)
 
     class optimum(BaseAttribute):
@@ -54,7 +54,7 @@ class MeterAttrs:
         Value: Valid floating-point number*
         """
 
-        def __init__(self, value):
+        def __init__(self, value: float):
             super().__init__("optimum", value)
 
     class value(BaseAttribute):
@@ -64,5 +64,5 @@ class MeterAttrs:
         Value: Valid floating-point number
         """
 
-        def __init__(self, value):
+        def __init__(self, value: float):
             super().__init__("value", value)

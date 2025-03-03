@@ -60,14 +60,13 @@ article[
 The **deferred resolve** step will resolve an iterator that looks a lot like this, as a list:
 
 ```python
-def
 [
     "<article>",
 
     "<h1>", "My cool article", "</h1>",
 
     "<p id='article-1'>",
-    lambda parent_element: database.get_article_content(id=parent_element.id)
+    lambda: database.get_article_content()
     "</p>",
 
     "</article>"

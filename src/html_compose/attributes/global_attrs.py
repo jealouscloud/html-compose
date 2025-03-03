@@ -244,10 +244,10 @@ class GlobalAttrs:
         """
         Global Attribute attribute: popover
         Description: Makes the element a popover element
-        Value: "auto"; "manual";
+        Value: ['auto', 'manual']
         """
 
-        def __init__(self, value):
+        def __init__(self, value: Literal["auto", "manual"]):
             super().__init__("popover", value)
 
     class slot(BaseAttribute):
@@ -287,7 +287,7 @@ class GlobalAttrs:
         Value: Valid integer
         """
 
-        def __init__(self, value):
+        def __init__(self, value: int):
             super().__init__("tabindex", value)
 
     class title(BaseAttribute):
