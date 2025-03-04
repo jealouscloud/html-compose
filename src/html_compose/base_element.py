@@ -176,7 +176,6 @@ class BaseElement(ElementBase, GlobalAttrs):
                     a_name, a_value = attr
                     attr_dict[a_name] = a_value
 
-            attr_dict = attrs
         else:
             raise ValueError(f"Unknown: {type(attrs)}")
 
