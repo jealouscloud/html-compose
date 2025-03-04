@@ -226,6 +226,10 @@ class BaseElement(ElementBase, GlobalAttrs):
             # ]
             yield from ()
 
+        elif isinstance(child, ElementBase):
+            # Recursively resolve the element tree
+            yield from child.resolve(self)
+
         elif isinstance(child, _HasHtml):
             # Fetch raw HTML from object
             yield unsafe_text(child.__html__())
@@ -254,10 +258,6 @@ class BaseElement(ElementBase, GlobalAttrs):
             # which specifically means "no render"
             # But some weirdos may be trying to render true/false literally
             yield unsafe_text("true" if child else "false")
-
-        elif isinstance(child, ElementBase):
-            # Recursively resolve the element tree
-            yield from child.resolve(self)
 
         elif util_funcs.is_iterable_but_not_str(child):
             for el in util_funcs.flatten_iterable(child):  # type: ignore[arg-type]
