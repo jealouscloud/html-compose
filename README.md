@@ -52,11 +52,11 @@ from html_compose import a, article, body, br, head, html, p, strong, title
 
   ## With type hints
   div(tabindex=1)
-  div(attrs=[div.tabindex(1)])
+  div(attrs=[div.hint.tabindex(1)])
   # <div tabindex=1></div>
   
   ## Positionally
-  div([div.tabindex(1)])
+  div([div.hint.tabindex(1)])
   # <div tabindex=1></div>
   div({"data-for-something": "foo"})
   # <div data-for-something="foo"></div>
