@@ -29,7 +29,6 @@ class ElementBase(_HasHtml):
     ATTR_CACHE_SIZE = (
         250  # Number of translated attributes to cache strings for
     )
-    PrettyPrint = False
 
     def __init__(self):
         raise NotImplementedError
