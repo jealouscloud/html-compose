@@ -3,29 +3,33 @@ from typing import Literal, Union
 
 class CanvasAttrs:
     """ 
-    This module contains classes for attributes in the <canvas> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'canvas' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class height(BaseAttribute):
+    @staticmethod
+    def height(value: int) -> BaseAttribute:
         """
-        canvas attribute: height
-        Description: Vertical dimension
-        Value: Valid non-negative integer
-        """
+        "canvas" attribute: height  
+        Vertical dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An height attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("height", value)
+        return BaseAttribute("height", value)
             
 
 
-    class width(BaseAttribute):
+    @staticmethod
+    def width(value: int) -> BaseAttribute:
         """
-        canvas attribute: width
-        Description: Horizontal dimension
-        Value: Valid non-negative integer
-        """
+        "canvas" attribute: width  
+        Horizontal dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An width attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("width", value)
+        return BaseAttribute("width", value)
             

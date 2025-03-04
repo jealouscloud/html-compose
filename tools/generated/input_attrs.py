@@ -3,425 +3,495 @@ from typing import Literal, Union
 
 class InputAttrs:
     """ 
-    This module contains classes for attributes in the <input> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'input' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class accept(BaseAttribute):
+    @staticmethod
+    def accept(value) -> BaseAttribute:
         """
-        input attribute: accept
-        Description: Hint for expected file type in file upload controls
-        Value: Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*
-        """
+        "input" attribute: accept  
+        Hint for expected file type in file upload controls  
+
+        :param value: Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*  
+        :return: An accept attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("accept", value)
+        return BaseAttribute("accept", value)
             
 
 
-    class alpha(BaseAttribute):
+    @staticmethod
+    def alpha(value: bool) -> BaseAttribute:
         """
-        input attribute: alpha
-        Description: Allow the color's alpha component to be set
-        Value: Boolean attribute
-        """
+        "input" attribute: alpha  
+        Allow the color's alpha component to be set  
+
+        :param value: Boolean attribute  
+        :return: An alpha attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("alpha", value)
+        return BaseAttribute("alpha", value)
             
 
 
-    class alt(BaseAttribute):
+    @staticmethod
+    def alt(value: str) -> BaseAttribute:
         """
-        input attribute: alt
-        Description: Replacement text for use when images are not available
-        Value: Text*
-        """
+        "input" attribute: alt  
+        Replacement text for use when images are not available  
+
+        :param value: Text*  
+        :return: An alt attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("alt", value)
+        return BaseAttribute("alt", value)
             
 
 
-    class autocomplete(BaseAttribute):
+    @staticmethod
+    def autocomplete(value) -> BaseAttribute:
         """
-        input attribute: autocomplete
-        Description: Hint for form autofill feature
-        Value: Autofill field name and related tokens*
-        """
+        "input" attribute: autocomplete  
+        Hint for form autofill feature  
+
+        :param value: Autofill field name and related tokens*  
+        :return: An autocomplete attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("autocomplete", value)
+        return BaseAttribute("autocomplete", value)
             
 
 
-    class checked(BaseAttribute):
+    @staticmethod
+    def checked(value: bool) -> BaseAttribute:
         """
-        input attribute: checked
-        Description: Whether the control is checked
-        Value: Boolean attribute
-        """
+        "input" attribute: checked  
+        Whether the control is checked  
+
+        :param value: Boolean attribute  
+        :return: An checked attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("checked", value)
+        return BaseAttribute("checked", value)
             
 
 
-    class colorspace(BaseAttribute):
+    @staticmethod
+    def colorspace(value) -> BaseAttribute:
         """
-        input attribute: colorspace
-        Description: The color space of the serialized color
-        Value: ['limited-srgb', 'display-p3']
-        """
+        "input" attribute: colorspace  
+        The color space of the serialized color  
+
+        :param value: ['limited-srgb', 'display-p3']  
+        :return: An colorspace attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("colorspace", value)
+        return BaseAttribute("colorspace", value)
             
 
 
-    class dirname(BaseAttribute):
+    @staticmethod
+    def dirname(value: str) -> BaseAttribute:
         """
-        input attribute: dirname
-        Description: Name of form control to use for sending the element's directionality in form submission
-        Value: Text*
-        """
+        "input" attribute: dirname  
+        Name of form control to use for sending the element's directionality in form submission  
+
+        :param value: Text*  
+        :return: An dirname attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("dirname", value)
+        return BaseAttribute("dirname", value)
             
 
 
-    class disabled(BaseAttribute):
+    @staticmethod
+    def disabled(value: bool) -> BaseAttribute:
         """
-        input attribute: disabled
-        Description: Whether the form control is disabled
-        Value: Boolean attribute
-        """
+        "input" attribute: disabled  
+        Whether the form control is disabled  
+
+        :param value: Boolean attribute  
+        :return: An disabled attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("disabled", value)
+        return BaseAttribute("disabled", value)
             
 
 
-    class form(BaseAttribute):
+    @staticmethod
+    def form(value) -> BaseAttribute:
         """
-        input attribute: form
-        Description: Associates the element with a form element
-        Value: ID*
-        """
+        "input" attribute: form  
+        Associates the element with a form element  
+
+        :param value: ID*  
+        :return: An form attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("form", value)
+        return BaseAttribute("form", value)
             
 
 
-    class formaction(BaseAttribute):
+    @staticmethod
+    def formaction(value) -> BaseAttribute:
         """
-        input attribute: formaction
-        Description: URL to use for form submission
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "input" attribute: formaction  
+        URL to use for form submission  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An formaction attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("formaction", value)
+        return BaseAttribute("formaction", value)
             
 
 
-    class formenctype(BaseAttribute):
+    @staticmethod
+    def formenctype(value) -> BaseAttribute:
         """
-        input attribute: formenctype
-        Description: Entry list encoding type to use for form submission
-        Value: ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']
-        """
+        "input" attribute: formenctype  
+        Entry list encoding type to use for form submission  
+
+        :param value: ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']  
+        :return: An formenctype attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("formenctype", value)
+        return BaseAttribute("formenctype", value)
             
 
 
-    class formmethod(BaseAttribute):
+    @staticmethod
+    def formmethod(value) -> BaseAttribute:
         """
-        input attribute: formmethod
-        Description: Variant to use for form submission
-        Value: ['GET', 'POST', 'dialog']
-        """
+        "input" attribute: formmethod  
+        Variant to use for form submission  
+
+        :param value: ['GET', 'POST', 'dialog']  
+        :return: An formmethod attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("formmethod", value)
+        return BaseAttribute("formmethod", value)
             
 
 
-    class formnovalidate(BaseAttribute):
+    @staticmethod
+    def formnovalidate(value: bool) -> BaseAttribute:
         """
-        input attribute: formnovalidate
-        Description: Bypass form control validation for form submission
-        Value: Boolean attribute
-        """
+        "input" attribute: formnovalidate  
+        Bypass form control validation for form submission  
+
+        :param value: Boolean attribute  
+        :return: An formnovalidate attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("formnovalidate", value)
+        return BaseAttribute("formnovalidate", value)
             
 
 
-    class formtarget(BaseAttribute):
+    @staticmethod
+    def formtarget(value) -> BaseAttribute:
         """
-        input attribute: formtarget
-        Description: Navigable for form submission
-        Value: Valid navigable target name or keyword
-        """
+        "input" attribute: formtarget  
+        Navigable for form submission  
+
+        :param value: Valid navigable target name or keyword  
+        :return: An formtarget attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("formtarget", value)
+        return BaseAttribute("formtarget", value)
             
 
 
-    class height(BaseAttribute):
+    @staticmethod
+    def height(value: int) -> BaseAttribute:
         """
-        input attribute: height
-        Description: Vertical dimension
-        Value: Valid non-negative integer
-        """
+        "input" attribute: height  
+        Vertical dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An height attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("height", value)
+        return BaseAttribute("height", value)
             
 
 
-    class list(BaseAttribute):
+    @staticmethod
+    def list(value) -> BaseAttribute:
         """
-        input attribute: list
-        Description: List of autocomplete options
-        Value: ID*
-        """
+        "input" attribute: list  
+        List of autocomplete options  
+
+        :param value: ID*  
+        :return: An list attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("list", value)
+        return BaseAttribute("list", value)
             
 
 
-    class max(BaseAttribute):
+    @staticmethod
+    def max(value) -> BaseAttribute:
         """
-        input attribute: max
-        Description: Maximum value
-        Value: Varies*
-        """
+        "input" attribute: max  
+        Maximum value  
+
+        :param value: Varies*  
+        :return: An max attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("max", value)
+        return BaseAttribute("max", value)
             
 
 
-    class maxlength(BaseAttribute):
+    @staticmethod
+    def maxlength(value: int) -> BaseAttribute:
         """
-        input attribute: maxlength
-        Description: Maximum length of value
-        Value: Valid non-negative integer
-        """
+        "input" attribute: maxlength  
+        Maximum length of value  
+
+        :param value: Valid non-negative integer  
+        :return: An maxlength attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("maxlength", value)
+        return BaseAttribute("maxlength", value)
             
 
 
-    class min(BaseAttribute):
+    @staticmethod
+    def min(value) -> BaseAttribute:
         """
-        input attribute: min
-        Description: Minimum value
-        Value: Varies*
-        """
+        "input" attribute: min  
+        Minimum value  
+
+        :param value: Varies*  
+        :return: An min attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("min", value)
+        return BaseAttribute("min", value)
             
 
 
-    class minlength(BaseAttribute):
+    @staticmethod
+    def minlength(value: int) -> BaseAttribute:
         """
-        input attribute: minlength
-        Description: Minimum length of value
-        Value: Valid non-negative integer
-        """
+        "input" attribute: minlength  
+        Minimum length of value  
+
+        :param value: Valid non-negative integer  
+        :return: An minlength attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("minlength", value)
+        return BaseAttribute("minlength", value)
             
 
 
-    class multiple(BaseAttribute):
+    @staticmethod
+    def multiple(value: bool) -> BaseAttribute:
         """
-        input attribute: multiple
-        Description: Whether to allow multiple values
-        Value: Boolean attribute
-        """
+        "input" attribute: multiple  
+        Whether to allow multiple values  
+
+        :param value: Boolean attribute  
+        :return: An multiple attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("multiple", value)
+        return BaseAttribute("multiple", value)
             
 
 
-    class name(BaseAttribute):
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
         """
-        input attribute: name
-        Description: Name of the element to use for form submission and in the form.elements API
-        Value: Text*
-        """
+        "input" attribute: name  
+        Name of the element to use for form submission and in the form.elements API  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        return BaseAttribute("name", value)
             
 
 
-    class pattern(BaseAttribute):
+    @staticmethod
+    def pattern(value) -> BaseAttribute:
         """
-        input attribute: pattern
-        Description: Pattern to be matched by the form control's value
-        Value: Regular expression matching the JavaScript Pattern production
-        """
+        "input" attribute: pattern  
+        Pattern to be matched by the form control's value  
+
+        :param value: Regular expression matching the JavaScript Pattern production  
+        :return: An pattern attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("pattern", value)
+        return BaseAttribute("pattern", value)
             
 
 
-    class placeholder(BaseAttribute):
+    @staticmethod
+    def placeholder(value: str) -> BaseAttribute:
         """
-        input attribute: placeholder
-        Description: User-visible label to be placed within the form control
-        Value: Text*
-        """
+        "input" attribute: placeholder  
+        User-visible label to be placed within the form control  
+
+        :param value: Text*  
+        :return: An placeholder attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("placeholder", value)
+        return BaseAttribute("placeholder", value)
             
 
 
-    class popovertarget(BaseAttribute):
+    @staticmethod
+    def popovertarget(value) -> BaseAttribute:
         """
-        input attribute: popovertarget
-        Description: Targets a popover element to toggle, show, or hide
-        Value: ID*
-        """
+        "input" attribute: popovertarget  
+        Targets a popover element to toggle, show, or hide  
+
+        :param value: ID*  
+        :return: An popovertarget attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("popovertarget", value)
+        return BaseAttribute("popovertarget", value)
             
 
 
-    class popovertargetaction(BaseAttribute):
+    @staticmethod
+    def popovertargetaction(value) -> BaseAttribute:
         """
-        input attribute: popovertargetaction
-        Description: Indicates whether a targeted popover element is to be toggled, shown, or hidden
-        Value: ['toggle', 'show', 'hide']
-        """
+        "input" attribute: popovertargetaction  
+        Indicates whether a targeted popover element is to be toggled, shown, or hidden  
+
+        :param value: ['toggle', 'show', 'hide']  
+        :return: An popovertargetaction attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("popovertargetaction", value)
+        return BaseAttribute("popovertargetaction", value)
             
 
 
-    class readonly(BaseAttribute):
+    @staticmethod
+    def readonly(value: bool) -> BaseAttribute:
         """
-        input attribute: readonly
-        Description: Whether to allow the value to be edited by the user
-        Value: Boolean attribute
-        """
+        "input" attribute: readonly  
+        Whether to allow the value to be edited by the user  
+
+        :param value: Boolean attribute  
+        :return: An readonly attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("readonly", value)
+        return BaseAttribute("readonly", value)
             
 
 
-    class required(BaseAttribute):
+    @staticmethod
+    def required(value: bool) -> BaseAttribute:
         """
-        input attribute: required
-        Description: Whether the control is required for form submission
-        Value: Boolean attribute
-        """
+        "input" attribute: required  
+        Whether the control is required for form submission  
+
+        :param value: Boolean attribute  
+        :return: An required attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("required", value)
+        return BaseAttribute("required", value)
             
 
 
-    class size(BaseAttribute):
+    @staticmethod
+    def size(value) -> BaseAttribute:
         """
-        input attribute: size
-        Description: Size of the control
-        Value: Valid non-negative integer greater than zero
-        """
+        "input" attribute: size  
+        Size of the control  
+
+        :param value: Valid non-negative integer greater than zero  
+        :return: An size attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("size", value)
+        return BaseAttribute("size", value)
             
 
 
-    class src(BaseAttribute):
+    @staticmethod
+    def src(value) -> BaseAttribute:
         """
-        input attribute: src
-        Description: Address of the resource
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "input" attribute: src  
+        Address of the resource  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An src attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("src", value)
+        return BaseAttribute("src", value)
             
 
 
-    class step(BaseAttribute):
+    @staticmethod
+    def step(value: float) -> BaseAttribute:
         """
-        input attribute: step
-        Description: Granularity to be matched by the form control's value
-        Value: Valid floating-point number greater than zero, or "any"
-        """
+        "input" attribute: step  
+        Granularity to be matched by the form control's value  
+
+        :param value: Valid floating-point number greater than zero, or "any"  
+        :return: An step attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: float):
-            super().__init__("step", value)
+        return BaseAttribute("step", value)
             
 
 
-    class title(BaseAttribute):
+    @staticmethod
+    def title(value: str) -> BaseAttribute:
         """
-        input attribute: title
-        Description: Description of pattern (when used with pattern attribute)
-        Value: Text
-        """
+        "input" attribute: title  
+        Description of pattern (when used with pattern attribute)  
+
+        :param value: Text  
+        :return: An title attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("title", value)
+        return BaseAttribute("title", value)
             
 
 
-    class type(BaseAttribute):
+    @staticmethod
+    def type(value) -> BaseAttribute:
         """
-        input attribute: type
-        Description: Type of form control
-        Value: input type keyword
-        """
+        "input" attribute: type  
+        Type of form control  
+
+        :param value: input type keyword  
+        :return: An type attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("type", value)
+        return BaseAttribute("type", value)
             
 
 
-    class value(BaseAttribute):
+    @staticmethod
+    def value(value) -> BaseAttribute:
         """
-        input attribute: value
-        Description: Value of the form control
-        Value: Varies*
-        """
+        "input" attribute: value  
+        Value of the form control  
+
+        :param value: Varies*  
+        :return: An value attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("value", value)
+        return BaseAttribute("value", value)
             
 
 
-    class width(BaseAttribute):
+    @staticmethod
+    def width(value: int) -> BaseAttribute:
         """
-        input attribute: width
-        Description: Horizontal dimension
-        Value: Valid non-negative integer
-        """
+        "input" attribute: width  
+        Horizontal dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An width attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("width", value)
+        return BaseAttribute("width", value)
             

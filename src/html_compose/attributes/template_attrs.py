@@ -3,46 +3,54 @@ from . import BaseAttribute
 
 class TemplateAttrs:
     """
-    This module contains classes for attributes in the <template> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'template' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class shadowrootclonable(BaseAttribute):
+    @staticmethod
+    def shadowrootclonable(value: bool) -> BaseAttribute:
         """
-        template attribute: shadowrootclonable
-        Description: Sets clonable on a declarative shadow root
-        Value: Boolean attribute
-        """
+        "template" attribute: shadowrootclonable  
+        Sets clonable on a declarative shadow root  
 
-        def __init__(self, value: bool):
-            super().__init__("shadowrootclonable", value)
+        :param value: Boolean attribute  
+        :return: An shadowrootclonable attribute to be added to your element
+        """  # fmt: skip
 
-    class shadowrootdelegatesfocus(BaseAttribute):
-        """
-        template attribute: shadowrootdelegatesfocus
-        Description: Sets delegates focus on a declarative shadow root
-        Value: Boolean attribute
-        """
+        return BaseAttribute("shadowrootclonable", value)
 
-        def __init__(self, value: bool):
-            super().__init__("shadowrootdelegatesfocus", value)
-
-    class shadowrootmode(BaseAttribute):
+    @staticmethod
+    def shadowrootdelegatesfocus(value: bool) -> BaseAttribute:
         """
-        template attribute: shadowrootmode
-        Description: Enables streaming declarative shadow roots
-        Value: ['open', 'closed']
-        """
+        "template" attribute: shadowrootdelegatesfocus  
+        Sets delegates focus on a declarative shadow root  
 
-        def __init__(self, value):
-            super().__init__("shadowrootmode", value)
+        :param value: Boolean attribute  
+        :return: An shadowrootdelegatesfocus attribute to be added to your element
+        """  # fmt: skip
 
-    class shadowrootserializable(BaseAttribute):
-        """
-        template attribute: shadowrootserializable
-        Description: Sets serializable on a declarative shadow root
-        Value: Boolean attribute
-        """
+        return BaseAttribute("shadowrootdelegatesfocus", value)
 
-        def __init__(self, value: bool):
-            super().__init__("shadowrootserializable", value)
+    @staticmethod
+    def shadowrootmode(value) -> BaseAttribute:
+        """
+        "template" attribute: shadowrootmode  
+        Enables streaming declarative shadow roots  
+
+        :param value: ['open', 'closed']  
+        :return: An shadowrootmode attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("shadowrootmode", value)
+
+    @staticmethod
+    def shadowrootserializable(value: bool) -> BaseAttribute:
+        """
+        "template" attribute: shadowrootserializable  
+        Sets serializable on a declarative shadow root  
+
+        :param value: Boolean attribute  
+        :return: An shadowrootserializable attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("shadowrootserializable", value)

@@ -3,36 +3,42 @@ from . import BaseAttribute
 
 class OlAttrs:
     """
-    This module contains classes for attributes in the <ol> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'ol' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class reversed(BaseAttribute):
+    @staticmethod
+    def reversed(value: bool) -> BaseAttribute:
         """
-        ol attribute: reversed
-        Description: Number the list backwards
-        Value: Boolean attribute
-        """
+        "ol" attribute: reversed  
+        Number the list backwards  
 
-        def __init__(self, value: bool):
-            super().__init__("reversed", value)
+        :param value: Boolean attribute  
+        :return: An reversed attribute to be added to your element
+        """  # fmt: skip
 
-    class start(BaseAttribute):
-        """
-        ol attribute: start
-        Description: Starting value of the list
-        Value: Valid integer
-        """
+        return BaseAttribute("reversed", value)
 
-        def __init__(self, value: int):
-            super().__init__("start", value)
-
-    class type(BaseAttribute):
+    @staticmethod
+    def start(value: int) -> BaseAttribute:
         """
-        ol attribute: type
-        Description: Kind of list marker
-        Value: ['1', 'a', 'A', 'i', 'I']
-        """
+        "ol" attribute: start  
+        Starting value of the list  
 
-        def __init__(self, value):
-            super().__init__("type", value)
+        :param value: Valid integer  
+        :return: An start attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("start", value)
+
+    @staticmethod
+    def type(value) -> BaseAttribute:
+        """
+        "ol" attribute: type  
+        Kind of list marker  
+
+        :param value: ['1', 'a', 'A', 'i', 'I']  
+        :return: An type attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("type", value)

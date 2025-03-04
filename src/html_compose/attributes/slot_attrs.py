@@ -3,16 +3,18 @@ from . import BaseAttribute
 
 class SlotAttrs:
     """
-    This module contains classes for attributes in the <slot> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'slot' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class name(BaseAttribute):
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
         """
-        slot attribute: name
-        Description: Name of shadow tree slot
-        Value: Text
-        """
+        "slot" attribute: name  
+        Name of shadow tree slot  
 
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        :param value: Text  
+        :return: An name attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("name", value)

@@ -3,36 +3,42 @@ from . import BaseAttribute
 
 class TdAttrs:
     """
-    This module contains classes for attributes in the <td> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'td' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class colspan(BaseAttribute):
+    @staticmethod
+    def colspan(value) -> BaseAttribute:
         """
-        td attribute: colspan
-        Description: Number of columns that the cell is to span
-        Value: Valid non-negative integer greater than zero
-        """
+        "td" attribute: colspan  
+        Number of columns that the cell is to span  
 
-        def __init__(self, value):
-            super().__init__("colspan", value)
+        :param value: Valid non-negative integer greater than zero  
+        :return: An colspan attribute to be added to your element
+        """  # fmt: skip
 
-    class headers(BaseAttribute):
-        """
-        td attribute: headers
-        Description: The header cells for this cell
-        Value: Unordered set of unique space-separated tokens consisting of IDs*
-        """
+        return BaseAttribute("colspan", value)
 
-        def __init__(self, value):
-            super().__init__("headers", value)
-
-    class rowspan(BaseAttribute):
+    @staticmethod
+    def headers(value) -> BaseAttribute:
         """
-        td attribute: rowspan
-        Description: Number of rows that the cell is to span
-        Value: Valid non-negative integer
-        """
+        "td" attribute: headers  
+        The header cells for this cell  
 
-        def __init__(self, value: int):
-            super().__init__("rowspan", value)
+        :param value: Unordered set of unique space-separated tokens consisting of IDs*  
+        :return: An headers attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("headers", value)
+
+    @staticmethod
+    def rowspan(value: int) -> BaseAttribute:
+        """
+        "td" attribute: rowspan  
+        Number of rows that the cell is to span  
+
+        :param value: Valid non-negative integer  
+        :return: An rowspan attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("rowspan", value)

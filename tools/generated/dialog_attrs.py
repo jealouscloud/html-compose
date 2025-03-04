@@ -3,17 +3,19 @@ from typing import Literal, Union
 
 class DialogAttrs:
     """ 
-    This module contains classes for attributes in the <dialog> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'dialog' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class open(BaseAttribute):
+    @staticmethod
+    def open(value: bool) -> BaseAttribute:
         """
-        dialog attribute: open
-        Description: Whether the dialog box is showing
-        Value: Boolean attribute
-        """
+        "dialog" attribute: open  
+        Whether the dialog box is showing  
+
+        :param value: Boolean attribute  
+        :return: An open attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("open", value)
+        return BaseAttribute("open", value)
             

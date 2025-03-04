@@ -3,137 +3,159 @@ from typing import Literal, Union
 
 class VideoAttrs:
     """ 
-    This module contains classes for attributes in the <video> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'video' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class autoplay(BaseAttribute):
+    @staticmethod
+    def autoplay(value: bool) -> BaseAttribute:
         """
-        video attribute: autoplay
-        Description: Hint that the media resource can be started automatically when the page is loaded
-        Value: Boolean attribute
-        """
+        "video" attribute: autoplay  
+        Hint that the media resource can be started automatically when the page is loaded  
+
+        :param value: Boolean attribute  
+        :return: An autoplay attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("autoplay", value)
+        return BaseAttribute("autoplay", value)
             
 
 
-    class controls(BaseAttribute):
+    @staticmethod
+    def controls(value: bool) -> BaseAttribute:
         """
-        video attribute: controls
-        Description: Show user agent controls
-        Value: Boolean attribute
-        """
+        "video" attribute: controls  
+        Show user agent controls  
+
+        :param value: Boolean attribute  
+        :return: An controls attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("controls", value)
+        return BaseAttribute("controls", value)
             
 
 
-    class crossorigin(BaseAttribute):
+    @staticmethod
+    def crossorigin(value) -> BaseAttribute:
         """
-        video attribute: crossorigin
-        Description: How the element handles crossorigin requests
-        Value: ['anonymous', 'use-credentials']
-        """
+        "video" attribute: crossorigin  
+        How the element handles crossorigin requests  
+
+        :param value: ['anonymous', 'use-credentials']  
+        :return: An crossorigin attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("crossorigin", value)
+        return BaseAttribute("crossorigin", value)
             
 
 
-    class height(BaseAttribute):
+    @staticmethod
+    def height(value: int) -> BaseAttribute:
         """
-        video attribute: height
-        Description: Vertical dimension
-        Value: Valid non-negative integer
-        """
+        "video" attribute: height  
+        Vertical dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An height attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("height", value)
+        return BaseAttribute("height", value)
             
 
 
-    class loop(BaseAttribute):
+    @staticmethod
+    def loop(value: bool) -> BaseAttribute:
         """
-        video attribute: loop
-        Description: Whether to loop the media resource
-        Value: Boolean attribute
-        """
+        "video" attribute: loop  
+        Whether to loop the media resource  
+
+        :param value: Boolean attribute  
+        :return: An loop attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("loop", value)
+        return BaseAttribute("loop", value)
             
 
 
-    class muted(BaseAttribute):
+    @staticmethod
+    def muted(value: bool) -> BaseAttribute:
         """
-        video attribute: muted
-        Description: Whether to mute the media resource by default
-        Value: Boolean attribute
-        """
+        "video" attribute: muted  
+        Whether to mute the media resource by default  
+
+        :param value: Boolean attribute  
+        :return: An muted attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("muted", value)
+        return BaseAttribute("muted", value)
             
 
 
-    class playsinline(BaseAttribute):
+    @staticmethod
+    def playsinline(value: bool) -> BaseAttribute:
         """
-        video attribute: playsinline
-        Description: Encourage the user agent to display video content within the element's playback area
-        Value: Boolean attribute
-        """
+        "video" attribute: playsinline  
+        Encourage the user agent to display video content within the element's playback area  
+
+        :param value: Boolean attribute  
+        :return: An playsinline attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("playsinline", value)
+        return BaseAttribute("playsinline", value)
             
 
 
-    class poster(BaseAttribute):
+    @staticmethod
+    def poster(value) -> BaseAttribute:
         """
-        video attribute: poster
-        Description: Poster frame to show prior to video playback
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "video" attribute: poster  
+        Poster frame to show prior to video playback  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An poster attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("poster", value)
+        return BaseAttribute("poster", value)
             
 
 
-    class preload(BaseAttribute):
+    @staticmethod
+    def preload(value) -> BaseAttribute:
         """
-        video attribute: preload
-        Description: Hints how much buffering the media resource will likely need
-        Value: ['none', 'metadata', 'auto']
-        """
+        "video" attribute: preload  
+        Hints how much buffering the media resource will likely need  
+
+        :param value: ['none', 'metadata', 'auto']  
+        :return: An preload attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("preload", value)
+        return BaseAttribute("preload", value)
             
 
 
-    class src(BaseAttribute):
+    @staticmethod
+    def src(value) -> BaseAttribute:
         """
-        video attribute: src
-        Description: Address of the resource
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "video" attribute: src  
+        Address of the resource  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An src attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("src", value)
+        return BaseAttribute("src", value)
             
 
 
-    class width(BaseAttribute):
+    @staticmethod
+    def width(value: int) -> BaseAttribute:
         """
-        video attribute: width
-        Description: Horizontal dimension
-        Value: Valid non-negative integer
-        """
+        "video" attribute: width  
+        Horizontal dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An width attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("width", value)
+        return BaseAttribute("width", value)
             

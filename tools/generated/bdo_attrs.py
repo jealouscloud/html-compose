@@ -3,17 +3,19 @@ from typing import Literal, Union
 
 class BdoAttrs:
     """ 
-    This module contains classes for attributes in the <bdo> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'bdo' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class dir(BaseAttribute):
+    @staticmethod
+    def dir(value) -> BaseAttribute:
         """
-        bdo attribute: dir
-        Description: The text directionality of the element
-        Value: ['ltr', 'rtl']
-        """
+        "bdo" attribute: dir  
+        The text directionality of the element  
+
+        :param value: ['ltr', 'rtl']  
+        :return: An dir attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("dir", value)
+        return BaseAttribute("dir", value)
             

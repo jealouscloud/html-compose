@@ -3,65 +3,75 @@ from typing import Literal, Union
 
 class ThAttrs:
     """ 
-    This module contains classes for attributes in the <th> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'th' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class abbr(BaseAttribute):
+    @staticmethod
+    def abbr(value: str) -> BaseAttribute:
         """
-        th attribute: abbr
-        Description: Alternative label to use for the header cell when referencing the cell in other contexts
-        Value: Text*
-        """
+        "th" attribute: abbr  
+        Alternative label to use for the header cell when referencing the cell in other contexts  
+
+        :param value: Text*  
+        :return: An abbr attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("abbr", value)
+        return BaseAttribute("abbr", value)
             
 
 
-    class colspan(BaseAttribute):
+    @staticmethod
+    def colspan(value) -> BaseAttribute:
         """
-        th attribute: colspan
-        Description: Number of columns that the cell is to span
-        Value: Valid non-negative integer greater than zero
-        """
+        "th" attribute: colspan  
+        Number of columns that the cell is to span  
+
+        :param value: Valid non-negative integer greater than zero  
+        :return: An colspan attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("colspan", value)
+        return BaseAttribute("colspan", value)
             
 
 
-    class headers(BaseAttribute):
+    @staticmethod
+    def headers(value) -> BaseAttribute:
         """
-        th attribute: headers
-        Description: The header cells for this cell
-        Value: Unordered set of unique space-separated tokens consisting of IDs*
-        """
+        "th" attribute: headers  
+        The header cells for this cell  
+
+        :param value: Unordered set of unique space-separated tokens consisting of IDs*  
+        :return: An headers attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("headers", value)
+        return BaseAttribute("headers", value)
             
 
 
-    class rowspan(BaseAttribute):
+    @staticmethod
+    def rowspan(value: int) -> BaseAttribute:
         """
-        th attribute: rowspan
-        Description: Number of rows that the cell is to span
-        Value: Valid non-negative integer
-        """
+        "th" attribute: rowspan  
+        Number of rows that the cell is to span  
+
+        :param value: Valid non-negative integer  
+        :return: An rowspan attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("rowspan", value)
+        return BaseAttribute("rowspan", value)
             
 
 
-    class scope(BaseAttribute):
+    @staticmethod
+    def scope(value) -> BaseAttribute:
         """
-        th attribute: scope
-        Description: Specifies which cells the header cell applies to
-        Value: ['row', 'col', 'rowgroup', 'colgroup']
-        """
+        "th" attribute: scope  
+        Specifies which cells the header cell applies to  
+
+        :param value: ['row', 'col', 'rowgroup', 'colgroup']  
+        :return: An scope attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("scope", value)
+        return BaseAttribute("scope", value)
             

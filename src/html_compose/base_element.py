@@ -14,7 +14,7 @@ SPECIAL_ATTRS = {
 }
 
 
-class BaseElement(ElementBase, GlobalAttrs):
+class BaseElement(ElementBase):
     """
     Base HTML element
 

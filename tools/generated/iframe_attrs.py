@@ -3,125 +3,145 @@ from typing import Literal, Union
 
 class IframeAttrs:
     """ 
-    This module contains classes for attributes in the <iframe> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'iframe' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class allow(BaseAttribute):
+    @staticmethod
+    def allow(value) -> BaseAttribute:
         """
-        iframe attribute: allow
-        Description: Permissions policy to be applied to the iframe's contents
-        Value: Serialized permissions policy
-        """
+        "iframe" attribute: allow  
+        Permissions policy to be applied to the iframe's contents  
+
+        :param value: Serialized permissions policy  
+        :return: An allow attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("allow", value)
+        return BaseAttribute("allow", value)
             
 
 
-    class allowfullscreen(BaseAttribute):
+    @staticmethod
+    def allowfullscreen(value: bool) -> BaseAttribute:
         """
-        iframe attribute: allowfullscreen
-        Description: Whether to allow the iframe's contents to use requestFullscreen()
-        Value: Boolean attribute
-        """
+        "iframe" attribute: allowfullscreen  
+        Whether to allow the iframe's contents to use requestFullscreen()  
+
+        :param value: Boolean attribute  
+        :return: An allowfullscreen attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("allowfullscreen", value)
+        return BaseAttribute("allowfullscreen", value)
             
 
 
-    class height(BaseAttribute):
+    @staticmethod
+    def height(value: int) -> BaseAttribute:
         """
-        iframe attribute: height
-        Description: Vertical dimension
-        Value: Valid non-negative integer
-        """
+        "iframe" attribute: height  
+        Vertical dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An height attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("height", value)
+        return BaseAttribute("height", value)
             
 
 
-    class loading(BaseAttribute):
+    @staticmethod
+    def loading(value) -> BaseAttribute:
         """
-        iframe attribute: loading
-        Description: Used when determining loading deferral
-        Value: ['lazy', 'eager']
-        """
+        "iframe" attribute: loading  
+        Used when determining loading deferral  
+
+        :param value: ['lazy', 'eager']  
+        :return: An loading attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("loading", value)
+        return BaseAttribute("loading", value)
             
 
 
-    class name(BaseAttribute):
+    @staticmethod
+    def name(value) -> BaseAttribute:
         """
-        iframe attribute: name
-        Description: Name of content navigable
-        Value: Valid navigable target name or keyword
-        """
+        "iframe" attribute: name  
+        Name of content navigable  
+
+        :param value: Valid navigable target name or keyword  
+        :return: An name attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("name", value)
+        return BaseAttribute("name", value)
             
 
 
-    class referrerpolicy(BaseAttribute):
+    @staticmethod
+    def referrerpolicy(value) -> BaseAttribute:
         """
-        iframe attribute: referrerpolicy
-        Description: Referrer policy for fetches initiated by the element
-        Value: Referrer policy
-        """
+        "iframe" attribute: referrerpolicy  
+        Referrer policy for fetches initiated by the element  
+
+        :param value: Referrer policy  
+        :return: An referrerpolicy attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("referrerpolicy", value)
+        return BaseAttribute("referrerpolicy", value)
             
 
 
-    class sandbox(BaseAttribute):
+    @staticmethod
+    def sandbox(value) -> BaseAttribute:
         """
-        iframe attribute: sandbox
-        Description: Security rules for nested content
-        Value: Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads" "allow-forms" "allow-modals" "allow-orientation-lock" "allow-pointer-lock" "allow-popups" "allow-popups-to-escape-sandbox" "allow-presentation" "allow-same-origin" "allow-scripts" "allow-top-navigation" "allow-top-navigation-by-user-activation" "allow-top-navigation-to-custom-protocols"
-        """
+        "iframe" attribute: sandbox  
+        Security rules for nested content  
+
+        :param value: Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads" "allow-forms" "allow-modals" "allow-orientation-lock" "allow-pointer-lock" "allow-popups" "allow-popups-to-escape-sandbox" "allow-presentation" "allow-same-origin" "allow-scripts" "allow-top-navigation" "allow-top-navigation-by-user-activation" "allow-top-navigation-to-custom-protocols"  
+        :return: An sandbox attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("sandbox", value)
+        return BaseAttribute("sandbox", value)
             
 
 
-    class src(BaseAttribute):
+    @staticmethod
+    def src(value) -> BaseAttribute:
         """
-        iframe attribute: src
-        Description: Address of the resource
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "iframe" attribute: src  
+        Address of the resource  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An src attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("src", value)
+        return BaseAttribute("src", value)
             
 
 
-    class srcdoc(BaseAttribute):
+    @staticmethod
+    def srcdoc(value) -> BaseAttribute:
         """
-        iframe attribute: srcdoc
-        Description: A document to render in the iframe
-        Value: The source of an iframe srcdoc document*
-        """
+        "iframe" attribute: srcdoc  
+        A document to render in the iframe  
+
+        :param value: The source of an iframe srcdoc document*  
+        :return: An srcdoc attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("srcdoc", value)
+        return BaseAttribute("srcdoc", value)
             
 
 
-    class width(BaseAttribute):
+    @staticmethod
+    def width(value: int) -> BaseAttribute:
         """
-        iframe attribute: width
-        Description: Horizontal dimension
-        Value: Valid non-negative integer
-        """
+        "iframe" attribute: width  
+        Horizontal dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An width attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("width", value)
+        return BaseAttribute("width", value)
             

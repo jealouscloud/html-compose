@@ -3,17 +3,19 @@ from typing import Literal, Union
 
 class ColAttrs:
     """ 
-    This module contains classes for attributes in the <col> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'col' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class span(BaseAttribute):
+    @staticmethod
+    def span(value) -> BaseAttribute:
         """
-        col attribute: span
-        Description: Number of columns spanned by the element
-        Value: Valid non-negative integer greater than zero
-        """
+        "col" attribute: span  
+        Number of columns spanned by the element  
+
+        :param value: Valid non-negative integer greater than zero  
+        :return: An span attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("span", value)
+        return BaseAttribute("span", value)
             

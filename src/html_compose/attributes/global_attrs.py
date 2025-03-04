@@ -8,1014 +8,1211 @@ class GlobalAttrs:
     Elements can inherit it so the element can be a reference to our attributes
     """
 
-    class accesskey(BaseAttribute):
+    @staticmethod
+    def accesskey(value) -> BaseAttribute:
         """
-        Global Attribute attribute: accesskey
-        Description: Keyboard shortcut to activate or focus element
-        Value: Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        """
+        "global" attribute: accesskey  
+        Keyboard shortcut to activate or focus element  
 
-        def __init__(self, value):
-            super().__init__("accesskey", value)
+        :param value: Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length  
+        :return: An accesskey attribute to be added to your element
+        """  # fmt: skip
 
-    class autocapitalize(BaseAttribute):
-        """
-        Global Attribute attribute: autocapitalize
-        Description: Recommended autocapitalization behavior (for supported input methods)
-        Value: ['on', 'off', 'none', 'sentences', 'words', 'characters']
+        return BaseAttribute("accesskey", value)
+
+    @staticmethod
+    def autocapitalize(
+        value: Literal["on", "off", "none", "sentences", "words", "characters"],
+    ) -> BaseAttribute:
         """
+        "global" attribute: autocapitalize  
+        Recommended autocapitalization behavior (for supported input methods)  
 
-        def __init__(
-            self,
-            value: Literal[
-                "on", "off", "none", "sentences", "words", "characters"
-            ],
-        ):
-            super().__init__("autocapitalize", value)
+        :param value: ['on', 'off', 'none', 'sentences', 'words', 'characters']  
+        :return: An autocapitalize attribute to be added to your element
+        """  # fmt: skip
 
-    class autocorrect(BaseAttribute):
-        """
-        Global Attribute attribute: autocorrect
-        Description: Recommended autocorrection behavior (for supported input methods)
-        Value: ['on', 'off']
+        return BaseAttribute("autocapitalize", value)
+
+    @staticmethod
+    def autocorrect(value: Literal["on", "off"]) -> BaseAttribute:
         """
+        "global" attribute: autocorrect  
+        Recommended autocorrection behavior (for supported input methods)  
 
-        def __init__(self, value: Literal["on", "off"]):
-            super().__init__("autocorrect", value)
+        :param value: ['on', 'off']  
+        :return: An autocorrect attribute to be added to your element
+        """  # fmt: skip
 
-    class autofocus(BaseAttribute):
-        """
-        Global Attribute attribute: autofocus
-        Description: Automatically focus the element when the page is loaded
-        Value: Boolean attribute
+        return BaseAttribute("autocorrect", value)
+
+    @staticmethod
+    def autofocus(value: bool) -> BaseAttribute:
         """
+        "global" attribute: autofocus  
+        Automatically focus the element when the page is loaded  
 
-        def __init__(self, value: bool):
-            super().__init__("autofocus", value)
+        :param value: Boolean attribute  
+        :return: An autofocus attribute to be added to your element
+        """  # fmt: skip
 
-    class class_(BaseAttribute):
-        """
-        Global Attribute attribute: class
-        Description: Classes to which the element belongs
-        Value: Set of space-separated tokens
+        return BaseAttribute("autofocus", value)
+
+    @staticmethod
+    def class_(value) -> BaseAttribute:
         """
+        "global" attribute: class  
+        Classes to which the element belongs  
 
-        def __init__(self, value):
-            super().__init__("class", value)
+        :param value: Set of space-separated tokens  
+        :return: An class attribute to be added to your element
+        """  # fmt: skip
 
-    class contenteditable(BaseAttribute):
-        """
-        Global Attribute attribute: contenteditable
-        Description: Whether the element is editable
-        Value: ['true', 'plaintext-only', 'false']
+        return BaseAttribute("class", value)
+
+    @staticmethod
+    def contenteditable(
+        value: Literal["true", "plaintext-only", "false"],
+    ) -> BaseAttribute:
         """
+        "global" attribute: contenteditable  
+        Whether the element is editable  
 
-        def __init__(self, value: Literal["true", "plaintext-only", "false"]):
-            super().__init__("contenteditable", value)
+        :param value: ['true', 'plaintext-only', 'false']  
+        :return: An contenteditable attribute to be added to your element
+        """  # fmt: skip
 
-    class dir(BaseAttribute):
-        """
-        Global Attribute attribute: dir
-        Description: The text directionality of the element
-        Value: ['ltr', 'rtl', 'auto']
+        return BaseAttribute("contenteditable", value)
+
+    @staticmethod
+    def dir(value: Literal["ltr", "rtl", "auto"]) -> BaseAttribute:
         """
+        "global" attribute: dir  
+        The text directionality of the element  
 
-        def __init__(self, value: Literal["ltr", "rtl", "auto"]):
-            super().__init__("dir", value)
+        :param value: ['ltr', 'rtl', 'auto']  
+        :return: An dir attribute to be added to your element
+        """  # fmt: skip
 
-    class draggable(BaseAttribute):
-        """
-        Global Attribute attribute: draggable
-        Description: Whether the element is draggable
-        Value: ['true', 'false']
+        return BaseAttribute("dir", value)
+
+    @staticmethod
+    def draggable(value: Literal["true", "false"]) -> BaseAttribute:
         """
+        "global" attribute: draggable  
+        Whether the element is draggable  
 
-        def __init__(self, value: Literal["true", "false"]):
-            super().__init__("draggable", value)
+        :param value: ['true', 'false']  
+        :return: An draggable attribute to be added to your element
+        """  # fmt: skip
 
-    class enterkeyhint(BaseAttribute):
-        """
-        Global Attribute attribute: enterkeyhint
-        Description: Hint for selecting an enter key action
-        Value: ['enter', 'done', 'go', 'next', 'previous', 'search', 'send']
+        return BaseAttribute("draggable", value)
+
+    @staticmethod
+    def enterkeyhint(
+        value: Literal[
+            "enter", "done", "go", "next", "previous", "search", "send"
+        ],
+    ) -> BaseAttribute:
         """
+        "global" attribute: enterkeyhint  
+        Hint for selecting an enter key action  
 
-        def __init__(
-            self,
-            value: Literal[
-                "enter", "done", "go", "next", "previous", "search", "send"
-            ],
-        ):
-            super().__init__("enterkeyhint", value)
+        :param value: ['enter', 'done', 'go', 'next', 'previous', 'search', 'send']  
+        :return: An enterkeyhint attribute to be added to your element
+        """  # fmt: skip
 
-    class hidden(BaseAttribute):
-        """
-        Global Attribute attribute: hidden
-        Description: Whether the element is relevant
-        Value: ['until-found', 'hidden', '']
+        return BaseAttribute("enterkeyhint", value)
+
+    @staticmethod
+    def hidden(value: Literal["until-found", "hidden", ""]) -> BaseAttribute:
         """
+        "global" attribute: hidden  
+        Whether the element is relevant  
 
-        def __init__(self, value: Literal["until-found", "hidden", ""]):
-            super().__init__("hidden", value)
+        :param value: ['until-found', 'hidden', '']  
+        :return: An hidden attribute to be added to your element
+        """  # fmt: skip
 
-    class id(BaseAttribute):
-        """
-        Global Attribute attribute: id
-        Description: The element's ID
-        Value: Text*
+        return BaseAttribute("hidden", value)
+
+    @staticmethod
+    def id(value: str) -> BaseAttribute:
         """
+        "global" attribute: id  
+        The element's ID  
 
-        def __init__(self, value: str):
-            super().__init__("id", value)
+        :param value: Text*  
+        :return: An id attribute to be added to your element
+        """  # fmt: skip
 
-    class inert(BaseAttribute):
-        """
-        Global Attribute attribute: inert
-        Description: Whether the element is inert.
-        Value: Boolean attribute
+        return BaseAttribute("id", value)
+
+    @staticmethod
+    def inert(value: bool) -> BaseAttribute:
         """
+        "global" attribute: inert  
+        Whether the element is inert.  
 
-        def __init__(self, value: bool):
-            super().__init__("inert", value)
+        :param value: Boolean attribute  
+        :return: An inert attribute to be added to your element
+        """  # fmt: skip
 
-    class inputmode(BaseAttribute):
-        """
-        Global Attribute attribute: inputmode
-        Description: Hint for selecting an input modality
-        Value: ['none', 'text', 'tel', 'email', 'url', 'numeric', 'decimal', 'search']
+        return BaseAttribute("inert", value)
+
+    @staticmethod
+    def inputmode(
+        value: Literal[
+            "none",
+            "text",
+            "tel",
+            "email",
+            "url",
+            "numeric",
+            "decimal",
+            "search",
+        ],
+    ) -> BaseAttribute:
         """
+        "global" attribute: inputmode  
+        Hint for selecting an input modality  
 
-        def __init__(
-            self,
-            value: Literal[
-                "none",
-                "text",
-                "tel",
-                "email",
-                "url",
-                "numeric",
-                "decimal",
-                "search",
-            ],
-        ):
-            super().__init__("inputmode", value)
+        :param value: ['none', 'text', 'tel', 'email', 'url', 'numeric', 'decimal', 'search']  
+        :return: An inputmode attribute to be added to your element
+        """  # fmt: skip
 
-    class is_(BaseAttribute):
-        """
-        Global Attribute attribute: is
-        Description: Creates a customized built-in element
-        Value: Valid custom element name of a defined customized built-in element
+        return BaseAttribute("inputmode", value)
+
+    @staticmethod
+    def is_(value) -> BaseAttribute:
         """
+        "global" attribute: is  
+        Creates a customized built-in element  
 
-        def __init__(self, value):
-            super().__init__("is", value)
+        :param value: Valid custom element name of a defined customized built-in element  
+        :return: An is attribute to be added to your element
+        """  # fmt: skip
 
-    class itemid(BaseAttribute):
-        """
-        Global Attribute attribute: itemid
-        Description: Global identifier for a microdata item
-        Value: Valid URL potentially surrounded by spaces
+        return BaseAttribute("is", value)
+
+    @staticmethod
+    def itemid(value) -> BaseAttribute:
         """
+        "global" attribute: itemid  
+        Global identifier for a microdata item  
 
-        def __init__(self, value):
-            super().__init__("itemid", value)
+        :param value: Valid URL potentially surrounded by spaces  
+        :return: An itemid attribute to be added to your element
+        """  # fmt: skip
 
-    class itemprop(BaseAttribute):
-        """
-        Global Attribute attribute: itemprop
-        Description: Property names of a microdata item
-        Value: Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        return BaseAttribute("itemid", value)
+
+    @staticmethod
+    def itemprop(value) -> BaseAttribute:
         """
+        "global" attribute: itemprop  
+        Property names of a microdata item  
 
-        def __init__(self, value):
-            super().__init__("itemprop", value)
+        :param value: Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*  
+        :return: An itemprop attribute to be added to your element
+        """  # fmt: skip
 
-    class itemref(BaseAttribute):
-        """
-        Global Attribute attribute: itemref
-        Description: Referenced elements
-        Value: Unordered set of unique space-separated tokens consisting of IDs*
+        return BaseAttribute("itemprop", value)
+
+    @staticmethod
+    def itemref(value) -> BaseAttribute:
         """
+        "global" attribute: itemref  
+        Referenced elements  
 
-        def __init__(self, value):
-            super().__init__("itemref", value)
+        :param value: Unordered set of unique space-separated tokens consisting of IDs*  
+        :return: An itemref attribute to be added to your element
+        """  # fmt: skip
 
-    class itemscope(BaseAttribute):
-        """
-        Global Attribute attribute: itemscope
-        Description: Introduces a microdata item
-        Value: Boolean attribute
+        return BaseAttribute("itemref", value)
+
+    @staticmethod
+    def itemscope(value: bool) -> BaseAttribute:
         """
+        "global" attribute: itemscope  
+        Introduces a microdata item  
 
-        def __init__(self, value: bool):
-            super().__init__("itemscope", value)
+        :param value: Boolean attribute  
+        :return: An itemscope attribute to be added to your element
+        """  # fmt: skip
 
-    class itemtype(BaseAttribute):
-        """
-        Global Attribute attribute: itemtype
-        Description: Item types of a microdata item
-        Value: Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        return BaseAttribute("itemscope", value)
+
+    @staticmethod
+    def itemtype(value) -> BaseAttribute:
         """
+        "global" attribute: itemtype  
+        Item types of a microdata item  
 
-        def __init__(self, value):
-            super().__init__("itemtype", value)
+        :param value: Unordered set of unique space-separated tokens consisting of valid absolute URLs*  
+        :return: An itemtype attribute to be added to your element
+        """  # fmt: skip
 
-    class lang(BaseAttribute):
-        """
-        Global Attribute attribute: lang
-        Description: Language of the element
-        Value: Valid BCP 47 language tag or the empty string
+        return BaseAttribute("itemtype", value)
+
+    @staticmethod
+    def lang(value) -> BaseAttribute:
         """
+        "global" attribute: lang  
+        Language of the element  
 
-        def __init__(self, value):
-            super().__init__("lang", value)
+        :param value: Valid BCP 47 language tag or the empty string  
+        :return: An lang attribute to be added to your element
+        """  # fmt: skip
 
-    class nonce(BaseAttribute):
-        """
-        Global Attribute attribute: nonce
-        Description: Cryptographic nonce used in Content Security Policy checks [CSP]
-        Value: Text
+        return BaseAttribute("lang", value)
+
+    @staticmethod
+    def nonce(value: str) -> BaseAttribute:
         """
+        "global" attribute: nonce  
+        Cryptographic nonce used in Content Security Policy checks [CSP]  
 
-        def __init__(self, value: str):
-            super().__init__("nonce", value)
+        :param value: Text  
+        :return: An nonce attribute to be added to your element
+        """  # fmt: skip
 
-    class popover(BaseAttribute):
-        """
-        Global Attribute attribute: popover
-        Description: Makes the element a popover element
-        Value: ['auto', 'manual']
+        return BaseAttribute("nonce", value)
+
+    @staticmethod
+    def popover(value: Literal["auto", "manual"]) -> BaseAttribute:
         """
+        "global" attribute: popover  
+        Makes the element a popover element  
 
-        def __init__(self, value: Literal["auto", "manual"]):
-            super().__init__("popover", value)
+        :param value: ['auto', 'manual']  
+        :return: An popover attribute to be added to your element
+        """  # fmt: skip
 
-    class slot(BaseAttribute):
-        """
-        Global Attribute attribute: slot
-        Description: The element's desired slot
-        Value: Text
+        return BaseAttribute("popover", value)
+
+    @staticmethod
+    def slot(value: str) -> BaseAttribute:
         """
+        "global" attribute: slot  
+        The element's desired slot  
 
-        def __init__(self, value: str):
-            super().__init__("slot", value)
+        :param value: Text  
+        :return: An slot attribute to be added to your element
+        """  # fmt: skip
 
-    class spellcheck(BaseAttribute):
-        """
-        Global Attribute attribute: spellcheck
-        Description: Whether the element is to have its spelling and grammar checked
-        Value: ['true', 'false', '']
+        return BaseAttribute("slot", value)
+
+    @staticmethod
+    def spellcheck(value: Literal["true", "false", ""]) -> BaseAttribute:
         """
+        "global" attribute: spellcheck  
+        Whether the element is to have its spelling and grammar checked  
 
-        def __init__(self, value: Literal["true", "false", ""]):
-            super().__init__("spellcheck", value)
+        :param value: ['true', 'false', '']  
+        :return: An spellcheck attribute to be added to your element
+        """  # fmt: skip
 
-    class style(BaseAttribute):
-        """
-        Global Attribute attribute: style
-        Description: Presentational and formatting instructions
-        Value: CSS declarations*
+        return BaseAttribute("spellcheck", value)
+
+    @staticmethod
+    def style(value) -> BaseAttribute:
         """
+        "global" attribute: style  
+        Presentational and formatting instructions  
 
-        def __init__(self, value):
-            super().__init__("style", value)
+        :param value: CSS declarations*  
+        :return: An style attribute to be added to your element
+        """  # fmt: skip
 
-    class tabindex(BaseAttribute):
-        """
-        Global Attribute attribute: tabindex
-        Description: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        Value: Valid integer
+        return BaseAttribute("style", value)
+
+    @staticmethod
+    def tabindex(value: int) -> BaseAttribute:
         """
+        "global" attribute: tabindex  
+        Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation  
 
-        def __init__(self, value: int):
-            super().__init__("tabindex", value)
+        :param value: Valid integer  
+        :return: An tabindex attribute to be added to your element
+        """  # fmt: skip
 
-    class title(BaseAttribute):
-        """
-        Global Attribute attribute: title
-        Description: Advisory information for the element
-        Value: Text
+        return BaseAttribute("tabindex", value)
+
+    @staticmethod
+    def title(value: str) -> BaseAttribute:
         """
+        "global" attribute: title  
+        Advisory information for the element  
 
-        def __init__(self, value: str):
-            super().__init__("title", value)
+        :param value: Text  
+        :return: An title attribute to be added to your element
+        """  # fmt: skip
 
-    class translate(BaseAttribute):
-        """
-        Global Attribute attribute: translate
-        Description: Whether the element is to be translated when the page is localized
-        Value: ['yes', 'no']
+        return BaseAttribute("title", value)
+
+    @staticmethod
+    def translate(value: Literal["yes", "no"]) -> BaseAttribute:
         """
+        "global" attribute: translate  
+        Whether the element is to be translated when the page is localized  
 
-        def __init__(self, value: Literal["yes", "no"]):
-            super().__init__("translate", value)
+        :param value: ['yes', 'no']  
+        :return: An translate attribute to be added to your element
+        """  # fmt: skip
 
-    class writingsuggestions(BaseAttribute):
-        """
-        Global Attribute attribute: writingsuggestions
-        Description: Whether the element can offer writing suggestions or not.
-        Value: ['true', 'false', '']
+        return BaseAttribute("translate", value)
+
+    @staticmethod
+    def writingsuggestions(
+        value: Literal["true", "false", ""],
+    ) -> BaseAttribute:
         """
+        "global" attribute: writingsuggestions  
+        Whether the element can offer writing suggestions or not.  
 
-        def __init__(self, value: Literal["true", "false", ""]):
-            super().__init__("writingsuggestions", value)
+        :param value: ['true', 'false', '']  
+        :return: An writingsuggestions attribute to be added to your element
+        """  # fmt: skip
 
-    class onauxclick(BaseAttribute):
-        """
-        Global Attribute attribute: onauxclick
-        Description: auxclick event handler
-        Value: Event handler content attribute
+        return BaseAttribute("writingsuggestions", value)
+
+    @staticmethod
+    def onauxclick(value) -> BaseAttribute:
         """
+        "global" attribute: onauxclick  
+        auxclick event handler  
 
-        def __init__(self, value):
-            super().__init__("onauxclick", value)
+        :param value: Event handler content attribute  
+        :return: An onauxclick attribute to be added to your element
+        """  # fmt: skip
 
-    class onbeforeinput(BaseAttribute):
-        """
-        Global Attribute attribute: onbeforeinput
-        Description: beforeinput event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onauxclick", value)
+
+    @staticmethod
+    def onbeforeinput(value) -> BaseAttribute:
         """
+        "global" attribute: onbeforeinput  
+        beforeinput event handler  
 
-        def __init__(self, value):
-            super().__init__("onbeforeinput", value)
+        :param value: Event handler content attribute  
+        :return: An onbeforeinput attribute to be added to your element
+        """  # fmt: skip
 
-    class onbeforematch(BaseAttribute):
-        """
-        Global Attribute attribute: onbeforematch
-        Description: beforematch event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onbeforeinput", value)
+
+    @staticmethod
+    def onbeforematch(value) -> BaseAttribute:
         """
+        "global" attribute: onbeforematch  
+        beforematch event handler  
 
-        def __init__(self, value):
-            super().__init__("onbeforematch", value)
+        :param value: Event handler content attribute  
+        :return: An onbeforematch attribute to be added to your element
+        """  # fmt: skip
 
-    class onbeforetoggle(BaseAttribute):
-        """
-        Global Attribute attribute: onbeforetoggle
-        Description: beforetoggle event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onbeforematch", value)
+
+    @staticmethod
+    def onbeforetoggle(value) -> BaseAttribute:
         """
+        "global" attribute: onbeforetoggle  
+        beforetoggle event handler  
 
-        def __init__(self, value):
-            super().__init__("onbeforetoggle", value)
+        :param value: Event handler content attribute  
+        :return: An onbeforetoggle attribute to be added to your element
+        """  # fmt: skip
 
-    class onblur(BaseAttribute):
-        """
-        Global Attribute attribute: onblur
-        Description: blur event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onbeforetoggle", value)
+
+    @staticmethod
+    def onblur(value) -> BaseAttribute:
         """
+        "global" attribute: onblur  
+        blur event handler  
 
-        def __init__(self, value):
-            super().__init__("onblur", value)
+        :param value: Event handler content attribute  
+        :return: An onblur attribute to be added to your element
+        """  # fmt: skip
 
-    class oncancel(BaseAttribute):
-        """
-        Global Attribute attribute: oncancel
-        Description: cancel event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onblur", value)
+
+    @staticmethod
+    def oncancel(value) -> BaseAttribute:
         """
+        "global" attribute: oncancel  
+        cancel event handler  
 
-        def __init__(self, value):
-            super().__init__("oncancel", value)
+        :param value: Event handler content attribute  
+        :return: An oncancel attribute to be added to your element
+        """  # fmt: skip
 
-    class oncanplay(BaseAttribute):
-        """
-        Global Attribute attribute: oncanplay
-        Description: canplay event handler
-        Value: Event handler content attribute
+        return BaseAttribute("oncancel", value)
+
+    @staticmethod
+    def oncanplay(value) -> BaseAttribute:
         """
+        "global" attribute: oncanplay  
+        canplay event handler  
 
-        def __init__(self, value):
-            super().__init__("oncanplay", value)
+        :param value: Event handler content attribute  
+        :return: An oncanplay attribute to be added to your element
+        """  # fmt: skip
 
-    class oncanplaythrough(BaseAttribute):
-        """
-        Global Attribute attribute: oncanplaythrough
-        Description: canplaythrough event handler
-        Value: Event handler content attribute
+        return BaseAttribute("oncanplay", value)
+
+    @staticmethod
+    def oncanplaythrough(value) -> BaseAttribute:
         """
+        "global" attribute: oncanplaythrough  
+        canplaythrough event handler  
 
-        def __init__(self, value):
-            super().__init__("oncanplaythrough", value)
+        :param value: Event handler content attribute  
+        :return: An oncanplaythrough attribute to be added to your element
+        """  # fmt: skip
 
-    class onchange(BaseAttribute):
-        """
-        Global Attribute attribute: onchange
-        Description: change event handler
-        Value: Event handler content attribute
+        return BaseAttribute("oncanplaythrough", value)
+
+    @staticmethod
+    def onchange(value) -> BaseAttribute:
         """
+        "global" attribute: onchange  
+        change event handler  
 
-        def __init__(self, value):
-            super().__init__("onchange", value)
+        :param value: Event handler content attribute  
+        :return: An onchange attribute to be added to your element
+        """  # fmt: skip
 
-    class onclick(BaseAttribute):
-        """
-        Global Attribute attribute: onclick
-        Description: click event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onchange", value)
+
+    @staticmethod
+    def onclick(value) -> BaseAttribute:
         """
+        "global" attribute: onclick  
+        click event handler  
 
-        def __init__(self, value):
-            super().__init__("onclick", value)
+        :param value: Event handler content attribute  
+        :return: An onclick attribute to be added to your element
+        """  # fmt: skip
 
-    class onclose(BaseAttribute):
-        """
-        Global Attribute attribute: onclose
-        Description: close event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onclick", value)
+
+    @staticmethod
+    def onclose(value) -> BaseAttribute:
         """
+        "global" attribute: onclose  
+        close event handler  
 
-        def __init__(self, value):
-            super().__init__("onclose", value)
+        :param value: Event handler content attribute  
+        :return: An onclose attribute to be added to your element
+        """  # fmt: skip
 
-    class oncontextlost(BaseAttribute):
-        """
-        Global Attribute attribute: oncontextlost
-        Description: contextlost event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onclose", value)
+
+    @staticmethod
+    def oncontextlost(value) -> BaseAttribute:
         """
+        "global" attribute: oncontextlost  
+        contextlost event handler  
 
-        def __init__(self, value):
-            super().__init__("oncontextlost", value)
+        :param value: Event handler content attribute  
+        :return: An oncontextlost attribute to be added to your element
+        """  # fmt: skip
 
-    class oncontextmenu(BaseAttribute):
-        """
-        Global Attribute attribute: oncontextmenu
-        Description: contextmenu event handler
-        Value: Event handler content attribute
+        return BaseAttribute("oncontextlost", value)
+
+    @staticmethod
+    def oncontextmenu(value) -> BaseAttribute:
         """
+        "global" attribute: oncontextmenu  
+        contextmenu event handler  
 
-        def __init__(self, value):
-            super().__init__("oncontextmenu", value)
+        :param value: Event handler content attribute  
+        :return: An oncontextmenu attribute to be added to your element
+        """  # fmt: skip
 
-    class oncontextrestored(BaseAttribute):
-        """
-        Global Attribute attribute: oncontextrestored
-        Description: contextrestored event handler
-        Value: Event handler content attribute
+        return BaseAttribute("oncontextmenu", value)
+
+    @staticmethod
+    def oncontextrestored(value) -> BaseAttribute:
         """
+        "global" attribute: oncontextrestored  
+        contextrestored event handler  
 
-        def __init__(self, value):
-            super().__init__("oncontextrestored", value)
+        :param value: Event handler content attribute  
+        :return: An oncontextrestored attribute to be added to your element
+        """  # fmt: skip
 
-    class oncopy(BaseAttribute):
-        """
-        Global Attribute attribute: oncopy
-        Description: copy event handler
-        Value: Event handler content attribute
+        return BaseAttribute("oncontextrestored", value)
+
+    @staticmethod
+    def oncopy(value) -> BaseAttribute:
         """
+        "global" attribute: oncopy  
+        copy event handler  
 
-        def __init__(self, value):
-            super().__init__("oncopy", value)
+        :param value: Event handler content attribute  
+        :return: An oncopy attribute to be added to your element
+        """  # fmt: skip
 
-    class oncuechange(BaseAttribute):
-        """
-        Global Attribute attribute: oncuechange
-        Description: cuechange event handler
-        Value: Event handler content attribute
+        return BaseAttribute("oncopy", value)
+
+    @staticmethod
+    def oncuechange(value) -> BaseAttribute:
         """
+        "global" attribute: oncuechange  
+        cuechange event handler  
 
-        def __init__(self, value):
-            super().__init__("oncuechange", value)
+        :param value: Event handler content attribute  
+        :return: An oncuechange attribute to be added to your element
+        """  # fmt: skip
 
-    class oncut(BaseAttribute):
-        """
-        Global Attribute attribute: oncut
-        Description: cut event handler
-        Value: Event handler content attribute
+        return BaseAttribute("oncuechange", value)
+
+    @staticmethod
+    def oncut(value) -> BaseAttribute:
         """
+        "global" attribute: oncut  
+        cut event handler  
 
-        def __init__(self, value):
-            super().__init__("oncut", value)
+        :param value: Event handler content attribute  
+        :return: An oncut attribute to be added to your element
+        """  # fmt: skip
 
-    class ondblclick(BaseAttribute):
-        """
-        Global Attribute attribute: ondblclick
-        Description: dblclick event handler
-        Value: Event handler content attribute
+        return BaseAttribute("oncut", value)
+
+    @staticmethod
+    def ondblclick(value) -> BaseAttribute:
         """
+        "global" attribute: ondblclick  
+        dblclick event handler  
 
-        def __init__(self, value):
-            super().__init__("ondblclick", value)
+        :param value: Event handler content attribute  
+        :return: An ondblclick attribute to be added to your element
+        """  # fmt: skip
 
-    class ondrag(BaseAttribute):
-        """
-        Global Attribute attribute: ondrag
-        Description: drag event handler
-        Value: Event handler content attribute
+        return BaseAttribute("ondblclick", value)
+
+    @staticmethod
+    def ondrag(value) -> BaseAttribute:
         """
+        "global" attribute: ondrag  
+        drag event handler  
 
-        def __init__(self, value):
-            super().__init__("ondrag", value)
+        :param value: Event handler content attribute  
+        :return: An ondrag attribute to be added to your element
+        """  # fmt: skip
 
-    class ondragend(BaseAttribute):
-        """
-        Global Attribute attribute: ondragend
-        Description: dragend event handler
-        Value: Event handler content attribute
+        return BaseAttribute("ondrag", value)
+
+    @staticmethod
+    def ondragend(value) -> BaseAttribute:
         """
+        "global" attribute: ondragend  
+        dragend event handler  
 
-        def __init__(self, value):
-            super().__init__("ondragend", value)
+        :param value: Event handler content attribute  
+        :return: An ondragend attribute to be added to your element
+        """  # fmt: skip
 
-    class ondragenter(BaseAttribute):
-        """
-        Global Attribute attribute: ondragenter
-        Description: dragenter event handler
-        Value: Event handler content attribute
+        return BaseAttribute("ondragend", value)
+
+    @staticmethod
+    def ondragenter(value) -> BaseAttribute:
         """
+        "global" attribute: ondragenter  
+        dragenter event handler  
 
-        def __init__(self, value):
-            super().__init__("ondragenter", value)
+        :param value: Event handler content attribute  
+        :return: An ondragenter attribute to be added to your element
+        """  # fmt: skip
 
-    class ondragleave(BaseAttribute):
-        """
-        Global Attribute attribute: ondragleave
-        Description: dragleave event handler
-        Value: Event handler content attribute
+        return BaseAttribute("ondragenter", value)
+
+    @staticmethod
+    def ondragleave(value) -> BaseAttribute:
         """
+        "global" attribute: ondragleave  
+        dragleave event handler  
 
-        def __init__(self, value):
-            super().__init__("ondragleave", value)
+        :param value: Event handler content attribute  
+        :return: An ondragleave attribute to be added to your element
+        """  # fmt: skip
 
-    class ondragover(BaseAttribute):
-        """
-        Global Attribute attribute: ondragover
-        Description: dragover event handler
-        Value: Event handler content attribute
+        return BaseAttribute("ondragleave", value)
+
+    @staticmethod
+    def ondragover(value) -> BaseAttribute:
         """
+        "global" attribute: ondragover  
+        dragover event handler  
 
-        def __init__(self, value):
-            super().__init__("ondragover", value)
+        :param value: Event handler content attribute  
+        :return: An ondragover attribute to be added to your element
+        """  # fmt: skip
 
-    class ondragstart(BaseAttribute):
-        """
-        Global Attribute attribute: ondragstart
-        Description: dragstart event handler
-        Value: Event handler content attribute
+        return BaseAttribute("ondragover", value)
+
+    @staticmethod
+    def ondragstart(value) -> BaseAttribute:
         """
+        "global" attribute: ondragstart  
+        dragstart event handler  
 
-        def __init__(self, value):
-            super().__init__("ondragstart", value)
+        :param value: Event handler content attribute  
+        :return: An ondragstart attribute to be added to your element
+        """  # fmt: skip
 
-    class ondrop(BaseAttribute):
-        """
-        Global Attribute attribute: ondrop
-        Description: drop event handler
-        Value: Event handler content attribute
+        return BaseAttribute("ondragstart", value)
+
+    @staticmethod
+    def ondrop(value) -> BaseAttribute:
         """
+        "global" attribute: ondrop  
+        drop event handler  
 
-        def __init__(self, value):
-            super().__init__("ondrop", value)
+        :param value: Event handler content attribute  
+        :return: An ondrop attribute to be added to your element
+        """  # fmt: skip
 
-    class ondurationchange(BaseAttribute):
-        """
-        Global Attribute attribute: ondurationchange
-        Description: durationchange event handler
-        Value: Event handler content attribute
+        return BaseAttribute("ondrop", value)
+
+    @staticmethod
+    def ondurationchange(value) -> BaseAttribute:
         """
+        "global" attribute: ondurationchange  
+        durationchange event handler  
 
-        def __init__(self, value):
-            super().__init__("ondurationchange", value)
+        :param value: Event handler content attribute  
+        :return: An ondurationchange attribute to be added to your element
+        """  # fmt: skip
 
-    class onemptied(BaseAttribute):
-        """
-        Global Attribute attribute: onemptied
-        Description: emptied event handler
-        Value: Event handler content attribute
+        return BaseAttribute("ondurationchange", value)
+
+    @staticmethod
+    def onemptied(value) -> BaseAttribute:
         """
+        "global" attribute: onemptied  
+        emptied event handler  
 
-        def __init__(self, value):
-            super().__init__("onemptied", value)
+        :param value: Event handler content attribute  
+        :return: An onemptied attribute to be added to your element
+        """  # fmt: skip
 
-    class onended(BaseAttribute):
-        """
-        Global Attribute attribute: onended
-        Description: ended event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onemptied", value)
+
+    @staticmethod
+    def onended(value) -> BaseAttribute:
         """
+        "global" attribute: onended  
+        ended event handler  
 
-        def __init__(self, value):
-            super().__init__("onended", value)
+        :param value: Event handler content attribute  
+        :return: An onended attribute to be added to your element
+        """  # fmt: skip
 
-    class onerror(BaseAttribute):
-        """
-        Global Attribute attribute: onerror
-        Description: error event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onended", value)
+
+    @staticmethod
+    def onerror(value) -> BaseAttribute:
         """
+        "global" attribute: onerror  
+        error event handler  
 
-        def __init__(self, value):
-            super().__init__("onerror", value)
+        :param value: Event handler content attribute  
+        :return: An onerror attribute to be added to your element
+        """  # fmt: skip
 
-    class onfocus(BaseAttribute):
-        """
-        Global Attribute attribute: onfocus
-        Description: focus event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onerror", value)
+
+    @staticmethod
+    def onfocus(value) -> BaseAttribute:
         """
+        "global" attribute: onfocus  
+        focus event handler  
 
-        def __init__(self, value):
-            super().__init__("onfocus", value)
+        :param value: Event handler content attribute  
+        :return: An onfocus attribute to be added to your element
+        """  # fmt: skip
 
-    class onformdata(BaseAttribute):
-        """
-        Global Attribute attribute: onformdata
-        Description: formdata event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onfocus", value)
+
+    @staticmethod
+    def onformdata(value) -> BaseAttribute:
         """
+        "global" attribute: onformdata  
+        formdata event handler  
 
-        def __init__(self, value):
-            super().__init__("onformdata", value)
+        :param value: Event handler content attribute  
+        :return: An onformdata attribute to be added to your element
+        """  # fmt: skip
 
-    class oninput(BaseAttribute):
-        """
-        Global Attribute attribute: oninput
-        Description: input event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onformdata", value)
+
+    @staticmethod
+    def oninput(value) -> BaseAttribute:
         """
+        "global" attribute: oninput  
+        input event handler  
 
-        def __init__(self, value):
-            super().__init__("oninput", value)
+        :param value: Event handler content attribute  
+        :return: An oninput attribute to be added to your element
+        """  # fmt: skip
 
-    class oninvalid(BaseAttribute):
-        """
-        Global Attribute attribute: oninvalid
-        Description: invalid event handler
-        Value: Event handler content attribute
+        return BaseAttribute("oninput", value)
+
+    @staticmethod
+    def oninvalid(value) -> BaseAttribute:
         """
+        "global" attribute: oninvalid  
+        invalid event handler  
 
-        def __init__(self, value):
-            super().__init__("oninvalid", value)
+        :param value: Event handler content attribute  
+        :return: An oninvalid attribute to be added to your element
+        """  # fmt: skip
 
-    class onkeydown(BaseAttribute):
-        """
-        Global Attribute attribute: onkeydown
-        Description: keydown event handler
-        Value: Event handler content attribute
+        return BaseAttribute("oninvalid", value)
+
+    @staticmethod
+    def onkeydown(value) -> BaseAttribute:
         """
+        "global" attribute: onkeydown  
+        keydown event handler  
 
-        def __init__(self, value):
-            super().__init__("onkeydown", value)
+        :param value: Event handler content attribute  
+        :return: An onkeydown attribute to be added to your element
+        """  # fmt: skip
 
-    class onkeypress(BaseAttribute):
-        """
-        Global Attribute attribute: onkeypress
-        Description: keypress event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onkeydown", value)
+
+    @staticmethod
+    def onkeypress(value) -> BaseAttribute:
         """
+        "global" attribute: onkeypress  
+        keypress event handler  
 
-        def __init__(self, value):
-            super().__init__("onkeypress", value)
+        :param value: Event handler content attribute  
+        :return: An onkeypress attribute to be added to your element
+        """  # fmt: skip
 
-    class onkeyup(BaseAttribute):
-        """
-        Global Attribute attribute: onkeyup
-        Description: keyup event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onkeypress", value)
+
+    @staticmethod
+    def onkeyup(value) -> BaseAttribute:
         """
+        "global" attribute: onkeyup  
+        keyup event handler  
 
-        def __init__(self, value):
-            super().__init__("onkeyup", value)
+        :param value: Event handler content attribute  
+        :return: An onkeyup attribute to be added to your element
+        """  # fmt: skip
 
-    class onload(BaseAttribute):
-        """
-        Global Attribute attribute: onload
-        Description: load event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onkeyup", value)
+
+    @staticmethod
+    def onload(value) -> BaseAttribute:
         """
+        "global" attribute: onload  
+        load event handler  
 
-        def __init__(self, value):
-            super().__init__("onload", value)
+        :param value: Event handler content attribute  
+        :return: An onload attribute to be added to your element
+        """  # fmt: skip
 
-    class onloadeddata(BaseAttribute):
-        """
-        Global Attribute attribute: onloadeddata
-        Description: loadeddata event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onload", value)
+
+    @staticmethod
+    def onloadeddata(value) -> BaseAttribute:
         """
+        "global" attribute: onloadeddata  
+        loadeddata event handler  
 
-        def __init__(self, value):
-            super().__init__("onloadeddata", value)
+        :param value: Event handler content attribute  
+        :return: An onloadeddata attribute to be added to your element
+        """  # fmt: skip
 
-    class onloadedmetadata(BaseAttribute):
-        """
-        Global Attribute attribute: onloadedmetadata
-        Description: loadedmetadata event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onloadeddata", value)
+
+    @staticmethod
+    def onloadedmetadata(value) -> BaseAttribute:
         """
+        "global" attribute: onloadedmetadata  
+        loadedmetadata event handler  
 
-        def __init__(self, value):
-            super().__init__("onloadedmetadata", value)
+        :param value: Event handler content attribute  
+        :return: An onloadedmetadata attribute to be added to your element
+        """  # fmt: skip
 
-    class onloadstart(BaseAttribute):
-        """
-        Global Attribute attribute: onloadstart
-        Description: loadstart event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onloadedmetadata", value)
+
+    @staticmethod
+    def onloadstart(value) -> BaseAttribute:
         """
+        "global" attribute: onloadstart  
+        loadstart event handler  
 
-        def __init__(self, value):
-            super().__init__("onloadstart", value)
+        :param value: Event handler content attribute  
+        :return: An onloadstart attribute to be added to your element
+        """  # fmt: skip
 
-    class onmousedown(BaseAttribute):
-        """
-        Global Attribute attribute: onmousedown
-        Description: mousedown event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onloadstart", value)
+
+    @staticmethod
+    def onmousedown(value) -> BaseAttribute:
         """
+        "global" attribute: onmousedown  
+        mousedown event handler  
 
-        def __init__(self, value):
-            super().__init__("onmousedown", value)
+        :param value: Event handler content attribute  
+        :return: An onmousedown attribute to be added to your element
+        """  # fmt: skip
 
-    class onmouseenter(BaseAttribute):
-        """
-        Global Attribute attribute: onmouseenter
-        Description: mouseenter event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onmousedown", value)
+
+    @staticmethod
+    def onmouseenter(value) -> BaseAttribute:
         """
+        "global" attribute: onmouseenter  
+        mouseenter event handler  
 
-        def __init__(self, value):
-            super().__init__("onmouseenter", value)
+        :param value: Event handler content attribute  
+        :return: An onmouseenter attribute to be added to your element
+        """  # fmt: skip
 
-    class onmouseleave(BaseAttribute):
-        """
-        Global Attribute attribute: onmouseleave
-        Description: mouseleave event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onmouseenter", value)
+
+    @staticmethod
+    def onmouseleave(value) -> BaseAttribute:
         """
+        "global" attribute: onmouseleave  
+        mouseleave event handler  
 
-        def __init__(self, value):
-            super().__init__("onmouseleave", value)
+        :param value: Event handler content attribute  
+        :return: An onmouseleave attribute to be added to your element
+        """  # fmt: skip
 
-    class onmousemove(BaseAttribute):
-        """
-        Global Attribute attribute: onmousemove
-        Description: mousemove event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onmouseleave", value)
+
+    @staticmethod
+    def onmousemove(value) -> BaseAttribute:
         """
+        "global" attribute: onmousemove  
+        mousemove event handler  
 
-        def __init__(self, value):
-            super().__init__("onmousemove", value)
+        :param value: Event handler content attribute  
+        :return: An onmousemove attribute to be added to your element
+        """  # fmt: skip
 
-    class onmouseout(BaseAttribute):
-        """
-        Global Attribute attribute: onmouseout
-        Description: mouseout event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onmousemove", value)
+
+    @staticmethod
+    def onmouseout(value) -> BaseAttribute:
         """
+        "global" attribute: onmouseout  
+        mouseout event handler  
 
-        def __init__(self, value):
-            super().__init__("onmouseout", value)
+        :param value: Event handler content attribute  
+        :return: An onmouseout attribute to be added to your element
+        """  # fmt: skip
 
-    class onmouseover(BaseAttribute):
-        """
-        Global Attribute attribute: onmouseover
-        Description: mouseover event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onmouseout", value)
+
+    @staticmethod
+    def onmouseover(value) -> BaseAttribute:
         """
+        "global" attribute: onmouseover  
+        mouseover event handler  
 
-        def __init__(self, value):
-            super().__init__("onmouseover", value)
+        :param value: Event handler content attribute  
+        :return: An onmouseover attribute to be added to your element
+        """  # fmt: skip
 
-    class onmouseup(BaseAttribute):
-        """
-        Global Attribute attribute: onmouseup
-        Description: mouseup event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onmouseover", value)
+
+    @staticmethod
+    def onmouseup(value) -> BaseAttribute:
         """
+        "global" attribute: onmouseup  
+        mouseup event handler  
 
-        def __init__(self, value):
-            super().__init__("onmouseup", value)
+        :param value: Event handler content attribute  
+        :return: An onmouseup attribute to be added to your element
+        """  # fmt: skip
 
-    class onpaste(BaseAttribute):
-        """
-        Global Attribute attribute: onpaste
-        Description: paste event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onmouseup", value)
+
+    @staticmethod
+    def onpaste(value) -> BaseAttribute:
         """
+        "global" attribute: onpaste  
+        paste event handler  
 
-        def __init__(self, value):
-            super().__init__("onpaste", value)
+        :param value: Event handler content attribute  
+        :return: An onpaste attribute to be added to your element
+        """  # fmt: skip
 
-    class onpause(BaseAttribute):
-        """
-        Global Attribute attribute: onpause
-        Description: pause event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onpaste", value)
+
+    @staticmethod
+    def onpause(value) -> BaseAttribute:
         """
+        "global" attribute: onpause  
+        pause event handler  
 
-        def __init__(self, value):
-            super().__init__("onpause", value)
+        :param value: Event handler content attribute  
+        :return: An onpause attribute to be added to your element
+        """  # fmt: skip
 
-    class onplay(BaseAttribute):
-        """
-        Global Attribute attribute: onplay
-        Description: play event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onpause", value)
+
+    @staticmethod
+    def onplay(value) -> BaseAttribute:
         """
+        "global" attribute: onplay  
+        play event handler  
 
-        def __init__(self, value):
-            super().__init__("onplay", value)
+        :param value: Event handler content attribute  
+        :return: An onplay attribute to be added to your element
+        """  # fmt: skip
 
-    class onplaying(BaseAttribute):
-        """
-        Global Attribute attribute: onplaying
-        Description: playing event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onplay", value)
+
+    @staticmethod
+    def onplaying(value) -> BaseAttribute:
         """
+        "global" attribute: onplaying  
+        playing event handler  
 
-        def __init__(self, value):
-            super().__init__("onplaying", value)
+        :param value: Event handler content attribute  
+        :return: An onplaying attribute to be added to your element
+        """  # fmt: skip
 
-    class onprogress(BaseAttribute):
-        """
-        Global Attribute attribute: onprogress
-        Description: progress event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onplaying", value)
+
+    @staticmethod
+    def onprogress(value) -> BaseAttribute:
         """
+        "global" attribute: onprogress  
+        progress event handler  
 
-        def __init__(self, value):
-            super().__init__("onprogress", value)
+        :param value: Event handler content attribute  
+        :return: An onprogress attribute to be added to your element
+        """  # fmt: skip
 
-    class onratechange(BaseAttribute):
-        """
-        Global Attribute attribute: onratechange
-        Description: ratechange event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onprogress", value)
+
+    @staticmethod
+    def onratechange(value) -> BaseAttribute:
         """
+        "global" attribute: onratechange  
+        ratechange event handler  
 
-        def __init__(self, value):
-            super().__init__("onratechange", value)
+        :param value: Event handler content attribute  
+        :return: An onratechange attribute to be added to your element
+        """  # fmt: skip
 
-    class onreset(BaseAttribute):
-        """
-        Global Attribute attribute: onreset
-        Description: reset event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onratechange", value)
+
+    @staticmethod
+    def onreset(value) -> BaseAttribute:
         """
+        "global" attribute: onreset  
+        reset event handler  
 
-        def __init__(self, value):
-            super().__init__("onreset", value)
+        :param value: Event handler content attribute  
+        :return: An onreset attribute to be added to your element
+        """  # fmt: skip
 
-    class onresize(BaseAttribute):
-        """
-        Global Attribute attribute: onresize
-        Description: resize event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onreset", value)
+
+    @staticmethod
+    def onresize(value) -> BaseAttribute:
         """
+        "global" attribute: onresize  
+        resize event handler  
 
-        def __init__(self, value):
-            super().__init__("onresize", value)
+        :param value: Event handler content attribute  
+        :return: An onresize attribute to be added to your element
+        """  # fmt: skip
 
-    class onscroll(BaseAttribute):
-        """
-        Global Attribute attribute: onscroll
-        Description: scroll event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onresize", value)
+
+    @staticmethod
+    def onscroll(value) -> BaseAttribute:
         """
+        "global" attribute: onscroll  
+        scroll event handler  
 
-        def __init__(self, value):
-            super().__init__("onscroll", value)
+        :param value: Event handler content attribute  
+        :return: An onscroll attribute to be added to your element
+        """  # fmt: skip
 
-    class onscrollend(BaseAttribute):
-        """
-        Global Attribute attribute: onscrollend
-        Description: scrollend event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onscroll", value)
+
+    @staticmethod
+    def onscrollend(value) -> BaseAttribute:
         """
+        "global" attribute: onscrollend  
+        scrollend event handler  
 
-        def __init__(self, value):
-            super().__init__("onscrollend", value)
+        :param value: Event handler content attribute  
+        :return: An onscrollend attribute to be added to your element
+        """  # fmt: skip
 
-    class onsecuritypolicyviolation(BaseAttribute):
-        """
-        Global Attribute attribute: onsecuritypolicyviolation
-        Description: securitypolicyviolation event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onscrollend", value)
+
+    @staticmethod
+    def onsecuritypolicyviolation(value) -> BaseAttribute:
         """
+        "global" attribute: onsecuritypolicyviolation  
+        securitypolicyviolation event handler  
 
-        def __init__(self, value):
-            super().__init__("onsecuritypolicyviolation", value)
+        :param value: Event handler content attribute  
+        :return: An onsecuritypolicyviolation attribute to be added to your element
+        """  # fmt: skip
 
-    class onseeked(BaseAttribute):
-        """
-        Global Attribute attribute: onseeked
-        Description: seeked event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onsecuritypolicyviolation", value)
+
+    @staticmethod
+    def onseeked(value) -> BaseAttribute:
         """
+        "global" attribute: onseeked  
+        seeked event handler  
 
-        def __init__(self, value):
-            super().__init__("onseeked", value)
+        :param value: Event handler content attribute  
+        :return: An onseeked attribute to be added to your element
+        """  # fmt: skip
 
-    class onseeking(BaseAttribute):
-        """
-        Global Attribute attribute: onseeking
-        Description: seeking event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onseeked", value)
+
+    @staticmethod
+    def onseeking(value) -> BaseAttribute:
         """
+        "global" attribute: onseeking  
+        seeking event handler  
 
-        def __init__(self, value):
-            super().__init__("onseeking", value)
+        :param value: Event handler content attribute  
+        :return: An onseeking attribute to be added to your element
+        """  # fmt: skip
 
-    class onselect(BaseAttribute):
-        """
-        Global Attribute attribute: onselect
-        Description: select event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onseeking", value)
+
+    @staticmethod
+    def onselect(value) -> BaseAttribute:
         """
+        "global" attribute: onselect  
+        select event handler  
 
-        def __init__(self, value):
-            super().__init__("onselect", value)
+        :param value: Event handler content attribute  
+        :return: An onselect attribute to be added to your element
+        """  # fmt: skip
 
-    class onslotchange(BaseAttribute):
-        """
-        Global Attribute attribute: onslotchange
-        Description: slotchange event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onselect", value)
+
+    @staticmethod
+    def onslotchange(value) -> BaseAttribute:
         """
+        "global" attribute: onslotchange  
+        slotchange event handler  
 
-        def __init__(self, value):
-            super().__init__("onslotchange", value)
+        :param value: Event handler content attribute  
+        :return: An onslotchange attribute to be added to your element
+        """  # fmt: skip
 
-    class onstalled(BaseAttribute):
-        """
-        Global Attribute attribute: onstalled
-        Description: stalled event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onslotchange", value)
+
+    @staticmethod
+    def onstalled(value) -> BaseAttribute:
         """
+        "global" attribute: onstalled  
+        stalled event handler  
 
-        def __init__(self, value):
-            super().__init__("onstalled", value)
+        :param value: Event handler content attribute  
+        :return: An onstalled attribute to be added to your element
+        """  # fmt: skip
 
-    class onsubmit(BaseAttribute):
-        """
-        Global Attribute attribute: onsubmit
-        Description: submit event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onstalled", value)
+
+    @staticmethod
+    def onsubmit(value) -> BaseAttribute:
         """
+        "global" attribute: onsubmit  
+        submit event handler  
 
-        def __init__(self, value):
-            super().__init__("onsubmit", value)
+        :param value: Event handler content attribute  
+        :return: An onsubmit attribute to be added to your element
+        """  # fmt: skip
 
-    class onsuspend(BaseAttribute):
-        """
-        Global Attribute attribute: onsuspend
-        Description: suspend event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onsubmit", value)
+
+    @staticmethod
+    def onsuspend(value) -> BaseAttribute:
         """
+        "global" attribute: onsuspend  
+        suspend event handler  
 
-        def __init__(self, value):
-            super().__init__("onsuspend", value)
+        :param value: Event handler content attribute  
+        :return: An onsuspend attribute to be added to your element
+        """  # fmt: skip
 
-    class ontimeupdate(BaseAttribute):
-        """
-        Global Attribute attribute: ontimeupdate
-        Description: timeupdate event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onsuspend", value)
+
+    @staticmethod
+    def ontimeupdate(value) -> BaseAttribute:
         """
+        "global" attribute: ontimeupdate  
+        timeupdate event handler  
 
-        def __init__(self, value):
-            super().__init__("ontimeupdate", value)
+        :param value: Event handler content attribute  
+        :return: An ontimeupdate attribute to be added to your element
+        """  # fmt: skip
 
-    class ontoggle(BaseAttribute):
-        """
-        Global Attribute attribute: ontoggle
-        Description: toggle event handler
-        Value: Event handler content attribute
+        return BaseAttribute("ontimeupdate", value)
+
+    @staticmethod
+    def ontoggle(value) -> BaseAttribute:
         """
+        "global" attribute: ontoggle  
+        toggle event handler  
 
-        def __init__(self, value):
-            super().__init__("ontoggle", value)
+        :param value: Event handler content attribute  
+        :return: An ontoggle attribute to be added to your element
+        """  # fmt: skip
 
-    class onvolumechange(BaseAttribute):
-        """
-        Global Attribute attribute: onvolumechange
-        Description: volumechange event handler
-        Value: Event handler content attribute
+        return BaseAttribute("ontoggle", value)
+
+    @staticmethod
+    def onvolumechange(value) -> BaseAttribute:
         """
+        "global" attribute: onvolumechange  
+        volumechange event handler  
 
-        def __init__(self, value):
-            super().__init__("onvolumechange", value)
+        :param value: Event handler content attribute  
+        :return: An onvolumechange attribute to be added to your element
+        """  # fmt: skip
 
-    class onwaiting(BaseAttribute):
-        """
-        Global Attribute attribute: onwaiting
-        Description: waiting event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onvolumechange", value)
+
+    @staticmethod
+    def onwaiting(value) -> BaseAttribute:
         """
+        "global" attribute: onwaiting  
+        waiting event handler  
 
-        def __init__(self, value):
-            super().__init__("onwaiting", value)
+        :param value: Event handler content attribute  
+        :return: An onwaiting attribute to be added to your element
+        """  # fmt: skip
 
-    class onwheel(BaseAttribute):
-        """
-        Global Attribute attribute: onwheel
-        Description: wheel event handler
-        Value: Event handler content attribute
+        return BaseAttribute("onwaiting", value)
+
+    @staticmethod
+    def onwheel(value) -> BaseAttribute:
         """
+        "global" attribute: onwheel  
+        wheel event handler  
+
+        :param value: Event handler content attribute  
+        :return: An onwheel attribute to be added to your element
+        """  # fmt: skip
 
-        def __init__(self, value):
-            super().__init__("onwheel", value)
+        return BaseAttribute("onwheel", value)

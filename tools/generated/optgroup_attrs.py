@@ -3,29 +3,33 @@ from typing import Literal, Union
 
 class OptgroupAttrs:
     """ 
-    This module contains classes for attributes in the <optgroup> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'optgroup' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class disabled(BaseAttribute):
+    @staticmethod
+    def disabled(value: bool) -> BaseAttribute:
         """
-        optgroup attribute: disabled
-        Description: Whether the form control is disabled
-        Value: Boolean attribute
-        """
+        "optgroup" attribute: disabled  
+        Whether the form control is disabled  
+
+        :param value: Boolean attribute  
+        :return: An disabled attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("disabled", value)
+        return BaseAttribute("disabled", value)
             
 
 
-    class label(BaseAttribute):
+    @staticmethod
+    def label(value: str) -> BaseAttribute:
         """
-        optgroup attribute: label
-        Description: User-visible label
-        Value: Text
-        """
+        "optgroup" attribute: label  
+        User-visible label  
+
+        :param value: Text  
+        :return: An label attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("label", value)
+        return BaseAttribute("label", value)
             

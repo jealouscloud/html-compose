@@ -3,76 +3,90 @@ from . import BaseAttribute
 
 class SelectAttrs:
     """
-    This module contains classes for attributes in the <select> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'select' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class autocomplete(BaseAttribute):
+    @staticmethod
+    def autocomplete(value) -> BaseAttribute:
         """
-        select attribute: autocomplete
-        Description: Hint for form autofill feature
-        Value: Autofill field name and related tokens*
-        """
+        "select" attribute: autocomplete  
+        Hint for form autofill feature  
 
-        def __init__(self, value):
-            super().__init__("autocomplete", value)
+        :param value: Autofill field name and related tokens*  
+        :return: An autocomplete attribute to be added to your element
+        """  # fmt: skip
 
-    class disabled(BaseAttribute):
-        """
-        select attribute: disabled
-        Description: Whether the form control is disabled
-        Value: Boolean attribute
-        """
+        return BaseAttribute("autocomplete", value)
 
-        def __init__(self, value: bool):
-            super().__init__("disabled", value)
-
-    class form(BaseAttribute):
+    @staticmethod
+    def disabled(value: bool) -> BaseAttribute:
         """
-        select attribute: form
-        Description: Associates the element with a form element
-        Value: ID*
-        """
+        "select" attribute: disabled  
+        Whether the form control is disabled  
 
-        def __init__(self, value):
-            super().__init__("form", value)
+        :param value: Boolean attribute  
+        :return: An disabled attribute to be added to your element
+        """  # fmt: skip
 
-    class multiple(BaseAttribute):
-        """
-        select attribute: multiple
-        Description: Whether to allow multiple values
-        Value: Boolean attribute
-        """
+        return BaseAttribute("disabled", value)
 
-        def __init__(self, value: bool):
-            super().__init__("multiple", value)
-
-    class name(BaseAttribute):
+    @staticmethod
+    def form(value) -> BaseAttribute:
         """
-        select attribute: name
-        Description: Name of the element to use for form submission and in the form.elements API
-        Value: Text*
-        """
+        "select" attribute: form  
+        Associates the element with a form element  
 
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        :param value: ID*  
+        :return: An form attribute to be added to your element
+        """  # fmt: skip
 
-    class required(BaseAttribute):
-        """
-        select attribute: required
-        Description: Whether the control is required for form submission
-        Value: Boolean attribute
-        """
+        return BaseAttribute("form", value)
 
-        def __init__(self, value: bool):
-            super().__init__("required", value)
-
-    class size(BaseAttribute):
+    @staticmethod
+    def multiple(value: bool) -> BaseAttribute:
         """
-        select attribute: size
-        Description: Size of the control
-        Value: Valid non-negative integer greater than zero
-        """
+        "select" attribute: multiple  
+        Whether to allow multiple values  
 
-        def __init__(self, value):
-            super().__init__("size", value)
+        :param value: Boolean attribute  
+        :return: An multiple attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("multiple", value)
+
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
+        """
+        "select" attribute: name  
+        Name of the element to use for form submission and in the form.elements API  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("name", value)
+
+    @staticmethod
+    def required(value: bool) -> BaseAttribute:
+        """
+        "select" attribute: required  
+        Whether the control is required for form submission  
+
+        :param value: Boolean attribute  
+        :return: An required attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("required", value)
+
+    @staticmethod
+    def size(value) -> BaseAttribute:
+        """
+        "select" attribute: size  
+        Size of the control  
+
+        :param value: Valid non-negative integer greater than zero  
+        :return: An size attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("size", value)

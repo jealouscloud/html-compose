@@ -3,17 +3,19 @@ from typing import Literal, Union
 
 class DataAttrs:
     """ 
-    This module contains classes for attributes in the <data> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'data' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class value(BaseAttribute):
+    @staticmethod
+    def value(value: str) -> BaseAttribute:
         """
-        data attribute: value
-        Description: Machine-readable value
-        Value: Text*
-        """
+        "data" attribute: value  
+        Machine-readable value  
+
+        :param value: Text*  
+        :return: An value attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("value", value)
+        return BaseAttribute("value", value)
             

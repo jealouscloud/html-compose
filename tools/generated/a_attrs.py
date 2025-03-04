@@ -3,101 +3,117 @@ from typing import Literal, Union
 
 class AnchorAttrs:
     """ 
-    This module contains classes for attributes in the <a> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'a' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class download(BaseAttribute):
+    @staticmethod
+    def download(value: str) -> BaseAttribute:
         """
-        a attribute: download
-        Description: Whether to download the resource instead of navigating to it, and its filename if so
-        Value: Text
-        """
+        "a" attribute: download  
+        Whether to download the resource instead of navigating to it, and its filename if so  
+
+        :param value: Text  
+        :return: An download attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("download", value)
+        return BaseAttribute("download", value)
             
 
 
-    class href(BaseAttribute):
+    @staticmethod
+    def href(value) -> BaseAttribute:
         """
-        a attribute: href
-        Description: Address of the hyperlink
-        Value: Valid URL potentially surrounded by spaces
-        """
+        "a" attribute: href  
+        Address of the hyperlink  
+
+        :param value: Valid URL potentially surrounded by spaces  
+        :return: An href attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("href", value)
+        return BaseAttribute("href", value)
             
 
 
-    class hreflang(BaseAttribute):
+    @staticmethod
+    def hreflang(value) -> BaseAttribute:
         """
-        a attribute: hreflang
-        Description: Language of the linked resource
-        Value: Valid BCP 47 language tag
-        """
+        "a" attribute: hreflang  
+        Language of the linked resource  
+
+        :param value: Valid BCP 47 language tag  
+        :return: An hreflang attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("hreflang", value)
+        return BaseAttribute("hreflang", value)
             
 
 
-    class ping(BaseAttribute):
+    @staticmethod
+    def ping(value) -> BaseAttribute:
         """
-        a attribute: ping
-        Description: URLs to ping
-        Value: Set of space-separated tokens consisting of valid non-empty URLs
-        """
+        "a" attribute: ping  
+        URLs to ping  
+
+        :param value: Set of space-separated tokens consisting of valid non-empty URLs  
+        :return: An ping attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("ping", value)
+        return BaseAttribute("ping", value)
             
 
 
-    class referrerpolicy(BaseAttribute):
+    @staticmethod
+    def referrerpolicy(value) -> BaseAttribute:
         """
-        a attribute: referrerpolicy
-        Description: Referrer policy for fetches initiated by the element
-        Value: Referrer policy
-        """
+        "a" attribute: referrerpolicy  
+        Referrer policy for fetches initiated by the element  
+
+        :param value: Referrer policy  
+        :return: An referrerpolicy attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("referrerpolicy", value)
+        return BaseAttribute("referrerpolicy", value)
             
 
 
-    class rel(BaseAttribute):
+    @staticmethod
+    def rel(value) -> BaseAttribute:
         """
-        a attribute: rel
-        Description: Relationship between the location in the document containing the hyperlink and the destination resource
-        Value: Unordered set of unique space-separated tokens*
-        """
+        "a" attribute: rel  
+        Relationship between the location in the document containing the hyperlink and the destination resource  
+
+        :param value: Unordered set of unique space-separated tokens*  
+        :return: An rel attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("rel", value)
+        return BaseAttribute("rel", value)
             
 
 
-    class target(BaseAttribute):
+    @staticmethod
+    def target(value) -> BaseAttribute:
         """
-        a attribute: target
-        Description: Navigable for hyperlink navigation
-        Value: Valid navigable target name or keyword
-        """
+        "a" attribute: target  
+        Navigable for hyperlink navigation  
+
+        :param value: Valid navigable target name or keyword  
+        :return: An target attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("target", value)
+        return BaseAttribute("target", value)
             
 
 
-    class type(BaseAttribute):
+    @staticmethod
+    def type(value) -> BaseAttribute:
         """
-        a attribute: type
-        Description: Hint for the type of the referenced resource
-        Value: Valid MIME type string
-        """
+        "a" attribute: type  
+        Hint for the type of the referenced resource  
+
+        :param value: Valid MIME type string  
+        :return: An type attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("type", value)
+        return BaseAttribute("type", value)
             

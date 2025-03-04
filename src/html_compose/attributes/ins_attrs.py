@@ -3,26 +3,30 @@ from . import BaseAttribute
 
 class InsAttrs:
     """
-    This module contains classes for attributes in the <ins> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'ins' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class cite(BaseAttribute):
+    @staticmethod
+    def cite(value) -> BaseAttribute:
         """
-        ins attribute: cite
-        Description: Link to the source of the quotation or more information about the edit
-        Value: Valid URL potentially surrounded by spaces
-        """
+        "ins" attribute: cite  
+        Link to the source of the quotation or more information about the edit  
 
-        def __init__(self, value):
-            super().__init__("cite", value)
+        :param value: Valid URL potentially surrounded by spaces  
+        :return: An cite attribute to be added to your element
+        """  # fmt: skip
 
-    class datetime(BaseAttribute):
-        """
-        ins attribute: datetime
-        Description: Date and (optionally) time of the change
-        Value: Valid date string with optional time
-        """
+        return BaseAttribute("cite", value)
 
-        def __init__(self, value):
-            super().__init__("datetime", value)
+    @staticmethod
+    def datetime(value) -> BaseAttribute:
+        """
+        "ins" attribute: datetime  
+        Date and (optionally) time of the change  
+
+        :param value: Valid date string with optional time  
+        :return: An datetime attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("datetime", value)

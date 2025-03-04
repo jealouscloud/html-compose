@@ -3,77 +3,89 @@ from typing import Literal, Union
 
 class ObjectAttrs:
     """ 
-    This module contains classes for attributes in the <object> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'object' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class data(BaseAttribute):
+    @staticmethod
+    def data(value) -> BaseAttribute:
         """
-        object attribute: data
-        Description: Address of the resource
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "object" attribute: data  
+        Address of the resource  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An data attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("data", value)
+        return BaseAttribute("data", value)
             
 
 
-    class form(BaseAttribute):
+    @staticmethod
+    def form(value) -> BaseAttribute:
         """
-        object attribute: form
-        Description: Associates the element with a form element
-        Value: ID*
-        """
+        "object" attribute: form  
+        Associates the element with a form element  
+
+        :param value: ID*  
+        :return: An form attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("form", value)
+        return BaseAttribute("form", value)
             
 
 
-    class height(BaseAttribute):
+    @staticmethod
+    def height(value: int) -> BaseAttribute:
         """
-        object attribute: height
-        Description: Vertical dimension
-        Value: Valid non-negative integer
-        """
+        "object" attribute: height  
+        Vertical dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An height attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("height", value)
+        return BaseAttribute("height", value)
             
 
 
-    class name(BaseAttribute):
+    @staticmethod
+    def name(value) -> BaseAttribute:
         """
-        object attribute: name
-        Description: Name of content navigable
-        Value: Valid navigable target name or keyword
-        """
+        "object" attribute: name  
+        Name of content navigable  
+
+        :param value: Valid navigable target name or keyword  
+        :return: An name attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("name", value)
+        return BaseAttribute("name", value)
             
 
 
-    class type(BaseAttribute):
+    @staticmethod
+    def type(value) -> BaseAttribute:
         """
-        object attribute: type
-        Description: Type of embedded resource
-        Value: Valid MIME type string
-        """
+        "object" attribute: type  
+        Type of embedded resource  
+
+        :param value: Valid MIME type string  
+        :return: An type attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("type", value)
+        return BaseAttribute("type", value)
             
 
 
-    class width(BaseAttribute):
+    @staticmethod
+    def width(value: int) -> BaseAttribute:
         """
-        object attribute: width
-        Description: Horizontal dimension
-        Value: Valid non-negative integer
-        """
+        "object" attribute: width  
+        Horizontal dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An width attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("width", value)
+        return BaseAttribute("width", value)
             

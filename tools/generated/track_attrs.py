@@ -3,65 +3,75 @@ from typing import Literal, Union
 
 class TrackAttrs:
     """ 
-    This module contains classes for attributes in the <track> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'track' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class default(BaseAttribute):
+    @staticmethod
+    def default(value: bool) -> BaseAttribute:
         """
-        track attribute: default
-        Description: Enable the track if no other text track is more suitable
-        Value: Boolean attribute
-        """
+        "track" attribute: default  
+        Enable the track if no other text track is more suitable  
+
+        :param value: Boolean attribute  
+        :return: An default attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("default", value)
+        return BaseAttribute("default", value)
             
 
 
-    class kind(BaseAttribute):
+    @staticmethod
+    def kind(value) -> BaseAttribute:
         """
-        track attribute: kind
-        Description: The type of text track
-        Value: ['subtitles', 'captions', 'descriptions', 'chapters', 'metadata']
-        """
+        "track" attribute: kind  
+        The type of text track  
+
+        :param value: ['subtitles', 'captions', 'descriptions', 'chapters', 'metadata']  
+        :return: An kind attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("kind", value)
+        return BaseAttribute("kind", value)
             
 
 
-    class label(BaseAttribute):
+    @staticmethod
+    def label(value: str) -> BaseAttribute:
         """
-        track attribute: label
-        Description: User-visible label
-        Value: Text
-        """
+        "track" attribute: label  
+        User-visible label  
+
+        :param value: Text  
+        :return: An label attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("label", value)
+        return BaseAttribute("label", value)
             
 
 
-    class src(BaseAttribute):
+    @staticmethod
+    def src(value) -> BaseAttribute:
         """
-        track attribute: src
-        Description: Address of the resource
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "track" attribute: src  
+        Address of the resource  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An src attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("src", value)
+        return BaseAttribute("src", value)
             
 
 
-    class srclang(BaseAttribute):
+    @staticmethod
+    def srclang(value) -> BaseAttribute:
         """
-        track attribute: srclang
-        Description: Language of the text track
-        Value: Valid BCP 47 language tag
-        """
+        "track" attribute: srclang  
+        Language of the text track  
+
+        :param value: Valid BCP 47 language tag  
+        :return: An srclang attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("srclang", value)
+        return BaseAttribute("srclang", value)
             

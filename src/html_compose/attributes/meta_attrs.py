@@ -3,56 +3,66 @@ from . import BaseAttribute
 
 class MetaAttrs:
     """
-    This module contains classes for attributes in the <meta> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'meta' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class charset(BaseAttribute):
+    @staticmethod
+    def charset(value) -> BaseAttribute:
         """
-        meta attribute: charset
-        Description: Character encoding declaration
-        Value: ['utf-8']
-        """
+        "meta" attribute: charset  
+        Character encoding declaration  
 
-        def __init__(self, value):
-            super().__init__("charset", value)
+        :param value: ['utf-8']  
+        :return: An charset attribute to be added to your element
+        """  # fmt: skip
 
-    class content(BaseAttribute):
-        """
-        meta attribute: content
-        Description: Value of the element
-        Value: Text*
-        """
+        return BaseAttribute("charset", value)
 
-        def __init__(self, value: str):
-            super().__init__("content", value)
-
-    class http_equiv(BaseAttribute):
+    @staticmethod
+    def content(value: str) -> BaseAttribute:
         """
-        meta attribute: http-equiv
-        Description: Pragma directive
-        Value: ['content-type', 'default-style', 'refresh', 'x-ua-compatible', 'content-security-policy']
-        """
+        "meta" attribute: content  
+        Value of the element  
 
-        def __init__(self, value):
-            super().__init__("http-equiv", value)
+        :param value: Text*  
+        :return: An content attribute to be added to your element
+        """  # fmt: skip
 
-    class media(BaseAttribute):
-        """
-        meta attribute: media
-        Description: Applicable media
-        Value: Valid media query list
-        """
+        return BaseAttribute("content", value)
 
-        def __init__(self, value):
-            super().__init__("media", value)
-
-    class name(BaseAttribute):
+    @staticmethod
+    def http_equiv(value) -> BaseAttribute:
         """
-        meta attribute: name
-        Description: Metadata name
-        Value: Text*
-        """
+        "meta" attribute: http-equiv  
+        Pragma directive  
 
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        :param value: ['content-type', 'default-style', 'refresh', 'x-ua-compatible', 'content-security-policy']  
+        :return: An http-equiv attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("http-equiv", value)
+
+    @staticmethod
+    def media(value) -> BaseAttribute:
+        """
+        "meta" attribute: media  
+        Applicable media  
+
+        :param value: Valid media query list  
+        :return: An media attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("media", value)
+
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
+        """
+        "meta" attribute: name  
+        Metadata name  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("name", value)

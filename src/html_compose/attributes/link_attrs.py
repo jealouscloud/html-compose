@@ -3,176 +3,210 @@ from . import BaseAttribute
 
 class LinkAttrs:
     """
-    This module contains classes for attributes in the <link> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'link' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class as_(BaseAttribute):
+    @staticmethod
+    def as_(value) -> BaseAttribute:
         """
-        link attribute: as
-        Description: Potential destination for a preload request (for rel="preload" and rel="modulepreload")
-        Value: Potential destination, for rel="preload"; script-like destination, for rel="modulepreload"
-        """
+        "link" attribute: as  
+        Potential destination for a preload request (for rel="preload" and rel="modulepreload")  
 
-        def __init__(self, value):
-            super().__init__("as", value)
+        :param value: Potential destination, for rel="preload"; script-like destination, for rel="modulepreload"  
+        :return: An as attribute to be added to your element
+        """  # fmt: skip
 
-    class blocking(BaseAttribute):
-        """
-        link attribute: blocking
-        Description: Whether the element is potentially render-blocking
-        Value: Unordered set of unique space-separated tokens*
-        """
+        return BaseAttribute("as", value)
 
-        def __init__(self, value):
-            super().__init__("blocking", value)
-
-    class color(BaseAttribute):
+    @staticmethod
+    def blocking(value) -> BaseAttribute:
         """
-        link attribute: color
-        Description: Color to use when customizing a site's icon (for rel="mask-icon")
-        Value: CSS <color>
-        """
+        "link" attribute: blocking  
+        Whether the element is potentially render-blocking  
 
-        def __init__(self, value):
-            super().__init__("color", value)
+        :param value: Unordered set of unique space-separated tokens*  
+        :return: An blocking attribute to be added to your element
+        """  # fmt: skip
 
-    class crossorigin(BaseAttribute):
-        """
-        link attribute: crossorigin
-        Description: How the element handles crossorigin requests
-        Value: ['anonymous', 'use-credentials']
-        """
+        return BaseAttribute("blocking", value)
 
-        def __init__(self, value):
-            super().__init__("crossorigin", value)
-
-    class disabled(BaseAttribute):
+    @staticmethod
+    def color(value) -> BaseAttribute:
         """
-        link attribute: disabled
-        Description: Whether the link is disabled
-        Value: Boolean attribute
-        """
+        "link" attribute: color  
+        Color to use when customizing a site's icon (for rel="mask-icon")  
 
-        def __init__(self, value: bool):
-            super().__init__("disabled", value)
+        :param value: CSS <color>  
+        :return: An color attribute to be added to your element
+        """  # fmt: skip
 
-    class fetchpriority(BaseAttribute):
-        """
-        link attribute: fetchpriority
-        Description: Sets the priority for fetches initiated by the element
-        Value: ['auto', 'high', 'low']
-        """
+        return BaseAttribute("color", value)
 
-        def __init__(self, value):
-            super().__init__("fetchpriority", value)
-
-    class href(BaseAttribute):
+    @staticmethod
+    def crossorigin(value) -> BaseAttribute:
         """
-        link attribute: href
-        Description: Address of the hyperlink
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "link" attribute: crossorigin  
+        How the element handles crossorigin requests  
 
-        def __init__(self, value):
-            super().__init__("href", value)
+        :param value: ['anonymous', 'use-credentials']  
+        :return: An crossorigin attribute to be added to your element
+        """  # fmt: skip
 
-    class hreflang(BaseAttribute):
-        """
-        link attribute: hreflang
-        Description: Language of the linked resource
-        Value: Valid BCP 47 language tag
-        """
+        return BaseAttribute("crossorigin", value)
 
-        def __init__(self, value):
-            super().__init__("hreflang", value)
-
-    class imagesizes(BaseAttribute):
+    @staticmethod
+    def disabled(value: bool) -> BaseAttribute:
         """
-        link attribute: imagesizes
-        Description: Image sizes for different page layouts (for rel="preload")
-        Value: Valid source size list
-        """
+        "link" attribute: disabled  
+        Whether the link is disabled  
 
-        def __init__(self, value):
-            super().__init__("imagesizes", value)
+        :param value: Boolean attribute  
+        :return: An disabled attribute to be added to your element
+        """  # fmt: skip
 
-    class imagesrcset(BaseAttribute):
-        """
-        link attribute: imagesrcset
-        Description: Images to use in different situations, e.g., high-resolution displays, small monitors, etc. (for rel="preload")
-        Value: Comma-separated list of image candidate strings
-        """
+        return BaseAttribute("disabled", value)
 
-        def __init__(self, value):
-            super().__init__("imagesrcset", value)
-
-    class integrity(BaseAttribute):
+    @staticmethod
+    def fetchpriority(value) -> BaseAttribute:
         """
-        link attribute: integrity
-        Description: Integrity metadata used in Subresource Integrity checks [SRI]
-        Value: Text
-        """
+        "link" attribute: fetchpriority  
+        Sets the priority for fetches initiated by the element  
 
-        def __init__(self, value: str):
-            super().__init__("integrity", value)
+        :param value: ['auto', 'high', 'low']  
+        :return: An fetchpriority attribute to be added to your element
+        """  # fmt: skip
 
-    class media(BaseAttribute):
-        """
-        link attribute: media
-        Description: Applicable media
-        Value: Valid media query list
-        """
+        return BaseAttribute("fetchpriority", value)
 
-        def __init__(self, value):
-            super().__init__("media", value)
-
-    class referrerpolicy(BaseAttribute):
+    @staticmethod
+    def href(value) -> BaseAttribute:
         """
-        link attribute: referrerpolicy
-        Description: Referrer policy for fetches initiated by the element
-        Value: Referrer policy
-        """
+        "link" attribute: href  
+        Address of the hyperlink  
 
-        def __init__(self, value):
-            super().__init__("referrerpolicy", value)
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An href attribute to be added to your element
+        """  # fmt: skip
 
-    class rel(BaseAttribute):
-        """
-        link attribute: rel
-        Description: Relationship between the document containing the hyperlink and the destination resource
-        Value: Unordered set of unique space-separated tokens*
-        """
+        return BaseAttribute("href", value)
 
-        def __init__(self, value):
-            super().__init__("rel", value)
-
-    class sizes(BaseAttribute):
+    @staticmethod
+    def hreflang(value) -> BaseAttribute:
         """
-        link attribute: sizes
-        Description: Sizes of the icons (for rel="icon")
-        Value: Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of sizes*
-        """
+        "link" attribute: hreflang  
+        Language of the linked resource  
 
-        def __init__(self, value):
-            super().__init__("sizes", value)
+        :param value: Valid BCP 47 language tag  
+        :return: An hreflang attribute to be added to your element
+        """  # fmt: skip
 
-    class title(BaseAttribute):
-        """
-        link attribute: title
-        Description: Title of the link  OR  CSS style sheet set name
-        Value: Text  OR  Text
-        """
+        return BaseAttribute("hreflang", value)
 
-        def __init__(self, value):
-            super().__init__("title", value)
-
-    class type(BaseAttribute):
+    @staticmethod
+    def imagesizes(value) -> BaseAttribute:
         """
-        link attribute: type
-        Description: Hint for the type of the referenced resource
-        Value: Valid MIME type string
-        """
+        "link" attribute: imagesizes  
+        Image sizes for different page layouts (for rel="preload")  
 
-        def __init__(self, value):
-            super().__init__("type", value)
+        :param value: Valid source size list  
+        :return: An imagesizes attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("imagesizes", value)
+
+    @staticmethod
+    def imagesrcset(value) -> BaseAttribute:
+        """
+        "link" attribute: imagesrcset  
+        Images to use in different situations, e.g., high-resolution displays, small monitors, etc. (for rel="preload")  
+
+        :param value: Comma-separated list of image candidate strings  
+        :return: An imagesrcset attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("imagesrcset", value)
+
+    @staticmethod
+    def integrity(value: str) -> BaseAttribute:
+        """
+        "link" attribute: integrity  
+        Integrity metadata used in Subresource Integrity checks [SRI]  
+
+        :param value: Text  
+        :return: An integrity attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("integrity", value)
+
+    @staticmethod
+    def media(value) -> BaseAttribute:
+        """
+        "link" attribute: media  
+        Applicable media  
+
+        :param value: Valid media query list  
+        :return: An media attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("media", value)
+
+    @staticmethod
+    def referrerpolicy(value) -> BaseAttribute:
+        """
+        "link" attribute: referrerpolicy  
+        Referrer policy for fetches initiated by the element  
+
+        :param value: Referrer policy  
+        :return: An referrerpolicy attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("referrerpolicy", value)
+
+    @staticmethod
+    def rel(value) -> BaseAttribute:
+        """
+        "link" attribute: rel  
+        Relationship between the document containing the hyperlink and the destination resource  
+
+        :param value: Unordered set of unique space-separated tokens*  
+        :return: An rel attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("rel", value)
+
+    @staticmethod
+    def sizes(value) -> BaseAttribute:
+        """
+        "link" attribute: sizes  
+        Sizes of the icons (for rel="icon")  
+
+        :param value: Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of sizes*  
+        :return: An sizes attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("sizes", value)
+
+    @staticmethod
+    def title(value) -> BaseAttribute:
+        """
+        "link" attribute: title  
+        Title of the link  OR  CSS style sheet set name  
+
+        :param value: Text  OR  Text  
+        :return: An title attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("title", value)
+
+    @staticmethod
+    def type(value) -> BaseAttribute:
+        """
+        "link" attribute: type  
+        Hint for the type of the referenced resource  
+
+        :param value: Valid MIME type string  
+        :return: An type attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("type", value)

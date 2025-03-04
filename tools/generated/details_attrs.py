@@ -3,29 +3,33 @@ from typing import Literal, Union
 
 class DetailsAttrs:
     """ 
-    This module contains classes for attributes in the <details> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'details' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class name(BaseAttribute):
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
         """
-        details attribute: name
-        Description: Name of group of mutually-exclusive details elements
-        Value: Text*
-        """
+        "details" attribute: name  
+        Name of group of mutually-exclusive details elements  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        return BaseAttribute("name", value)
             
 
 
-    class open(BaseAttribute):
+    @staticmethod
+    def open(value: bool) -> BaseAttribute:
         """
-        details attribute: open
-        Description: Whether the details are visible
-        Value: Boolean attribute
-        """
+        "details" attribute: open  
+        Whether the details are visible  
+
+        :param value: Boolean attribute  
+        :return: An open attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("open", value)
+        return BaseAttribute("open", value)
             

@@ -3,65 +3,75 @@ from typing import Literal, Union
 
 class MetaAttrs:
     """ 
-    This module contains classes for attributes in the <meta> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'meta' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class charset(BaseAttribute):
+    @staticmethod
+    def charset(value) -> BaseAttribute:
         """
-        meta attribute: charset
-        Description: Character encoding declaration
-        Value: ['utf-8']
-        """
+        "meta" attribute: charset  
+        Character encoding declaration  
+
+        :param value: ['utf-8']  
+        :return: An charset attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("charset", value)
+        return BaseAttribute("charset", value)
             
 
 
-    class content(BaseAttribute):
+    @staticmethod
+    def content(value: str) -> BaseAttribute:
         """
-        meta attribute: content
-        Description: Value of the element
-        Value: Text*
-        """
+        "meta" attribute: content  
+        Value of the element  
+
+        :param value: Text*  
+        :return: An content attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("content", value)
+        return BaseAttribute("content", value)
             
 
 
-    class http_equiv(BaseAttribute):
+    @staticmethod
+    def http_equiv(value) -> BaseAttribute:
         """
-        meta attribute: http-equiv
-        Description: Pragma directive
-        Value: ['content-type', 'default-style', 'refresh', 'x-ua-compatible', 'content-security-policy']
-        """
+        "meta" attribute: http-equiv  
+        Pragma directive  
+
+        :param value: ['content-type', 'default-style', 'refresh', 'x-ua-compatible', 'content-security-policy']  
+        :return: An http-equiv attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("http-equiv", value)
+        return BaseAttribute("http-equiv", value)
             
 
 
-    class media(BaseAttribute):
+    @staticmethod
+    def media(value) -> BaseAttribute:
         """
-        meta attribute: media
-        Description: Applicable media
-        Value: Valid media query list
-        """
+        "meta" attribute: media  
+        Applicable media  
+
+        :param value: Valid media query list  
+        :return: An media attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("media", value)
+        return BaseAttribute("media", value)
             
 
 
-    class name(BaseAttribute):
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
         """
-        meta attribute: name
-        Description: Metadata name
-        Value: Text*
-        """
+        "meta" attribute: name  
+        Metadata name  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        return BaseAttribute("name", value)
             

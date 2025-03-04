@@ -3,101 +3,117 @@ from typing import Literal, Union
 
 class FormAttrs:
     """ 
-    This module contains classes for attributes in the <form> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'form' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class accept_charset(BaseAttribute):
+    @staticmethod
+    def accept_charset(value) -> BaseAttribute:
         """
-        form attribute: accept-charset
-        Description: Character encodings to use for form submission
-        Value: ASCII case-insensitive match for "UTF-8"
-        """
+        "form" attribute: accept-charset  
+        Character encodings to use for form submission  
+
+        :param value: ASCII case-insensitive match for "UTF-8"  
+        :return: An accept-charset attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("accept-charset", value)
+        return BaseAttribute("accept-charset", value)
             
 
 
-    class action(BaseAttribute):
+    @staticmethod
+    def action(value) -> BaseAttribute:
         """
-        form attribute: action
-        Description: URL to use for form submission
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "form" attribute: action  
+        URL to use for form submission  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An action attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("action", value)
+        return BaseAttribute("action", value)
             
 
 
-    class autocomplete(BaseAttribute):
+    @staticmethod
+    def autocomplete(value) -> BaseAttribute:
         """
-        form attribute: autocomplete
-        Description: Default setting for autofill feature for controls in the form
-        Value: ['on', 'off']
-        """
+        "form" attribute: autocomplete  
+        Default setting for autofill feature for controls in the form  
+
+        :param value: ['on', 'off']  
+        :return: An autocomplete attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("autocomplete", value)
+        return BaseAttribute("autocomplete", value)
             
 
 
-    class enctype(BaseAttribute):
+    @staticmethod
+    def enctype(value) -> BaseAttribute:
         """
-        form attribute: enctype
-        Description: Entry list encoding type to use for form submission
-        Value: ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']
-        """
+        "form" attribute: enctype  
+        Entry list encoding type to use for form submission  
+
+        :param value: ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']  
+        :return: An enctype attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("enctype", value)
+        return BaseAttribute("enctype", value)
             
 
 
-    class method(BaseAttribute):
+    @staticmethod
+    def method(value) -> BaseAttribute:
         """
-        form attribute: method
-        Description: Variant to use for form submission
-        Value: ['GET', 'POST', 'dialog']
-        """
+        "form" attribute: method  
+        Variant to use for form submission  
+
+        :param value: ['GET', 'POST', 'dialog']  
+        :return: An method attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("method", value)
+        return BaseAttribute("method", value)
             
 
 
-    class name(BaseAttribute):
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
         """
-        form attribute: name
-        Description: Name of form to use in the document.forms API
-        Value: Text*
-        """
+        "form" attribute: name  
+        Name of form to use in the document.forms API  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        return BaseAttribute("name", value)
             
 
 
-    class novalidate(BaseAttribute):
+    @staticmethod
+    def novalidate(value: bool) -> BaseAttribute:
         """
-        form attribute: novalidate
-        Description: Bypass form control validation for form submission
-        Value: Boolean attribute
-        """
+        "form" attribute: novalidate  
+        Bypass form control validation for form submission  
+
+        :param value: Boolean attribute  
+        :return: An novalidate attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("novalidate", value)
+        return BaseAttribute("novalidate", value)
             
 
 
-    class target(BaseAttribute):
+    @staticmethod
+    def target(value) -> BaseAttribute:
         """
-        form attribute: target
-        Description: Navigable for form submission
-        Value: Valid navigable target name or keyword
-        """
+        "form" attribute: target  
+        Navigable for form submission  
+
+        :param value: Valid navigable target name or keyword  
+        :return: An target attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("target", value)
+        return BaseAttribute("target", value)
             

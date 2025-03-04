@@ -3,76 +3,90 @@ from . import BaseAttribute
 
 class AudioAttrs:
     """
-    This module contains classes for attributes in the <audio> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'audio' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class autoplay(BaseAttribute):
+    @staticmethod
+    def autoplay(value: bool) -> BaseAttribute:
         """
-        audio attribute: autoplay
-        Description: Hint that the media resource can be started automatically when the page is loaded
-        Value: Boolean attribute
-        """
+        "audio" attribute: autoplay  
+        Hint that the media resource can be started automatically when the page is loaded  
 
-        def __init__(self, value: bool):
-            super().__init__("autoplay", value)
+        :param value: Boolean attribute  
+        :return: An autoplay attribute to be added to your element
+        """  # fmt: skip
 
-    class controls(BaseAttribute):
-        """
-        audio attribute: controls
-        Description: Show user agent controls
-        Value: Boolean attribute
-        """
+        return BaseAttribute("autoplay", value)
 
-        def __init__(self, value: bool):
-            super().__init__("controls", value)
-
-    class crossorigin(BaseAttribute):
+    @staticmethod
+    def controls(value: bool) -> BaseAttribute:
         """
-        audio attribute: crossorigin
-        Description: How the element handles crossorigin requests
-        Value: ['anonymous', 'use-credentials']
-        """
+        "audio" attribute: controls  
+        Show user agent controls  
 
-        def __init__(self, value):
-            super().__init__("crossorigin", value)
+        :param value: Boolean attribute  
+        :return: An controls attribute to be added to your element
+        """  # fmt: skip
 
-    class loop(BaseAttribute):
-        """
-        audio attribute: loop
-        Description: Whether to loop the media resource
-        Value: Boolean attribute
-        """
+        return BaseAttribute("controls", value)
 
-        def __init__(self, value: bool):
-            super().__init__("loop", value)
-
-    class muted(BaseAttribute):
+    @staticmethod
+    def crossorigin(value) -> BaseAttribute:
         """
-        audio attribute: muted
-        Description: Whether to mute the media resource by default
-        Value: Boolean attribute
-        """
+        "audio" attribute: crossorigin  
+        How the element handles crossorigin requests  
 
-        def __init__(self, value: bool):
-            super().__init__("muted", value)
+        :param value: ['anonymous', 'use-credentials']  
+        :return: An crossorigin attribute to be added to your element
+        """  # fmt: skip
 
-    class preload(BaseAttribute):
-        """
-        audio attribute: preload
-        Description: Hints how much buffering the media resource will likely need
-        Value: ['none', 'metadata', 'auto']
-        """
+        return BaseAttribute("crossorigin", value)
 
-        def __init__(self, value):
-            super().__init__("preload", value)
-
-    class src(BaseAttribute):
+    @staticmethod
+    def loop(value: bool) -> BaseAttribute:
         """
-        audio attribute: src
-        Description: Address of the resource
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "audio" attribute: loop  
+        Whether to loop the media resource  
 
-        def __init__(self, value):
-            super().__init__("src", value)
+        :param value: Boolean attribute  
+        :return: An loop attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("loop", value)
+
+    @staticmethod
+    def muted(value: bool) -> BaseAttribute:
+        """
+        "audio" attribute: muted  
+        Whether to mute the media resource by default  
+
+        :param value: Boolean attribute  
+        :return: An muted attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("muted", value)
+
+    @staticmethod
+    def preload(value) -> BaseAttribute:
+        """
+        "audio" attribute: preload  
+        Hints how much buffering the media resource will likely need  
+
+        :param value: ['none', 'metadata', 'auto']  
+        :return: An preload attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("preload", value)
+
+    @staticmethod
+    def src(value) -> BaseAttribute:
+        """
+        "audio" attribute: src  
+        Address of the resource  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An src attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("src", value)

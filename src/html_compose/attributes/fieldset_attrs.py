@@ -3,36 +3,42 @@ from . import BaseAttribute
 
 class FieldsetAttrs:
     """
-    This module contains classes for attributes in the <fieldset> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'fieldset' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class disabled(BaseAttribute):
+    @staticmethod
+    def disabled(value: bool) -> BaseAttribute:
         """
-        fieldset attribute: disabled
-        Description: Whether the descendant form controls, except any inside legend, are disabled
-        Value: Boolean attribute
-        """
+        "fieldset" attribute: disabled  
+        Whether the descendant form controls, except any inside legend, are disabled  
 
-        def __init__(self, value: bool):
-            super().__init__("disabled", value)
+        :param value: Boolean attribute  
+        :return: An disabled attribute to be added to your element
+        """  # fmt: skip
 
-    class form(BaseAttribute):
-        """
-        fieldset attribute: form
-        Description: Associates the element with a form element
-        Value: ID*
-        """
+        return BaseAttribute("disabled", value)
 
-        def __init__(self, value):
-            super().__init__("form", value)
-
-    class name(BaseAttribute):
+    @staticmethod
+    def form(value) -> BaseAttribute:
         """
-        fieldset attribute: name
-        Description: Name of the element to use for form submission and in the form.elements API
-        Value: Text*
-        """
+        "fieldset" attribute: form  
+        Associates the element with a form element  
 
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        :param value: ID*  
+        :return: An form attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("form", value)
+
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
+        """
+        "fieldset" attribute: name  
+        Name of the element to use for form submission and in the form.elements API  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("name", value)

@@ -15,7 +15,10 @@ div(class_={
     "flex": True,
     "error": is_error == True
 })
-div(class_=div.class("flex"))
+div(class_=div.hint.class_("flex"))
+
+div(class_=div._.class_("flex"))
+# div._ is a syntax shorthand for div.attrhint
 
 # attrs dict syntax
 div(attrs={"class": "flex"})
@@ -26,12 +29,12 @@ div(attrs={"class": {
 }})
 
 # Also technically works
-div(attrs={"class": div.class("flex")})
+div(attrs={"class": div.hint.class_("flex")})
 
 # attrs list syntax
-div(attrs=[div.class("flex")])
-div(attrs=[div.class(["flex", "items-center"])])
-div(attrs=[div.class({
+div(attrs=[div.hint.class_("flex")])
+div(attrs=[div.hint.class_(["flex", "items-center"])])
+div(attrs=[div.hint.class_({
     "flex": True,
     "error": is_error == True
 })])
@@ -51,7 +54,7 @@ is_red = False
 # truthy = rendered
 # falsey = ignored
 
-div.class_({
+div.hint.class_({
         'red': is_red,
         'blue': not is_red
     }
@@ -59,10 +62,10 @@ div.class_({
 # "blue"
 
 # list of values (joined by whitespace)
-div.class_(["red", "center"])
+div.hint.class_(["red", "center"])
 # "red center"
 
-div.class_("red")
+div._.class_("red")
 # "red"
 ```
 
@@ -86,9 +89,9 @@ from html_compose.elements import a, div
 div(attrs=[div.class_("red")])
 
 a(attrs=[
-    a.href("https://google.com"),
-    a.tabindex(1),
-    a.class_(["flex", "flex-col"])
+    a.hint.href("https://google.com"),
+    a.hint.tabindex(1),
+    a.hint.class_(["flex", "flex-col"])
 ]
 )
 
@@ -101,7 +104,7 @@ div(attrs=['class="red"']) # ❌
 
 ```python
 a(attrs={
-    "href": a.href("https://google.com")
+    "href": a.hint.href("https://google.com")
     "tabindex': 1
 })
 
@@ -143,6 +146,8 @@ Anything found in the HTML specification document is available in an element's c
 
 i.e. the `img` class has a cousin class `ImgAttrs`.
 
-We can access the definition of an attribute for that element via `ImgAttrs.$attr` i.e. `ImgAttrs.alt(value="demo")`. Each element, like `img`, is an inheritor of its sibling attrs class  - `img` inherits `ImgAttrs` so you can access the same definition via `img.alt("...")`.
+We can access the definition of an attribute for that element via `ImgAttrs.$attr` i.e. `ImgAttrs.alt(value="demo")`. Each element, like `img`, has a child class which is an inheritor of its sibling attrs class  - `img.hint` inherits `ImgAttrs` so you can access the same definition via `img.hint.alt("...")`. 
+
+Additionally, there's a `_` shorthand for `img.hint`. `img._` is just a reference to `img.hint`.
 
 The purpose of this system is to provide full type hints.
