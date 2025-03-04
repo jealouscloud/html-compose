@@ -194,3 +194,8 @@ def test_float_precision():
     h.elements.BaseElement.FLOAT_PRECISION = 0
     d = h.h1[num].render()
     assert d == "<h1>0</h1>"
+
+
+def test_list_attribute():
+    el = div({"class": ["a", "b", "c"]})
+    assert el.render() == '<div class="a b c"></div>'
