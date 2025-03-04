@@ -14,16 +14,21 @@ def generate_class_template(
     value_desc,
     type_data,
 ):
+    safe_class_name = safe_class_name.lower()
+    if element_name == "Global Attribute":
+        element_name = "global"
     template = f'''
-    class {safe_class_name}(BaseAttribute):
+    @staticmethod
+    def {safe_class_name.lower()}(value{type_data}) -> BaseAttribute:
         """
-        {element_name} attribute: {attr_name}
-        Description: {attr_desc}
-        Value: {value_desc}
-        """
+        "{element_name}" attribute: {attr_name}  
+        {attr_desc}  
+
+        :param value: {value_desc}  
+        :return: An {attr_name} attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value{type_data}):
-            super().__init__("{attr_name}", value)
+        return BaseAttribute("{attr_name}", value)
             '''
     return template
 
@@ -115,8 +120,8 @@ def other_attrs():
             "",
             f"class {attr_class_name}:",
             '    """ ',
-            f"    This module contains classes for attributes in the <{element}> element.",
-            "    Which is inherited by the element so the element can be a reference to our attributes",
+            f"    This module contains functions for attributes in the '{element}' element.",
+            "    Which is inherited by a class so we can generate type hints",
             '    """ ',
             "    ",
         ]

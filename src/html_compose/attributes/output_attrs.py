@@ -3,36 +3,42 @@ from . import BaseAttribute
 
 class OutputAttrs:
     """
-    This module contains classes for attributes in the <output> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'output' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class for_(BaseAttribute):
+    @staticmethod
+    def for_(value) -> BaseAttribute:
         """
-        output attribute: for
-        Description: Specifies controls from which the output was calculated
-        Value: Unordered set of unique space-separated tokens consisting of IDs*
-        """
+        "output" attribute: for  
+        Specifies controls from which the output was calculated  
 
-        def __init__(self, value):
-            super().__init__("for", value)
+        :param value: Unordered set of unique space-separated tokens consisting of IDs*  
+        :return: An for attribute to be added to your element
+        """  # fmt: skip
 
-    class form(BaseAttribute):
-        """
-        output attribute: form
-        Description: Associates the element with a form element
-        Value: ID*
-        """
+        return BaseAttribute("for", value)
 
-        def __init__(self, value):
-            super().__init__("form", value)
-
-    class name(BaseAttribute):
+    @staticmethod
+    def form(value) -> BaseAttribute:
         """
-        output attribute: name
-        Description: Name of the element to use for form submission and in the form.elements API
-        Value: Text*
-        """
+        "output" attribute: form  
+        Associates the element with a form element  
 
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        :param value: ID*  
+        :return: An form attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("form", value)
+
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
+        """
+        "output" attribute: name  
+        Name of the element to use for form submission and in the form.elements API  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("name", value)

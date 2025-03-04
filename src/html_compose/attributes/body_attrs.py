@@ -3,186 +3,222 @@ from . import BaseAttribute
 
 class BodyAttrs:
     """
-    This module contains classes for attributes in the <body> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'body' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class onafterprint(BaseAttribute):
+    @staticmethod
+    def onafterprint(value) -> BaseAttribute:
         """
-        body attribute: onafterprint
-        Description: afterprint event handler for Window object
-        Value: Event handler content attribute
-        """
+        "body" attribute: onafterprint  
+        afterprint event handler for Window object  
 
-        def __init__(self, value):
-            super().__init__("onafterprint", value)
+        :param value: Event handler content attribute  
+        :return: An onafterprint attribute to be added to your element
+        """  # fmt: skip
 
-    class onbeforeprint(BaseAttribute):
-        """
-        body attribute: onbeforeprint
-        Description: beforeprint event handler for Window object
-        Value: Event handler content attribute
-        """
+        return BaseAttribute("onafterprint", value)
 
-        def __init__(self, value):
-            super().__init__("onbeforeprint", value)
-
-    class onbeforeunload(BaseAttribute):
+    @staticmethod
+    def onbeforeprint(value) -> BaseAttribute:
         """
-        body attribute: onbeforeunload
-        Description: beforeunload event handler for Window object
-        Value: Event handler content attribute
-        """
+        "body" attribute: onbeforeprint  
+        beforeprint event handler for Window object  
 
-        def __init__(self, value):
-            super().__init__("onbeforeunload", value)
+        :param value: Event handler content attribute  
+        :return: An onbeforeprint attribute to be added to your element
+        """  # fmt: skip
 
-    class onhashchange(BaseAttribute):
-        """
-        body attribute: onhashchange
-        Description: hashchange event handler for Window object
-        Value: Event handler content attribute
-        """
+        return BaseAttribute("onbeforeprint", value)
 
-        def __init__(self, value):
-            super().__init__("onhashchange", value)
-
-    class onlanguagechange(BaseAttribute):
+    @staticmethod
+    def onbeforeunload(value) -> BaseAttribute:
         """
-        body attribute: onlanguagechange
-        Description: languagechange event handler for Window object
-        Value: Event handler content attribute
-        """
+        "body" attribute: onbeforeunload  
+        beforeunload event handler for Window object  
 
-        def __init__(self, value):
-            super().__init__("onlanguagechange", value)
+        :param value: Event handler content attribute  
+        :return: An onbeforeunload attribute to be added to your element
+        """  # fmt: skip
 
-    class onmessage(BaseAttribute):
-        """
-        body attribute: onmessage
-        Description: message event handler for Window object
-        Value: Event handler content attribute
-        """
+        return BaseAttribute("onbeforeunload", value)
 
-        def __init__(self, value):
-            super().__init__("onmessage", value)
-
-    class onmessageerror(BaseAttribute):
+    @staticmethod
+    def onhashchange(value) -> BaseAttribute:
         """
-        body attribute: onmessageerror
-        Description: messageerror event handler for Window object
-        Value: Event handler content attribute
-        """
+        "body" attribute: onhashchange  
+        hashchange event handler for Window object  
 
-        def __init__(self, value):
-            super().__init__("onmessageerror", value)
+        :param value: Event handler content attribute  
+        :return: An onhashchange attribute to be added to your element
+        """  # fmt: skip
 
-    class onoffline(BaseAttribute):
-        """
-        body attribute: onoffline
-        Description: offline event handler for Window object
-        Value: Event handler content attribute
-        """
+        return BaseAttribute("onhashchange", value)
 
-        def __init__(self, value):
-            super().__init__("onoffline", value)
-
-    class ononline(BaseAttribute):
+    @staticmethod
+    def onlanguagechange(value) -> BaseAttribute:
         """
-        body attribute: ononline
-        Description: online event handler for Window object
-        Value: Event handler content attribute
-        """
+        "body" attribute: onlanguagechange  
+        languagechange event handler for Window object  
 
-        def __init__(self, value):
-            super().__init__("ononline", value)
+        :param value: Event handler content attribute  
+        :return: An onlanguagechange attribute to be added to your element
+        """  # fmt: skip
 
-    class onpagehide(BaseAttribute):
-        """
-        body attribute: onpagehide
-        Description: pagehide event handler for Window object
-        Value: Event handler content attribute
-        """
+        return BaseAttribute("onlanguagechange", value)
 
-        def __init__(self, value):
-            super().__init__("onpagehide", value)
-
-    class onpagereveal(BaseAttribute):
+    @staticmethod
+    def onmessage(value) -> BaseAttribute:
         """
-        body attribute: onpagereveal
-        Description: pagereveal event handler for Window object
-        Value: Event handler content attribute
-        """
+        "body" attribute: onmessage  
+        message event handler for Window object  
 
-        def __init__(self, value):
-            super().__init__("onpagereveal", value)
+        :param value: Event handler content attribute  
+        :return: An onmessage attribute to be added to your element
+        """  # fmt: skip
 
-    class onpageshow(BaseAttribute):
-        """
-        body attribute: onpageshow
-        Description: pageshow event handler for Window object
-        Value: Event handler content attribute
-        """
+        return BaseAttribute("onmessage", value)
 
-        def __init__(self, value):
-            super().__init__("onpageshow", value)
-
-    class onpageswap(BaseAttribute):
+    @staticmethod
+    def onmessageerror(value) -> BaseAttribute:
         """
-        body attribute: onpageswap
-        Description: pageswap event handler for Window object
-        Value: Event handler content attribute
-        """
+        "body" attribute: onmessageerror  
+        messageerror event handler for Window object  
 
-        def __init__(self, value):
-            super().__init__("onpageswap", value)
+        :param value: Event handler content attribute  
+        :return: An onmessageerror attribute to be added to your element
+        """  # fmt: skip
 
-    class onpopstate(BaseAttribute):
-        """
-        body attribute: onpopstate
-        Description: popstate event handler for Window object
-        Value: Event handler content attribute
-        """
+        return BaseAttribute("onmessageerror", value)
 
-        def __init__(self, value):
-            super().__init__("onpopstate", value)
-
-    class onrejectionhandled(BaseAttribute):
+    @staticmethod
+    def onoffline(value) -> BaseAttribute:
         """
-        body attribute: onrejectionhandled
-        Description: rejectionhandled event handler for Window object
-        Value: Event handler content attribute
-        """
+        "body" attribute: onoffline  
+        offline event handler for Window object  
 
-        def __init__(self, value):
-            super().__init__("onrejectionhandled", value)
+        :param value: Event handler content attribute  
+        :return: An onoffline attribute to be added to your element
+        """  # fmt: skip
 
-    class onstorage(BaseAttribute):
-        """
-        body attribute: onstorage
-        Description: storage event handler for Window object
-        Value: Event handler content attribute
-        """
+        return BaseAttribute("onoffline", value)
 
-        def __init__(self, value):
-            super().__init__("onstorage", value)
-
-    class onunhandledrejection(BaseAttribute):
+    @staticmethod
+    def ononline(value) -> BaseAttribute:
         """
-        body attribute: onunhandledrejection
-        Description: unhandledrejection event handler for Window object
-        Value: Event handler content attribute
-        """
+        "body" attribute: ononline  
+        online event handler for Window object  
 
-        def __init__(self, value):
-            super().__init__("onunhandledrejection", value)
+        :param value: Event handler content attribute  
+        :return: An ononline attribute to be added to your element
+        """  # fmt: skip
 
-    class onunload(BaseAttribute):
-        """
-        body attribute: onunload
-        Description: unload event handler for Window object
-        Value: Event handler content attribute
-        """
+        return BaseAttribute("ononline", value)
 
-        def __init__(self, value):
-            super().__init__("onunload", value)
+    @staticmethod
+    def onpagehide(value) -> BaseAttribute:
+        """
+        "body" attribute: onpagehide  
+        pagehide event handler for Window object  
+
+        :param value: Event handler content attribute  
+        :return: An onpagehide attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("onpagehide", value)
+
+    @staticmethod
+    def onpagereveal(value) -> BaseAttribute:
+        """
+        "body" attribute: onpagereveal  
+        pagereveal event handler for Window object  
+
+        :param value: Event handler content attribute  
+        :return: An onpagereveal attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("onpagereveal", value)
+
+    @staticmethod
+    def onpageshow(value) -> BaseAttribute:
+        """
+        "body" attribute: onpageshow  
+        pageshow event handler for Window object  
+
+        :param value: Event handler content attribute  
+        :return: An onpageshow attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("onpageshow", value)
+
+    @staticmethod
+    def onpageswap(value) -> BaseAttribute:
+        """
+        "body" attribute: onpageswap  
+        pageswap event handler for Window object  
+
+        :param value: Event handler content attribute  
+        :return: An onpageswap attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("onpageswap", value)
+
+    @staticmethod
+    def onpopstate(value) -> BaseAttribute:
+        """
+        "body" attribute: onpopstate  
+        popstate event handler for Window object  
+
+        :param value: Event handler content attribute  
+        :return: An onpopstate attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("onpopstate", value)
+
+    @staticmethod
+    def onrejectionhandled(value) -> BaseAttribute:
+        """
+        "body" attribute: onrejectionhandled  
+        rejectionhandled event handler for Window object  
+
+        :param value: Event handler content attribute  
+        :return: An onrejectionhandled attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("onrejectionhandled", value)
+
+    @staticmethod
+    def onstorage(value) -> BaseAttribute:
+        """
+        "body" attribute: onstorage  
+        storage event handler for Window object  
+
+        :param value: Event handler content attribute  
+        :return: An onstorage attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("onstorage", value)
+
+    @staticmethod
+    def onunhandledrejection(value) -> BaseAttribute:
+        """
+        "body" attribute: onunhandledrejection  
+        unhandledrejection event handler for Window object  
+
+        :param value: Event handler content attribute  
+        :return: An onunhandledrejection attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("onunhandledrejection", value)
+
+    @staticmethod
+    def onunload(value) -> BaseAttribute:
+        """
+        "body" attribute: onunload  
+        unload event handler for Window object  
+
+        :param value: Event handler content attribute  
+        :return: An onunload attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("onunload", value)

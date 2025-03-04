@@ -3,46 +3,54 @@ from . import BaseAttribute
 
 class EmbedAttrs:
     """
-    This module contains classes for attributes in the <embed> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'embed' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class height(BaseAttribute):
+    @staticmethod
+    def height(value: int) -> BaseAttribute:
         """
-        embed attribute: height
-        Description: Vertical dimension
-        Value: Valid non-negative integer
-        """
+        "embed" attribute: height  
+        Vertical dimension  
 
-        def __init__(self, value: int):
-            super().__init__("height", value)
+        :param value: Valid non-negative integer  
+        :return: An height attribute to be added to your element
+        """  # fmt: skip
 
-    class src(BaseAttribute):
-        """
-        embed attribute: src
-        Description: Address of the resource
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        return BaseAttribute("height", value)
 
-        def __init__(self, value):
-            super().__init__("src", value)
-
-    class type(BaseAttribute):
+    @staticmethod
+    def src(value) -> BaseAttribute:
         """
-        embed attribute: type
-        Description: Type of embedded resource
-        Value: Valid MIME type string
-        """
+        "embed" attribute: src  
+        Address of the resource  
 
-        def __init__(self, value):
-            super().__init__("type", value)
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An src attribute to be added to your element
+        """  # fmt: skip
 
-    class width(BaseAttribute):
-        """
-        embed attribute: width
-        Description: Horizontal dimension
-        Value: Valid non-negative integer
-        """
+        return BaseAttribute("src", value)
 
-        def __init__(self, value: int):
-            super().__init__("width", value)
+    @staticmethod
+    def type(value) -> BaseAttribute:
+        """
+        "embed" attribute: type  
+        Type of embedded resource  
+
+        :param value: Valid MIME type string  
+        :return: An type attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("type", value)
+
+    @staticmethod
+    def width(value: int) -> BaseAttribute:
+        """
+        "embed" attribute: width  
+        Horizontal dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An width attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("width", value)

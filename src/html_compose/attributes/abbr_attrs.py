@@ -3,16 +3,18 @@ from . import BaseAttribute
 
 class AbbrAttrs:
     """
-    This module contains classes for attributes in the <abbr> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'abbr' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class title(BaseAttribute):
+    @staticmethod
+    def title(value: str) -> BaseAttribute:
         """
-        abbr attribute: title
-        Description: Full term or expansion of abbreviation
-        Value: Text
-        """
+        "abbr" attribute: title  
+        Full term or expansion of abbreviation  
 
-        def __init__(self, value: str):
-            super().__init__("title", value)
+        :param value: Text  
+        :return: An title attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("title", value)

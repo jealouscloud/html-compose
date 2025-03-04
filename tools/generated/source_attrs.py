@@ -3,89 +3,103 @@ from typing import Literal, Union
 
 class SourceAttrs:
     """ 
-    This module contains classes for attributes in the <source> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'source' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class height(BaseAttribute):
+    @staticmethod
+    def height(value: int) -> BaseAttribute:
         """
-        source attribute: height
-        Description: Vertical dimension
-        Value: Valid non-negative integer
-        """
+        "source" attribute: height  
+        Vertical dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An height attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("height", value)
+        return BaseAttribute("height", value)
             
 
 
-    class media(BaseAttribute):
+    @staticmethod
+    def media(value) -> BaseAttribute:
         """
-        source attribute: media
-        Description: Applicable media
-        Value: Valid media query list
-        """
+        "source" attribute: media  
+        Applicable media  
+
+        :param value: Valid media query list  
+        :return: An media attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("media", value)
+        return BaseAttribute("media", value)
             
 
 
-    class sizes(BaseAttribute):
+    @staticmethod
+    def sizes(value) -> BaseAttribute:
         """
-        source attribute: sizes
-        Description: Image sizes for different page layouts
-        Value: Valid source size list
-        """
+        "source" attribute: sizes  
+        Image sizes for different page layouts  
+
+        :param value: Valid source size list  
+        :return: An sizes attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("sizes", value)
+        return BaseAttribute("sizes", value)
             
 
 
-    class src(BaseAttribute):
+    @staticmethod
+    def src(value) -> BaseAttribute:
         """
-        source attribute: src
-        Description: Address of the resource
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "source" attribute: src  
+        Address of the resource  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An src attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("src", value)
+        return BaseAttribute("src", value)
             
 
 
-    class srcset(BaseAttribute):
+    @staticmethod
+    def srcset(value) -> BaseAttribute:
         """
-        source attribute: srcset
-        Description: Images to use in different situations, e.g., high-resolution displays, small monitors, etc.
-        Value: Comma-separated list of image candidate strings
-        """
+        "source" attribute: srcset  
+        Images to use in different situations, e.g., high-resolution displays, small monitors, etc.  
+
+        :param value: Comma-separated list of image candidate strings  
+        :return: An srcset attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("srcset", value)
+        return BaseAttribute("srcset", value)
             
 
 
-    class type(BaseAttribute):
+    @staticmethod
+    def type(value) -> BaseAttribute:
         """
-        source attribute: type
-        Description: Type of embedded resource
-        Value: Valid MIME type string
-        """
+        "source" attribute: type  
+        Type of embedded resource  
+
+        :param value: Valid MIME type string  
+        :return: An type attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("type", value)
+        return BaseAttribute("type", value)
             
 
 
-    class width(BaseAttribute):
+    @staticmethod
+    def width(value: int) -> BaseAttribute:
         """
-        source attribute: width
-        Description: Horizontal dimension
-        Value: Valid non-negative integer
-        """
+        "source" attribute: width  
+        Horizontal dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An width attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("width", value)
+        return BaseAttribute("width", value)
             

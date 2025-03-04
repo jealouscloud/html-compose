@@ -3,26 +3,30 @@ from . import BaseAttribute
 
 class ProgressAttrs:
     """
-    This module contains classes for attributes in the <progress> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'progress' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class max(BaseAttribute):
+    @staticmethod
+    def max(value: float) -> BaseAttribute:
         """
-        progress attribute: max
-        Description: Upper bound of range
-        Value: Valid floating-point number*
-        """
+        "progress" attribute: max  
+        Upper bound of range  
 
-        def __init__(self, value: float):
-            super().__init__("max", value)
+        :param value: Valid floating-point number*  
+        :return: An max attribute to be added to your element
+        """  # fmt: skip
 
-    class value(BaseAttribute):
-        """
-        progress attribute: value
-        Description: Current value of the element
-        Value: Valid floating-point number
-        """
+        return BaseAttribute("max", value)
 
-        def __init__(self, value: float):
-            super().__init__("value", value)
+    @staticmethod
+    def value(value: float) -> BaseAttribute:
+        """
+        "progress" attribute: value  
+        Current value of the element  
+
+        :param value: Valid floating-point number  
+        :return: An value attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("value", value)

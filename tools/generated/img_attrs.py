@@ -3,161 +3,187 @@ from typing import Literal, Union
 
 class ImgAttrs:
     """ 
-    This module contains classes for attributes in the <img> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'img' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class alt(BaseAttribute):
+    @staticmethod
+    def alt(value: str) -> BaseAttribute:
         """
-        img attribute: alt
-        Description: Replacement text for use when images are not available
-        Value: Text*
-        """
+        "img" attribute: alt  
+        Replacement text for use when images are not available  
+
+        :param value: Text*  
+        :return: An alt attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("alt", value)
+        return BaseAttribute("alt", value)
             
 
 
-    class crossorigin(BaseAttribute):
+    @staticmethod
+    def crossorigin(value) -> BaseAttribute:
         """
-        img attribute: crossorigin
-        Description: How the element handles crossorigin requests
-        Value: ['anonymous', 'use-credentials']
-        """
+        "img" attribute: crossorigin  
+        How the element handles crossorigin requests  
+
+        :param value: ['anonymous', 'use-credentials']  
+        :return: An crossorigin attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("crossorigin", value)
+        return BaseAttribute("crossorigin", value)
             
 
 
-    class decoding(BaseAttribute):
+    @staticmethod
+    def decoding(value) -> BaseAttribute:
         """
-        img attribute: decoding
-        Description: Decoding hint to use when processing this image for presentation
-        Value: ['sync', 'async', 'auto']
-        """
+        "img" attribute: decoding  
+        Decoding hint to use when processing this image for presentation  
+
+        :param value: ['sync', 'async', 'auto']  
+        :return: An decoding attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("decoding", value)
+        return BaseAttribute("decoding", value)
             
 
 
-    class fetchpriority(BaseAttribute):
+    @staticmethod
+    def fetchpriority(value) -> BaseAttribute:
         """
-        img attribute: fetchpriority
-        Description: Sets the priority for fetches initiated by the element
-        Value: ['auto', 'high', 'low']
-        """
+        "img" attribute: fetchpriority  
+        Sets the priority for fetches initiated by the element  
+
+        :param value: ['auto', 'high', 'low']  
+        :return: An fetchpriority attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("fetchpriority", value)
+        return BaseAttribute("fetchpriority", value)
             
 
 
-    class height(BaseAttribute):
+    @staticmethod
+    def height(value: int) -> BaseAttribute:
         """
-        img attribute: height
-        Description: Vertical dimension
-        Value: Valid non-negative integer
-        """
+        "img" attribute: height  
+        Vertical dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An height attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("height", value)
+        return BaseAttribute("height", value)
             
 
 
-    class ismap(BaseAttribute):
+    @staticmethod
+    def ismap(value: bool) -> BaseAttribute:
         """
-        img attribute: ismap
-        Description: Whether the image is a server-side image map
-        Value: Boolean attribute
-        """
+        "img" attribute: ismap  
+        Whether the image is a server-side image map  
+
+        :param value: Boolean attribute  
+        :return: An ismap attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("ismap", value)
+        return BaseAttribute("ismap", value)
             
 
 
-    class loading(BaseAttribute):
+    @staticmethod
+    def loading(value) -> BaseAttribute:
         """
-        img attribute: loading
-        Description: Used when determining loading deferral
-        Value: ['lazy', 'eager']
-        """
+        "img" attribute: loading  
+        Used when determining loading deferral  
+
+        :param value: ['lazy', 'eager']  
+        :return: An loading attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("loading", value)
+        return BaseAttribute("loading", value)
             
 
 
-    class referrerpolicy(BaseAttribute):
+    @staticmethod
+    def referrerpolicy(value) -> BaseAttribute:
         """
-        img attribute: referrerpolicy
-        Description: Referrer policy for fetches initiated by the element
-        Value: Referrer policy
-        """
+        "img" attribute: referrerpolicy  
+        Referrer policy for fetches initiated by the element  
+
+        :param value: Referrer policy  
+        :return: An referrerpolicy attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("referrerpolicy", value)
+        return BaseAttribute("referrerpolicy", value)
             
 
 
-    class sizes(BaseAttribute):
+    @staticmethod
+    def sizes(value) -> BaseAttribute:
         """
-        img attribute: sizes
-        Description: Image sizes for different page layouts
-        Value: Valid source size list
-        """
+        "img" attribute: sizes  
+        Image sizes for different page layouts  
+
+        :param value: Valid source size list  
+        :return: An sizes attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("sizes", value)
+        return BaseAttribute("sizes", value)
             
 
 
-    class src(BaseAttribute):
+    @staticmethod
+    def src(value) -> BaseAttribute:
         """
-        img attribute: src
-        Description: Address of the resource
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "img" attribute: src  
+        Address of the resource  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An src attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("src", value)
+        return BaseAttribute("src", value)
             
 
 
-    class srcset(BaseAttribute):
+    @staticmethod
+    def srcset(value) -> BaseAttribute:
         """
-        img attribute: srcset
-        Description: Images to use in different situations, e.g., high-resolution displays, small monitors, etc.
-        Value: Comma-separated list of image candidate strings
-        """
+        "img" attribute: srcset  
+        Images to use in different situations, e.g., high-resolution displays, small monitors, etc.  
+
+        :param value: Comma-separated list of image candidate strings  
+        :return: An srcset attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("srcset", value)
+        return BaseAttribute("srcset", value)
             
 
 
-    class usemap(BaseAttribute):
+    @staticmethod
+    def usemap(value) -> BaseAttribute:
         """
-        img attribute: usemap
-        Description: Name of image map to use
-        Value: Valid hash-name reference*
-        """
+        "img" attribute: usemap  
+        Name of image map to use  
+
+        :param value: Valid hash-name reference*  
+        :return: An usemap attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("usemap", value)
+        return BaseAttribute("usemap", value)
             
 
 
-    class width(BaseAttribute):
+    @staticmethod
+    def width(value: int) -> BaseAttribute:
         """
-        img attribute: width
-        Description: Horizontal dimension
-        Value: Valid non-negative integer
-        """
+        "img" attribute: width  
+        Horizontal dimension  
+
+        :param value: Valid non-negative integer  
+        :return: An width attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("width", value)
+        return BaseAttribute("width", value)
             

@@ -3,17 +3,19 @@ from typing import Literal, Union
 
 class LabelAttrs:
     """ 
-    This module contains classes for attributes in the <label> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'label' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class for_(BaseAttribute):
+    @staticmethod
+    def for_(value) -> BaseAttribute:
         """
-        label attribute: for
-        Description: Associate the label with form control
-        Value: ID*
-        """
+        "label" attribute: for  
+        Associate the label with form control  
+
+        :param value: ID*  
+        :return: An for attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("for", value)
+        return BaseAttribute("for", value)
             

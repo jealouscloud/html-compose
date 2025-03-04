@@ -3,149 +3,173 @@ from typing import Literal, Union
 
 class ButtonAttrs:
     """ 
-    This module contains classes for attributes in the <button> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'button' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class disabled(BaseAttribute):
+    @staticmethod
+    def disabled(value: bool) -> BaseAttribute:
         """
-        button attribute: disabled
-        Description: Whether the form control is disabled
-        Value: Boolean attribute
-        """
+        "button" attribute: disabled  
+        Whether the form control is disabled  
+
+        :param value: Boolean attribute  
+        :return: An disabled attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("disabled", value)
+        return BaseAttribute("disabled", value)
             
 
 
-    class form(BaseAttribute):
+    @staticmethod
+    def form(value) -> BaseAttribute:
         """
-        button attribute: form
-        Description: Associates the element with a form element
-        Value: ID*
-        """
+        "button" attribute: form  
+        Associates the element with a form element  
+
+        :param value: ID*  
+        :return: An form attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("form", value)
+        return BaseAttribute("form", value)
             
 
 
-    class formaction(BaseAttribute):
+    @staticmethod
+    def formaction(value) -> BaseAttribute:
         """
-        button attribute: formaction
-        Description: URL to use for form submission
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "button" attribute: formaction  
+        URL to use for form submission  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An formaction attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("formaction", value)
+        return BaseAttribute("formaction", value)
             
 
 
-    class formenctype(BaseAttribute):
+    @staticmethod
+    def formenctype(value) -> BaseAttribute:
         """
-        button attribute: formenctype
-        Description: Entry list encoding type to use for form submission
-        Value: ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']
-        """
+        "button" attribute: formenctype  
+        Entry list encoding type to use for form submission  
+
+        :param value: ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']  
+        :return: An formenctype attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("formenctype", value)
+        return BaseAttribute("formenctype", value)
             
 
 
-    class formmethod(BaseAttribute):
+    @staticmethod
+    def formmethod(value) -> BaseAttribute:
         """
-        button attribute: formmethod
-        Description: Variant to use for form submission
-        Value: ['GET', 'POST', 'dialog']
-        """
+        "button" attribute: formmethod  
+        Variant to use for form submission  
+
+        :param value: ['GET', 'POST', 'dialog']  
+        :return: An formmethod attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("formmethod", value)
+        return BaseAttribute("formmethod", value)
             
 
 
-    class formnovalidate(BaseAttribute):
+    @staticmethod
+    def formnovalidate(value: bool) -> BaseAttribute:
         """
-        button attribute: formnovalidate
-        Description: Bypass form control validation for form submission
-        Value: Boolean attribute
-        """
+        "button" attribute: formnovalidate  
+        Bypass form control validation for form submission  
+
+        :param value: Boolean attribute  
+        :return: An formnovalidate attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("formnovalidate", value)
+        return BaseAttribute("formnovalidate", value)
             
 
 
-    class formtarget(BaseAttribute):
+    @staticmethod
+    def formtarget(value) -> BaseAttribute:
         """
-        button attribute: formtarget
-        Description: Navigable for form submission
-        Value: Valid navigable target name or keyword
-        """
+        "button" attribute: formtarget  
+        Navigable for form submission  
+
+        :param value: Valid navigable target name or keyword  
+        :return: An formtarget attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("formtarget", value)
+        return BaseAttribute("formtarget", value)
             
 
 
-    class name(BaseAttribute):
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
         """
-        button attribute: name
-        Description: Name of the element to use for form submission and in the form.elements API
-        Value: Text*
-        """
+        "button" attribute: name  
+        Name of the element to use for form submission and in the form.elements API  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        return BaseAttribute("name", value)
             
 
 
-    class popovertarget(BaseAttribute):
+    @staticmethod
+    def popovertarget(value) -> BaseAttribute:
         """
-        button attribute: popovertarget
-        Description: Targets a popover element to toggle, show, or hide
-        Value: ID*
-        """
+        "button" attribute: popovertarget  
+        Targets a popover element to toggle, show, or hide  
+
+        :param value: ID*  
+        :return: An popovertarget attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("popovertarget", value)
+        return BaseAttribute("popovertarget", value)
             
 
 
-    class popovertargetaction(BaseAttribute):
+    @staticmethod
+    def popovertargetaction(value) -> BaseAttribute:
         """
-        button attribute: popovertargetaction
-        Description: Indicates whether a targeted popover element is to be toggled, shown, or hidden
-        Value: ['toggle', 'show', 'hide']
-        """
+        "button" attribute: popovertargetaction  
+        Indicates whether a targeted popover element is to be toggled, shown, or hidden  
+
+        :param value: ['toggle', 'show', 'hide']  
+        :return: An popovertargetaction attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("popovertargetaction", value)
+        return BaseAttribute("popovertargetaction", value)
             
 
 
-    class type(BaseAttribute):
+    @staticmethod
+    def type(value) -> BaseAttribute:
         """
-        button attribute: type
-        Description: Type of button
-        Value: ['submit', 'reset', 'button']
-        """
+        "button" attribute: type  
+        Type of button  
+
+        :param value: ['submit', 'reset', 'button']  
+        :return: An type attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("type", value)
+        return BaseAttribute("type", value)
             
 
 
-    class value(BaseAttribute):
+    @staticmethod
+    def value(value: str) -> BaseAttribute:
         """
-        button attribute: value
-        Description: Value to be used for form submission
-        Value: Text
-        """
+        "button" attribute: value  
+        Value to be used for form submission  
+
+        :param value: Text  
+        :return: An value attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("value", value)
+        return BaseAttribute("value", value)
             

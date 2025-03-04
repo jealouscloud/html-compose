@@ -3,46 +3,54 @@ from . import BaseAttribute
 
 class OptionAttrs:
     """
-    This module contains classes for attributes in the <option> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'option' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class disabled(BaseAttribute):
+    @staticmethod
+    def disabled(value: bool) -> BaseAttribute:
         """
-        option attribute: disabled
-        Description: Whether the form control is disabled
-        Value: Boolean attribute
-        """
+        "option" attribute: disabled  
+        Whether the form control is disabled  
 
-        def __init__(self, value: bool):
-            super().__init__("disabled", value)
+        :param value: Boolean attribute  
+        :return: An disabled attribute to be added to your element
+        """  # fmt: skip
 
-    class label(BaseAttribute):
-        """
-        option attribute: label
-        Description: User-visible label
-        Value: Text
-        """
+        return BaseAttribute("disabled", value)
 
-        def __init__(self, value: str):
-            super().__init__("label", value)
-
-    class selected(BaseAttribute):
+    @staticmethod
+    def label(value: str) -> BaseAttribute:
         """
-        option attribute: selected
-        Description: Whether the option is selected by default
-        Value: Boolean attribute
-        """
+        "option" attribute: label  
+        User-visible label  
 
-        def __init__(self, value: bool):
-            super().__init__("selected", value)
+        :param value: Text  
+        :return: An label attribute to be added to your element
+        """  # fmt: skip
 
-    class value(BaseAttribute):
-        """
-        option attribute: value
-        Description: Value to be used for form submission
-        Value: Text
-        """
+        return BaseAttribute("label", value)
 
-        def __init__(self, value: str):
-            super().__init__("value", value)
+    @staticmethod
+    def selected(value: bool) -> BaseAttribute:
+        """
+        "option" attribute: selected  
+        Whether the option is selected by default  
+
+        :param value: Boolean attribute  
+        :return: An selected attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("selected", value)
+
+    @staticmethod
+    def value(value: str) -> BaseAttribute:
+        """
+        "option" attribute: value  
+        Value to be used for form submission  
+
+        :param value: Text  
+        :return: An value attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("value", value)

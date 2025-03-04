@@ -3,17 +3,19 @@ from typing import Literal, Union
 
 class MapAttrs:
     """ 
-    This module contains classes for attributes in the <map> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'map' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class name(BaseAttribute):
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
         """
-        map attribute: name
-        Description: Name of image map to reference from the usemap attribute
-        Value: Text*
-        """
+        "map" attribute: name  
+        Name of image map to reference from the usemap attribute  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        return BaseAttribute("name", value)
             

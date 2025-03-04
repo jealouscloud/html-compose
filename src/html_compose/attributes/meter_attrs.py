@@ -3,66 +3,78 @@ from . import BaseAttribute
 
 class MeterAttrs:
     """
-    This module contains classes for attributes in the <meter> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'meter' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class high(BaseAttribute):
+    @staticmethod
+    def high(value: float) -> BaseAttribute:
         """
-        meter attribute: high
-        Description: Low limit of high range
-        Value: Valid floating-point number*
-        """
+        "meter" attribute: high  
+        Low limit of high range  
 
-        def __init__(self, value: float):
-            super().__init__("high", value)
+        :param value: Valid floating-point number*  
+        :return: An high attribute to be added to your element
+        """  # fmt: skip
 
-    class low(BaseAttribute):
-        """
-        meter attribute: low
-        Description: High limit of low range
-        Value: Valid floating-point number*
-        """
+        return BaseAttribute("high", value)
 
-        def __init__(self, value: float):
-            super().__init__("low", value)
-
-    class max(BaseAttribute):
+    @staticmethod
+    def low(value: float) -> BaseAttribute:
         """
-        meter attribute: max
-        Description: Upper bound of range
-        Value: Valid floating-point number*
-        """
+        "meter" attribute: low  
+        High limit of low range  
 
-        def __init__(self, value: float):
-            super().__init__("max", value)
+        :param value: Valid floating-point number*  
+        :return: An low attribute to be added to your element
+        """  # fmt: skip
 
-    class min(BaseAttribute):
-        """
-        meter attribute: min
-        Description: Lower bound of range
-        Value: Valid floating-point number*
-        """
+        return BaseAttribute("low", value)
 
-        def __init__(self, value: float):
-            super().__init__("min", value)
-
-    class optimum(BaseAttribute):
+    @staticmethod
+    def max(value: float) -> BaseAttribute:
         """
-        meter attribute: optimum
-        Description: Optimum value in gauge
-        Value: Valid floating-point number*
-        """
+        "meter" attribute: max  
+        Upper bound of range  
 
-        def __init__(self, value: float):
-            super().__init__("optimum", value)
+        :param value: Valid floating-point number*  
+        :return: An max attribute to be added to your element
+        """  # fmt: skip
 
-    class value(BaseAttribute):
-        """
-        meter attribute: value
-        Description: Current value of the element
-        Value: Valid floating-point number
-        """
+        return BaseAttribute("max", value)
 
-        def __init__(self, value: float):
-            super().__init__("value", value)
+    @staticmethod
+    def min(value: float) -> BaseAttribute:
+        """
+        "meter" attribute: min  
+        Lower bound of range  
+
+        :param value: Valid floating-point number*  
+        :return: An min attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("min", value)
+
+    @staticmethod
+    def optimum(value: float) -> BaseAttribute:
+        """
+        "meter" attribute: optimum  
+        Optimum value in gauge  
+
+        :param value: Valid floating-point number*  
+        :return: An optimum attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("optimum", value)
+
+    @staticmethod
+    def value(value: float) -> BaseAttribute:
+        """
+        "meter" attribute: value  
+        Current value of the element  
+
+        :param value: Valid floating-point number  
+        :return: An value attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("value", value)

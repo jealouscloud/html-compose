@@ -3,36 +3,42 @@ from . import BaseAttribute
 
 class StyleAttrs:
     """
-    This module contains classes for attributes in the <style> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'style' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class blocking(BaseAttribute):
+    @staticmethod
+    def blocking(value) -> BaseAttribute:
         """
-        style attribute: blocking
-        Description: Whether the element is potentially render-blocking
-        Value: Unordered set of unique space-separated tokens*
-        """
+        "style" attribute: blocking  
+        Whether the element is potentially render-blocking  
 
-        def __init__(self, value):
-            super().__init__("blocking", value)
+        :param value: Unordered set of unique space-separated tokens*  
+        :return: An blocking attribute to be added to your element
+        """  # fmt: skip
 
-    class media(BaseAttribute):
-        """
-        style attribute: media
-        Description: Applicable media
-        Value: Valid media query list
-        """
+        return BaseAttribute("blocking", value)
 
-        def __init__(self, value):
-            super().__init__("media", value)
-
-    class title(BaseAttribute):
+    @staticmethod
+    def media(value) -> BaseAttribute:
         """
-        style attribute: title
-        Description: CSS style sheet set name
-        Value: Text
-        """
+        "style" attribute: media  
+        Applicable media  
 
-        def __init__(self, value: str):
-            super().__init__("title", value)
+        :param value: Valid media query list  
+        :return: An media attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("media", value)
+
+    @staticmethod
+    def title(value: str) -> BaseAttribute:
+        """
+        "style" attribute: title  
+        CSS style sheet set name  
+
+        :param value: Text  
+        :return: An title attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("title", value)

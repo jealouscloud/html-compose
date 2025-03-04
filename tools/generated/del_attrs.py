@@ -3,29 +3,33 @@ from typing import Literal, Union
 
 class DelAttrs:
     """ 
-    This module contains classes for attributes in the <del> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'del' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class cite(BaseAttribute):
+    @staticmethod
+    def cite(value) -> BaseAttribute:
         """
-        del attribute: cite
-        Description: Link to the source of the quotation or more information about the edit
-        Value: Valid URL potentially surrounded by spaces
-        """
+        "del" attribute: cite  
+        Link to the source of the quotation or more information about the edit  
+
+        :param value: Valid URL potentially surrounded by spaces  
+        :return: An cite attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("cite", value)
+        return BaseAttribute("cite", value)
             
 
 
-    class datetime(BaseAttribute):
+    @staticmethod
+    def datetime(value) -> BaseAttribute:
         """
-        del attribute: datetime
-        Description: Date and (optionally) time of the change
-        Value: Valid date string with optional time
-        """
+        "del" attribute: datetime  
+        Date and (optionally) time of the change  
+
+        :param value: Valid date string with optional time  
+        :return: An datetime attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("datetime", value)
+        return BaseAttribute("datetime", value)
             

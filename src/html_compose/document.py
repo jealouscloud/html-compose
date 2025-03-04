@@ -9,6 +9,7 @@ def HTML5Document(
     lang: Optional[str] = None,
     head: Optional[list] = None,
     body: Union[list[base_types.Node], el.body, None] = None,
+    prettify: Union[bool, str] = False,
 ) -> str:
     """
     Return an HTML5 document with the given title and content.
@@ -20,6 +21,8 @@ def HTML5Document(
     :param head: Children to add to the <head> element,
                  which already defines viewport and title
     :param body: A 'body' element or a list of children to add to the 'body' element
+    :param prettify: If true, prettify HTML output.
+                     If the value is a string, use that parser for BeautifulSoup
     """
     # Enable HTML5 and prevent quirks mode
     header = doctype("html")
@@ -38,4 +41,12 @@ def HTML5Document(
         head_el,
         body_el,
     ]
-    return f"{header}\n{html.render()}"
+    result = f"{header}\n{html.render()}"
+    if prettify:
+        from bs4 import BeautifulSoup
+
+        return BeautifulSoup(
+            result, features="html.parser" if prettify is True else prettify
+        ).prettify()
+    else:
+        return result

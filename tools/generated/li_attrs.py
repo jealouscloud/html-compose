@@ -3,17 +3,19 @@ from typing import Literal, Union
 
 class LiAttrs:
     """ 
-    This module contains classes for attributes in the <li> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'li' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class value(BaseAttribute):
+    @staticmethod
+    def value(value: int) -> BaseAttribute:
         """
-        li attribute: value
-        Description: Ordinal value of the list item
-        Value: Valid integer
-        """
+        "li" attribute: value  
+        Ordinal value of the list item  
+
+        :param value: Valid integer  
+        :return: An value attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("value", value)
+        return BaseAttribute("value", value)
             

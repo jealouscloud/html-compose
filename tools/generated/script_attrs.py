@@ -3,125 +3,145 @@ from typing import Literal, Union
 
 class ScriptAttrs:
     """ 
-    This module contains classes for attributes in the <script> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'script' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class async_(BaseAttribute):
+    @staticmethod
+    def async_(value: bool) -> BaseAttribute:
         """
-        script attribute: async
-        Description: Execute script when available, without blocking while fetching
-        Value: Boolean attribute
-        """
+        "script" attribute: async  
+        Execute script when available, without blocking while fetching  
+
+        :param value: Boolean attribute  
+        :return: An async attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("async", value)
+        return BaseAttribute("async", value)
             
 
 
-    class blocking(BaseAttribute):
+    @staticmethod
+    def blocking(value) -> BaseAttribute:
         """
-        script attribute: blocking
-        Description: Whether the element is potentially render-blocking
-        Value: Unordered set of unique space-separated tokens*
-        """
+        "script" attribute: blocking  
+        Whether the element is potentially render-blocking  
+
+        :param value: Unordered set of unique space-separated tokens*  
+        :return: An blocking attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("blocking", value)
+        return BaseAttribute("blocking", value)
             
 
 
-    class crossorigin(BaseAttribute):
+    @staticmethod
+    def crossorigin(value) -> BaseAttribute:
         """
-        script attribute: crossorigin
-        Description: How the element handles crossorigin requests
-        Value: ['anonymous', 'use-credentials']
-        """
+        "script" attribute: crossorigin  
+        How the element handles crossorigin requests  
+
+        :param value: ['anonymous', 'use-credentials']  
+        :return: An crossorigin attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("crossorigin", value)
+        return BaseAttribute("crossorigin", value)
             
 
 
-    class defer(BaseAttribute):
+    @staticmethod
+    def defer(value: bool) -> BaseAttribute:
         """
-        script attribute: defer
-        Description: Defer script execution
-        Value: Boolean attribute
-        """
+        "script" attribute: defer  
+        Defer script execution  
+
+        :param value: Boolean attribute  
+        :return: An defer attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("defer", value)
+        return BaseAttribute("defer", value)
             
 
 
-    class fetchpriority(BaseAttribute):
+    @staticmethod
+    def fetchpriority(value) -> BaseAttribute:
         """
-        script attribute: fetchpriority
-        Description: Sets the priority for fetches initiated by the element
-        Value: ['auto', 'high', 'low']
-        """
+        "script" attribute: fetchpriority  
+        Sets the priority for fetches initiated by the element  
+
+        :param value: ['auto', 'high', 'low']  
+        :return: An fetchpriority attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("fetchpriority", value)
+        return BaseAttribute("fetchpriority", value)
             
 
 
-    class integrity(BaseAttribute):
+    @staticmethod
+    def integrity(value: str) -> BaseAttribute:
         """
-        script attribute: integrity
-        Description: Integrity metadata used in Subresource Integrity checks [SRI]
-        Value: Text
-        """
+        "script" attribute: integrity  
+        Integrity metadata used in Subresource Integrity checks [SRI]  
+
+        :param value: Text  
+        :return: An integrity attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("integrity", value)
+        return BaseAttribute("integrity", value)
             
 
 
-    class nomodule(BaseAttribute):
+    @staticmethod
+    def nomodule(value: bool) -> BaseAttribute:
         """
-        script attribute: nomodule
-        Description: Prevents execution in user agents that support module scripts
-        Value: Boolean attribute
-        """
+        "script" attribute: nomodule  
+        Prevents execution in user agents that support module scripts  
+
+        :param value: Boolean attribute  
+        :return: An nomodule attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("nomodule", value)
+        return BaseAttribute("nomodule", value)
             
 
 
-    class referrerpolicy(BaseAttribute):
+    @staticmethod
+    def referrerpolicy(value) -> BaseAttribute:
         """
-        script attribute: referrerpolicy
-        Description: Referrer policy for fetches initiated by the element
-        Value: Referrer policy
-        """
+        "script" attribute: referrerpolicy  
+        Referrer policy for fetches initiated by the element  
+
+        :param value: Referrer policy  
+        :return: An referrerpolicy attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("referrerpolicy", value)
+        return BaseAttribute("referrerpolicy", value)
             
 
 
-    class src(BaseAttribute):
+    @staticmethod
+    def src(value) -> BaseAttribute:
         """
-        script attribute: src
-        Description: Address of the resource
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "script" attribute: src  
+        Address of the resource  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An src attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("src", value)
+        return BaseAttribute("src", value)
             
 
 
-    class type(BaseAttribute):
+    @staticmethod
+    def type(value) -> BaseAttribute:
         """
-        script attribute: type
-        Description: Type of script
-        Value: "module"; a valid MIME type string that is not a JavaScript MIME type essence match
-        """
+        "script" attribute: type  
+        Type of script  
+
+        :param value: "module"; a valid MIME type string that is not a JavaScript MIME type essence match  
+        :return: An type attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("type", value)
+        return BaseAttribute("type", value)
             

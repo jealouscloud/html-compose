@@ -3,41 +3,47 @@ from typing import Literal, Union
 
 class FieldsetAttrs:
     """ 
-    This module contains classes for attributes in the <fieldset> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'fieldset' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class disabled(BaseAttribute):
+    @staticmethod
+    def disabled(value: bool) -> BaseAttribute:
         """
-        fieldset attribute: disabled
-        Description: Whether the descendant form controls, except any inside legend, are disabled
-        Value: Boolean attribute
-        """
+        "fieldset" attribute: disabled  
+        Whether the descendant form controls, except any inside legend, are disabled  
+
+        :param value: Boolean attribute  
+        :return: An disabled attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("disabled", value)
+        return BaseAttribute("disabled", value)
             
 
 
-    class form(BaseAttribute):
+    @staticmethod
+    def form(value) -> BaseAttribute:
         """
-        fieldset attribute: form
-        Description: Associates the element with a form element
-        Value: ID*
-        """
+        "fieldset" attribute: form  
+        Associates the element with a form element  
+
+        :param value: ID*  
+        :return: An form attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("form", value)
+        return BaseAttribute("form", value)
             
 
 
-    class name(BaseAttribute):
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
         """
-        fieldset attribute: name
-        Description: Name of the element to use for form submission and in the form.elements API
-        Value: Text*
-        """
+        "fieldset" attribute: name  
+        Name of the element to use for form submission and in the form.elements API  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        return BaseAttribute("name", value)
             

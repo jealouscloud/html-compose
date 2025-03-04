@@ -49,7 +49,7 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
         docstrings = attrdefs[attr_name]["docstring"]
 
         dupes = attrdefs[attr_name].get("dupes", [])
-        param_types = ["str", f"{attr_class}.{attrdef.safe_name}"]
+        param_types = ["str"]
         param_type = value_hint_to_python_type(attrdef.value_desc)
         if param_type and param_type not in param_types:
             param_types.append(param_type)
@@ -64,7 +64,10 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
             if param_type and param_type not in param_types:
                 param_types.append(param_type)
 
-        param = f"        {attrdef.safe_name}: Optional[Union[{', '.join(param_types)}]] = None,"
+        p_type = f"Union[{', '.join(param_types)}]"
+        if len(param_types) == 1:
+            p_type = param_types[0]
+        param = f"        {attrdef.safe_name}: Optional[{p_type}] = None,"
         processed.append(
             processed_attr(
                 name=attr_name,
@@ -178,7 +181,7 @@ def gen_elements():
                 comment = " # type: ignore[misc]"
             template = [
                 "",
-                f"class {fixed_name}(BaseElement, GlobalAttrs{attr_string}):{comment}",
+                f"class {fixed_name}(BaseElement):{comment}",
                 '    """',
                 f"    The '{real_element}' element.  ",
                 f"    Description: {desc}  ",
@@ -188,8 +191,14 @@ def gen_elements():
                 f"    Interface: {interface}  ",
                 f"    Documentation: {docs}  ",
                 '    """ # fmt: skip',
-                "",
-                "",
+                f"    class hint(GlobalAttrs{attr_string}):",
+                '        """',
+                f'        Type hints for "{real_element}" attrs  ',
+                "        This class holds functions which return BaseAttributes  ",
+                "        Which you can add to your element attrs  ",
+                '        """ # fmt: skip',
+                "        pass",
+                "    _ = hint",
                 "    def __init__(",
                 "        self,",
                 "        attrs: Optional[Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]] = None,",

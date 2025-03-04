@@ -3,17 +3,19 @@ from typing import Literal, Union
 
 class DfnAttrs:
     """ 
-    This module contains classes for attributes in the <dfn> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'dfn' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class title(BaseAttribute):
+    @staticmethod
+    def title(value: str) -> BaseAttribute:
         """
-        dfn attribute: title
-        Description: Full term or expansion of abbreviation
-        Value: Text
-        """
+        "dfn" attribute: title  
+        Full term or expansion of abbreviation  
+
+        :param value: Text  
+        :return: An title attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("title", value)
+        return BaseAttribute("title", value)
             

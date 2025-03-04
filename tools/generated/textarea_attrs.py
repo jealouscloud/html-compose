@@ -3,161 +3,187 @@ from typing import Literal, Union
 
 class TextareaAttrs:
     """ 
-    This module contains classes for attributes in the <textarea> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'textarea' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class autocomplete(BaseAttribute):
+    @staticmethod
+    def autocomplete(value) -> BaseAttribute:
         """
-        textarea attribute: autocomplete
-        Description: Hint for form autofill feature
-        Value: Autofill field name and related tokens*
-        """
+        "textarea" attribute: autocomplete  
+        Hint for form autofill feature  
+
+        :param value: Autofill field name and related tokens*  
+        :return: An autocomplete attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("autocomplete", value)
+        return BaseAttribute("autocomplete", value)
             
 
 
-    class cols(BaseAttribute):
+    @staticmethod
+    def cols(value) -> BaseAttribute:
         """
-        textarea attribute: cols
-        Description: Maximum number of characters per line
-        Value: Valid non-negative integer greater than zero
-        """
+        "textarea" attribute: cols  
+        Maximum number of characters per line  
+
+        :param value: Valid non-negative integer greater than zero  
+        :return: An cols attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("cols", value)
+        return BaseAttribute("cols", value)
             
 
 
-    class dirname(BaseAttribute):
+    @staticmethod
+    def dirname(value: str) -> BaseAttribute:
         """
-        textarea attribute: dirname
-        Description: Name of form control to use for sending the element's directionality in form submission
-        Value: Text*
-        """
+        "textarea" attribute: dirname  
+        Name of form control to use for sending the element's directionality in form submission  
+
+        :param value: Text*  
+        :return: An dirname attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("dirname", value)
+        return BaseAttribute("dirname", value)
             
 
 
-    class disabled(BaseAttribute):
+    @staticmethod
+    def disabled(value: bool) -> BaseAttribute:
         """
-        textarea attribute: disabled
-        Description: Whether the form control is disabled
-        Value: Boolean attribute
-        """
+        "textarea" attribute: disabled  
+        Whether the form control is disabled  
+
+        :param value: Boolean attribute  
+        :return: An disabled attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("disabled", value)
+        return BaseAttribute("disabled", value)
             
 
 
-    class form(BaseAttribute):
+    @staticmethod
+    def form(value) -> BaseAttribute:
         """
-        textarea attribute: form
-        Description: Associates the element with a form element
-        Value: ID*
-        """
+        "textarea" attribute: form  
+        Associates the element with a form element  
+
+        :param value: ID*  
+        :return: An form attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("form", value)
+        return BaseAttribute("form", value)
             
 
 
-    class maxlength(BaseAttribute):
+    @staticmethod
+    def maxlength(value: int) -> BaseAttribute:
         """
-        textarea attribute: maxlength
-        Description: Maximum length of value
-        Value: Valid non-negative integer
-        """
+        "textarea" attribute: maxlength  
+        Maximum length of value  
+
+        :param value: Valid non-negative integer  
+        :return: An maxlength attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("maxlength", value)
+        return BaseAttribute("maxlength", value)
             
 
 
-    class minlength(BaseAttribute):
+    @staticmethod
+    def minlength(value: int) -> BaseAttribute:
         """
-        textarea attribute: minlength
-        Description: Minimum length of value
-        Value: Valid non-negative integer
-        """
+        "textarea" attribute: minlength  
+        Minimum length of value  
+
+        :param value: Valid non-negative integer  
+        :return: An minlength attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: int):
-            super().__init__("minlength", value)
+        return BaseAttribute("minlength", value)
             
 
 
-    class name(BaseAttribute):
+    @staticmethod
+    def name(value: str) -> BaseAttribute:
         """
-        textarea attribute: name
-        Description: Name of the element to use for form submission and in the form.elements API
-        Value: Text*
-        """
+        "textarea" attribute: name  
+        Name of the element to use for form submission and in the form.elements API  
+
+        :param value: Text*  
+        :return: An name attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("name", value)
+        return BaseAttribute("name", value)
             
 
 
-    class placeholder(BaseAttribute):
+    @staticmethod
+    def placeholder(value: str) -> BaseAttribute:
         """
-        textarea attribute: placeholder
-        Description: User-visible label to be placed within the form control
-        Value: Text*
-        """
+        "textarea" attribute: placeholder  
+        User-visible label to be placed within the form control  
+
+        :param value: Text*  
+        :return: An placeholder attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: str):
-            super().__init__("placeholder", value)
+        return BaseAttribute("placeholder", value)
             
 
 
-    class readonly(BaseAttribute):
+    @staticmethod
+    def readonly(value: bool) -> BaseAttribute:
         """
-        textarea attribute: readonly
-        Description: Whether to allow the value to be edited by the user
-        Value: Boolean attribute
-        """
+        "textarea" attribute: readonly  
+        Whether to allow the value to be edited by the user  
+
+        :param value: Boolean attribute  
+        :return: An readonly attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("readonly", value)
+        return BaseAttribute("readonly", value)
             
 
 
-    class required(BaseAttribute):
+    @staticmethod
+    def required(value: bool) -> BaseAttribute:
         """
-        textarea attribute: required
-        Description: Whether the control is required for form submission
-        Value: Boolean attribute
-        """
+        "textarea" attribute: required  
+        Whether the control is required for form submission  
+
+        :param value: Boolean attribute  
+        :return: An required attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value: bool):
-            super().__init__("required", value)
+        return BaseAttribute("required", value)
             
 
 
-    class rows(BaseAttribute):
+    @staticmethod
+    def rows(value) -> BaseAttribute:
         """
-        textarea attribute: rows
-        Description: Number of lines to show
-        Value: Valid non-negative integer greater than zero
-        """
+        "textarea" attribute: rows  
+        Number of lines to show  
+
+        :param value: Valid non-negative integer greater than zero  
+        :return: An rows attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("rows", value)
+        return BaseAttribute("rows", value)
             
 
 
-    class wrap(BaseAttribute):
+    @staticmethod
+    def wrap(value) -> BaseAttribute:
         """
-        textarea attribute: wrap
-        Description: How the value of the form control is to be wrapped for form submission
-        Value: ['soft', 'hard']
-        """
+        "textarea" attribute: wrap  
+        How the value of the form control is to be wrapped for form submission  
+
+        :param value: ['soft', 'hard']  
+        :return: An wrap attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("wrap", value)
+        return BaseAttribute("wrap", value)
             

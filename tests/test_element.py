@@ -47,10 +47,10 @@ def test_base_element_initialization():
 
 
 def test_attr_syntax_variations():
-    a = div(id=1, attrs=(div.accesskey("a"), div.tabindex(1))).render()
+    a = div(id=1, attrs=(div._.accesskey("a"), div._.tabindex(1))).render()
     b = div(id=1, attrs=[{"accesskey": "a", "tabindex": "1"}]).render()
     assert a == b
-    c = div(id=1, attrs=[{"accesskey": "a"}, div.tabindex(1)]).render()
+    c = div(id=1, attrs=[{"accesskey": "a"}, div._.tabindex(1)]).render()
     assert c == b
 
 
@@ -91,7 +91,7 @@ def test_id():
 
 def test_href():
     literal = '<a href="https://google.com">Search Engine</a>'
-    a1 = a(href=a.href("https://google.com"))["Search Engine"].render()
+    a1 = a(href=a._.href("https://google.com"))["Search Engine"].render()
     a2 = a(href="https://google.com")["Search Engine"].render()
     assert a1 == literal
     assert a2 == literal
@@ -154,7 +154,7 @@ def test_class_getitem():
 
 
 def test_doubled_class():
-    el = div(attrs=[div.class_("flex")], class_={"dark-mode": True})
+    el = div(attrs=[div._.class_("flex")], class_={"dark-mode": True})
     assert el.render() == '<div class="flex dark-mode"></div>'
 
 
@@ -194,3 +194,8 @@ def test_float_precision():
     h.elements.BaseElement.FLOAT_PRECISION = 0
     d = h.h1[num].render()
     assert d == "<h1>0</h1>"
+
+
+def test_list_attribute():
+    el = div({"class": ["a", "b", "c"]})
+    assert el.render() == '<div class="a b c"></div>'

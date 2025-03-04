@@ -19,16 +19,21 @@ class BaseAttribute:
     Attribute Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
     """
 
-    def __init__(self, name, data: Resolveable = None):
+    __slots__ = ("name", "data", "delimeter")
+
+    def __init__(
+        self, name: str, data: Resolveable = None, delimeter: str = " "
+    ):
         self.name = name
         self.data = data
+        self.delimeter = delimeter
 
     def resolve_join(self, input_data: Iterable):
         """
         Join a list of strings
         Split out for implementors to override
         """
-        return " ".join(input_data)
+        return self.delimeter.join(input_data)
 
     def list_string_generator(self, data):
         """
@@ -106,6 +111,9 @@ class BaseAttribute:
         return (self.name, resolved)
 
     def __repr__(self):
+        if self.delimeter != " ":
+            return f"BaseAttribute{{name={repr(self.name)}, data={repr(self.data)}, delimeter={repr(self.data)}}}"
+
         return (
             f"BaseAttribute{{name={repr(self.name)}, data={repr(self.data)}}}"
         )

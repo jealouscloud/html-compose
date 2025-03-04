@@ -1,6 +1,6 @@
 [project]
 name = "html-compose"
-version = "0.4.0"
+version = "0.5.0"
 description = "Composable HTML generation in python"
 authors = [
     { name = "jealouscloud", email = "github@noaha.org" }
@@ -37,16 +37,19 @@ classifiers = [
 ]
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling==1.26.3"]
 build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
 dev-dependencies = [
-    "pyright>=1.1.383",
+    "pyright>=1.1.396",
     "requests>=2.32.3",
     "hext>=1.0.11",
     "pytest>=8.3.3",
+    "mypy>=1.15.0",
+    "types-beautifulsoup4>=4.12.0.20250204",
+    "ipython>=8.33.0",
 ]
 [project.scripts]
 "html-convert" = "html_compose:from_html"

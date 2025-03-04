@@ -29,7 +29,6 @@ class ElementBase(_HasHtml):
     ATTR_CACHE_SIZE = (
         250  # Number of translated attributes to cache strings for
     )
-    PrettyPrint = False
 
     def __init__(self):
         raise NotImplementedError
@@ -42,7 +41,7 @@ class ElementBase(_HasHtml):
         cls = self.__class__
 
         if hasattr(cls, "_join_lru_maxsize"):
-            live_size = cls._join_lru_maxsize
+            live_size = cls._join_lru_maxsize  # pyright: ignore[reportAttributeAccessIssue]
         else:
             cls._join_lru_maxsize = cls.ATTR_CACHE_SIZE  # type: ignore[attr-defined]
             live_size = None
@@ -54,8 +53,8 @@ class ElementBase(_HasHtml):
 
         return cls.join_attrs  # type: ignore[attr-defined]
 
-    def render(self, parent=None):
-        "".join(self.resolve(parent))
+    def render(self, parent=None) -> str:
+        return "".join(self.resolve(parent))
 
     def resolve(self, parent=None) -> Iterable[str]:
         """
@@ -63,7 +62,7 @@ class ElementBase(_HasHtml):
         """
         raise NotImplementedError()
 
-    def __html__(self):
+    def __html__(self) -> str:
         return self.render()
 
 

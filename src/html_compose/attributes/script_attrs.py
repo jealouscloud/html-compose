@@ -3,106 +3,126 @@ from . import BaseAttribute
 
 class ScriptAttrs:
     """
-    This module contains classes for attributes in the <script> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'script' element.
+    Which is inherited by a class so we can generate type hints
     """
 
-    class async_(BaseAttribute):
+    @staticmethod
+    def async_(value: bool) -> BaseAttribute:
         """
-        script attribute: async
-        Description: Execute script when available, without blocking while fetching
-        Value: Boolean attribute
-        """
+        "script" attribute: async  
+        Execute script when available, without blocking while fetching  
 
-        def __init__(self, value: bool):
-            super().__init__("async", value)
+        :param value: Boolean attribute  
+        :return: An async attribute to be added to your element
+        """  # fmt: skip
 
-    class blocking(BaseAttribute):
-        """
-        script attribute: blocking
-        Description: Whether the element is potentially render-blocking
-        Value: Unordered set of unique space-separated tokens*
-        """
+        return BaseAttribute("async", value)
 
-        def __init__(self, value):
-            super().__init__("blocking", value)
-
-    class crossorigin(BaseAttribute):
+    @staticmethod
+    def blocking(value) -> BaseAttribute:
         """
-        script attribute: crossorigin
-        Description: How the element handles crossorigin requests
-        Value: ['anonymous', 'use-credentials']
-        """
+        "script" attribute: blocking  
+        Whether the element is potentially render-blocking  
 
-        def __init__(self, value):
-            super().__init__("crossorigin", value)
+        :param value: Unordered set of unique space-separated tokens*  
+        :return: An blocking attribute to be added to your element
+        """  # fmt: skip
 
-    class defer(BaseAttribute):
-        """
-        script attribute: defer
-        Description: Defer script execution
-        Value: Boolean attribute
-        """
+        return BaseAttribute("blocking", value)
 
-        def __init__(self, value: bool):
-            super().__init__("defer", value)
-
-    class fetchpriority(BaseAttribute):
+    @staticmethod
+    def crossorigin(value) -> BaseAttribute:
         """
-        script attribute: fetchpriority
-        Description: Sets the priority for fetches initiated by the element
-        Value: ['auto', 'high', 'low']
-        """
+        "script" attribute: crossorigin  
+        How the element handles crossorigin requests  
 
-        def __init__(self, value):
-            super().__init__("fetchpriority", value)
+        :param value: ['anonymous', 'use-credentials']  
+        :return: An crossorigin attribute to be added to your element
+        """  # fmt: skip
 
-    class integrity(BaseAttribute):
-        """
-        script attribute: integrity
-        Description: Integrity metadata used in Subresource Integrity checks [SRI]
-        Value: Text
-        """
+        return BaseAttribute("crossorigin", value)
 
-        def __init__(self, value: str):
-            super().__init__("integrity", value)
-
-    class nomodule(BaseAttribute):
+    @staticmethod
+    def defer(value: bool) -> BaseAttribute:
         """
-        script attribute: nomodule
-        Description: Prevents execution in user agents that support module scripts
-        Value: Boolean attribute
-        """
+        "script" attribute: defer  
+        Defer script execution  
 
-        def __init__(self, value: bool):
-            super().__init__("nomodule", value)
+        :param value: Boolean attribute  
+        :return: An defer attribute to be added to your element
+        """  # fmt: skip
 
-    class referrerpolicy(BaseAttribute):
-        """
-        script attribute: referrerpolicy
-        Description: Referrer policy for fetches initiated by the element
-        Value: Referrer policy
-        """
+        return BaseAttribute("defer", value)
 
-        def __init__(self, value):
-            super().__init__("referrerpolicy", value)
-
-    class src(BaseAttribute):
+    @staticmethod
+    def fetchpriority(value) -> BaseAttribute:
         """
-        script attribute: src
-        Description: Address of the resource
-        Value: Valid non-empty URL potentially surrounded by spaces
-        """
+        "script" attribute: fetchpriority  
+        Sets the priority for fetches initiated by the element  
 
-        def __init__(self, value):
-            super().__init__("src", value)
+        :param value: ['auto', 'high', 'low']  
+        :return: An fetchpriority attribute to be added to your element
+        """  # fmt: skip
 
-    class type(BaseAttribute):
-        """
-        script attribute: type
-        Description: Type of script
-        Value: "module"; a valid MIME type string that is not a JavaScript MIME type essence match
-        """
+        return BaseAttribute("fetchpriority", value)
 
-        def __init__(self, value):
-            super().__init__("type", value)
+    @staticmethod
+    def integrity(value: str) -> BaseAttribute:
+        """
+        "script" attribute: integrity  
+        Integrity metadata used in Subresource Integrity checks [SRI]  
+
+        :param value: Text  
+        :return: An integrity attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("integrity", value)
+
+    @staticmethod
+    def nomodule(value: bool) -> BaseAttribute:
+        """
+        "script" attribute: nomodule  
+        Prevents execution in user agents that support module scripts  
+
+        :param value: Boolean attribute  
+        :return: An nomodule attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("nomodule", value)
+
+    @staticmethod
+    def referrerpolicy(value) -> BaseAttribute:
+        """
+        "script" attribute: referrerpolicy  
+        Referrer policy for fetches initiated by the element  
+
+        :param value: Referrer policy  
+        :return: An referrerpolicy attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("referrerpolicy", value)
+
+    @staticmethod
+    def src(value) -> BaseAttribute:
+        """
+        "script" attribute: src  
+        Address of the resource  
+
+        :param value: Valid non-empty URL potentially surrounded by spaces  
+        :return: An src attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("src", value)
+
+    @staticmethod
+    def type(value) -> BaseAttribute:
+        """
+        "script" attribute: type  
+        Type of script  
+
+        :param value: "module"; a valid MIME type string that is not a JavaScript MIME type essence match  
+        :return: An type attribute to be added to your element
+        """  # fmt: skip
+
+        return BaseAttribute("type", value)

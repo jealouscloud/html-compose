@@ -3,29 +3,33 @@ from typing import Literal, Union
 
 class BaseAttrs:
     """ 
-    This module contains classes for attributes in the <base> element.
-    Which is inherited by the element so the element can be a reference to our attributes
+    This module contains functions for attributes in the 'base' element.
+    Which is inherited by a class so we can generate type hints
     """ 
     
-    class href(BaseAttribute):
+    @staticmethod
+    def href(value) -> BaseAttribute:
         """
-        base attribute: href
-        Description: Document base URL
-        Value: Valid URL potentially surrounded by spaces
-        """
+        "base" attribute: href  
+        Document base URL  
+
+        :param value: Valid URL potentially surrounded by spaces  
+        :return: An href attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("href", value)
+        return BaseAttribute("href", value)
             
 
 
-    class target(BaseAttribute):
+    @staticmethod
+    def target(value) -> BaseAttribute:
         """
-        base attribute: target
-        Description: Default navigable for hyperlink navigation and form submission
-        Value: Valid navigable target name or keyword
-        """
+        "base" attribute: target  
+        Default navigable for hyperlink navigation and form submission  
+
+        :param value: Valid navigable target name or keyword  
+        :return: An target attribute to be added to your element
+        """ # fmt: skip
         
-        def __init__(self, value):
-            super().__init__("target", value)
+        return BaseAttribute("target", value)
             

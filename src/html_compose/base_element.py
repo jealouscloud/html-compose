@@ -14,7 +14,7 @@ SPECIAL_ATTRS = {
 }
 
 
-class BaseElement(ElementBase, GlobalAttrs):
+class BaseElement(ElementBase):
     """
     Base HTML element
 
@@ -31,7 +31,7 @@ class BaseElement(ElementBase, GlobalAttrs):
         Example:
         If the user passes `h1["Demo"]` the user likely expects h1()["Demo"]
         """
-        return cls()[key]
+        return cls()[key]  # pyright: ignore[reportCallIssue]
 
     def __getitem__(self, key):
         """
@@ -176,7 +176,6 @@ class BaseElement(ElementBase, GlobalAttrs):
                     a_name, a_value = attr
                     attr_dict[a_name] = a_value
 
-            attr_dict = attrs
         else:
             raise ValueError(f"Unknown: {type(attrs)}")
 
@@ -205,6 +204,10 @@ class BaseElement(ElementBase, GlobalAttrs):
             result = func(self)
         elif param_count == 2:
             result = func(self, parent)
+        else:
+            raise ValueError(
+                "Lambda received has too many parameters to process"
+            )
 
         return result
 
@@ -226,6 +229,10 @@ class BaseElement(ElementBase, GlobalAttrs):
             #   button if needs_button else None
             # ]
             yield from ()
+
+        elif isinstance(child, ElementBase):
+            # Recursively resolve the element tree
+            yield from child.resolve(self)
 
         elif isinstance(child, _HasHtml):
             # Fetch raw HTML from object
@@ -255,10 +262,6 @@ class BaseElement(ElementBase, GlobalAttrs):
             # which specifically means "no render"
             # But some weirdos may be trying to render true/false literally
             yield unsafe_text("true" if child else "false")
-
-        elif isinstance(child, ElementBase):
-            # Recursively resolve the element tree
-            yield from child.resolve(self)
 
         elif util_funcs.is_iterable_but_not_str(child):
             for el in util_funcs.flatten_iterable(child):  # type: ignore[arg-type]
@@ -413,17 +416,8 @@ class BaseElement(ElementBase, GlobalAttrs):
             cstring = f"[{children_info}]"
         return f"{self.__class__.__name__}({astring}){cstring}"
 
-    def __html__(self):
+    def __html__(self) -> str:
         """
         Render the HTML element
         """
         return self.render()
-
-
-# def ConstructElement(
-#         attrs: Optional[attr_list_type] = None,
-#         id: Union[str, GlobalAttrs.id, str, None] = None,
-#         class_: Union[str, GlobalAttrs.class_, None] = None)
-# def GenerateElement(tag):
-
-#     BaseElement(tag, void_element=False, )
