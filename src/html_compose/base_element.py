@@ -417,12 +417,3 @@ class BaseElement(ElementBase, GlobalAttrs):
         Render the HTML element
         """
         return self.render()
-
-
-# def ConstructElement(
-#         attrs: Optional[attr_list_type] = None,
-#         id: Union[str, GlobalAttrs.id, str, None] = None,
-#         class_: Union[str, GlobalAttrs.class_, None] = None)
-# def GenerateElement(tag):
-
-#     BaseElement(tag, void_element=False, )
