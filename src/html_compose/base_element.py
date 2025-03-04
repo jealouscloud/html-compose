@@ -31,7 +31,7 @@ class BaseElement(ElementBase, GlobalAttrs):
         Example:
         If the user passes `h1["Demo"]` the user likely expects h1()["Demo"]
         """
-        return cls()[key]
+        return cls()[key]  # pyright: ignore[reportCallIssue]
 
     def __getitem__(self, key):
         """
@@ -204,6 +204,10 @@ class BaseElement(ElementBase, GlobalAttrs):
             result = func(self)
         elif param_count == 2:
             result = func(self, parent)
+        else:
+            raise ValueError(
+                "Lambda received has too many parameters to process"
+            )
 
         return result
 
@@ -412,7 +416,7 @@ class BaseElement(ElementBase, GlobalAttrs):
             cstring = f"[{children_info}]"
         return f"{self.__class__.__name__}({astring}){cstring}"
 
-    def __html__(self):
+    def __html__(self) -> str:
         """
         Render the HTML element
         """
