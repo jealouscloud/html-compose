@@ -1,5 +1,16 @@
+# 0.5.0
+* [breaking] Attribute hints are now available via i.e. `div.hint.tabindex` / `div._.tabindex`  
+  This change cleans up the element namespace.
+* HTML translator outputs double newlines
+
+# 0.4.1
+* [bugfix] list attribute resolution was rendering improperly and is now functional.
+* [bugfix] Correclty pass parent in _resolve_child
+* Resolve issues found by pyright
+* [feature] Add prettify argument to HTML5Document
+
 # 0.4.0
-* [breaking] Changes to BaseElement, name -> tag, adding _ to some internal function names, cleanup.
+* [breaking] Changes to BaseElement, name -> tag, adding _ to some internal function names, cleanup. _attrs -> attrs
 * Maintainers: Add command-line for generate attributes/elements, rye scripts.
 * Remove arrows in "<element>" from docstrings because vscode attempts to render the html element.
 * Multiline docstrings fixed with markdown rules - You have to double space the end to register as a newline.
