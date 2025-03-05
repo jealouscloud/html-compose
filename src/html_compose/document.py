@@ -1,6 +1,6 @@
 from typing import Optional, Union
 
-from . import base_types, doctype
+from . import base_types, doctype, pretty_print
 from . import elements as el
 
 
@@ -43,10 +43,6 @@ def HTML5Document(
     ]
     result = f"{header}\n{html.render()}"
     if prettify:
-        from bs4 import BeautifulSoup
-
-        return BeautifulSoup(
-            result, features="html.parser" if prettify is True else prettify
-        ).prettify()
+        return pretty_print(result)
     else:
         return result

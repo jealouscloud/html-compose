@@ -40,7 +40,7 @@ from html_compose import a, article, body, br, head, html, p, strong, title
   ```python
   from html_compose import ul, li
   ul[
-      li["Look ma!"]
+      li["Look ma!"],
       li["No constructor!"],
       li["This feels natural"],
       li["for text elements"]

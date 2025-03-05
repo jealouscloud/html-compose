@@ -27,6 +27,22 @@ def unsafe_text(value: Union[str, Markup]) -> Markup:
     return Markup(str(value))
 
 
+def pretty_print(html_str: str, features="html.parser") -> str:
+    """
+    Pretty print HTML
+
+    :param html_str: HTML string to print
+    :param features: BeautifulSoup tree builder to print with
+    :return: Pretty printed HTML string
+    """
+    # Production instances probably don't use this
+    # so we lazy load bs4
+    from bs4 import BeautifulSoup  # type: ignore[import-untyped]
+
+    p = BeautifulSoup(html_str, features="html.parser")
+    return p.prettify()
+
+
 def doctype(dtype: str = "html"):
     """
     Return doctype tag

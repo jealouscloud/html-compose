@@ -1,3 +1,6 @@
+# 0.5.1
+* [breaking] Move pretty_print function to module function
+
 # 0.5.0
 * [breaking] Attribute hints are now available via i.e. `div.hint.tabindex` / `div._.tabindex`  
   This change cleans up the element namespace.

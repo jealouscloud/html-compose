@@ -2,13 +2,6 @@ import inspect
 from functools import lru_cache
 from typing import Any, Generator, Iterable
 
-from bs4 import BeautifulSoup  # type: ignore[import-untyped]
-
-
-def pretty_print(html: str) -> str:
-    p = BeautifulSoup(html, features="html.parser")
-    return p.prettify()
-
 
 def join_attrs(k, value_trusted):
     """
