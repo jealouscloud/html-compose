@@ -103,7 +103,7 @@ def test_translate():
             ],
         ],
     ]
-    lines = t.translate(ht).strip().splitlines()
+    lines = [line for line in t.translate(ht).strip().splitlines() if line]
     lines[1] = lines[1] + ".render()"
     output = eval("\n".join(lines[1:]))
     assert output == expected.render()
