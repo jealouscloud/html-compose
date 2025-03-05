@@ -11,7 +11,7 @@ from html_compose import a, article, body, br, head, html, p, strong, title
     head()[title()[f"Welcome, {username}!"]],
     body()[
         article()[
-            p()["Welcome to the internet", strong()[username], "!"],
+            p()["Welcome to the internet ", strong()[username], "!"],
             br(),
             p()[
                 "Have you checked out this cool thing called a ",
@@ -22,7 +22,7 @@ from html_compose import a, article, body, br, head, html, p, strong, title
     ],
   ].render()
 )
-<html><head><title>Welcome, github wanderer!</title></head><body><article><p>Welcome to the internet<strong>github wanderer</strong>!</p><br /><p>Have you checked out this cool thing called a <a href="https://google.com">search engine</a>?</p></article></body></html>
+<html><head><title>Welcome, github wanderer!</title></head><body><article><p>Welcome to the internet <strong>github wanderer</strong>!</p><br /><p>Have you checked out this cool thing called a <a href="https://google.com">search engine</a>?</p></article></body></html>
 ```
 
 ## Features ✨

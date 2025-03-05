@@ -29,12 +29,14 @@ def unsafe_text(value: Union[str, Markup]) -> Markup:
 
 def pretty_print(html_str: str, features="html.parser") -> str:
     """
-    Pretty print HTML
+    Pretty print HTML.  
+    DO NOT do this for production since it introduces whitespace and may
+    affect your output.
 
     :param html_str: HTML string to print
     :param features: BeautifulSoup tree builder to print with
     :return: Pretty printed HTML string
-    """
+    """  # fmt: skip
     # Production instances probably don't use this
     # so we lazy load bs4
     from bs4 import BeautifulSoup  # type: ignore[import-untyped]
