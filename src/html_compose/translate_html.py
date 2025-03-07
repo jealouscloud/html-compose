@@ -84,6 +84,10 @@ def translate(html: str) -> str:
         return "".join(result)
 
     elements = [process_element(child) for child in soup.children]
+
+    if not tags:
+        return "No HTML tags found"
+
     return "\n\n".join(
         [f"from html_compose import {', '.join(tags)}"]
         + [e for e in elements if e]
