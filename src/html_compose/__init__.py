@@ -52,37 +52,6 @@ def doctype(dtype: str = "html"):
     return unsafe_text(f"<!DOCTYPE {dtype}>")
 
 
-def from_html():
-    """
-    Command-line tool to translate HTML to Python code using html_compose
-
-    This function reads from stdin by default, but accepts an optional filename as argument
-    """
-    import argparse
-    import fileinput
-
-    from . import translate_html
-
-    parser = argparse.ArgumentParser(description="HTML to Markdown translator")
-    parser.add_argument(
-        "html",
-        default="-",
-        nargs="?",
-        help="HTML file to translate (default: stdin)",
-    )
-    args = parser.parse_args()
-    is_stdin = args.html == "-"
-    if is_stdin:
-        print("Reading from stdin. Press Ctrl+D to finish.")
-
-    html_content = "\n".join(
-        [line for line in fileinput.input(files=args.html, encoding="utf-8")]
-    )
-    if is_stdin:
-        print("---\n")
-    print(translate_html.translate(html_content))
-
-
 from .base_element import BaseElement
 from .document import HTML5Document
 
