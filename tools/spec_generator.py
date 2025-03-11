@@ -349,10 +349,7 @@ hextracted = Hextract.hextract(spec_doc)
 document = {}
 
 for element, defn in hextracted.items():
-    document[element] = {
-        "spec": defn,
-        "mdn": None,
-    }
+    document[element] = {"spec": defn, "mdn": None}
 
 for element, defn in MDNSpec.parse().items():
     document[element]["mdn"] = defn

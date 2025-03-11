@@ -41,8 +41,9 @@ def pretty_print(html_str: str, features="html.parser") -> str:
     # so we lazy load bs4
     from bs4 import BeautifulSoup  # type: ignore[import-untyped]
 
-    p = BeautifulSoup(html_str, features="html.parser")
-    return p.prettify()
+    return BeautifulSoup(html_str, features="html.parser").prettify(
+        formatter="html5"
+    )
 
 
 def doctype(dtype: str = "html"):

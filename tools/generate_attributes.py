@@ -7,12 +7,7 @@ from generator_common import get_path, safe_name, type_for_value
 
 
 def generate_class_template(
-    safe_class_name,
-    element_name,
-    attr_name,
-    attr_desc,
-    value_desc,
-    type_data,
+    safe_class_name, element_name, attr_name, attr_desc, value_desc, type_data
 ):
     safe_class_name = safe_class_name.lower()
     if element_name == "Global Attribute":
@@ -132,9 +127,7 @@ def other_attrs():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate HTML attrs.")
     parser.add_argument(
-        "--copy",
-        action="store_true",
-        help="Copy the output to project",
+        "--copy", action="store_true", help="Copy the output to project"
     )
     args = parser.parse_args()
     spec = json.loads(get_path("spec_reference.json").read_text())

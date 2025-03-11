@@ -1,11 +1,7 @@
 import re
 from typing import Union
 
-from bs4 import (
-    BeautifulSoup,
-    NavigableString,
-    Tag,
-)
+from bs4 import BeautifulSoup, NavigableString, Tag
 from bs4.element import Doctype
 
 from .util_funcs import safe_name

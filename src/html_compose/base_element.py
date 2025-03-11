@@ -2,16 +2,9 @@ from typing import Callable, Generator, Optional, Union
 
 from . import escape_text, unsafe_text, util_funcs
 from .attributes import BaseAttribute, GlobalAttrs
-from .base_types import (
-    ElementBase,
-    Node,
-    _HasHtml,
-)
+from .base_types import ElementBase, Node, _HasHtml
 
-SPECIAL_ATTRS = {
-    "class": GlobalAttrs.class_,
-    "style": GlobalAttrs.style,
-}
+SPECIAL_ATTRS = {"class": GlobalAttrs.class_, "style": GlobalAttrs.style}
 
 
 class BaseElement(ElementBase):

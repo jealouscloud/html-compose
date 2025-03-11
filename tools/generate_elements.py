@@ -124,7 +124,7 @@ def gen_elements():
             extra_attrs = ""
             attr_assignment = ""
             attr_docstrings = [
-                ":param attrs: A list or dictionary of attributes for the element",
+                ":param attrs: A list or dictionary of attributes for the element"
             ]
 
             attr_list = []

@@ -37,10 +37,7 @@ def HTML5Document(
         body_el = body
     else:
         body_el = el.body()[body]
-    html = el.html(lang=lang)[
-        head_el,
-        body_el,
-    ]
+    html = el.html(lang=lang)[head_el, body_el]
     result = f"{header}\n{html.render()}"
     if prettify:
         return pretty_print(result)
