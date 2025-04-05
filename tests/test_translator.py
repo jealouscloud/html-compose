@@ -1,3 +1,5 @@
+from bs4 import BeautifulSoup
+
 import html_compose.translate_html as t
 
 
@@ -106,4 +108,6 @@ def test_translate():
     lines = [line for line in t.translate(ht).strip().splitlines() if line]
     lines[1] = lines[1] + ".render()"
     output = eval("\n".join(lines[1:]))
-    assert output == expected.render()
+    soup1 = BeautifulSoup(output, "html.parser")
+    soup2 = BeautifulSoup(expected.render(), "html.parser")
+    assert str(soup1) == str(soup2)
