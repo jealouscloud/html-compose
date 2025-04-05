@@ -58,6 +58,7 @@ pure-eval==0.2.3
     # via stack-data
 pygments==2.19.1
     # via ipython
+pyinotify==0.9.6
 pyright==1.1.396
 pytest==8.3.3
 requests==2.32.3
