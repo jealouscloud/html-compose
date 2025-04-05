@@ -10,12 +10,23 @@ def from_html(args):
     if is_stdin:
         print("Reading from stdin. Press Ctrl+D to finish.")
 
-    html_content = "\n".join(
-        [line for line in fileinput.input(files=args.html, encoding="utf-8")]
-    )
+    try:
+        html_content = "\n".join(
+            [
+                line
+                for line in fileinput.input(files=args.html, encoding="utf-8")
+            ]
+        )
+    except Exception as exc:
+        print("Failed to read HTML content: {}".format(exc))
+        return
+    except KeyboardInterrupt:
+        return
+
     if is_stdin:
         print("---\n")
     print(translate_html.translate(html_content))
+
 
 def parse_html_translate(parser):
     parser.add_argument(
@@ -39,7 +50,7 @@ def cli():
 
     This function reads from stdin by default, but accepts an optional filename as argument
     """
-    HTML_CONVERT = "html-convert"
+    HTML_CONVERT = "convert"
     parser = argparse.ArgumentParser(description="html-compose cli")
     subparsers = parser.add_subparsers(dest="command")
 
@@ -50,3 +61,5 @@ def cli():
     args = parser.parse_args()
     if args.command == HTML_CONVERT:
         from_html(args)
+    else:
+        parser.print_help()
