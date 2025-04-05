@@ -132,3 +132,6 @@ indent-width = 4
 
 # Assume Python 3.10
 target-version = "py310"
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true
