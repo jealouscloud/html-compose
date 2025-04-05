@@ -2,6 +2,7 @@ from typing import Optional, Union
 
 from . import base_types, doctype, pretty_print
 from . import elements as el
+from .util_funcs import get_livereload_env
 
 
 def HTML5Document(
@@ -26,6 +27,7 @@ def HTML5Document(
     """
     # Enable HTML5 and prevent quirks mode
     header = doctype("html")
+
     head_el = el.head()[
         el.meta(  # enable mobile rendering
             name="viewport", content="width=device-width, initial-scale=1.0"
@@ -33,6 +35,26 @@ def HTML5Document(
         el.title()[title] if title else None,
         head if head else None,
     ]
+    # None if disabled
+    live_reload_flags = get_livereload_env()
+    # Feature: Live reloading for development
+    if live_reload_flags:
+        # Add livereload script to the head
+        # Livereload: https://github.com/livereload/livereload-js
+        # We used an SRI hash generator to prevent supply-chain attacks
+        # https://www.srihash.org/
+        VERSION = "v4.0.2"
+        repo = "https://raw.githubusercontent.com/livereload/livereload-js"
+        uri = f"{repo}/refs/tags/{VERSION}/dist/livereload.min.js"
+        head_el.append(
+            el.script(
+                {
+                    "src": f"{uri}?{live_reload_flags}",
+                    "integrity": "sha384-JpRTIH2FPXE1xxxYlwSn2HF2U5br0oTSUBvdF0F5YcNmUTvJvh/o1+rDUdy9NGVs",
+                    "crossorigin": "anonymous",
+                }
+            )
+        )
     if isinstance(body, el.body):
         body_el = body
     else:

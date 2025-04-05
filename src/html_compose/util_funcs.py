@@ -1,6 +1,7 @@
 import inspect
 from functools import lru_cache
-from typing import Any, Generator, Iterable
+from os import getenv
+from typing import Any, Generator, Iterable, Optional
 
 
 def join_attrs(k, value_trusted):
@@ -61,3 +62,18 @@ def safe_name(name):
         name = name.replace("-", "_")
 
     return name
+
+
+def get_livereload_env() -> Optional[str]:
+    enabled = getenv("HTMLCOMPOSE_LIVERELOAD") == "1"
+    if not enabled:
+        return None
+    flags = getenv("HTMLCOMPOSE_LIVERELOAD_FLAGS")
+    return flags
+
+
+def generate_livereload_env(host, port):
+    return {
+        "HTMLCOMPOSE_LIVERELOAD_FLAGS": f"port={port}&host={host}",
+        "HTMLCOMPOSE_LIVERELOAD": "1",
+    }
