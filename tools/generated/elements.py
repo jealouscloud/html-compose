@@ -1,4 +1,4 @@
-from typing import TypeAlias, Union, Literal, Optional
+from typing import Union, Literal, Optional
 
 from .attributes import GlobalAttrs, AnchorAttrs, AreaAttrs, AudioAttrs, BaseAttrs, BlockquoteAttrs, BodyAttrs, ButtonAttrs, CanvasAttrs, ColAttrs, ColgroupAttrs, DataAttrs, DelAttrs, DetailsAttrs, DialogAttrs, EmbedAttrs, FieldsetAttrs, FormAttrs, IframeAttrs, ImgAttrs, InputAttrs, InsAttrs, LabelAttrs, LiAttrs, LinkAttrs, MapAttrs, MetaAttrs, MeterAttrs, ObjectAttrs, OlAttrs, OptgroupAttrs, OptionAttrs, OutputAttrs, ProgressAttrs, QAttrs, ScriptAttrs, SelectAttrs, SlotAttrs, SourceAttrs, StyleAttrs, TdAttrs, TemplateAttrs, TextareaAttrs, ThAttrs, TimeAttrs, TrackAttrs, VideoAttrs
 from .base_attribute import BaseAttribute
@@ -70,60 +70,116 @@ class a(BaseElement):
         Initialize 'a' (Hyperlink) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param download: Whether to download the resource instead of navigating to it, and its filename if so
-        :param href: Address of the hyperlink
-            | Valid URL potentially surrounded by spaces
-        :param hreflang: Language of the linked resource
-            | Valid BCP 47 language tag
-        :param ping: URLs to ping
-            | Set of space-separated tokens consisting of valid non-empty URLs
-        :param referrerpolicy: Referrer policy for fetches initiated by the element
-            | Referrer policy
-        :param rel: Relationship between the location in the document containing the hyperlink and the destination resource
-            | Unordered set of unique space-separated tokens*
-        :param target: Navigable for hyperlink navigation
-            | Valid navigable target name or keyword
-        :param type: Hint for the type of the referenced resource
-            | Valid MIME type string
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `download` :
+            Whether to download the resource instead of navigating to it, and its filename if so
+        `href` :
+            Address of the hyperlink  
+        
+            Valid URL potentially surrounded by spaces
+        `hreflang` :
+            Language of the linked resource  
+        
+            Valid BCP 47 language tag
+        `ping` :
+            URLs to ping  
+        
+            Set of space-separated tokens consisting of valid non-empty URLs
+        `referrerpolicy` :
+            Referrer policy for fetches initiated by the element  
+        
+            Referrer policy
+        `rel` :
+            Relationship between the location in the document containing the hyperlink and the destination resource  
+        
+            Unordered set of unique space-separated tokens*
+        `target` :
+            Navigable for hyperlink navigation  
+        
+            Valid navigable target name or keyword
+        `type` :
+            Hint for the type of the referenced resource  
+        
+            Valid MIME type string
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "a",
@@ -263,45 +319,86 @@ class abbr(BaseElement):
         Initialize 'abbr' (Abbreviation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "abbr",
@@ -425,45 +522,86 @@ class address(BaseElement):
         Initialize 'address' (Contact information for a page or article element) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "address",
@@ -596,60 +734,116 @@ class area(BaseElement):
         Initialize 'area' (Hyperlink or dead area on an image map) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param alt: Replacement text for use when images are not available
-        :param coords: Coordinates for the shape to be created in an image map
-            | Valid list of floating-point numbers*
-        :param download: Whether to download the resource instead of navigating to it, and its filename if so
-        :param href: Address of the hyperlink
-            | Valid URL potentially surrounded by spaces
-        :param ping: URLs to ping
-            | Set of space-separated tokens consisting of valid non-empty URLs
-        :param referrerpolicy: Referrer policy for fetches initiated by the element
-            | Referrer policy
-        :param rel: Relationship between the location in the document containing the hyperlink and the destination resource
-            | Unordered set of unique space-separated tokens*
-        :param shape: The kind of shape to be created in an image map
-        :param target: Navigable for hyperlink navigation
-            | Valid navigable target name or keyword
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `alt` :
+            Replacement text for use when images are not available
+        `coords` :
+            Coordinates for the shape to be created in an image map  
+        
+            Valid list of floating-point numbers*
+        `download` :
+            Whether to download the resource instead of navigating to it, and its filename if so
+        `href` :
+            Address of the hyperlink  
+        
+            Valid URL potentially surrounded by spaces
+        `ping` :
+            URLs to ping  
+        
+            Set of space-separated tokens consisting of valid non-empty URLs
+        `referrerpolicy` :
+            Referrer policy for fetches initiated by the element  
+        
+            Referrer policy
+        `rel` :
+            Relationship between the location in the document containing the hyperlink and the destination resource  
+        
+            Unordered set of unique space-separated tokens*
+        `shape` :
+            The kind of shape to be created in an image map
+        `target` :
+            Navigable for hyperlink navigation  
+        
+            Valid navigable target name or keyword
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "area",
@@ -791,45 +985,86 @@ class article(BaseElement):
         Initialize 'article' (Self-contained syndicatable or reusable composition) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "article",
@@ -953,45 +1188,86 @@ class aside(BaseElement):
         Initialize 'aside' (Sidebar for tangentially related content) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "aside",
@@ -1122,53 +1398,102 @@ class audio(BaseElement):
         Initialize 'audio' (Audio player) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param autoplay: Hint that the media resource can be started automatically when the page is loaded
-        :param controls: Show user agent controls
-        :param crossorigin: How the element handles crossorigin requests
-        :param loop: Whether to loop the media resource
-        :param muted: Whether to mute the media resource by default
-        :param preload: Hints how much buffering the media resource will likely need
-        :param src: Address of the resource
-            | Valid non-empty URL potentially surrounded by spaces
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `autoplay` :
+            Hint that the media resource can be started automatically when the page is loaded
+        `controls` :
+            Show user agent controls
+        `crossorigin` :
+            How the element handles crossorigin requests
+        `loop` :
+            Whether to loop the media resource
+        `muted` :
+            Whether to mute the media resource by default
+        `preload` :
+            Hints how much buffering the media resource will likely need
+        `src` :
+            Address of the resource  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "audio",
@@ -1306,45 +1631,86 @@ class b(BaseElement):
         Initialize 'b' (Keywords) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "b",
@@ -1470,49 +1836,94 @@ class base(BaseElement):
         Initialize 'base' (Base URL and default target navigable for hyperlinks and forms) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param href: Document base URL
-            | Valid URL potentially surrounded by spaces
-        :param target: Default navigable for hyperlink navigation and form submission
-            | Valid navigable target name or keyword
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `href` :
+            Document base URL  
+        
+            Valid URL potentially surrounded by spaces
+        `target` :
+            Default navigable for hyperlink navigation and form submission  
+        
+            Valid navigable target name or keyword
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "base",
@@ -1640,45 +2051,86 @@ class bdi(BaseElement):
         Initialize 'bdi' (Text directionality isolation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "bdi",
@@ -1802,45 +2254,86 @@ class bdo(BaseElement):
         Initialize 'bdo' (Text directionality formatting) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "bdo",
@@ -1965,47 +2458,90 @@ class blockquote(BaseElement):
         Initialize 'blockquote' (A section quoted from another source) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param cite: Link to the source of the quotation or more information about the edit
-            | Valid URL potentially surrounded by spaces
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `cite` :
+            Link to the source of the quotation or more information about the edit  
+        
+            Valid URL potentially surrounded by spaces
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "blockquote",
@@ -2131,45 +2667,86 @@ class body(BaseElement):
         Initialize 'body' (Document body) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "body",
@@ -2293,45 +2870,86 @@ class br(BaseElement):
         Initialize 'br' (Line break, e.g. in poem or postal address) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "br",
@@ -2467,61 +3085,118 @@ class button(BaseElement):
         Initialize 'button' (Button control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param disabled: Whether the form control is disabled
-        :param form: Associates the element with a form element
-            | ID*
-        :param formaction: URL to use for form submission
-            | Valid non-empty URL potentially surrounded by spaces
-        :param formenctype: Entry list encoding type to use for form submission
-        :param formmethod: Variant to use for form submission
-        :param formnovalidate: Bypass form control validation for form submission
-        :param formtarget: Navigable for form submission
-            | Valid navigable target name or keyword
-        :param name: Name of the element to use for form submission and in the form.elements API
-        :param popovertarget: Targets a popover element to toggle, show, or hide
-            | ID*
-        :param popovertargetaction: Indicates whether a targeted popover element is to be toggled, shown, or hidden
-        :param type: Type of button
-        :param value: Value to be used for form submission
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `disabled` :
+            Whether the form control is disabled
+        `form` :
+            Associates the element with a form element  
+        
+            ID*
+        `formaction` :
+            URL to use for form submission  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `formenctype` :
+            Entry list encoding type to use for form submission
+        `formmethod` :
+            Variant to use for form submission
+        `formnovalidate` :
+            Bypass form control validation for form submission
+        `formtarget` :
+            Navigable for form submission  
+        
+            Valid navigable target name or keyword
+        `name` :
+            Name of the element to use for form submission and in the form.elements API
+        `popovertarget` :
+            Targets a popover element to toggle, show, or hide  
+        
+            ID*
+        `popovertargetaction` :
+            Indicates whether a targeted popover element is to be toggled, shown, or hidden
+        `type` :
+            Type of button
+        `value` :
+            Value to be used for form submission
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "button",
@@ -2671,47 +3346,90 @@ class canvas(BaseElement):
         Initialize 'canvas' (Scriptable bitmap canvas) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param height: Vertical dimension
-        :param width: Horizontal dimension
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `height` :
+            Vertical dimension
+        `width` :
+            Horizontal dimension
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "canvas",
@@ -2839,45 +3557,86 @@ class caption(BaseElement):
         Initialize 'caption' (Table caption) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "caption",
@@ -3001,45 +3760,86 @@ class cite(BaseElement):
         Initialize 'cite' (Title of a work) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "cite",
@@ -3163,45 +3963,86 @@ class code(BaseElement):
         Initialize 'code' (Computer code) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "code",
@@ -3326,47 +4167,90 @@ class col(BaseElement):
         Initialize 'col' (Table column) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param span: Number of columns spanned by the element
-            | Valid non-negative integer greater than zero
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `span` :
+            Number of columns spanned by the element  
+        
+            Valid non-negative integer greater than zero
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "col",
@@ -3493,47 +4377,90 @@ class colgroup(BaseElement):
         Initialize 'colgroup' (Group of columns in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param span: Number of columns spanned by the element
-            | Valid non-negative integer greater than zero
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `span` :
+            Number of columns spanned by the element  
+        
+            Valid non-negative integer greater than zero
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "colgroup",
@@ -3660,46 +4587,88 @@ class data(BaseElement):
         Initialize 'data' (Machine-readable equivalent) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param value: Machine-readable value
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `value` :
+            Machine-readable value
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "data",
@@ -3825,45 +4794,86 @@ class datalist(BaseElement):
         Initialize 'datalist' (Container for options for combo box control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "datalist",
@@ -3987,45 +4997,86 @@ class dd(BaseElement):
         Initialize 'dd' (Content for corresponding dt element(s)) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "dd",
@@ -4151,49 +5202,94 @@ class del_(BaseElement):
         Initialize 'del' (A removal from the document) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param cite: Link to the source of the quotation or more information about the edit
-            | Valid URL potentially surrounded by spaces
-        :param datetime: Date and (optionally) time of the change
-            | Valid date string with optional time
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `cite` :
+            Link to the source of the quotation or more information about the edit  
+        
+            Valid URL potentially surrounded by spaces
+        `datetime` :
+            Date and (optionally) time of the change  
+        
+            Valid date string with optional time
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "del",
@@ -4323,47 +5419,90 @@ class details(BaseElement):
         Initialize 'details' (Disclosure control for hiding details) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param name: Name of group of mutually-exclusive details elements
-        :param open: Whether the details are visible
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `name` :
+            Name of group of mutually-exclusive details elements
+        `open` :
+            Whether the details are visible
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "details",
@@ -4491,45 +5630,86 @@ class dfn(BaseElement):
         Initialize 'dfn' (Defining instance) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "dfn",
@@ -4654,46 +5834,88 @@ class dialog(BaseElement):
         Initialize 'dialog' (Dialog box or window) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param open: Whether the dialog box is showing
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `open` :
+            Whether the dialog box is showing
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "dialog",
@@ -4819,45 +6041,86 @@ class div(BaseElement):
         Initialize 'div' (Generic flow container, or container for name-value groups in dl elements) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "div",
@@ -4981,45 +6244,86 @@ class dl(BaseElement):
         Initialize 'dl' (Association list consisting of zero or more name-value groups) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "dl",
@@ -5143,45 +6447,86 @@ class dt(BaseElement):
         Initialize 'dt' (Legend for corresponding dd element(s)) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "dt",
@@ -5305,45 +6650,86 @@ class em(BaseElement):
         Initialize 'em' (Stress emphasis) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "em",
@@ -5471,51 +6857,98 @@ class embed(BaseElement):
         Initialize 'embed' (Plugin) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param height: Vertical dimension
-        :param src: Address of the resource
-            | Valid non-empty URL potentially surrounded by spaces
-        :param type: Type of embedded resource
-            | Valid MIME type string
-        :param width: Horizontal dimension
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `height` :
+            Vertical dimension
+        `src` :
+            Address of the resource  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `type` :
+            Type of embedded resource  
+        
+            Valid MIME type string
+        `width` :
+            Horizontal dimension
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "embed",
@@ -5650,49 +7083,94 @@ class fieldset(BaseElement):
         Initialize 'fieldset' (Group of form controls) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param disabled: Whether the descendant form controls, except any inside legend, are disabled
-        :param form: Associates the element with a form element
-            | ID*
-        :param name: Name of the element to use for form submission and in the form.elements API
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `disabled` :
+            Whether the descendant form controls, except any inside legend, are disabled
+        `form` :
+            Associates the element with a form element  
+        
+            ID*
+        `name` :
+            Name of the element to use for form submission and in the form.elements API
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "fieldset",
@@ -5822,45 +7300,86 @@ class figcaption(BaseElement):
         Initialize 'figcaption' (Caption for figure) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "figcaption",
@@ -5984,45 +7503,86 @@ class figure(BaseElement):
         Initialize 'figure' (Figure with optional caption) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "figure",
@@ -6146,45 +7706,86 @@ class footer(BaseElement):
         Initialize 'footer' (Footer for a page or section) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "footer",
@@ -6316,56 +7917,108 @@ class form(BaseElement):
         Initialize 'form' (User-submittable form) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accept_charset: Character encodings to use for form submission
-            | ASCII case-insensitive match for "UTF-8"
-        :param action: URL to use for form submission
-            | Valid non-empty URL potentially surrounded by spaces
-        :param autocomplete: Default setting for autofill feature for controls in the form
-        :param enctype: Entry list encoding type to use for form submission
-        :param method: Variant to use for form submission
-        :param name: Name of form to use in the document.forms API
-        :param novalidate: Bypass form control validation for form submission
-        :param target: Navigable for form submission
-            | Valid navigable target name or keyword
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accept_charset` :
+            Character encodings to use for form submission  
+        
+            ASCII case-insensitive match for "UTF-8"
+        `action` :
+            URL to use for form submission  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `autocomplete` :
+            Default setting for autofill feature for controls in the form
+        `enctype` :
+            Entry list encoding type to use for form submission
+        `method` :
+            Variant to use for form submission
+        `name` :
+            Name of form to use in the document.forms API
+        `novalidate` :
+            Bypass form control validation for form submission
+        `target` :
+            Navigable for form submission  
+        
+            Valid navigable target name or keyword
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "form",
@@ -6505,45 +8158,86 @@ class h1(BaseElement):
         Initialize 'h1' (Heading) element.  
         Documentation: None
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "h1",
@@ -6667,45 +8361,86 @@ class h2(BaseElement):
         Initialize 'h2' (Heading) element.  
         Documentation: None
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "h2",
@@ -6829,45 +8564,86 @@ class h3(BaseElement):
         Initialize 'h3' (Heading) element.  
         Documentation: None
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "h3",
@@ -6991,45 +8767,86 @@ class h4(BaseElement):
         Initialize 'h4' (Heading) element.  
         Documentation: None
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "h4",
@@ -7153,45 +8970,86 @@ class h5(BaseElement):
         Initialize 'h5' (Heading) element.  
         Documentation: None
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "h5",
@@ -7315,45 +9173,86 @@ class h6(BaseElement):
         Initialize 'h6' (Heading) element.  
         Documentation: None
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "h6",
@@ -7477,45 +9376,86 @@ class head(BaseElement):
         Initialize 'head' (Container for document metadata) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "head",
@@ -7639,45 +9579,86 @@ class header(BaseElement):
         Initialize 'header' (Introductory or navigational aids for a page or section) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "header",
@@ -7801,45 +9782,86 @@ class hgroup(BaseElement):
         Initialize 'hgroup' (Heading container) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "hgroup",
@@ -7963,45 +9985,86 @@ class hr(BaseElement):
         Initialize 'hr' (Thematic break) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "hr",
@@ -8125,45 +10188,86 @@ class html(BaseElement):
         Initialize 'html' (Root element) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "html",
@@ -8287,45 +10391,86 @@ class i(BaseElement):
         Initialize 'i' (Alternate voice) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "i",
@@ -8459,61 +10604,118 @@ class iframe(BaseElement):
         Initialize 'iframe' (Child navigable) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param allow: Permissions policy to be applied to the iframe's contents
-            | Serialized permissions policy
-        :param allowfullscreen: Whether to allow the iframe's contents to use requestFullscreen()
-        :param height: Vertical dimension
-        :param loading: Used when determining loading deferral
-        :param name: Name of content navigable
-            | Valid navigable target name or keyword
-        :param referrerpolicy: Referrer policy for fetches initiated by the element
-            | Referrer policy
-        :param sandbox: Security rules for nested content
-            | Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads" "allow-forms" "allow-modals" "allow-orientation-lock" "allow-pointer-lock" "allow-popups" "allow-popups-to-escape-sandbox" "allow-presentation" "allow-same-origin" "allow-scripts" "allow-top-navigation" "allow-top-navigation-by-user-activation" "allow-top-navigation-to-custom-protocols"
-        :param src: Address of the resource
-            | Valid non-empty URL potentially surrounded by spaces
-        :param srcdoc: A document to render in the iframe
-            | The source of an iframe srcdoc document*
-        :param width: Horizontal dimension
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `allow` :
+            Permissions policy to be applied to the iframe's contents  
+        
+            Serialized permissions policy
+        `allowfullscreen` :
+            Whether to allow the iframe's contents to use requestFullscreen()
+        `height` :
+            Vertical dimension
+        `loading` :
+            Used when determining loading deferral
+        `name` :
+            Name of content navigable  
+        
+            Valid navigable target name or keyword
+        `referrerpolicy` :
+            Referrer policy for fetches initiated by the element  
+        
+            Referrer policy
+        `sandbox` :
+            Security rules for nested content  
+        
+            Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads" "allow-forms" "allow-modals" "allow-orientation-lock" "allow-pointer-lock" "allow-popups" "allow-popups-to-escape-sandbox" "allow-presentation" "allow-same-origin" "allow-scripts" "allow-top-navigation" "allow-top-navigation-by-user-activation" "allow-top-navigation-to-custom-protocols"
+        `src` :
+            Address of the resource  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `srcdoc` :
+            A document to render in the iframe  
+        
+            The source of an iframe srcdoc document*
+        `width` :
+            Horizontal dimension
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "iframe",
@@ -8670,63 +10872,122 @@ class img(BaseElement):
         Initialize 'img' (Image) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param alt: Replacement text for use when images are not available
-        :param crossorigin: How the element handles crossorigin requests
-        :param decoding: Decoding hint to use when processing this image for presentation
-        :param fetchpriority: Sets the priority for fetches initiated by the element
-        :param height: Vertical dimension
-        :param ismap: Whether the image is a server-side image map
-        :param loading: Used when determining loading deferral
-        :param referrerpolicy: Referrer policy for fetches initiated by the element
-            | Referrer policy
-        :param sizes: Image sizes for different page layouts
-            | Valid source size list
-        :param src: Address of the resource
-            | Valid non-empty URL potentially surrounded by spaces
-        :param srcset: Images to use in different situations, e.g., high-resolution displays, small monitors, etc.
-            | Comma-separated list of image candidate strings
-        :param usemap: Name of image map to use
-            | Valid hash-name reference*
-        :param width: Horizontal dimension
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `alt` :
+            Replacement text for use when images are not available
+        `crossorigin` :
+            How the element handles crossorigin requests
+        `decoding` :
+            Decoding hint to use when processing this image for presentation
+        `fetchpriority` :
+            Sets the priority for fetches initiated by the element
+        `height` :
+            Vertical dimension
+        `ismap` :
+            Whether the image is a server-side image map
+        `loading` :
+            Used when determining loading deferral
+        `referrerpolicy` :
+            Referrer policy for fetches initiated by the element  
+        
+            Referrer policy
+        `sizes` :
+            Image sizes for different page layouts  
+        
+            Valid source size list
+        `src` :
+            Address of the resource  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `srcset` :
+            Images to use in different situations, e.g., high-resolution displays, small monitors, etc.  
+        
+            Comma-separated list of image candidate strings
+        `usemap` :
+            Name of image map to use  
+        
+            Valid hash-name reference*
+        `width` :
+            Horizontal dimension
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "img",
@@ -8910,93 +11171,182 @@ class input(BaseElement): # type: ignore[misc]
         Initialize 'input' (Form control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accept: Hint for expected file type in file upload controls
-            | Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*
-        :param alpha: Allow the color's alpha component to be set
-        :param alt: Replacement text for use when images are not available
-        :param autocomplete: Hint for form autofill feature
-            | Autofill field name and related tokens*
-        :param checked: Whether the control is checked
-        :param colorspace: The color space of the serialized color
-        :param dirname: Name of form control to use for sending the element's directionality in form submission
-        :param disabled: Whether the form control is disabled
-        :param form: Associates the element with a form element
-            | ID*
-        :param formaction: URL to use for form submission
-            | Valid non-empty URL potentially surrounded by spaces
-        :param formenctype: Entry list encoding type to use for form submission
-        :param formmethod: Variant to use for form submission
-        :param formnovalidate: Bypass form control validation for form submission
-        :param formtarget: Navigable for form submission
-            | Valid navigable target name or keyword
-        :param height: Vertical dimension
-        :param list: List of autocomplete options
-            | ID*
-        :param max: Maximum value
-            | Varies*
-        :param maxlength: Maximum length of value
-        :param min: Minimum value
-            | Varies*
-        :param minlength: Minimum length of value
-        :param multiple: Whether to allow multiple values
-        :param name: Name of the element to use for form submission and in the form.elements API
-        :param pattern: Pattern to be matched by the form control's value
-            | Regular expression matching the JavaScript Pattern production
-        :param placeholder: User-visible label to be placed within the form control
-        :param popovertarget: Targets a popover element to toggle, show, or hide
-            | ID*
-        :param popovertargetaction: Indicates whether a targeted popover element is to be toggled, shown, or hidden
-        :param readonly: Whether to allow the value to be edited by the user
-        :param required: Whether the control is required for form submission
-        :param size: Size of the control
-            | Valid non-negative integer greater than zero
-        :param src: Address of the resource
-            | Valid non-empty URL potentially surrounded by spaces
-        :param step: Granularity to be matched by the form control's value
-        :param title: Description of pattern (when used with pattern attribute)
-        :param type: Type of form control
-            | input type keyword
-        :param value: Value of the form control
-            | Varies*
-        :param width: Horizontal dimension
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accept` :
+            Hint for expected file type in file upload controls  
+        
+            Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*
+        `alpha` :
+            Allow the color's alpha component to be set
+        `alt` :
+            Replacement text for use when images are not available
+        `autocomplete` :
+            Hint for form autofill feature  
+        
+            Autofill field name and related tokens*
+        `checked` :
+            Whether the control is checked
+        `colorspace` :
+            The color space of the serialized color
+        `dirname` :
+            Name of form control to use for sending the element's directionality in form submission
+        `disabled` :
+            Whether the form control is disabled
+        `form` :
+            Associates the element with a form element  
+        
+            ID*
+        `formaction` :
+            URL to use for form submission  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `formenctype` :
+            Entry list encoding type to use for form submission
+        `formmethod` :
+            Variant to use for form submission
+        `formnovalidate` :
+            Bypass form control validation for form submission
+        `formtarget` :
+            Navigable for form submission  
+        
+            Valid navigable target name or keyword
+        `height` :
+            Vertical dimension
+        `list` :
+            List of autocomplete options  
+        
+            ID*
+        `max` :
+            Maximum value  
+        
+            Varies*
+        `maxlength` :
+            Maximum length of value
+        `min` :
+            Minimum value  
+        
+            Varies*
+        `minlength` :
+            Minimum length of value
+        `multiple` :
+            Whether to allow multiple values
+        `name` :
+            Name of the element to use for form submission and in the form.elements API
+        `pattern` :
+            Pattern to be matched by the form control's value  
+        
+            Regular expression matching the JavaScript Pattern production
+        `placeholder` :
+            User-visible label to be placed within the form control
+        `popovertarget` :
+            Targets a popover element to toggle, show, or hide  
+        
+            ID*
+        `popovertargetaction` :
+            Indicates whether a targeted popover element is to be toggled, shown, or hidden
+        `readonly` :
+            Whether to allow the value to be edited by the user
+        `required` :
+            Whether the control is required for form submission
+        `size` :
+            Size of the control  
+        
+            Valid non-negative integer greater than zero
+        `src` :
+            Address of the resource  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `step` :
+            Granularity to be matched by the form control's value
+        `title` :
+            Description of pattern (when used with pattern attribute)
+        `type` :
+            Type of form control  
+        
+            input type keyword
+        `value` :
+            Value of the form control  
+        
+            Varies*
+        `width` :
+            Horizontal dimension
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "input",
@@ -9190,49 +11540,94 @@ class ins(BaseElement):
         Initialize 'ins' (An addition to the document) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param cite: Link to the source of the quotation or more information about the edit
-            | Valid URL potentially surrounded by spaces
-        :param datetime: Date and (optionally) time of the change
-            | Valid date string with optional time
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `cite` :
+            Link to the source of the quotation or more information about the edit  
+        
+            Valid URL potentially surrounded by spaces
+        `datetime` :
+            Date and (optionally) time of the change  
+        
+            Valid date string with optional time
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "ins",
@@ -9360,45 +11755,86 @@ class kbd(BaseElement):
         Initialize 'kbd' (User input) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "kbd",
@@ -9523,47 +11959,90 @@ class label(BaseElement):
         Initialize 'label' (Caption for a form control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param for_: Associate the label with form control
-            | ID*
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `for_` :
+            Associate the label with form control  
+        
+            ID*
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "label",
@@ -9689,45 +12168,86 @@ class legend(BaseElement):
         Initialize 'legend' (Caption for fieldset) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "legend",
@@ -9852,46 +12372,88 @@ class li(BaseElement):
         Initialize 'li' (List item) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param value: Ordinal value of the list item
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `value` :
+            Ordinal value of the list item
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "li",
@@ -10033,74 +12595,144 @@ class link(BaseElement): # type: ignore[misc]
         Initialize 'link' (Link metadata) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param as_: Potential destination for a preload request (for rel="preload" and rel="modulepreload")
-            | Potential destination, for rel="preload"; script-like destination, for rel="modulepreload"
-        :param blocking: Whether the element is potentially render-blocking
-            | Unordered set of unique space-separated tokens*
-        :param color: Color to use when customizing a site's icon (for rel="mask-icon")
-            | CSS <color>
-        :param crossorigin: How the element handles crossorigin requests
-        :param disabled: Whether the link is disabled
-        :param fetchpriority: Sets the priority for fetches initiated by the element
-        :param href: Address of the hyperlink
-            | Valid non-empty URL potentially surrounded by spaces
-        :param hreflang: Language of the linked resource
-            | Valid BCP 47 language tag
-        :param imagesizes: Image sizes for different page layouts (for rel="preload")
-            | Valid source size list
-        :param imagesrcset: Images to use in different situations, e.g., high-resolution displays, small monitors, etc. (for rel="preload")
-            | Comma-separated list of image candidate strings
-        :param integrity: Integrity metadata used in Subresource Integrity checks [SRI]
-        :param media: Applicable media
-            | Valid media query list
-        :param referrerpolicy: Referrer policy for fetches initiated by the element
-            | Referrer policy
-        :param rel: Relationship between the document containing the hyperlink and the destination resource
-            | Unordered set of unique space-separated tokens*
-        :param sizes: Sizes of the icons (for rel="icon")
-            | Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of sizes*
-        :param title: CSS style sheet set name
-        :param title: Title of the link
-        :param type: Hint for the type of the referenced resource
-            | Valid MIME type string
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `as_` :
+            Potential destination for a preload request (for rel="preload" and rel="modulepreload")  
+        
+            Potential destination, for rel="preload"; script-like destination, for rel="modulepreload"
+        `blocking` :
+            Whether the element is potentially render-blocking  
+        
+            Unordered set of unique space-separated tokens*
+        `color` :
+            Color to use when customizing a site's icon (for rel="mask-icon")  
+        
+            CSS <color>
+        `crossorigin` :
+            How the element handles crossorigin requests
+        `disabled` :
+            Whether the link is disabled
+        `fetchpriority` :
+            Sets the priority for fetches initiated by the element
+        `href` :
+            Address of the hyperlink  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `hreflang` :
+            Language of the linked resource  
+        
+            Valid BCP 47 language tag
+        `imagesizes` :
+            Image sizes for different page layouts (for rel="preload")  
+        
+            Valid source size list
+        `imagesrcset` :
+            Images to use in different situations, e.g., high-resolution displays, small monitors, etc. (for rel="preload")  
+        
+            Comma-separated list of image candidate strings
+        `integrity` :
+            Integrity metadata used in Subresource Integrity checks [SRI]
+        `media` :
+            Applicable media  
+        
+            Valid media query list
+        `referrerpolicy` :
+            Referrer policy for fetches initiated by the element  
+        
+            Referrer policy
+        `rel` :
+            Relationship between the document containing the hyperlink and the destination resource  
+        
+            Unordered set of unique space-separated tokens*
+        `sizes` :
+            Sizes of the icons (for rel="icon")  
+        
+            Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of sizes*
+        `title` :
+            CSS style sheet set name
+        `title` :
+            Title of the link
+        `type` :
+            Hint for the type of the referenced resource  
+        
+            Valid MIME type string
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "link",
@@ -10256,45 +12888,86 @@ class main(BaseElement):
         Initialize 'main' (Container for the dominant contents of the document) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "main",
@@ -10419,46 +13092,88 @@ class map(BaseElement):
         Initialize 'map' (Image map) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param name: Name of image map to reference from the usemap attribute
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `name` :
+            Name of image map to reference from the usemap attribute
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "map",
@@ -10584,45 +13299,86 @@ class mark(BaseElement):
         Initialize 'mark' (Highlight) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "mark",
@@ -10746,45 +13502,86 @@ class menu(BaseElement):
         Initialize 'menu' (Menu of commands) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "menu",
@@ -10913,51 +13710,98 @@ class meta(BaseElement):
         Initialize 'meta' (Text metadata) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param charset: Character encoding declaration
-        :param content: Value of the element
-        :param http_equiv: Pragma directive
-        :param media: Applicable media
-            | Valid media query list
-        :param name: Metadata name
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `charset` :
+            Character encoding declaration
+        `content` :
+            Value of the element
+        `http_equiv` :
+            Pragma directive
+        `media` :
+            Applicable media  
+        
+            Valid media query list
+        `name` :
+            Metadata name
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "meta",
@@ -11097,51 +13941,98 @@ class meter(BaseElement):
         Initialize 'meter' (Gauge) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param high: Low limit of high range
-        :param low: High limit of low range
-        :param max: Upper bound of range
-        :param min: Lower bound of range
-        :param optimum: Optimum value in gauge
-        :param value: Current value of the element
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `high` :
+            Low limit of high range
+        `low` :
+            High limit of low range
+        `max` :
+            Upper bound of range
+        `min` :
+            Lower bound of range
+        `optimum` :
+            Optimum value in gauge
+        `value` :
+            Current value of the element
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "meter",
@@ -11277,45 +14168,86 @@ class nav(BaseElement):
         Initialize 'nav' (Section with navigational links) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "nav",
@@ -11439,45 +14371,86 @@ class noscript(BaseElement):
         Initialize 'noscript' (Fallback content for script) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "noscript",
@@ -11607,55 +14580,106 @@ class object(BaseElement):
         Initialize 'object' (Image, child navigable, or plugin) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param data: Address of the resource
-            | Valid non-empty URL potentially surrounded by spaces
-        :param form: Associates the element with a form element
-            | ID*
-        :param height: Vertical dimension
-        :param name: Name of content navigable
-            | Valid navigable target name or keyword
-        :param type: Type of embedded resource
-            | Valid MIME type string
-        :param width: Horizontal dimension
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `data` :
+            Address of the resource  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `form` :
+            Associates the element with a form element  
+        
+            ID*
+        `height` :
+            Vertical dimension
+        `name` :
+            Name of content navigable  
+        
+            Valid navigable target name or keyword
+        `type` :
+            Type of embedded resource  
+        
+            Valid MIME type string
+        `width` :
+            Horizontal dimension
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "object",
@@ -11794,48 +14818,92 @@ class ol(BaseElement):
         Initialize 'ol' (Ordered list) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param reversed: Number the list backwards
-        :param start: Starting value of the list
-        :param type: Kind of list marker
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `reversed` :
+            Number the list backwards
+        `start` :
+            Starting value of the list
+        `type` :
+            Kind of list marker
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "ol",
@@ -11967,47 +15035,90 @@ class optgroup(BaseElement):
         Initialize 'optgroup' (Group of options in a list box) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param disabled: Whether the form control is disabled
-        :param label: User-visible label
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `disabled` :
+            Whether the form control is disabled
+        `label` :
+            User-visible label
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "optgroup",
@@ -12139,49 +15250,94 @@ class option(BaseElement):
         Initialize 'option' (Option in a list box or combo box control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param disabled: Whether the form control is disabled
-        :param label: User-visible label
-        :param selected: Whether the option is selected by default
-        :param value: Value to be used for form submission
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `disabled` :
+            Whether the form control is disabled
+        `label` :
+            User-visible label
+        `selected` :
+            Whether the option is selected by default
+        `value` :
+            Value to be used for form submission
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "option",
@@ -12316,50 +15472,96 @@ class output(BaseElement):
         Initialize 'output' (Calculated output value) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param for_: Specifies controls from which the output was calculated
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param form: Associates the element with a form element
-            | ID*
-        :param name: Name of the element to use for form submission and in the form.elements API
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `for_` :
+            Specifies controls from which the output was calculated  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `form` :
+            Associates the element with a form element  
+        
+            ID*
+        `name` :
+            Name of the element to use for form submission and in the form.elements API
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "output",
@@ -12489,45 +15691,86 @@ class p(BaseElement):
         Initialize 'p' (Paragraph) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "p",
@@ -12651,45 +15894,86 @@ class picture(BaseElement):
         Initialize 'picture' (Image) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "picture",
@@ -12813,45 +16097,86 @@ class pre(BaseElement):
         Initialize 'pre' (Block of preformatted text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "pre",
@@ -12977,47 +16302,90 @@ class progress(BaseElement):
         Initialize 'progress' (Progress bar) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param max: Upper bound of range
-        :param value: Current value of the element
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `max` :
+            Upper bound of range
+        `value` :
+            Current value of the element
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "progress",
@@ -13146,47 +16514,90 @@ class q(BaseElement):
         Initialize 'q' (Quotation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param cite: Link to the source of the quotation or more information about the edit
-            | Valid URL potentially surrounded by spaces
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `cite` :
+            Link to the source of the quotation or more information about the edit  
+        
+            Valid URL potentially surrounded by spaces
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "q",
@@ -13312,45 +16723,86 @@ class rp(BaseElement):
         Initialize 'rp' (Parenthesis for ruby annotation text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "rp",
@@ -13474,45 +16926,86 @@ class rt(BaseElement):
         Initialize 'rt' (Ruby annotation text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "rt",
@@ -13636,45 +17129,86 @@ class ruby(BaseElement):
         Initialize 'ruby' (Ruby annotation(s)) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "ruby",
@@ -13798,45 +17332,86 @@ class s(BaseElement):
         Initialize 's' (Inaccurate text) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "s",
@@ -13960,45 +17535,86 @@ class samp(BaseElement):
         Initialize 'samp' (Computer output) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "samp",
@@ -14132,59 +17748,114 @@ class script(BaseElement):
         Initialize 'script' (Embedded script) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param async_: Execute script when available, without blocking while fetching
-        :param blocking: Whether the element is potentially render-blocking
-            | Unordered set of unique space-separated tokens*
-        :param crossorigin: How the element handles crossorigin requests
-        :param defer: Defer script execution
-        :param fetchpriority: Sets the priority for fetches initiated by the element
-        :param integrity: Integrity metadata used in Subresource Integrity checks [SRI]
-        :param nomodule: Prevents execution in user agents that support module scripts
-        :param referrerpolicy: Referrer policy for fetches initiated by the element
-            | Referrer policy
-        :param src: Address of the resource
-            | Valid non-empty URL potentially surrounded by spaces
-        :param type: Type of script
-            | "module"; a valid MIME type string that is not a JavaScript MIME type essence match
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `async_` :
+            Execute script when available, without blocking while fetching
+        `blocking` :
+            Whether the element is potentially render-blocking  
+        
+            Unordered set of unique space-separated tokens*
+        `crossorigin` :
+            How the element handles crossorigin requests
+        `defer` :
+            Defer script execution
+        `fetchpriority` :
+            Sets the priority for fetches initiated by the element
+        `integrity` :
+            Integrity metadata used in Subresource Integrity checks [SRI]
+        `nomodule` :
+            Prevents execution in user agents that support module scripts
+        `referrerpolicy` :
+            Referrer policy for fetches initiated by the element  
+        
+            Referrer policy
+        `src` :
+            Address of the resource  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `type` :
+            Type of script  
+        
+            "module"; a valid MIME type string that is not a JavaScript MIME type essence match
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "script",
@@ -14328,45 +17999,86 @@ class search(BaseElement):
         Initialize 'search' (Container for search controls) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "search",
@@ -14490,45 +18202,86 @@ class section(BaseElement):
         Initialize 'section' (Generic document or application section) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "section",
@@ -14659,55 +18412,106 @@ class select(BaseElement):
         Initialize 'select' (List box control) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param autocomplete: Hint for form autofill feature
-            | Autofill field name and related tokens*
-        :param disabled: Whether the form control is disabled
-        :param form: Associates the element with a form element
-            | ID*
-        :param multiple: Whether to allow multiple values
-        :param name: Name of the element to use for form submission and in the form.elements API
-        :param required: Whether the control is required for form submission
-        :param size: Size of the control
-            | Valid non-negative integer greater than zero
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `autocomplete` :
+            Hint for form autofill feature  
+        
+            Autofill field name and related tokens*
+        `disabled` :
+            Whether the form control is disabled
+        `form` :
+            Associates the element with a form element  
+        
+            ID*
+        `multiple` :
+            Whether to allow multiple values
+        `name` :
+            Name of the element to use for form submission and in the form.elements API
+        `required` :
+            Whether the control is required for form submission
+        `size` :
+            Size of the control  
+        
+            Valid non-negative integer greater than zero
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "select",
@@ -14846,46 +18650,88 @@ class slot(BaseElement):
         Initialize 'slot' (Shadow tree slot) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param name: Name of shadow tree slot
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `name` :
+            Name of shadow tree slot
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "slot",
@@ -15011,45 +18857,86 @@ class small(BaseElement):
         Initialize 'small' (Side comment) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "small",
@@ -15180,57 +19067,110 @@ class source(BaseElement):
         Initialize 'source' (Image source for img or media source for video or audio) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param height: Vertical dimension
-        :param media: Applicable media
-            | Valid media query list
-        :param sizes: Image sizes for different page layouts
-            | Valid source size list
-        :param src: Address of the resource
-            | Valid non-empty URL potentially surrounded by spaces
-        :param srcset: Images to use in different situations, e.g., high-resolution displays, small monitors, etc.
-            | Comma-separated list of image candidate strings
-        :param type: Type of embedded resource
-            | Valid MIME type string
-        :param width: Horizontal dimension
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `height` :
+            Vertical dimension
+        `media` :
+            Applicable media  
+        
+            Valid media query list
+        `sizes` :
+            Image sizes for different page layouts  
+        
+            Valid source size list
+        `src` :
+            Address of the resource  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `srcset` :
+            Images to use in different situations, e.g., high-resolution displays, small monitors, etc.  
+        
+            Comma-separated list of image candidate strings
+        `type` :
+            Type of embedded resource  
+        
+            Valid MIME type string
+        `width` :
+            Horizontal dimension
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "source",
@@ -15368,45 +19308,86 @@ class span(BaseElement):
         Initialize 'span' (Generic phrasing container) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "span",
@@ -15530,45 +19511,86 @@ class strong(BaseElement):
         Initialize 'strong' (Importance) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "strong",
@@ -15694,49 +19716,94 @@ class style(BaseElement): # type: ignore[misc]
         Initialize 'style' (Embedded styling information) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param blocking: Whether the element is potentially render-blocking
-            | Unordered set of unique space-separated tokens*
-        :param media: Applicable media
-            | Valid media query list
-        :param title: CSS style sheet set name
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `blocking` :
+            Whether the element is potentially render-blocking  
+        
+            Unordered set of unique space-separated tokens*
+        `media` :
+            Applicable media  
+        
+            Valid media query list
+        `title` :
+            CSS style sheet set name
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "style",
@@ -15864,45 +19931,86 @@ class sub(BaseElement):
         Initialize 'sub' (Subscript) element.  
         Documentation: None
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "sub",
@@ -16026,45 +20134,86 @@ class summary(BaseElement):
         Initialize 'summary' (Caption for details) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "summary",
@@ -16188,45 +20337,86 @@ class sup(BaseElement):
         Initialize 'sup' (Superscript) element.  
         Documentation: None
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "sup",
@@ -16350,45 +20540,86 @@ class svg(BaseElement):
         Initialize 'svg' (SVG root) element.  
         Documentation: None
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "svg",
@@ -16512,45 +20743,86 @@ class table(BaseElement):
         Initialize 'table' (Table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "table",
@@ -16674,45 +20946,86 @@ class tbody(BaseElement):
         Initialize 'tbody' (Group of rows in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "tbody",
@@ -16839,50 +21152,96 @@ class td(BaseElement):
         Initialize 'td' (Table cell) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param colspan: Number of columns that the cell is to span
-            | Valid non-negative integer greater than zero
-        :param headers: The header cells for this cell
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param rowspan: Number of rows that the cell is to span
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `colspan` :
+            Number of columns that the cell is to span  
+        
+            Valid non-negative integer greater than zero
+        `headers` :
+            The header cells for this cell  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `rowspan` :
+            Number of rows that the cell is to span
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "td",
@@ -17016,49 +21375,94 @@ class template(BaseElement):
         Initialize 'template' (Template) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param shadowrootclonable: Sets clonable on a declarative shadow root
-        :param shadowrootdelegatesfocus: Sets delegates focus on a declarative shadow root
-        :param shadowrootmode: Enables streaming declarative shadow roots
-        :param shadowrootserializable: Sets serializable on a declarative shadow root
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `shadowrootclonable` :
+            Sets clonable on a declarative shadow root
+        `shadowrootdelegatesfocus` :
+            Sets delegates focus on a declarative shadow root
+        `shadowrootmode` :
+            Enables streaming declarative shadow roots
+        `shadowrootserializable` :
+            Sets serializable on a declarative shadow root
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "template",
@@ -17203,62 +21607,120 @@ class textarea(BaseElement):
         Initialize 'textarea' (Multiline text controls) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param autocomplete: Hint for form autofill feature
-            | Autofill field name and related tokens*
-        :param cols: Maximum number of characters per line
-            | Valid non-negative integer greater than zero
-        :param dirname: Name of form control to use for sending the element's directionality in form submission
-        :param disabled: Whether the form control is disabled
-        :param form: Associates the element with a form element
-            | ID*
-        :param maxlength: Maximum length of value
-        :param minlength: Minimum length of value
-        :param name: Name of the element to use for form submission and in the form.elements API
-        :param placeholder: User-visible label to be placed within the form control
-        :param readonly: Whether to allow the value to be edited by the user
-        :param required: Whether the control is required for form submission
-        :param rows: Number of lines to show
-            | Valid non-negative integer greater than zero
-        :param wrap: How the value of the form control is to be wrapped for form submission
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `autocomplete` :
+            Hint for form autofill feature  
+        
+            Autofill field name and related tokens*
+        `cols` :
+            Maximum number of characters per line  
+        
+            Valid non-negative integer greater than zero
+        `dirname` :
+            Name of form control to use for sending the element's directionality in form submission
+        `disabled` :
+            Whether the form control is disabled
+        `form` :
+            Associates the element with a form element  
+        
+            ID*
+        `maxlength` :
+            Maximum length of value
+        `minlength` :
+            Minimum length of value
+        `name` :
+            Name of the element to use for form submission and in the form.elements API
+        `placeholder` :
+            User-visible label to be placed within the form control
+        `readonly` :
+            Whether to allow the value to be edited by the user
+        `required` :
+            Whether the control is required for form submission
+        `rows` :
+            Number of lines to show  
+        
+            Valid non-negative integer greater than zero
+        `wrap` :
+            How the value of the form control is to be wrapped for form submission
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "textarea",
@@ -17408,45 +21870,86 @@ class tfoot(BaseElement):
         Initialize 'tfoot' (Group of footer rows in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "tfoot",
@@ -17575,52 +22078,100 @@ class th(BaseElement):
         Initialize 'th' (Table header cell) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param abbr: Alternative label to use for the header cell when referencing the cell in other contexts
-        :param colspan: Number of columns that the cell is to span
-            | Valid non-negative integer greater than zero
-        :param headers: The header cells for this cell
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param rowspan: Number of rows that the cell is to span
-        :param scope: Specifies which cells the header cell applies to
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `abbr` :
+            Alternative label to use for the header cell when referencing the cell in other contexts
+        `colspan` :
+            Number of columns that the cell is to span  
+        
+            Valid non-negative integer greater than zero
+        `headers` :
+            The header cells for this cell  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `rowspan` :
+            Number of rows that the cell is to span
+        `scope` :
+            Specifies which cells the header cell applies to
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "th",
@@ -17754,45 +22305,86 @@ class thead(BaseElement):
         Initialize 'thead' (Group of heading rows in a table) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "thead",
@@ -17917,47 +22509,90 @@ class time(BaseElement):
         Initialize 'time' (Machine-readable equivalent of date- or time-related data) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param datetime: Machine-readable value
-            | Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `datetime` :
+            Machine-readable value  
+        
+            Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "time",
@@ -18083,45 +22718,86 @@ class title(BaseElement):
         Initialize 'title' (Document title) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "title",
@@ -18245,45 +22921,86 @@ class tr(BaseElement):
         Initialize 'tr' (Table row) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "tr",
@@ -18412,52 +23129,100 @@ class track(BaseElement):
         Initialize 'track' (Timed text track) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param default: Enable the track if no other text track is more suitable
-        :param kind: The type of text track
-        :param label: User-visible label
-        :param src: Address of the resource
-            | Valid non-empty URL potentially surrounded by spaces
-        :param srclang: Language of the text track
-            | Valid BCP 47 language tag
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `default` :
+            Enable the track if no other text track is more suitable
+        `kind` :
+            The type of text track
+        `label` :
+            User-visible label
+        `src` :
+            Address of the resource  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `srclang` :
+            Language of the text track  
+        
+            Valid BCP 47 language tag
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "track",
@@ -18591,45 +23356,86 @@ class u(BaseElement):
         Initialize 'u' (Unarticulated annotation) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "u",
@@ -18753,45 +23559,86 @@ class ul(BaseElement):
         Initialize 'ul' (List) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "ul",
@@ -18915,45 +23762,86 @@ class var(BaseElement):
         Initialize 'var' (Variable) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "var",
@@ -19088,58 +23976,112 @@ class video(BaseElement):
         Initialize 'video' (Video player) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param autoplay: Hint that the media resource can be started automatically when the page is loaded
-        :param controls: Show user agent controls
-        :param crossorigin: How the element handles crossorigin requests
-        :param height: Vertical dimension
-        :param loop: Whether to loop the media resource
-        :param muted: Whether to mute the media resource by default
-        :param playsinline: Encourage the user agent to display video content within the element's playback area
-        :param poster: Poster frame to show prior to video playback
-            | Valid non-empty URL potentially surrounded by spaces
-        :param preload: Hints how much buffering the media resource will likely need
-        :param src: Address of the resource
-            | Valid non-empty URL potentially surrounded by spaces
-        :param width: Horizontal dimension
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `autoplay` :
+            Hint that the media resource can be started automatically when the page is loaded
+        `controls` :
+            Show user agent controls
+        `crossorigin` :
+            How the element handles crossorigin requests
+        `height` :
+            Vertical dimension
+        `loop` :
+            Whether to loop the media resource
+        `muted` :
+            Whether to mute the media resource by default
+        `playsinline` :
+            Encourage the user agent to display video content within the element's playback area
+        `poster` :
+            Poster frame to show prior to video playback  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `preload` :
+            Hints how much buffering the media resource will likely need
+        `src` :
+            Address of the resource  
+        
+            Valid non-empty URL potentially surrounded by spaces
+        `width` :
+            Horizontal dimension
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "video",
@@ -19285,45 +24227,86 @@ class wbr(BaseElement):
         Initialize 'wbr' (Line breaking opportunity) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr
 
-        :param attrs: A list or dictionary of attributes for the element
-        :param id: The element's ID
-        :param class_: Classes to which the element belongs
-            | Set of space-separated tokens
-        :param accesskey: Keyboard shortcut to activate or focus element
-            | Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
-        :param autocapitalize: Recommended autocapitalization behavior (for supported input methods)
-        :param autocorrect: Recommended autocorrection behavior (for supported input methods)
-        :param autofocus: Automatically focus the element when the page is loaded
-        :param contenteditable: Whether the element is editable
-        :param dir: The text directionality of the element
-        :param draggable: Whether the element is draggable
-        :param enterkeyhint: Hint for selecting an enter key action
-        :param hidden: Whether the element is relevant
-        :param inert: Whether the element is inert.
-        :param inputmode: Hint for selecting an input modality
-        :param is_: Creates a customized built-in element
-            | Valid custom element name of a defined customized built-in element
-        :param itemid: Global identifier for a microdata item
-            | Valid URL potentially surrounded by spaces
-        :param itemprop: Property names of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
-        :param itemref: Referenced elements
-            | Unordered set of unique space-separated tokens consisting of IDs*
-        :param itemscope: Introduces a microdata item
-        :param itemtype: Item types of a microdata item
-            | Unordered set of unique space-separated tokens consisting of valid absolute URLs*
-        :param lang: Language of the element
-            | Valid BCP 47 language tag or the empty string
-        :param nonce: Cryptographic nonce used in Content Security Policy checks [CSP]
-        :param popover: Makes the element a popover element
-        :param slot: The element's desired slot
-        :param spellcheck: Whether the element is to have its spelling and grammar checked
-        :param style: Presentational and formatting instructions
-            | CSS declarations*
-        :param tabindex: Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        :param title: Advisory information for the element
-        :param translate: Whether the element is to be translated when the page is localized
-        :param writingsuggestions: Whether the element can offer writing suggestions or not.
+        Parameters
+        ----------
+        `attrs`: 
+            A list or dictionary of attributes for the element
+        `id` :
+            The element's ID
+        `class_` :
+            Classes to which the element belongs  
+        
+            Set of space-separated tokens
+        `accesskey` :
+            Keyboard shortcut to activate or focus element  
+        
+            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        `autocapitalize` :
+            Recommended autocapitalization behavior (for supported input methods)
+        `autocorrect` :
+            Recommended autocorrection behavior (for supported input methods)
+        `autofocus` :
+            Automatically focus the element when the page is loaded
+        `contenteditable` :
+            Whether the element is editable
+        `dir` :
+            The text directionality of the element
+        `draggable` :
+            Whether the element is draggable
+        `enterkeyhint` :
+            Hint for selecting an enter key action
+        `hidden` :
+            Whether the element is relevant
+        `inert` :
+            Whether the element is inert.
+        `inputmode` :
+            Hint for selecting an input modality
+        `is_` :
+            Creates a customized built-in element  
+        
+            Valid custom element name of a defined customized built-in element
+        `itemid` :
+            Global identifier for a microdata item  
+        
+            Valid URL potentially surrounded by spaces
+        `itemprop` :
+            Property names of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        `itemref` :
+            Referenced elements  
+        
+            Unordered set of unique space-separated tokens consisting of IDs*
+        `itemscope` :
+            Introduces a microdata item
+        `itemtype` :
+            Item types of a microdata item  
+        
+            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        `lang` :
+            Language of the element  
+        
+            Valid BCP 47 language tag or the empty string
+        `nonce` :
+            Cryptographic nonce used in Content Security Policy checks [CSP]
+        `popover` :
+            Makes the element a popover element
+        `slot` :
+            The element's desired slot
+        `spellcheck` :
+            Whether the element is to have its spelling and grammar checked
+        `style` :
+            Presentational and formatting instructions  
+        
+            CSS declarations*
+        `tabindex` :
+            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        `title` :
+            Advisory information for the element
+        `translate` :
+            Whether the element is to be translated when the page is localized
+        `writingsuggestions` :
+            Whether the element can offer writing suggestions or not.
         """ #fmt: skip
         super().__init__(
             "wbr",

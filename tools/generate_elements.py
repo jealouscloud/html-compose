@@ -23,10 +23,13 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
     for attr in attr_list:
         attrdef = ReadAttr(attr)
         dupe = attrdefs.get(attrdef.name, None)
-        docstring = [f":param {attrdef.safe_name}: {attrdef.description}"]
+        docstring = [f"`{attrdef.safe_name}` :"]
 
+        docstring.append(f"    {attrdef.description}")
         if not value_hint_to_python_type(attrdef.value_desc):
-            docstring.append(f"    | {attrdef.value_desc}")
+            docstring[-1] += "  "  # markdown newline
+            docstring.append("")
+            docstring.append(f"    {attrdef.value_desc}")
 
         def_dict = {"attr": attrdef, "docstring": docstring}
         if dupe:
@@ -124,7 +127,8 @@ def gen_elements():
             extra_attrs = ""
             attr_assignment = ""
             attr_docstrings = [
-                ":param attrs: A list or dictionary of attributes for the element"
+                "`attrs`: ",
+                "    A list or dictionary of attributes for the element",
             ]
 
             attr_list = []
@@ -209,6 +213,8 @@ def gen_elements():
                 f"        Initialize '{real_element}' ({desc}) element.  ",
                 f"        Documentation: {docs}",
                 "",
+                "        Parameters",
+                "        ----------",
                 "        " + "\n        ".join(attr_docstrings),
                 '        """ #fmt: skip',
                 "        super().__init__(",
@@ -221,7 +227,7 @@ def gen_elements():
             ]
             result.append("\n".join(template))
 
-    header = f"""from typing import TypeAlias, Union, Literal, Optional
+    header = f"""from typing import Union, Literal, Optional
 
 from .attributes import GlobalAttrs, {", ".join(attr_imports)}
 from .base_attribute import BaseAttribute
