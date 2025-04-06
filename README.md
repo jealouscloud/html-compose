@@ -113,7 +113,37 @@ a([tab]
   # <div class="flex dark-mode"></div>
   ```
 
-- 🎭 Type hints for the editor generated from WhatWG spec
+* 🎭 Type hints for the editor generated from WhatWG spec
+* ⚡ Live Reload server for rapid development  
+  Run your Python webserver (i.e. Flask, FastAPI, anything!) with live-reload superpowers powered by [livereload-js](https://www.npmjs.com/package/livereload-js). See browser updates in real-time!
+
+  Note: This feature requires optional dependencies. `pip install html-compose[live-reload]` or `pip install html-compose[full]''
+  `livereload.py`
+  ```python
+  import html_compose.live as live
+
+  live.server(
+      daemon=live.ShellCommand("flask --app ./src/my_webserver run"),
+      daemon_delay=1,
+      conds=[
+          live.WatchCond(path_glob="**/*.py", action=live.ShellCommand("date")),
+          live.WatchCond(
+              path_glob="./static/sass/**/*.scss",
+              action=live.ShellCommand(
+                  ["sass", "--update", "static/sass:static/css"]
+              ),
+              no_reload=True,  # Nobody reads -these- files so we don't need to reload the server
+          ),
+          live.WatchCond(
+              path_glob="./static/css/", 
+              action=None, # There's no action to take on css but this will cause the browser to update
+              delay=0.5
+          ),
+      ],
+      host="localhost",
+      port=51353
+  )
+  ```
 
 ## Goals 🛠️
 
