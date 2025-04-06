@@ -81,7 +81,7 @@ class ProcessTask(Task):
 
 
 class TaskRunner:
-    def __init__(self):
+    def __init__(self) -> None:
         self.lock = RLock()
         self.tasks: list[tuple[int, float, Task]] = []
         self.cancelled = False
@@ -390,9 +390,9 @@ class Watcher:
                 )
                 continue
 
-            assert isinstance(result, set), (
-                f"Unexpected result type: {type(result)}"
-            )
+            assert isinstance(
+                result, set
+            ), f"Unexpected result type: {type(result)}"
 
             result_tuples: set[tuple[int, str]] = result
             for watch_id, path in result_tuples:
