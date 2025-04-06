@@ -16,6 +16,9 @@ def HTML5Document(
     Return an HTML5 document with the given title and content.
     It also defines meta viewport for mobile support.
 
+    When using livereload, an environment variable is set which adds
+    livereload-js to the head of the document.
+
     :param title: The title of the document
     :param lang: The language of the document.
                  English is "en", or consult HTML documentation
@@ -38,10 +41,11 @@ def HTML5Document(
     # None if disabled
     live_reload_flags = get_livereload_env()
     # Feature: Live reloading for development
+    # Fires when HTMLCOMPOSE_LIVERELOAD=1
     if live_reload_flags:
         # Add livereload script to the head
         # Livereload: https://github.com/livereload/livereload-js
-        # We used an SRI hash generator to prevent supply-chain attacks
+        # We pin version and used an SRI hash generator to prevent supply-chain attacks
         # https://www.srihash.org/
         VERSION = "v4.0.2"
         repo = "https://raw.githubusercontent.com/livereload/livereload-js"
