@@ -5,6 +5,8 @@
     live_server daemon function which will automatically run your script and Python server daemon, as well as any build commands
     cross-platform file watcher based on Rust Notify
 * Use numpy style docstring parameters with backticks because parameters with _ were being eaten by pylance. Parameter doc newlines should work in this format.
+* Command-line script is a module for further extension as `html-compose` 
+* Note in docstring that pretty printing can damage output due to the way HTML whitespace works. Development feature only.
 
 # 0.5.1
 * [breaking] Move pretty_print function to module function
