@@ -120,16 +120,18 @@ def glob_matcher(pattern, path):
         pattern_segment: tuple, path_section: tuple, terminates=False
     ):
         """
-
         Match a single path segment against a pattern segment.
         Uses PurePath's match for * and ? patterns.
 
-        :param pattern_segment: Description
-        :type pattern_segment:
-        :param path_section: Description
-        :type path_section:
-        :return: Description
-        :rtype: bool"""
+        :param pattern_segment: A tuple of pattern segments.
+        :type pattern_segment: tuple
+        :param path_section: A tuple of path segments.
+        :type path_section: tuple
+        :return: Whether pattern_segment completely matches path_section.
+                 If terminates is True, pattern_segment must match to the end
+                 of path_section instead of just the size of the pattern
+        :rtype: bool
+        """
         if len(pattern_segment) > len(path_section):
             return False
 
