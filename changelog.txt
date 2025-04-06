@@ -1,3 +1,6 @@
+# 0.6.2
+* Inject livereload as scriptlet which detects protocol. Support proxy_uri/path for live_server. Lots of hotfixes for livereload. 
+
 # 0.6.1
 * Use jsdelivr.net cdn for livereload-js
 

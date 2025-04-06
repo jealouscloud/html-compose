@@ -62,7 +62,7 @@ def get_livereload_uri() -> str:
     Generally this is just the neat place to store the livereload URI.
 
     But if the user wants they can override this function to return a local
-    resurce i.e.
+    resource i.e.
 
     html_compose.document.get_live_reload_uri =
       lambda: "mydomain.com/static/livereload.js";
