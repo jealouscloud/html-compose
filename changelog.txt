@@ -1,3 +1,6 @@
+# 0.6.1
+* Use jsdelivr.net cdn for livereload-js
+
 # 0.6.0
 * Add livereload feature: 
     A websocket server to auto-reload the browser
