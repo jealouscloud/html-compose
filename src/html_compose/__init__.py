@@ -29,18 +29,21 @@ def unsafe_text(value: Union[str, Markup]) -> Markup:
 
 def pretty_print(html_str: str, features="html.parser") -> str:
     """
-    Pretty print HTML
+    Pretty print HTML.  
+    DO NOT do this for production since it introduces whitespace and may
+    affect your output.
 
     :param html_str: HTML string to print
     :param features: BeautifulSoup tree builder to print with
     :return: Pretty printed HTML string
-    """
+    """  # fmt: skip
     # Production instances probably don't use this
     # so we lazy load bs4
     from bs4 import BeautifulSoup  # type: ignore[import-untyped]
 
-    p = BeautifulSoup(html_str, features="html.parser")
-    return p.prettify()
+    return BeautifulSoup(html_str, features="html.parser").prettify(
+        formatter="html5"
+    )
 
 
 def doctype(dtype: str = "html"):
@@ -48,37 +51,6 @@ def doctype(dtype: str = "html"):
     Return doctype tag
     """
     return unsafe_text(f"<!DOCTYPE {dtype}>")
-
-
-def from_html():
-    """
-    Command-line tool to translate HTML to Python code using html_compose
-
-    This function reads from stdin by default, but accepts an optional filename as argument
-    """
-    import argparse
-    import fileinput
-
-    from . import translate_html
-
-    parser = argparse.ArgumentParser(description="HTML to Markdown translator")
-    parser.add_argument(
-        "html",
-        default="-",
-        nargs="?",
-        help="HTML file to translate (default: stdin)",
-    )
-    args = parser.parse_args()
-    is_stdin = args.html == "-"
-    if is_stdin:
-        print("Reading from stdin. Press Ctrl+D to finish.")
-
-    html_content = "\n".join(
-        [line for line in fileinput.input(files=args.html, encoding="utf-8")]
-    )
-    if is_stdin:
-        print("---\n")
-    print(translate_html.translate(html_content))
 
 
 from .base_element import BaseElement

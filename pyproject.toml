@@ -1,6 +1,6 @@
 [project]
 name = "html-compose"
-version = "0.5.1"
+version = "0.6.2"
 description = "Composable HTML generation in python"
 authors = [
     { name = "jealouscloud", email = "github@noaha.org" }
@@ -36,6 +36,22 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP",
 ]
 
+
+[project.optional-dependencies]
+
+live-reload = [
+    "watchfiles>=1.0.4",
+    "websockets>=15.0.1"
+]
+
+
+full = [
+    "watchfiles>=1.0.4",
+    "websockets>=15.0.1",
+    "beautifulsoup4>=4.12.3"
+]
+
+
 [build-system]
 requires = ["hatchling==1.26.3"]
 build-backend = "hatchling.build"
@@ -50,9 +66,12 @@ dev-dependencies = [
     "mypy>=1.15.0",
     "types-beautifulsoup4>=4.12.0.20250204",
     "ipython>=8.33.0",
+    "watchfiles>=1.0.4",
+    "websockets>=15.0.1",
 ]
 [project.scripts]
-"html-convert" = "html_compose:from_html"
+"html-convert" = "html_compose.cli:html_convert"
+"html-compose" = "html_compose.cli:cli"
 
 [tool.rye.scripts]  # Run as "rye run <command>"
 build-elements = { chain = ["python tools/generate_elements.py --copy", 'fix-lint', 'fix-fmt' ] }
@@ -114,3 +133,6 @@ indent-width = 4
 
 # Assume Python 3.10
 target-version = "py310"
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true
