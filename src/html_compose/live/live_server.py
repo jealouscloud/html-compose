@@ -66,10 +66,10 @@ def live_server(
     daemon.env.update(generate_livereload_env(host, port))
 
     daemon_task = ProcessTask(daemon, delay=0, sync=False)
-
     # Run livereload server
     server = run_server(host, port)
     tr = TaskRunner()
+    tr.add_task(daemon_task)
     tr.run()  # Start task runner thread
     pending_reload: set[str] = set()
 
