@@ -339,6 +339,5 @@ class Watcher:
                 matching_rules = self._get_matching_rules(path)
                 if matching_rules:
                     changes.append(Hit(path, matching_rules))
-                else:
-                    print(f"No matching rules for {path}")
+
         return changes
