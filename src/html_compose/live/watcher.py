@@ -3,8 +3,9 @@ import os
 import stat
 import subprocess
 from pathlib import Path
-from threading import Thread
+from threading import RLock, Thread
 from time import sleep, time
+from traceback import print_exc
 from typing import Callable, Optional, Union
 
 from watchfiles._rust_notify import RustNotify
@@ -24,6 +25,103 @@ class ShellCommand:
         self.env = os.environ.copy()
         if env:
             self.env.update(env)
+
+
+class Task:
+    def __init__(self, action: Callable, delay: float = 0.0, sync=False):
+        self.action = action
+        self.delay = delay
+        self.update_count = 0
+        self.sync = sync
+
+    def active_check(self, update_id):
+        return self.update_count == update_id
+
+    def _run(self):
+        if self.sync:
+            self.action()
+        else:
+            Thread(target=self.action, daemon=True).start()
+
+    def cancel(self):
+        # Implement cancellation logic here
+        pass
+
+
+class ProcessTask(Task):
+    def __init__(self, command: ShellCommand, delay: float = 0.0, sync=False):
+        self.command = command
+        self.process = None
+        super().__init__(self._run_process, delay, sync)
+
+    def _run_process(self):
+        if self.process:
+            # Subprocess will skip these steps if the process is already closed
+            self.process.terminate()
+            # Wait on the process to actually end
+            self.process.wait()
+
+        shell = isinstance(self.command.command, str)
+        self.process = subprocess.Popen(
+            self.command.command, shell=shell, env=self.command.env
+        )
+
+    def cancel(self):
+        if self.process:
+            self.process.terminate()
+            self.process.wait()
+
+
+class TaskRunner:
+    def __init__(self):
+        self.lock = RLock()
+        self.tasks: list[tuple[int, Task]] = []
+        self._thread = None
+        self.cancelled = False
+        self._thread = Thread(target=self.worker, daemon=True)
+
+    def run(self):
+        self.cancelled = False
+        if not self._thread.is_alive():
+            self._thread.start()
+
+    def cancel(self):
+        self.cancelled = True
+
+    def add_task(self, task: Task):
+        with self.lock:
+            task.update_count += 1
+            self.tasks.append((task.update_count, time() + task.delay, task))
+
+    def worker(self):
+        to_remove = []
+        to_run = []
+        while not self.cancelled:
+            with self.lock:
+                now = time()
+                for i, entry in enumerate(self.tasks):
+                    update_id, due, task = entry
+                    if not task.active_check(update_id):
+                        to_remove.append(i)
+                        continue
+
+                    if now >= due:
+                        to_remove.append(i)
+                        to_run.append(task)
+                for i in reversed(to_remove):
+                    del self.tasks[i]
+                to_remove.clear()
+
+            # Run tasks outside of lock
+            for task in to_run:
+                try:
+                    task._run()
+                except Exception:
+                    # User code can fail, don't let it kill our loop
+                    print_exc()
+            to_run.clear()
+
+            sleep(0.1)
 
 
 class WatchCond:
@@ -62,11 +160,16 @@ class WatchCond:
             self.ignore_glob = [ignore_glob]
         else:
             self.ignore_glob = ignore_glob
-        self.action = action
-        self.delay = delay
-        self.update_count = 0
         self.no_reload = no_reload
-        self.process: Optional[subprocess.Popen] = None
+        if action is None:
+            self.task = None
+        elif isinstance(action, ShellCommand):
+            self.task = ProcessTask(action, delay)
+        else:
+            if not isinstance(action, Callable):
+                raise ValueError("Action must be a ShellCommand or a callable")
+
+            self.task = Task(action, delay)
 
     def try_path_hit(self, path: str) -> bool:
         """Check if a given path matches any of the glob patterns."""
@@ -80,57 +183,6 @@ class WatchCond:
                 return True
 
         return False
-
-    def run(self):
-        """Run the action for changes."""
-        if not self.action:
-            return
-
-        def _run(update_id):
-            # Delay mechanism:
-            # We sleep for small periods before running the action
-            # If the hit mechanism fires in the middle of a delay,
-            # we just stop.
-            if self.delay:
-                delay = self.delay
-                start = time()
-                while delay > 2 and self.update_count == update_id:
-                    now = time()
-                    delay -= now - start
-                    start = now
-                    sleep(1)
-
-                if self.delay > 0:
-                    sleep(self.delay)
-
-                if self.update_count != update_id:
-                    # Let someone else start a delay thread
-                    return
-
-            if self.process:
-                self.process.terminate()
-                # Wait on the process to actually end
-                self.process.wait()
-
-            if callable(self.action):
-                self.action()
-            else:
-                if not isinstance(self.action, ShellCommand):
-                    raise ValueError(
-                        "Action must be a ShellCommand or callable"
-                    )
-
-                # If the command is an array, pass it directly
-                # If it's a string, it's a shell command
-                shell = isinstance(self.action.command, str)
-                self.process = subprocess.Popen(
-                    self.action.command, shell=shell, env=self.action.env
-                )
-
-        if self.delay > 0:
-            Thread(target=_run, args=(self.update_count,), daemon=True).start()
-        else:
-            _run(self.update_count)
 
 
 class Hit:
