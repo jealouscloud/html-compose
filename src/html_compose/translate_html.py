@@ -1,6 +1,6 @@
 import inspect
 import re
-from typing import Union
+from typing import Any, Union
 
 from bs4 import BeautifulSoup, NavigableString, Tag
 from bs4.element import Doctype
@@ -45,7 +45,7 @@ def translate(html: str) -> str:
     """
     soup = BeautifulSoup(html, features="html.parser")
 
-    tags = {}
+    tags: dict[str, Any] = {}
 
     def process_element(element) -> Union[str, None]:
         if isinstance(element, Doctype):
