@@ -48,8 +48,7 @@ def HTML5Document(
         # We pin version and used an SRI hash generator to prevent supply-chain attacks
         # https://www.srihash.org/
         VERSION = "v4.0.2"
-        repo = "https://raw.githubusercontent.com/livereload/livereload-js"
-        uri = f"{repo}/refs/tags/{VERSION}/dist/livereload.min.js"
+        uri = f"https://cdn.jsdelivr.net/npm/livereload-js@{VERSION}/dist/livereload.min.js"
         head_el.append(
             el.script(
                 {
