@@ -28,7 +28,9 @@ class ShellCommand:
 
 
 class Task:
-    def __init__(self, action: Callable, delay: float = 0.0, sync=False):
+    def __init__(
+        self, action: Optional[Callable], delay: float = 0.0, sync=False
+    ):
         self.action = action
         self.delay = delay
         self.update_count = 0
@@ -38,6 +40,12 @@ class Task:
         return self.update_count == update_id
 
     def _run(self):
+        """
+        Execute the task's action.
+        """
+        if not self.action:
+            return
+
         if self.sync:
             self.action()
         else:
@@ -75,8 +83,7 @@ class ProcessTask(Task):
 class TaskRunner:
     def __init__(self):
         self.lock = RLock()
-        self.tasks: list[tuple[int, Task]] = []
-        self._thread = None
+        self.tasks: list[tuple[int, float, Task]] = []
         self.cancelled = False
         self._thread = Thread(target=self.worker, daemon=True)
 
@@ -89,6 +96,9 @@ class TaskRunner:
         self.cancelled = True
 
     def add_task(self, task: Task):
+        if not task.action:
+            return
+
         with self.lock:
             task.update_count += 1
             self.tasks.append((task.update_count, time() + task.delay, task))
@@ -162,11 +172,11 @@ class WatchCond:
             self.ignore_glob = ignore_glob
         self.no_reload = no_reload
         if action is None:
-            self.task = None
+            self.task = Task(None, delay)
         elif isinstance(action, ShellCommand):
             self.task = ProcessTask(action, delay)
         else:
-            if not isinstance(action, Callable):
+            if not callable(action):
                 raise ValueError("Action must be a ShellCommand or a callable")
 
             self.task = Task(action, delay)

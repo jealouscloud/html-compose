@@ -1,7 +1,15 @@
 from time import sleep
 
 from ..util_funcs import generate_livereload_env
-from .watcher import ShellCommand, WatchCond, Watcher
+from .livereload_server import reload_because, run_server
+from .watcher import (
+    ProcessTask,
+    ShellCommand,
+    Task,
+    TaskRunner,
+    WatchCond,
+    Watcher,
+)
 
 
 def live_server(
@@ -13,6 +21,7 @@ def live_server(
     port: int = 51353,
     print_paths=True,
     loop_delay=1,
+    livereload_delay=0.2,
 ) -> None:
     """
     Run a live-reload server that also runs and reloads your Python server.
@@ -35,7 +44,9 @@ def live_server(
     :param print_paths: Enumerate paths being monitored
     :type print_paths:
     :param loop_delay: Set delay between checks for changes. Usually unnecessary.
-    :type loop_delay:
+    :type loop_delay: float
+    :param livereload_delay: Delay livereload server update until x seconds after daemon update
+    :type livereload_delay: float
     """
     w = Watcher(conds, force_polling=force_polling)
     oh = w.overhead()
@@ -54,8 +65,20 @@ def live_server(
     # Set livereload environment variables
     daemon.env.update(generate_livereload_env(host, port))
 
-    daemon_cmd = WatchCond(path_glob="", action=daemon)
-    daemon_cmd.run()
+    daemon_task = ProcessTask(daemon, delay=0, sync=False)
+
+    # Run livereload server
+    server = run_server(host, port)
+    tr = TaskRunner()
+    tr.run()  # Start task runner thread
+    pending_reload: set[str] = set()
+
+    def reload():
+        changed = list(pending_reload)
+        pending_reload.clear()
+        reload_because(changed)
+
+    browser_update_task = Task(reload, delay=0, sync=False)
     try:
         while True:
             hits = w.changed()
@@ -66,6 +89,9 @@ def live_server(
                     paths_hit.add(hit.path)
 
                     for cond in hit.conds:
+                        if not cond.no_reload:
+                            pending_reload.add(hit.path)
+
                         conds_hit.add(cond)
 
                 for path in paths_hit:
@@ -74,18 +100,25 @@ def live_server(
                 delay = 0.0
                 reload_tripped = False
                 for cond in conds_hit:
-                    cond.run()
+                    if cond.task:
+                        tr.add_task(cond.task)
+
                     if cond.no_reload:
                         continue
-                    delay = max(delay, cond.delay)
+                    delay = max(delay, cond.task.delay)
                     reload_tripped = True
 
                 if reload_tripped:
-                    daemon_cmd.delay = delay + daemon_delay
-                    print(
-                        f"Reloading daemon after {daemon_cmd.delay} seconds..."
+                    daemon_task.delay = delay + daemon_delay
+                    # This constant should mean the server port is up
+                    browser_update_task.delay = (
+                        daemon_task.delay + livereload_delay
                     )
-                    daemon_cmd.run()
+                    print(
+                        f"Reloading daemon after {daemon_task.delay} seconds..."
+                    )
+                    tr.add_task(daemon_task)
+                    tr.add_task(browser_update_task)
             sleep(loop_delay)
     except KeyboardInterrupt:
         print("Exiting...")
@@ -93,7 +126,9 @@ def live_server(
         for watch in w.rust_watches:
             watch.close()
 
-        if daemon_cmd.process:
-            proc = daemon_cmd.process
-            proc.terminate()
-            proc.wait()
+        daemon_task.cancel()
+        for cond in conds:
+            if cond.task:
+                cond.task.cancel()
+
+        server.shutdown()
