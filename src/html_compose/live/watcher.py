@@ -10,7 +10,7 @@ from typing import Callable, Optional, Union
 
 from watchfiles._rust_notify import RustNotify
 
-from .. import util_funcs
+from ..util_funcs import glob_matcher
 
 CWD = Path(".").absolute()
 
@@ -175,11 +175,11 @@ class WatchCond:
         """Check if a given path matches any of the glob patterns."""
 
         for pattern in self.ignore_glob:
-            if util_funcs.glob_matcher(pattern, path):
+            if glob_matcher(pattern, path):
                 return True
 
         for pattern in self.path_glob:
-            if util_funcs.glob_matcher(pattern, path):
+            if glob_matcher(pattern, path):
                 return True
 
         return False
