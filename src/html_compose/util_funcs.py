@@ -1,4 +1,5 @@
 import inspect
+import json
 from functools import lru_cache
 from os import getenv
 from pathlib import PurePath
@@ -65,17 +66,30 @@ def safe_name(name):
     return name
 
 
-def get_livereload_env() -> Optional[str]:
+def get_livereload_env() -> Optional[dict]:
     enabled = getenv("HTMLCOMPOSE_LIVERELOAD") == "1"
     if not enabled:
         return None
     flags = getenv("HTMLCOMPOSE_LIVERELOAD_FLAGS")
-    return flags
+    if not flags:
+        return None
+    try:
+        return json.loads(flags)
+    except json.JSONDecodeError:
+        raise ValueError("Invalid JSON in HTMLCOMPOSE_LIVERELOAD_FLAGS")
 
 
-def generate_livereload_env(host, port):
+def generate_livereload_env(
+    host, port, proxy_host: Optional[str], proxy_uri: Optional[str] = None
+) -> dict:
+    flags = {
+        "port": port,
+        "host": host,
+        "proxy_host": proxy_host,
+        "proxy_uri": proxy_uri,
+    }
     return {
-        "HTMLCOMPOSE_LIVERELOAD_FLAGS": f"port={port}&host={host}",
+        "HTMLCOMPOSE_LIVERELOAD_FLAGS": json.dumps(flags),
         "HTMLCOMPOSE_LIVERELOAD": "1",
     }
 

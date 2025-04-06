@@ -1,4 +1,5 @@
 from time import sleep
+from typing import Optional
 
 from ..util_funcs import generate_livereload_env
 from .livereload_server import reload_because, run_server
@@ -22,9 +23,13 @@ def live_server(
     print_paths=True,
     loop_delay=1,
     livereload_delay=0.2,
+    proxy_host: Optional[str] = None,
+    proxy_uri: Optional[str] = None,
 ) -> None:
     """
     Run a live-reload server that also runs and reloads your Python server.
+
+    This is a development feature and not recommended for production use.
 
     Delays are deduplicated after file changes by various delay properties
     to prevent chains of restarts.
@@ -47,6 +52,12 @@ def live_server(
     :type loop_delay: float
     :param livereload_delay: Delay livereload server update until x seconds after daemon update
     :type livereload_delay: float
+    :param proxy_uri: If websocket is behind a reverse proxy, this is the URI to reach it by.
+                      This is useful if you are developing behind SSL.
+    :type proxy_uri: str
+    :param proxy_host: If websocket is behind a reverse proxy, this is the host to reach it by.
+                       This is useful if you are developing behind SSL.
+    :type proxy_host: str
     """
     w = Watcher(conds, force_polling=force_polling)
     oh = w.overhead()
@@ -63,7 +74,9 @@ def live_server(
         print(f"Monitoring {oh['path_count']} path(s) for changes via polling")
 
     # Set livereload environment variables
-    daemon.env.update(generate_livereload_env(host, port))
+    daemon.env.update(
+        generate_livereload_env(host, port, proxy_host, proxy_uri)
+    )
 
     daemon_task = ProcessTask(daemon, delay=0, sync=False)
     # Run livereload server
@@ -123,6 +136,8 @@ def live_server(
     except KeyboardInterrupt:
         print("Exiting...")
     finally:
+        server.shutdown()
+
         for watch in w.rust_watches:
             watch.close()
 
@@ -130,5 +145,3 @@ def live_server(
         for cond in conds:
             if cond.task:
                 cond.task.cancel()
-
-        server.shutdown()

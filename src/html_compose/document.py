@@ -1,6 +1,6 @@
 from typing import Optional, Union
 
-from . import base_types, doctype, pretty_print
+from . import base_types, doctype, pretty_print, unsafe_text
 from . import elements as el
 from .util_funcs import get_livereload_env
 
@@ -43,21 +43,8 @@ def HTML5Document(
     # Feature: Live reloading for development
     # Fires when HTMLCOMPOSE_LIVERELOAD=1
     if live_reload_flags:
-        # Add livereload script to the head
-        # Livereload: https://github.com/livereload/livereload-js
-        # We pin version and used an SRI hash generator to prevent supply-chain attacks
-        # https://www.srihash.org/
-        VERSION = "v4.0.2"
-        uri = f"https://cdn.jsdelivr.net/npm/livereload-js@{VERSION}/dist/livereload.js"
-        head_el.append(
-            el.script(
-                {
-                    "src": f"{uri}?{live_reload_flags}",
-                    "integrity": "sha384-JpRTIH2FPXE1xxxYlwSn2HF2U5br0oTSUBvdF0F5YcNmUTvJvh/o1+rDUdy9NGVs",
-                    "crossorigin": "anonymous",
-                }
-            )
-        )
+        head_el.append(_livereload_script_tag(live_reload_flags))
+
     if isinstance(body, el.body):
         body_el = body
     else:
@@ -68,3 +55,56 @@ def HTML5Document(
         return pretty_print(result)
     else:
         return result
+
+
+def get_livereload_uri() -> str:
+    """
+    Generally this is just the neat place to store the livereload URI.
+
+    But if the user wants they can override this function to return a local
+    resurce i.e.
+
+    html_compose.document.get_live_reload_uri =
+      lambda: "mydomain.com/static/livereload.js";
+
+    """
+    VERSION = "v4.0.2"
+    return f"cdn.jsdelivr.net/npm/livereload-js@{VERSION}/dist/livereload.js"
+
+
+def _livereload_script_tag(live_reload_settings):
+    """
+    Returns a script tag which injects livereload.js.
+    """
+    # Fires when HTMLCOMPOSE_LIVERELOAD=1
+    # Livereload: https://github.com/livereload/livereload-js
+    uri = get_livereload_uri()
+
+    proxy_uri = live_reload_settings["proxy_uri"]
+    proxy_host = live_reload_settings["proxy_host"]
+    if proxy_host:
+        # Websocket is behind a proxy, likely SSL
+        # Port isn't important for these but the URI is
+        if proxy_uri.startswith("/"):
+            proxy_uri = proxy_uri.lstrip("/")
+        uri_encoded_flags = f"host={proxy_host}&path={proxy_uri}"
+    else:
+        # Regular development enviroment with no proxy. host:port will do.
+        host = live_reload_settings["host"]
+        port = live_reload_settings["port"]
+        uri_encoded_flags = f"host={host}&port={port}"
+
+    # This scriptlet auto-inserts the livereload script and detects protocol
+    return el.script()[
+        unsafe_text(
+            "\n".join(
+                [
+                    "(function(){",
+                    'var s = document.createElement("script");',
+                    f"s.src = location.protocol + '//{uri}?{uri_encoded_flags}';",
+                    "document.head.appendChild(s)",
+                    "})()",
+                ]
+            )
+        )
+    ]
