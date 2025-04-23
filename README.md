@@ -13,7 +13,7 @@ from html_compose import a, article, body, br, head, html, p, strong, title
         article[
             p["Welcome to the internet ", strong[username], "!"],
             br(),
-            p()[
+            p[
                 "Have you checked out this cool thing called a ",
                 a(href="https://google.com")["search engine"],
                 "?",
