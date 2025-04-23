@@ -117,7 +117,8 @@ a([tab]
 * ⚡ Live Reload server for rapid development  
   Run your Python webserver (i.e. Flask, FastAPI, anything!) with live-reload superpowers powered by [livereload-js](https://www.npmjs.com/package/livereload-js). See browser updates in real-time!
 
-  Note: This feature requires optional dependencies. `pip install html-compose[live-reload]` or `pip install html-compose[full]''
+  Note: This feature requires optional dependencies. `pip install html-compose[live-reload]` or `pip install html-compose[full]`
+  
   `livereload.py`
   ```python
   import html_compose.live as live
