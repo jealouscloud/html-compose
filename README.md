@@ -8,10 +8,10 @@ from html_compose import a, article, body, br, head, html, p, strong, title
 >>> username = "github wanderer"
 >>> print(
   html()[
-    head()[title()[f"Welcome, {username}!"]],
-    body()[
-        article()[
-            p()["Welcome to the internet ", strong()[username], "!"],
+    head[title[f"Welcome, {username}!"]],
+    body[
+        article[
+            p["Welcome to the internet ", strong[username], "!"],
             br(),
             p()[
                 "Have you checked out this cool thing called a ",
@@ -22,7 +22,7 @@ from html_compose import a, article, body, br, head, html, p, strong, title
     ],
   ].render()
 )
-<html><head><title>Welcome, github wanderer!</title></head><body><article><p>Welcome to the internet <strong>github wanderer</strong>!</p><br /><p>Have you checked out this cool thing called a <a href="https://google.com">search engine</a>?</p></article></body></html>
+<html><head><title>Welcome, github wanderer!</title></head><body><article><p>Welcome to the internet <strong>github wanderer</strong>!</p><br/><p>Have you checked out this cool thing called a <a href="https://google.com">search engine</a>?</p></article></body></html>
 ```
 
 **Full autocomplete**
@@ -79,7 +79,7 @@ a([tab]
   # The above is identical to
   p().append(["a", strong()["bold"], "statement"])
   ```
-* 🧩 Skip constructor via same `[]` syntax for text only elements.
+* 🧩 Skip constructor via same `[]` syntax for elements with no attributes.
   ```python
   from html_compose import ul, li
   ul[
