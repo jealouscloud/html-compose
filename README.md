@@ -26,7 +26,7 @@ from html_compose import a, article, body, br, head, html, p, strong, title
 ```
 
 **Full autocomplete**
-```
+```python
 a([tab]
   attrs= 
   id= 

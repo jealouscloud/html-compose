@@ -1,6 +1,6 @@
 import inspect
 import re
-from typing import Any, Union
+from typing import Any, Optional, Union
 
 from bs4 import BeautifulSoup, NavigableString, Tag
 from bs4.element import Doctype
@@ -37,7 +37,7 @@ def read_pre_string(input_str: NavigableString) -> Union[str, None]:
     return repr(result)
 
 
-def translate(html: str) -> str:
+def translate(html: str, import_module: Optional[str] = None) -> str:
     """
     Translate HTML string into Python code representing a similar HTML structure
 
@@ -46,6 +46,9 @@ def translate(html: str) -> str:
     soup = BeautifulSoup(html, features="html.parser")
 
     tags: dict[str, Any] = {}
+    prefix = ""
+    if import_module is not None:
+        prefix = import_module + ("." if import_module else "")
 
     def process_element(element) -> Union[str, None]:
         if isinstance(element, Doctype):
@@ -61,7 +64,7 @@ def translate(html: str) -> str:
             tags[safe_tag_name] = getattr(el_list, safe_tag_name)
         tag_cls = tags[safe_tag_name]
 
-        result = [safe_tag_name]
+        result = [f"{prefix}{safe_tag_name}"]
         if element.attrs:
             param_attrs = {}
             dict_attrs = {}

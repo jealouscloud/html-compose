@@ -25,7 +25,7 @@ def from_html(args):
 
     if is_stdin:
         print("---\n")
-    print(translate_html.translate(html_content))
+    print(translate_html.translate(html_content, args.noimport))
 
 
 def parse_html_translate(parser):
@@ -34,6 +34,15 @@ def parse_html_translate(parser):
         default="-",
         nargs="?",
         help="HTML file to translate (default: stdin)",
+    )
+
+    parser.add_argument(
+        "-n",
+        "--noimport",
+        nargs="?",
+        const="html_compose",
+        default=None,
+        help="Instead of importing each element, use the specified module name",
     )
 
 
