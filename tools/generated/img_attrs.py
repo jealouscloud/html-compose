@@ -22,7 +22,7 @@ class ImgAttrs:
 
 
     @staticmethod
-    def crossorigin(value) -> BaseAttribute:
+    def crossorigin(value: Literal['anonymous', 'use-credentials']) -> BaseAttribute:
         """
         "img" attribute: crossorigin  
         How the element handles crossorigin requests  
@@ -36,7 +36,7 @@ class ImgAttrs:
 
 
     @staticmethod
-    def decoding(value) -> BaseAttribute:
+    def decoding(value: Literal['sync', 'async', 'auto']) -> BaseAttribute:
         """
         "img" attribute: decoding  
         Decoding hint to use when processing this image for presentation  
@@ -50,7 +50,7 @@ class ImgAttrs:
 
 
     @staticmethod
-    def fetchpriority(value) -> BaseAttribute:
+    def fetchpriority(value: Literal['auto', 'high', 'low']) -> BaseAttribute:
         """
         "img" attribute: fetchpriority  
         Sets the priority for fetches initiated by the element  
@@ -92,7 +92,7 @@ class ImgAttrs:
 
 
     @staticmethod
-    def loading(value) -> BaseAttribute:
+    def loading(value: Literal['lazy', 'eager']) -> BaseAttribute:
         """
         "img" attribute: loading  
         Used when determining loading deferral  

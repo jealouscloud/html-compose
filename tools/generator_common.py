@@ -24,7 +24,7 @@ def ReadAttr(attr_spec) -> AttrDefinition:
 
 
 def value_hint_to_python_type(value):
-    if isinstance(value, list):
+    if isinstance(value, list) or value.startswith("[") and value.endswith("]"):
         # Since the list looks like ["a", "b", "c"]
         # this works
         return f"Literal{value}"
@@ -36,6 +36,8 @@ def value_hint_to_python_type(value):
         return "int"
     if value.startswith("Valid floating-point number"):
         return "float"
+    if "space-separated tokens" in value:
+        return "list"
     return None
 
 

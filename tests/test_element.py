@@ -195,3 +195,10 @@ def test_float_precision():
 def test_list_attribute():
     el = div({"class": ["a", "b", "c"]})
     assert el.render() == '<div class="a b c"></div>'
+
+
+def test_rel_array():
+    # ensure the list type arg doesnt violate type checks and builds
+    # correctly
+    el = a(rel=["noopener", "noreferrer"])
+    assert el.render() == '<a rel="noopener noreferrer"></a>'

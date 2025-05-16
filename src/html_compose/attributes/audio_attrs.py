@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class AudioAttrs:
@@ -32,7 +33,9 @@ class AudioAttrs:
         return BaseAttribute("controls", value)
 
     @staticmethod
-    def crossorigin(value) -> BaseAttribute:
+    def crossorigin(
+        value: Literal["anonymous", "use-credentials"],
+    ) -> BaseAttribute:
         """
         "audio" attribute: crossorigin  
         How the element handles crossorigin requests  
@@ -68,7 +71,7 @@ class AudioAttrs:
         return BaseAttribute("muted", value)
 
     @staticmethod
-    def preload(value) -> BaseAttribute:
+    def preload(value: Literal["none", "metadata", "auto"]) -> BaseAttribute:
         """
         "audio" attribute: preload  
         Hints how much buffering the media resource will likely need  

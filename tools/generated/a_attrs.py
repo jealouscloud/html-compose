@@ -50,7 +50,7 @@ class AnchorAttrs:
 
 
     @staticmethod
-    def ping(value) -> BaseAttribute:
+    def ping(value: list) -> BaseAttribute:
         """
         "a" attribute: ping  
         URLs to ping  
@@ -78,7 +78,7 @@ class AnchorAttrs:
 
 
     @staticmethod
-    def rel(value) -> BaseAttribute:
+    def rel(value: list) -> BaseAttribute:
         """
         "a" attribute: rel  
         Relationship between the location in the document containing the hyperlink and the destination resource  

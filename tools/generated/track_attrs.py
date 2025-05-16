@@ -22,7 +22,7 @@ class TrackAttrs:
 
 
     @staticmethod
-    def kind(value) -> BaseAttribute:
+    def kind(value: Literal['subtitles', 'captions', 'descriptions', 'chapters', 'metadata']) -> BaseAttribute:
         """
         "track" attribute: kind  
         The type of text track  

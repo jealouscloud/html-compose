@@ -176,7 +176,7 @@ class TextareaAttrs:
 
 
     @staticmethod
-    def wrap(value) -> BaseAttribute:
+    def wrap(value: Literal['soft', 'hard']) -> BaseAttribute:
         """
         "textarea" attribute: wrap  
         How the value of the form control is to be wrapped for form submission  

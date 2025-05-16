@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class TemplateAttrs:
@@ -32,7 +33,7 @@ class TemplateAttrs:
         return BaseAttribute("shadowrootdelegatesfocus", value)
 
     @staticmethod
-    def shadowrootmode(value) -> BaseAttribute:
+    def shadowrootmode(value: Literal["open", "closed"]) -> BaseAttribute:
         """
         "template" attribute: shadowrootmode  
         Enables streaming declarative shadow roots  

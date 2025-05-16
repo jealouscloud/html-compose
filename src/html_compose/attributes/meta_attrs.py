@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class MetaAttrs:
@@ -8,7 +9,7 @@ class MetaAttrs:
     """
 
     @staticmethod
-    def charset(value) -> BaseAttribute:
+    def charset(value: Literal["utf-8"]) -> BaseAttribute:
         """
         "meta" attribute: charset  
         Character encoding declaration  
@@ -32,7 +33,15 @@ class MetaAttrs:
         return BaseAttribute("content", value)
 
     @staticmethod
-    def http_equiv(value) -> BaseAttribute:
+    def http_equiv(
+        value: Literal[
+            "content-type",
+            "default-style",
+            "refresh",
+            "x-ua-compatible",
+            "content-security-policy",
+        ],
+    ) -> BaseAttribute:
         """
         "meta" attribute: http-equiv  
         Pragma directive  

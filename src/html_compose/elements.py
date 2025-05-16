@@ -83,16 +83,16 @@ class a(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         download: Optional[str] = None,
         href: Optional[str] = None,
         hreflang: Optional[str] = None,
-        ping: Optional[str] = None,
+        ping: Optional[Union[str, list]] = None,
         referrerpolicy: Optional[str] = None,
-        rel: Optional[str] = None,
+        rel: Optional[Union[str, list]] = None,
         target: Optional[str] = None,
         type: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -137,10 +137,10 @@ class a(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -166,9 +166,7 @@ class a(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `download` :
             Whether to download the resource instead of navigating to it, and its filename if so
         `href` :
@@ -180,17 +178,13 @@ class a(BaseElement):
         
             Valid BCP 47 language tag
         `ping` :
-            URLs to ping  
-        
-            Set of space-separated tokens consisting of valid non-empty URLs
+            URLs to ping
         `referrerpolicy` :
             Referrer policy for fetches initiated by the element  
         
             Referrer policy
         `rel` :
-            Relationship between the location in the document containing the hyperlink and the destination resource  
-        
-            Unordered set of unique space-separated tokens*
+            Relationship between the location in the document containing the hyperlink and the destination resource
         `target` :
             Navigable for hyperlink navigation  
         
@@ -200,9 +194,7 @@ class a(BaseElement):
         
             Valid MIME type string
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -232,19 +224,13 @@ class a(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -377,8 +363,8 @@ class abbr(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -423,10 +409,10 @@ class abbr(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -452,13 +438,9 @@ class abbr(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -488,19 +470,13 @@ class abbr(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -617,8 +593,8 @@ class address(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -663,10 +639,10 @@ class address(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -692,13 +668,9 @@ class address(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -728,19 +700,13 @@ class address(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -857,19 +823,19 @@ class area(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         alt: Optional[str] = None,
         coords: Optional[str] = None,
         download: Optional[str] = None,
         href: Optional[str] = None,
-        ping: Optional[str] = None,
+        ping: Optional[Union[str, list]] = None,
         referrerpolicy: Optional[str] = None,
-        rel: Optional[str] = None,
+        rel: Optional[Union[str, list]] = None,
         shape: Optional[
             Union[str, Literal["circle", "default", "poly", "rect"]]
         ] = None,
         target: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -914,10 +880,10 @@ class area(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -943,9 +909,7 @@ class area(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `alt` :
             Replacement text for use when images are not available
         `coords` :
@@ -959,17 +923,13 @@ class area(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `ping` :
-            URLs to ping  
-        
-            Set of space-separated tokens consisting of valid non-empty URLs
+            URLs to ping
         `referrerpolicy` :
             Referrer policy for fetches initiated by the element  
         
             Referrer policy
         `rel` :
-            Relationship between the location in the document containing the hyperlink and the destination resource  
-        
-            Unordered set of unique space-separated tokens*
+            Relationship between the location in the document containing the hyperlink and the destination resource
         `shape` :
             The kind of shape to be created in an image map
         `target` :
@@ -977,9 +937,7 @@ class area(BaseElement):
         
             Valid navigable target name or keyword
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -1009,19 +967,13 @@ class area(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -1156,8 +1108,8 @@ class article(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -1202,10 +1154,10 @@ class article(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -1231,13 +1183,9 @@ class article(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -1267,19 +1215,13 @@ class article(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -1396,8 +1338,8 @@ class aside(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -1442,10 +1384,10 @@ class aside(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -1471,13 +1413,9 @@ class aside(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -1507,19 +1445,13 @@ class aside(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -1636,7 +1568,7 @@ class audio(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         autoplay: Optional[Union[str, bool]] = None,
         controls: Optional[Union[str, bool]] = None,
         crossorigin: Optional[
@@ -1648,7 +1580,7 @@ class audio(BaseElement):
             Union[str, Literal["none", "metadata", "auto"]]
         ] = None,
         src: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -1693,10 +1625,10 @@ class audio(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -1722,9 +1654,7 @@ class audio(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `autoplay` :
             Hint that the media resource can be started automatically when the page is loaded
         `controls` :
@@ -1742,9 +1672,7 @@ class audio(BaseElement):
         
             Valid non-empty URL potentially surrounded by spaces
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -1774,19 +1702,13 @@ class audio(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -1917,8 +1839,8 @@ class b(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -1963,10 +1885,10 @@ class b(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -1992,13 +1914,9 @@ class b(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -2028,19 +1946,13 @@ class b(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -2157,10 +2069,10 @@ class base(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         href: Optional[str] = None,
         target: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -2205,10 +2117,10 @@ class base(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -2234,9 +2146,7 @@ class base(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `href` :
             Document base URL  
         
@@ -2246,9 +2156,7 @@ class base(BaseElement):
         
             Valid navigable target name or keyword
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -2278,19 +2186,13 @@ class base(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -2411,8 +2313,8 @@ class bdi(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -2457,10 +2359,10 @@ class bdi(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -2486,13 +2388,9 @@ class bdi(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -2522,19 +2420,13 @@ class bdi(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -2651,8 +2543,8 @@ class bdo(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -2697,10 +2589,10 @@ class bdo(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -2726,13 +2618,9 @@ class bdo(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -2762,19 +2650,13 @@ class bdo(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -2891,9 +2773,9 @@ class blockquote(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         cite: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -2938,10 +2820,10 @@ class blockquote(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -2967,17 +2849,13 @@ class blockquote(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `cite` :
             Link to the source of the quotation or more information about the edit  
         
             Valid URL potentially surrounded by spaces
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -3007,19 +2885,13 @@ class blockquote(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -3138,8 +3010,8 @@ class body(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -3184,10 +3056,10 @@ class body(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -3213,13 +3085,9 @@ class body(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -3249,19 +3117,13 @@ class body(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -3378,8 +3240,8 @@ class br(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -3424,10 +3286,10 @@ class br(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -3453,13 +3315,9 @@ class br(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -3489,19 +3347,13 @@ class br(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -3618,7 +3470,7 @@ class button(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         disabled: Optional[Union[str, bool]] = None,
         form: Optional[str] = None,
         formaction: Optional[str] = None,
@@ -3644,7 +3496,7 @@ class button(BaseElement):
         ] = None,
         type: Optional[Union[str, Literal["submit", "reset", "button"]]] = None,
         value: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -3689,10 +3541,10 @@ class button(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -3718,9 +3570,7 @@ class button(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `disabled` :
             Whether the form control is disabled
         `form` :
@@ -3754,9 +3604,7 @@ class button(BaseElement):
         `value` :
             Value to be used for form submission
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -3786,19 +3634,13 @@ class button(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -3939,10 +3781,10 @@ class canvas(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         height: Optional[Union[str, int]] = None,
         width: Optional[Union[str, int]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -3987,10 +3829,10 @@ class canvas(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -4016,17 +3858,13 @@ class canvas(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `height` :
             Vertical dimension
         `width` :
             Horizontal dimension
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -4056,19 +3894,13 @@ class canvas(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -4189,8 +4021,8 @@ class caption(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -4235,10 +4067,10 @@ class caption(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -4264,13 +4096,9 @@ class caption(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -4300,19 +4128,13 @@ class caption(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -4429,8 +4251,8 @@ class cite(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -4475,10 +4297,10 @@ class cite(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -4504,13 +4326,9 @@ class cite(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -4540,19 +4358,13 @@ class cite(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -4669,8 +4481,8 @@ class code(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -4715,10 +4527,10 @@ class code(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -4744,13 +4556,9 @@ class code(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -4780,19 +4588,13 @@ class code(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -4909,9 +4711,9 @@ class col(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         span: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -4956,10 +4758,10 @@ class col(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -4985,17 +4787,13 @@ class col(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `span` :
             Number of columns spanned by the element  
         
             Valid non-negative integer greater than zero
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -5025,19 +4823,13 @@ class col(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -5156,9 +4948,9 @@ class colgroup(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         span: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -5203,10 +4995,10 @@ class colgroup(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -5232,17 +5024,13 @@ class colgroup(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `span` :
             Number of columns spanned by the element  
         
             Valid non-negative integer greater than zero
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -5272,19 +5060,13 @@ class colgroup(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -5403,9 +5185,9 @@ class data(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         value: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -5450,10 +5232,10 @@ class data(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -5479,15 +5261,11 @@ class data(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `value` :
             Machine-readable value
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -5517,19 +5295,13 @@ class data(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -5648,8 +5420,8 @@ class datalist(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -5694,10 +5466,10 @@ class datalist(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -5723,13 +5495,9 @@ class datalist(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -5759,19 +5527,13 @@ class datalist(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -5888,8 +5650,8 @@ class dd(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -5934,10 +5696,10 @@ class dd(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -5963,13 +5725,9 @@ class dd(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -5999,19 +5757,13 @@ class dd(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -6128,10 +5880,10 @@ class del_(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         cite: Optional[str] = None,
         datetime: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -6176,10 +5928,10 @@ class del_(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -6205,9 +5957,7 @@ class del_(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `cite` :
             Link to the source of the quotation or more information about the edit  
         
@@ -6217,9 +5967,7 @@ class del_(BaseElement):
         
             Valid date string with optional time
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -6249,19 +5997,13 @@ class del_(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -6382,10 +6124,10 @@ class details(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         name: Optional[str] = None,
         open: Optional[Union[str, bool]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -6430,10 +6172,10 @@ class details(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -6459,17 +6201,13 @@ class details(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `name` :
             Name of group of mutually-exclusive details elements
         `open` :
             Whether the details are visible
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -6499,19 +6237,13 @@ class details(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -6632,8 +6364,8 @@ class dfn(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -6678,10 +6410,10 @@ class dfn(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -6707,13 +6439,9 @@ class dfn(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -6743,19 +6471,13 @@ class dfn(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -6872,9 +6594,9 @@ class dialog(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         open: Optional[Union[str, bool]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -6919,10 +6641,10 @@ class dialog(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -6948,15 +6670,11 @@ class dialog(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `open` :
             Whether the dialog box is showing
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -6986,19 +6704,13 @@ class dialog(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -7117,8 +6829,8 @@ class div(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -7163,10 +6875,10 @@ class div(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -7192,13 +6904,9 @@ class div(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -7228,19 +6936,13 @@ class div(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -7357,8 +7059,8 @@ class dl(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -7403,10 +7105,10 @@ class dl(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -7432,13 +7134,9 @@ class dl(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -7468,19 +7166,13 @@ class dl(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -7597,8 +7289,8 @@ class dt(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -7643,10 +7335,10 @@ class dt(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -7672,13 +7364,9 @@ class dt(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -7708,19 +7396,13 @@ class dt(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -7837,8 +7519,8 @@ class em(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -7883,10 +7565,10 @@ class em(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -7912,13 +7594,9 @@ class em(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -7948,19 +7626,13 @@ class em(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -8077,12 +7749,12 @@ class embed(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         height: Optional[Union[str, int]] = None,
         src: Optional[str] = None,
         type: Optional[str] = None,
         width: Optional[Union[str, int]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -8127,10 +7799,10 @@ class embed(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -8156,9 +7828,7 @@ class embed(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `height` :
             Vertical dimension
         `src` :
@@ -8172,9 +7842,7 @@ class embed(BaseElement):
         `width` :
             Horizontal dimension
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -8204,19 +7872,13 @@ class embed(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -8341,11 +8003,11 @@ class fieldset(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         disabled: Optional[Union[str, bool]] = None,
         form: Optional[str] = None,
         name: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -8390,10 +8052,10 @@ class fieldset(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -8419,9 +8081,7 @@ class fieldset(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `disabled` :
             Whether the descendant form controls, except any inside legend, are disabled
         `form` :
@@ -8431,9 +8091,7 @@ class fieldset(BaseElement):
         `name` :
             Name of the element to use for form submission and in the form.elements API
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -8463,19 +8121,13 @@ class fieldset(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -8598,8 +8250,8 @@ class figcaption(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -8644,10 +8296,10 @@ class figcaption(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -8673,13 +8325,9 @@ class figcaption(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -8709,19 +8357,13 @@ class figcaption(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -8838,8 +8480,8 @@ class figure(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -8884,10 +8526,10 @@ class figure(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -8913,13 +8555,9 @@ class figure(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -8949,19 +8587,13 @@ class figure(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -9078,8 +8710,8 @@ class footer(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -9124,10 +8756,10 @@ class footer(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -9153,13 +8785,9 @@ class footer(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -9189,19 +8817,13 @@ class footer(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -9318,7 +8940,7 @@ class form(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         accept_charset: Optional[str] = None,
         action: Optional[str] = None,
         autocomplete: Optional[Union[str, Literal["on", "off"]]] = None,
@@ -9336,7 +8958,7 @@ class form(BaseElement):
         name: Optional[str] = None,
         novalidate: Optional[Union[str, bool]] = None,
         target: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -9381,10 +9003,10 @@ class form(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -9410,9 +9032,7 @@ class form(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accept_charset` :
             Character encodings to use for form submission  
         
@@ -9436,9 +9056,7 @@ class form(BaseElement):
         
             Valid navigable target name or keyword
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -9468,19 +9086,13 @@ class form(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -9613,8 +9225,8 @@ class h1(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -9659,10 +9271,10 @@ class h1(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -9688,13 +9300,9 @@ class h1(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -9724,19 +9332,13 @@ class h1(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -9853,8 +9455,8 @@ class h2(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -9899,10 +9501,10 @@ class h2(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -9928,13 +9530,9 @@ class h2(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -9964,19 +9562,13 @@ class h2(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -10093,8 +9685,8 @@ class h3(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -10139,10 +9731,10 @@ class h3(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -10168,13 +9760,9 @@ class h3(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -10204,19 +9792,13 @@ class h3(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -10333,8 +9915,8 @@ class h4(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -10379,10 +9961,10 @@ class h4(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -10408,13 +9990,9 @@ class h4(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -10444,19 +10022,13 @@ class h4(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -10573,8 +10145,8 @@ class h5(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -10619,10 +10191,10 @@ class h5(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -10648,13 +10220,9 @@ class h5(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -10684,19 +10252,13 @@ class h5(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -10813,8 +10375,8 @@ class h6(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -10859,10 +10421,10 @@ class h6(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -10888,13 +10450,9 @@ class h6(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -10924,19 +10482,13 @@ class h6(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -11053,8 +10605,8 @@ class head(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -11099,10 +10651,10 @@ class head(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -11128,13 +10680,9 @@ class head(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -11164,19 +10712,13 @@ class head(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -11293,8 +10835,8 @@ class header(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -11339,10 +10881,10 @@ class header(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -11368,13 +10910,9 @@ class header(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -11404,19 +10942,13 @@ class header(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -11533,8 +11065,8 @@ class hgroup(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -11579,10 +11111,10 @@ class hgroup(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -11608,13 +11140,9 @@ class hgroup(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -11644,19 +11172,13 @@ class hgroup(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -11773,8 +11295,8 @@ class hr(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -11819,10 +11341,10 @@ class hr(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -11848,13 +11370,9 @@ class hr(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -11884,19 +11402,13 @@ class hr(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -12013,8 +11525,8 @@ class html(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -12059,10 +11571,10 @@ class html(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -12088,13 +11600,9 @@ class html(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -12124,19 +11632,13 @@ class html(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -12253,8 +11755,8 @@ class i(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -12299,10 +11801,10 @@ class i(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -12328,13 +11830,9 @@ class i(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -12364,19 +11862,13 @@ class i(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -12493,18 +11985,18 @@ class iframe(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         allow: Optional[str] = None,
         allowfullscreen: Optional[Union[str, bool]] = None,
         height: Optional[Union[str, int]] = None,
         loading: Optional[Union[str, Literal["lazy", "eager"]]] = None,
         name: Optional[str] = None,
         referrerpolicy: Optional[str] = None,
-        sandbox: Optional[str] = None,
+        sandbox: Optional[Union[str, list]] = None,
         src: Optional[str] = None,
         srcdoc: Optional[str] = None,
         width: Optional[Union[str, int]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -12549,10 +12041,10 @@ class iframe(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -12578,9 +12070,7 @@ class iframe(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `allow` :
             Permissions policy to be applied to the iframe's contents  
         
@@ -12600,9 +12090,7 @@ class iframe(BaseElement):
         
             Referrer policy
         `sandbox` :
-            Security rules for nested content  
-        
-            Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads" "allow-forms" "allow-modals" "allow-orientation-lock" "allow-pointer-lock" "allow-popups" "allow-popups-to-escape-sandbox" "allow-presentation" "allow-same-origin" "allow-scripts" "allow-top-navigation" "allow-top-navigation-by-user-activation" "allow-top-navigation-to-custom-protocols"
+            Security rules for nested content
         `src` :
             Address of the resource  
         
@@ -12614,9 +12102,7 @@ class iframe(BaseElement):
         `width` :
             Horizontal dimension
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -12646,19 +12132,13 @@ class iframe(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -12795,7 +12275,7 @@ class img(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         alt: Optional[str] = None,
         crossorigin: Optional[
             Union[str, Literal["anonymous", "use-credentials"]]
@@ -12813,7 +12293,7 @@ class img(BaseElement):
         srcset: Optional[str] = None,
         usemap: Optional[str] = None,
         width: Optional[Union[str, int]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -12858,10 +12338,10 @@ class img(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -12887,9 +12367,7 @@ class img(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `alt` :
             Replacement text for use when images are not available
         `crossorigin` :
@@ -12927,9 +12405,7 @@ class img(BaseElement):
         `width` :
             Horizontal dimension
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -12959,19 +12435,13 @@ class img(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -13114,7 +12584,7 @@ class input(BaseElement):  # type: ignore[misc]
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         accept: Optional[str] = None,
         alpha: Optional[Union[str, bool]] = None,
         alt: Optional[str] = None,
@@ -13165,7 +12635,7 @@ class input(BaseElement):  # type: ignore[misc]
         type: Optional[str] = None,
         value: Optional[str] = None,
         width: Optional[Union[str, int]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -13210,10 +12680,10 @@ class input(BaseElement):  # type: ignore[misc]
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -13238,9 +12708,7 @@ class input(BaseElement):  # type: ignore[misc]
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accept` :
             Hint for expected file type in file upload controls  
         
@@ -13340,9 +12808,7 @@ class input(BaseElement):  # type: ignore[misc]
         `width` :
             Horizontal dimension
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -13372,19 +12838,13 @@ class input(BaseElement):  # type: ignore[misc]
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -13567,10 +13027,10 @@ class ins(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         cite: Optional[str] = None,
         datetime: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -13615,10 +13075,10 @@ class ins(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -13644,9 +13104,7 @@ class ins(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `cite` :
             Link to the source of the quotation or more information about the edit  
         
@@ -13656,9 +13114,7 @@ class ins(BaseElement):
         
             Valid date string with optional time
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -13688,19 +13144,13 @@ class ins(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -13821,8 +13271,8 @@ class kbd(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -13867,10 +13317,10 @@ class kbd(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -13896,13 +13346,9 @@ class kbd(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -13932,19 +13378,13 @@ class kbd(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -14061,9 +13501,9 @@ class label(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         for_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -14108,10 +13548,10 @@ class label(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -14137,17 +13577,13 @@ class label(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `for_` :
             Associate the label with form control  
         
             ID*
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -14177,19 +13613,13 @@ class label(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -14308,8 +13738,8 @@ class legend(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -14354,10 +13784,10 @@ class legend(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -14383,13 +13813,9 @@ class legend(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -14419,19 +13845,13 @@ class legend(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -14548,9 +13968,9 @@ class li(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         value: Optional[Union[str, int]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -14595,10 +14015,10 @@ class li(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -14624,15 +14044,11 @@ class li(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `value` :
             Ordinal value of the list item
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -14662,19 +14078,13 @@ class li(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -14793,9 +14203,9 @@ class link(BaseElement):  # type: ignore[misc]
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         as_: Optional[str] = None,
-        blocking: Optional[str] = None,
+        blocking: Optional[Union[str, list]] = None,
         color: Optional[str] = None,
         crossorigin: Optional[
             Union[str, Literal["anonymous", "use-credentials"]]
@@ -14811,11 +14221,11 @@ class link(BaseElement):  # type: ignore[misc]
         integrity: Optional[str] = None,
         media: Optional[str] = None,
         referrerpolicy: Optional[str] = None,
-        rel: Optional[str] = None,
-        sizes: Optional[str] = None,
+        rel: Optional[Union[str, list]] = None,
+        sizes: Optional[Union[str, list]] = None,
         title: Optional[str] = None,
         type: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -14860,10 +14270,10 @@ class link(BaseElement):  # type: ignore[misc]
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -14888,17 +14298,13 @@ class link(BaseElement):  # type: ignore[misc]
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `as_` :
             Potential destination for a preload request (for rel="preload" and rel="modulepreload")  
         
             Potential destination, for rel="preload"; script-like destination, for rel="modulepreload"
         `blocking` :
-            Whether the element is potentially render-blocking  
-        
-            Unordered set of unique space-separated tokens*
+            Whether the element is potentially render-blocking
         `color` :
             Color to use when customizing a site's icon (for rel="mask-icon")  
         
@@ -14936,13 +14342,9 @@ class link(BaseElement):  # type: ignore[misc]
         
             Referrer policy
         `rel` :
-            Relationship between the document containing the hyperlink and the destination resource  
-        
-            Unordered set of unique space-separated tokens*
+            Relationship between the document containing the hyperlink and the destination resource
         `sizes` :
-            Sizes of the icons (for rel="icon")  
-        
-            Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of sizes*
+            Sizes of the icons (for rel="icon")
         `title` :
             CSS style sheet set name
         `title` :
@@ -14952,9 +14354,7 @@ class link(BaseElement):  # type: ignore[misc]
         
             Valid MIME type string
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -14984,19 +14384,13 @@ class link(BaseElement):  # type: ignore[misc]
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -15143,8 +14537,8 @@ class main(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -15189,10 +14583,10 @@ class main(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -15218,13 +14612,9 @@ class main(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -15254,19 +14644,13 @@ class main(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -15383,9 +14767,9 @@ class map(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         name: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -15430,10 +14814,10 @@ class map(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -15459,15 +14843,11 @@ class map(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `name` :
             Name of image map to reference from the usemap attribute
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -15497,19 +14877,13 @@ class map(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -15628,8 +15002,8 @@ class mark(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -15674,10 +15048,10 @@ class mark(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -15703,13 +15077,9 @@ class mark(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -15739,19 +15109,13 @@ class mark(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -15868,8 +15232,8 @@ class menu(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -15914,10 +15278,10 @@ class menu(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -15943,13 +15307,9 @@ class menu(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -15979,19 +15339,13 @@ class menu(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -16108,7 +15462,7 @@ class meta(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         charset: Optional[Union[str, Literal["utf-8"]]] = None,
         content: Optional[str] = None,
         http_equiv: Optional[
@@ -16125,7 +15479,7 @@ class meta(BaseElement):
         ] = None,
         media: Optional[str] = None,
         name: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -16170,10 +15524,10 @@ class meta(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -16199,9 +15553,7 @@ class meta(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `charset` :
             Character encoding declaration
         `content` :
@@ -16215,9 +15567,7 @@ class meta(BaseElement):
         `name` :
             Metadata name
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -16247,19 +15597,13 @@ class meta(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -16386,14 +15730,14 @@ class meter(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         high: Optional[Union[str, float]] = None,
         low: Optional[Union[str, float]] = None,
         max: Optional[Union[str, float]] = None,
         min: Optional[Union[str, float]] = None,
         optimum: Optional[Union[str, float]] = None,
         value: Optional[Union[str, float]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -16438,10 +15782,10 @@ class meter(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -16467,9 +15811,7 @@ class meter(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `high` :
             Low limit of high range
         `low` :
@@ -16483,9 +15825,7 @@ class meter(BaseElement):
         `value` :
             Current value of the element
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -16515,19 +15855,13 @@ class meter(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -16656,8 +15990,8 @@ class nav(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -16702,10 +16036,10 @@ class nav(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -16731,13 +16065,9 @@ class nav(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -16767,19 +16097,13 @@ class nav(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -16896,8 +16220,8 @@ class noscript(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -16942,10 +16266,10 @@ class noscript(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -16971,13 +16295,9 @@ class noscript(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -17007,19 +16327,13 @@ class noscript(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -17136,14 +16450,14 @@ class object(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         data: Optional[str] = None,
         form: Optional[str] = None,
         height: Optional[Union[str, int]] = None,
         name: Optional[str] = None,
         type: Optional[str] = None,
         width: Optional[Union[str, int]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -17188,10 +16502,10 @@ class object(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -17217,9 +16531,7 @@ class object(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `data` :
             Address of the resource  
         
@@ -17241,9 +16553,7 @@ class object(BaseElement):
         `width` :
             Horizontal dimension
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -17273,19 +16583,13 @@ class object(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -17414,11 +16718,11 @@ class ol(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         reversed: Optional[Union[str, bool]] = None,
         start: Optional[Union[str, int]] = None,
         type: Optional[Union[str, Literal["1", "a", "A", "i", "I"]]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -17463,10 +16767,10 @@ class ol(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -17492,9 +16796,7 @@ class ol(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `reversed` :
             Number the list backwards
         `start` :
@@ -17502,9 +16804,7 @@ class ol(BaseElement):
         `type` :
             Kind of list marker
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -17534,19 +16834,13 @@ class ol(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -17669,10 +16963,10 @@ class optgroup(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         disabled: Optional[Union[str, bool]] = None,
         label: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -17717,10 +17011,10 @@ class optgroup(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -17746,17 +17040,13 @@ class optgroup(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `disabled` :
             Whether the form control is disabled
         `label` :
             User-visible label
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -17786,19 +17076,13 @@ class optgroup(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -17919,12 +17203,12 @@ class option(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         disabled: Optional[Union[str, bool]] = None,
         label: Optional[str] = None,
         selected: Optional[Union[str, bool]] = None,
         value: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -17969,10 +17253,10 @@ class option(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -17998,9 +17282,7 @@ class option(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `disabled` :
             Whether the form control is disabled
         `label` :
@@ -18010,9 +17292,7 @@ class option(BaseElement):
         `value` :
             Value to be used for form submission
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -18042,19 +17322,13 @@ class option(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -18179,11 +17453,11 @@ class output(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        for_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        for_: Optional[Union[str, list]] = None,
         form: Optional[str] = None,
         name: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -18228,10 +17502,10 @@ class output(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -18257,13 +17531,9 @@ class output(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `for_` :
-            Specifies controls from which the output was calculated  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Specifies controls from which the output was calculated
         `form` :
             Associates the element with a form element  
         
@@ -18271,9 +17541,7 @@ class output(BaseElement):
         `name` :
             Name of the element to use for form submission and in the form.elements API
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -18303,19 +17571,13 @@ class output(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -18438,8 +17700,8 @@ class p(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -18484,10 +17746,10 @@ class p(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -18513,13 +17775,9 @@ class p(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -18549,19 +17807,13 @@ class p(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -18678,8 +17930,8 @@ class picture(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -18724,10 +17976,10 @@ class picture(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -18753,13 +18005,9 @@ class picture(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -18789,19 +18037,13 @@ class picture(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -18918,8 +18160,8 @@ class pre(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -18964,10 +18206,10 @@ class pre(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -18993,13 +18235,9 @@ class pre(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -19029,19 +18267,13 @@ class pre(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -19158,10 +18390,10 @@ class progress(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         max: Optional[Union[str, float]] = None,
         value: Optional[Union[str, float]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -19206,10 +18438,10 @@ class progress(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -19235,17 +18467,13 @@ class progress(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `max` :
             Upper bound of range
         `value` :
             Current value of the element
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -19275,19 +18503,13 @@ class progress(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -19408,9 +18630,9 @@ class q(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         cite: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -19455,10 +18677,10 @@ class q(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -19484,17 +18706,13 @@ class q(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `cite` :
             Link to the source of the quotation or more information about the edit  
         
             Valid URL potentially surrounded by spaces
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -19524,19 +18742,13 @@ class q(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -19655,8 +18867,8 @@ class rp(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -19701,10 +18913,10 @@ class rp(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -19730,13 +18942,9 @@ class rp(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -19766,19 +18974,13 @@ class rp(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -19895,8 +19097,8 @@ class rt(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -19941,10 +19143,10 @@ class rt(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -19970,13 +19172,9 @@ class rt(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -20006,19 +19204,13 @@ class rt(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -20135,8 +19327,8 @@ class ruby(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -20181,10 +19373,10 @@ class ruby(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -20210,13 +19402,9 @@ class ruby(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -20246,19 +19434,13 @@ class ruby(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -20375,8 +19557,8 @@ class s(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -20421,10 +19603,10 @@ class s(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -20450,13 +19632,9 @@ class s(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -20486,19 +19664,13 @@ class s(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -20615,8 +19787,8 @@ class samp(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -20661,10 +19833,10 @@ class samp(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -20690,13 +19862,9 @@ class samp(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -20726,19 +19894,13 @@ class samp(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -20855,9 +20017,9 @@ class script(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         async_: Optional[Union[str, bool]] = None,
-        blocking: Optional[str] = None,
+        blocking: Optional[Union[str, list]] = None,
         crossorigin: Optional[
             Union[str, Literal["anonymous", "use-credentials"]]
         ] = None,
@@ -20870,7 +20032,7 @@ class script(BaseElement):
         referrerpolicy: Optional[str] = None,
         src: Optional[str] = None,
         type: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -20915,10 +20077,10 @@ class script(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -20944,15 +20106,11 @@ class script(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `async_` :
             Execute script when available, without blocking while fetching
         `blocking` :
-            Whether the element is potentially render-blocking  
-        
-            Unordered set of unique space-separated tokens*
+            Whether the element is potentially render-blocking
         `crossorigin` :
             How the element handles crossorigin requests
         `defer` :
@@ -20976,9 +20134,7 @@ class script(BaseElement):
         
             "module"; a valid MIME type string that is not a JavaScript MIME type essence match
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -21008,19 +20164,13 @@ class script(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -21157,8 +20307,8 @@ class search(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -21203,10 +20353,10 @@ class search(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -21232,13 +20382,9 @@ class search(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -21268,19 +20414,13 @@ class search(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -21397,8 +20537,8 @@ class section(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -21443,10 +20583,10 @@ class section(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -21472,13 +20612,9 @@ class section(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -21508,19 +20644,13 @@ class section(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -21637,7 +20767,7 @@ class select(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         autocomplete: Optional[str] = None,
         disabled: Optional[Union[str, bool]] = None,
         form: Optional[str] = None,
@@ -21645,7 +20775,7 @@ class select(BaseElement):
         name: Optional[str] = None,
         required: Optional[Union[str, bool]] = None,
         size: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -21690,10 +20820,10 @@ class select(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -21719,9 +20849,7 @@ class select(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `autocomplete` :
             Hint for form autofill feature  
         
@@ -21743,9 +20871,7 @@ class select(BaseElement):
         
             Valid non-negative integer greater than zero
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -21775,19 +20901,13 @@ class select(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -21918,9 +21038,9 @@ class slot(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         name: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -21965,10 +21085,10 @@ class slot(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -21994,15 +21114,11 @@ class slot(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `name` :
             Name of shadow tree slot
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -22032,19 +21148,13 @@ class slot(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -22163,8 +21273,8 @@ class small(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -22209,10 +21319,10 @@ class small(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -22238,13 +21348,9 @@ class small(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -22274,19 +21380,13 @@ class small(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -22403,7 +21503,7 @@ class source(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         height: Optional[Union[str, int]] = None,
         media: Optional[str] = None,
         sizes: Optional[str] = None,
@@ -22411,7 +21511,7 @@ class source(BaseElement):
         srcset: Optional[str] = None,
         type: Optional[str] = None,
         width: Optional[Union[str, int]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -22456,10 +21556,10 @@ class source(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -22485,9 +21585,7 @@ class source(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `height` :
             Vertical dimension
         `media` :
@@ -22513,9 +21611,7 @@ class source(BaseElement):
         `width` :
             Horizontal dimension
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -22545,19 +21641,13 @@ class source(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -22688,8 +21778,8 @@ class span(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -22734,10 +21824,10 @@ class span(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -22763,13 +21853,9 @@ class span(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -22799,19 +21885,13 @@ class span(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -22928,8 +22008,8 @@ class strong(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -22974,10 +22054,10 @@ class strong(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -23003,13 +22083,9 @@ class strong(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -23039,19 +22115,13 @@ class strong(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -23168,11 +22238,11 @@ class style(BaseElement):  # type: ignore[misc]
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        blocking: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        blocking: Optional[Union[str, list]] = None,
         media: Optional[str] = None,
         title: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -23217,10 +22287,10 @@ class style(BaseElement):  # type: ignore[misc]
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -23245,13 +22315,9 @@ class style(BaseElement):  # type: ignore[misc]
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `blocking` :
-            Whether the element is potentially render-blocking  
-        
-            Unordered set of unique space-separated tokens*
+            Whether the element is potentially render-blocking
         `media` :
             Applicable media  
         
@@ -23259,9 +22325,7 @@ class style(BaseElement):  # type: ignore[misc]
         `title` :
             CSS style sheet set name
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -23291,19 +22355,13 @@ class style(BaseElement):  # type: ignore[misc]
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -23422,8 +22480,8 @@ class sub(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -23468,10 +22526,10 @@ class sub(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -23497,13 +22555,9 @@ class sub(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -23533,19 +22587,13 @@ class sub(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -23662,8 +22710,8 @@ class summary(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -23708,10 +22756,10 @@ class summary(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -23737,13 +22785,9 @@ class summary(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -23773,19 +22817,13 @@ class summary(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -23902,8 +22940,8 @@ class sup(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -23948,10 +22986,10 @@ class sup(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -23977,13 +23015,9 @@ class sup(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -24013,19 +23047,13 @@ class sup(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -24142,8 +23170,8 @@ class svg(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -24188,10 +23216,10 @@ class svg(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -24217,13 +23245,9 @@ class svg(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -24253,19 +23277,13 @@ class svg(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -24382,8 +23400,8 @@ class table(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -24428,10 +23446,10 @@ class table(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -24457,13 +23475,9 @@ class table(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -24493,19 +23507,13 @@ class table(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -24622,8 +23630,8 @@ class tbody(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -24668,10 +23676,10 @@ class tbody(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -24697,13 +23705,9 @@ class tbody(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -24733,19 +23737,13 @@ class tbody(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -24862,11 +23860,11 @@ class td(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         colspan: Optional[str] = None,
-        headers: Optional[str] = None,
+        headers: Optional[Union[str, list]] = None,
         rowspan: Optional[Union[str, int]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -24911,10 +23909,10 @@ class td(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -24940,23 +23938,17 @@ class td(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `colspan` :
             Number of columns that the cell is to span  
         
             Valid non-negative integer greater than zero
         `headers` :
-            The header cells for this cell  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            The header cells for this cell
         `rowspan` :
             Number of rows that the cell is to span
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -24986,19 +23978,13 @@ class td(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -25121,12 +24107,12 @@ class template(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         shadowrootclonable: Optional[Union[str, bool]] = None,
         shadowrootdelegatesfocus: Optional[Union[str, bool]] = None,
         shadowrootmode: Optional[Union[str, Literal["open", "closed"]]] = None,
         shadowrootserializable: Optional[Union[str, bool]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -25171,10 +24157,10 @@ class template(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -25200,9 +24186,7 @@ class template(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `shadowrootclonable` :
             Sets clonable on a declarative shadow root
         `shadowrootdelegatesfocus` :
@@ -25212,9 +24196,7 @@ class template(BaseElement):
         `shadowrootserializable` :
             Sets serializable on a declarative shadow root
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -25244,19 +24226,13 @@ class template(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -25388,7 +24364,7 @@ class textarea(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         autocomplete: Optional[str] = None,
         cols: Optional[str] = None,
         dirname: Optional[str] = None,
@@ -25402,7 +24378,7 @@ class textarea(BaseElement):
         required: Optional[Union[str, bool]] = None,
         rows: Optional[str] = None,
         wrap: Optional[Union[str, Literal["soft", "hard"]]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -25447,10 +24423,10 @@ class textarea(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -25476,9 +24452,7 @@ class textarea(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `autocomplete` :
             Hint for form autofill feature  
         
@@ -25514,9 +24488,7 @@ class textarea(BaseElement):
         `wrap` :
             How the value of the form control is to be wrapped for form submission
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -25546,19 +24518,13 @@ class textarea(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -25701,8 +24667,8 @@ class tfoot(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -25747,10 +24713,10 @@ class tfoot(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -25776,13 +24742,9 @@ class tfoot(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -25812,19 +24774,13 @@ class tfoot(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -25941,15 +24897,15 @@ class th(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         abbr: Optional[str] = None,
         colspan: Optional[str] = None,
-        headers: Optional[str] = None,
+        headers: Optional[Union[str, list]] = None,
         rowspan: Optional[Union[str, int]] = None,
         scope: Optional[
             Union[str, Literal["row", "col", "rowgroup", "colgroup"]]
         ] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -25994,10 +24950,10 @@ class th(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -26023,9 +24979,7 @@ class th(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `abbr` :
             Alternative label to use for the header cell when referencing the cell in other contexts
         `colspan` :
@@ -26033,17 +24987,13 @@ class th(BaseElement):
         
             Valid non-negative integer greater than zero
         `headers` :
-            The header cells for this cell  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            The header cells for this cell
         `rowspan` :
             Number of rows that the cell is to span
         `scope` :
             Specifies which cells the header cell applies to
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -26073,19 +25023,13 @@ class th(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -26212,8 +25156,8 @@ class thead(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -26258,10 +25202,10 @@ class thead(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -26287,13 +25231,9 @@ class thead(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -26323,19 +25263,13 @@ class thead(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -26452,9 +25386,9 @@ class time(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         datetime: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -26499,10 +25433,10 @@ class time(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -26528,17 +25462,13 @@ class time(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `datetime` :
             Machine-readable value  
         
             Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -26568,19 +25498,13 @@ class time(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -26699,8 +25623,8 @@ class title(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -26745,10 +25669,10 @@ class title(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -26774,13 +25698,9 @@ class title(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -26810,19 +25730,13 @@ class title(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -26939,8 +25853,8 @@ class tr(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -26985,10 +25899,10 @@ class tr(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -27014,13 +25928,9 @@ class tr(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -27050,19 +25960,13 @@ class tr(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -27179,7 +26083,7 @@ class track(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         default: Optional[Union[str, bool]] = None,
         kind: Optional[
             Union[
@@ -27196,7 +26100,7 @@ class track(BaseElement):
         label: Optional[str] = None,
         src: Optional[str] = None,
         srclang: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -27241,10 +26145,10 @@ class track(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -27270,9 +26174,7 @@ class track(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `default` :
             Enable the track if no other text track is more suitable
         `kind` :
@@ -27288,9 +26190,7 @@ class track(BaseElement):
         
             Valid BCP 47 language tag
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -27320,19 +26220,13 @@ class track(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -27459,8 +26353,8 @@ class u(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -27505,10 +26399,10 @@ class u(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -27534,13 +26428,9 @@ class u(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -27570,19 +26460,13 @@ class u(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -27699,8 +26583,8 @@ class ul(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -27745,10 +26629,10 @@ class ul(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -27774,13 +26658,9 @@ class ul(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -27810,19 +26690,13 @@ class ul(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -27939,8 +26813,8 @@ class var(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -27985,10 +26859,10 @@ class var(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -28014,13 +26888,9 @@ class var(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -28050,19 +26920,13 @@ class var(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -28179,7 +27043,7 @@ class video(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
         autoplay: Optional[Union[str, bool]] = None,
         controls: Optional[Union[str, bool]] = None,
         crossorigin: Optional[
@@ -28195,7 +27059,7 @@ class video(BaseElement):
         ] = None,
         src: Optional[str] = None,
         width: Optional[Union[str, int]] = None,
-        accesskey: Optional[str] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -28240,10 +27104,10 @@ class video(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -28269,9 +27133,7 @@ class video(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `autoplay` :
             Hint that the media resource can be started automatically when the page is loaded
         `controls` :
@@ -28299,9 +27161,7 @@ class video(BaseElement):
         `width` :
             Horizontal dimension
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -28331,19 +27191,13 @@ class video(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         
@@ -28482,8 +27336,8 @@ class wbr(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[str] = None,
-        accesskey: Optional[str] = None,
+        class_: Optional[Union[str, list]] = None,
+        accesskey: Optional[Union[str, list]] = None,
         autocapitalize: Optional[
             Union[
                 str,
@@ -28528,10 +27382,10 @@ class wbr(BaseElement):
         ] = None,
         is_: Optional[str] = None,
         itemid: Optional[str] = None,
-        itemprop: Optional[str] = None,
-        itemref: Optional[str] = None,
+        itemprop: Optional[Union[str, list]] = None,
+        itemref: Optional[Union[str, list]] = None,
         itemscope: Optional[Union[str, bool]] = None,
-        itemtype: Optional[str] = None,
+        itemtype: Optional[Union[str, list]] = None,
         lang: Optional[str] = None,
         nonce: Optional[str] = None,
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
@@ -28557,13 +27411,9 @@ class wbr(BaseElement):
         `id` :
             The element's ID
         `class_` :
-            Classes to which the element belongs  
-        
-            Set of space-separated tokens
+            Classes to which the element belongs
         `accesskey` :
-            Keyboard shortcut to activate or focus element  
-        
-            Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+            Keyboard shortcut to activate or focus element
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
         `autocorrect` :
@@ -28593,19 +27443,13 @@ class wbr(BaseElement):
         
             Valid URL potentially surrounded by spaces
         `itemprop` :
-            Property names of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+            Property names of a microdata item
         `itemref` :
-            Referenced elements  
-        
-            Unordered set of unique space-separated tokens consisting of IDs*
+            Referenced elements
         `itemscope` :
             Introduces a microdata item
         `itemtype` :
-            Item types of a microdata item  
-        
-            Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+            Item types of a microdata item
         `lang` :
             Language of the element  
         

@@ -36,7 +36,7 @@ class TemplateAttrs:
 
 
     @staticmethod
-    def shadowrootmode(value) -> BaseAttribute:
+    def shadowrootmode(value: Literal['open', 'closed']) -> BaseAttribute:
         """
         "template" attribute: shadowrootmode  
         Enables streaming declarative shadow roots  

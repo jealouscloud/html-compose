@@ -8,7 +8,7 @@ class GlobalAttrs:
     """ 
     
     @staticmethod
-    def accesskey(value) -> BaseAttribute:
+    def accesskey(value: list) -> BaseAttribute:
         """
         "global" attribute: accesskey  
         Keyboard shortcut to activate or focus element  
@@ -64,7 +64,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def class_(value) -> BaseAttribute:
+    def class_(value: list) -> BaseAttribute:
         """
         "global" attribute: class  
         Classes to which the element belongs  
@@ -218,7 +218,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def itemprop(value) -> BaseAttribute:
+    def itemprop(value: list) -> BaseAttribute:
         """
         "global" attribute: itemprop  
         Property names of a microdata item  
@@ -232,7 +232,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def itemref(value) -> BaseAttribute:
+    def itemref(value: list) -> BaseAttribute:
         """
         "global" attribute: itemref  
         Referenced elements  
@@ -260,7 +260,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def itemtype(value) -> BaseAttribute:
+    def itemtype(value: list) -> BaseAttribute:
         """
         "global" attribute: itemtype  
         Item types of a microdata item  

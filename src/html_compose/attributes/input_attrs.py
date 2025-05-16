@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class InputAttrs:
@@ -68,7 +69,9 @@ class InputAttrs:
         return BaseAttribute("checked", value)
 
     @staticmethod
-    def colorspace(value) -> BaseAttribute:
+    def colorspace(
+        value: Literal["limited-srgb", "display-p3"],
+    ) -> BaseAttribute:
         """
         "input" attribute: colorspace  
         The color space of the serialized color  
@@ -128,7 +131,13 @@ class InputAttrs:
         return BaseAttribute("formaction", value)
 
     @staticmethod
-    def formenctype(value) -> BaseAttribute:
+    def formenctype(
+        value: Literal[
+            "application/x-www-form-urlencoded",
+            "multipart/form-data",
+            "text/plain",
+        ],
+    ) -> BaseAttribute:
         """
         "input" attribute: formenctype  
         Entry list encoding type to use for form submission  
@@ -140,7 +149,7 @@ class InputAttrs:
         return BaseAttribute("formenctype", value)
 
     @staticmethod
-    def formmethod(value) -> BaseAttribute:
+    def formmethod(value: Literal["GET", "POST", "dialog"]) -> BaseAttribute:
         """
         "input" attribute: formmethod  
         Variant to use for form submission  
@@ -308,7 +317,9 @@ class InputAttrs:
         return BaseAttribute("popovertarget", value)
 
     @staticmethod
-    def popovertargetaction(value) -> BaseAttribute:
+    def popovertargetaction(
+        value: Literal["toggle", "show", "hide"],
+    ) -> BaseAttribute:
         """
         "input" attribute: popovertargetaction  
         Indicates whether a targeted popover element is to be toggled, shown, or hidden  
