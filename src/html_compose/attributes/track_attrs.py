@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class TrackAttrs:
@@ -20,7 +21,11 @@ class TrackAttrs:
         return BaseAttribute("default", value)
 
     @staticmethod
-    def kind(value) -> BaseAttribute:
+    def kind(
+        value: Literal[
+            "subtitles", "captions", "descriptions", "chapters", "metadata"
+        ],
+    ) -> BaseAttribute:
         """
         "track" attribute: kind  
         The type of text track  

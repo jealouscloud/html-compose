@@ -36,7 +36,7 @@ class VideoAttrs:
 
 
     @staticmethod
-    def crossorigin(value) -> BaseAttribute:
+    def crossorigin(value: Literal['anonymous', 'use-credentials']) -> BaseAttribute:
         """
         "video" attribute: crossorigin  
         How the element handles crossorigin requests  
@@ -120,7 +120,7 @@ class VideoAttrs:
 
 
     @staticmethod
-    def preload(value) -> BaseAttribute:
+    def preload(value: Literal['none', 'metadata', 'auto']) -> BaseAttribute:
         """
         "video" attribute: preload  
         Hints how much buffering the media resource will likely need  

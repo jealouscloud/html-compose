@@ -8,7 +8,7 @@ class StyleAttrs:
     """
 
     @staticmethod
-    def blocking(value) -> BaseAttribute:
+    def blocking(value: list) -> BaseAttribute:
         """
         "style" attribute: blocking  
         Whether the element is potentially render-blocking  

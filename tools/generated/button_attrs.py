@@ -50,7 +50,7 @@ class ButtonAttrs:
 
 
     @staticmethod
-    def formenctype(value) -> BaseAttribute:
+    def formenctype(value: Literal['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']) -> BaseAttribute:
         """
         "button" attribute: formenctype  
         Entry list encoding type to use for form submission  
@@ -64,7 +64,7 @@ class ButtonAttrs:
 
 
     @staticmethod
-    def formmethod(value) -> BaseAttribute:
+    def formmethod(value: Literal['GET', 'POST', 'dialog']) -> BaseAttribute:
         """
         "button" attribute: formmethod  
         Variant to use for form submission  
@@ -134,7 +134,7 @@ class ButtonAttrs:
 
 
     @staticmethod
-    def popovertargetaction(value) -> BaseAttribute:
+    def popovertargetaction(value: Literal['toggle', 'show', 'hide']) -> BaseAttribute:
         """
         "button" attribute: popovertargetaction  
         Indicates whether a targeted popover element is to be toggled, shown, or hidden  
@@ -148,7 +148,7 @@ class ButtonAttrs:
 
 
     @staticmethod
-    def type(value) -> BaseAttribute:
+    def type(value: Literal['submit', 'reset', 'button']) -> BaseAttribute:
         """
         "button" attribute: type  
         Type of button  

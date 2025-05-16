@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class AreaAttrs:
@@ -56,7 +57,7 @@ class AreaAttrs:
         return BaseAttribute("href", value)
 
     @staticmethod
-    def ping(value) -> BaseAttribute:
+    def ping(value: list) -> BaseAttribute:
         """
         "area" attribute: ping  
         URLs to ping  
@@ -80,7 +81,7 @@ class AreaAttrs:
         return BaseAttribute("referrerpolicy", value)
 
     @staticmethod
-    def rel(value) -> BaseAttribute:
+    def rel(value: list) -> BaseAttribute:
         """
         "area" attribute: rel  
         Relationship between the location in the document containing the hyperlink and the destination resource  
@@ -92,7 +93,9 @@ class AreaAttrs:
         return BaseAttribute("rel", value)
 
     @staticmethod
-    def shape(value) -> BaseAttribute:
+    def shape(
+        value: Literal["circle", "default", "poly", "rect"],
+    ) -> BaseAttribute:
         """
         "area" attribute: shape  
         The kind of shape to be created in an image map  

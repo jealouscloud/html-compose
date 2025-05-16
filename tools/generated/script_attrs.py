@@ -22,7 +22,7 @@ class ScriptAttrs:
 
 
     @staticmethod
-    def blocking(value) -> BaseAttribute:
+    def blocking(value: list) -> BaseAttribute:
         """
         "script" attribute: blocking  
         Whether the element is potentially render-blocking  
@@ -36,7 +36,7 @@ class ScriptAttrs:
 
 
     @staticmethod
-    def crossorigin(value) -> BaseAttribute:
+    def crossorigin(value: Literal['anonymous', 'use-credentials']) -> BaseAttribute:
         """
         "script" attribute: crossorigin  
         How the element handles crossorigin requests  
@@ -64,7 +64,7 @@ class ScriptAttrs:
 
 
     @staticmethod
-    def fetchpriority(value) -> BaseAttribute:
+    def fetchpriority(value: Literal['auto', 'high', 'low']) -> BaseAttribute:
         """
         "script" attribute: fetchpriority  
         Sets the priority for fetches initiated by the element  

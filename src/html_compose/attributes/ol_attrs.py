@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class OlAttrs:
@@ -32,7 +33,7 @@ class OlAttrs:
         return BaseAttribute("start", value)
 
     @staticmethod
-    def type(value) -> BaseAttribute:
+    def type(value: Literal["1", "a", "A", "i", "I"]) -> BaseAttribute:
         """
         "ol" attribute: type  
         Kind of list marker  

@@ -22,7 +22,7 @@ class LinkAttrs:
 
 
     @staticmethod
-    def blocking(value) -> BaseAttribute:
+    def blocking(value: list) -> BaseAttribute:
         """
         "link" attribute: blocking  
         Whether the element is potentially render-blocking  
@@ -50,7 +50,7 @@ class LinkAttrs:
 
 
     @staticmethod
-    def crossorigin(value) -> BaseAttribute:
+    def crossorigin(value: Literal['anonymous', 'use-credentials']) -> BaseAttribute:
         """
         "link" attribute: crossorigin  
         How the element handles crossorigin requests  
@@ -78,7 +78,7 @@ class LinkAttrs:
 
 
     @staticmethod
-    def fetchpriority(value) -> BaseAttribute:
+    def fetchpriority(value: Literal['auto', 'high', 'low']) -> BaseAttribute:
         """
         "link" attribute: fetchpriority  
         Sets the priority for fetches initiated by the element  
@@ -190,7 +190,7 @@ class LinkAttrs:
 
 
     @staticmethod
-    def rel(value) -> BaseAttribute:
+    def rel(value: list) -> BaseAttribute:
         """
         "link" attribute: rel  
         Relationship between the document containing the hyperlink and the destination resource  
@@ -204,7 +204,7 @@ class LinkAttrs:
 
 
     @staticmethod
-    def sizes(value) -> BaseAttribute:
+    def sizes(value: list) -> BaseAttribute:
         """
         "link" attribute: sizes  
         Sizes of the icons (for rel="icon")  

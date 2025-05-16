@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class ThAttrs:
@@ -32,7 +33,7 @@ class ThAttrs:
         return BaseAttribute("colspan", value)
 
     @staticmethod
-    def headers(value) -> BaseAttribute:
+    def headers(value: list) -> BaseAttribute:
         """
         "th" attribute: headers  
         The header cells for this cell  
@@ -56,7 +57,9 @@ class ThAttrs:
         return BaseAttribute("rowspan", value)
 
     @staticmethod
-    def scope(value) -> BaseAttribute:
+    def scope(
+        value: Literal["row", "col", "rowgroup", "colgroup"],
+    ) -> BaseAttribute:
         """
         "th" attribute: scope  
         Specifies which cells the header cell applies to  

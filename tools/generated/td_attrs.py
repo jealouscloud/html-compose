@@ -22,7 +22,7 @@ class TdAttrs:
 
 
     @staticmethod
-    def headers(value) -> BaseAttribute:
+    def headers(value: list) -> BaseAttribute:
         """
         "td" attribute: headers  
         The header cells for this cell  

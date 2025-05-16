@@ -8,7 +8,7 @@ class OutputAttrs:
     """ 
     
     @staticmethod
-    def for_(value) -> BaseAttribute:
+    def for_(value: list) -> BaseAttribute:
         """
         "output" attribute: for  
         Specifies controls from which the output was calculated  

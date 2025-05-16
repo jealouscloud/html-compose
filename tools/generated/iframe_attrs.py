@@ -50,7 +50,7 @@ class IframeAttrs:
 
 
     @staticmethod
-    def loading(value) -> BaseAttribute:
+    def loading(value: Literal['lazy', 'eager']) -> BaseAttribute:
         """
         "iframe" attribute: loading  
         Used when determining loading deferral  
@@ -92,7 +92,7 @@ class IframeAttrs:
 
 
     @staticmethod
-    def sandbox(value) -> BaseAttribute:
+    def sandbox(value: list) -> BaseAttribute:
         """
         "iframe" attribute: sandbox  
         Security rules for nested content  

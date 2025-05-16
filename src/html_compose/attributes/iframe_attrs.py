@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class IframeAttrs:
@@ -44,7 +45,7 @@ class IframeAttrs:
         return BaseAttribute("height", value)
 
     @staticmethod
-    def loading(value) -> BaseAttribute:
+    def loading(value: Literal["lazy", "eager"]) -> BaseAttribute:
         """
         "iframe" attribute: loading  
         Used when determining loading deferral  
@@ -80,7 +81,7 @@ class IframeAttrs:
         return BaseAttribute("referrerpolicy", value)
 
     @staticmethod
-    def sandbox(value) -> BaseAttribute:
+    def sandbox(value: list) -> BaseAttribute:
         """
         "iframe" attribute: sandbox  
         Security rules for nested content  

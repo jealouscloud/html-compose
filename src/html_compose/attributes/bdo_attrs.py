@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class BdoAttrs:
@@ -8,7 +9,7 @@ class BdoAttrs:
     """
 
     @staticmethod
-    def dir(value) -> BaseAttribute:
+    def dir(value: Literal["ltr", "rtl"]) -> BaseAttribute:
         """
         "bdo" attribute: dir  
         The text directionality of the element  

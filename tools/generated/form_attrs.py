@@ -36,7 +36,7 @@ class FormAttrs:
 
 
     @staticmethod
-    def autocomplete(value) -> BaseAttribute:
+    def autocomplete(value: Literal['on', 'off']) -> BaseAttribute:
         """
         "form" attribute: autocomplete  
         Default setting for autofill feature for controls in the form  
@@ -50,7 +50,7 @@ class FormAttrs:
 
 
     @staticmethod
-    def enctype(value) -> BaseAttribute:
+    def enctype(value: Literal['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']) -> BaseAttribute:
         """
         "form" attribute: enctype  
         Entry list encoding type to use for form submission  
@@ -64,7 +64,7 @@ class FormAttrs:
 
 
     @staticmethod
-    def method(value) -> BaseAttribute:
+    def method(value: Literal['GET', 'POST', 'dialog']) -> BaseAttribute:
         """
         "form" attribute: method  
         Variant to use for form submission  

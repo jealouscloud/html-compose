@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class ImgAttrs:
@@ -20,7 +21,9 @@ class ImgAttrs:
         return BaseAttribute("alt", value)
 
     @staticmethod
-    def crossorigin(value) -> BaseAttribute:
+    def crossorigin(
+        value: Literal["anonymous", "use-credentials"],
+    ) -> BaseAttribute:
         """
         "img" attribute: crossorigin  
         How the element handles crossorigin requests  
@@ -32,7 +35,7 @@ class ImgAttrs:
         return BaseAttribute("crossorigin", value)
 
     @staticmethod
-    def decoding(value) -> BaseAttribute:
+    def decoding(value: Literal["sync", "async", "auto"]) -> BaseAttribute:
         """
         "img" attribute: decoding  
         Decoding hint to use when processing this image for presentation  
@@ -44,7 +47,7 @@ class ImgAttrs:
         return BaseAttribute("decoding", value)
 
     @staticmethod
-    def fetchpriority(value) -> BaseAttribute:
+    def fetchpriority(value: Literal["auto", "high", "low"]) -> BaseAttribute:
         """
         "img" attribute: fetchpriority  
         Sets the priority for fetches initiated by the element  
@@ -80,7 +83,7 @@ class ImgAttrs:
         return BaseAttribute("ismap", value)
 
     @staticmethod
-    def loading(value) -> BaseAttribute:
+    def loading(value: Literal["lazy", "eager"]) -> BaseAttribute:
         """
         "img" attribute: loading  
         Used when determining loading deferral  

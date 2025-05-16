@@ -64,7 +64,7 @@ class AreaAttrs:
 
 
     @staticmethod
-    def ping(value) -> BaseAttribute:
+    def ping(value: list) -> BaseAttribute:
         """
         "area" attribute: ping  
         URLs to ping  
@@ -92,7 +92,7 @@ class AreaAttrs:
 
 
     @staticmethod
-    def rel(value) -> BaseAttribute:
+    def rel(value: list) -> BaseAttribute:
         """
         "area" attribute: rel  
         Relationship between the location in the document containing the hyperlink and the destination resource  
@@ -106,7 +106,7 @@ class AreaAttrs:
 
 
     @staticmethod
-    def shape(value) -> BaseAttribute:
+    def shape(value: Literal['circle', 'default', 'poly', 'rect']) -> BaseAttribute:
         """
         "area" attribute: shape  
         The kind of shape to be created in an image map  

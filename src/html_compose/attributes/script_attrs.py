@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from typing import Literal
 
 
 class ScriptAttrs:
@@ -20,7 +21,7 @@ class ScriptAttrs:
         return BaseAttribute("async", value)
 
     @staticmethod
-    def blocking(value) -> BaseAttribute:
+    def blocking(value: list) -> BaseAttribute:
         """
         "script" attribute: blocking  
         Whether the element is potentially render-blocking  
@@ -32,7 +33,9 @@ class ScriptAttrs:
         return BaseAttribute("blocking", value)
 
     @staticmethod
-    def crossorigin(value) -> BaseAttribute:
+    def crossorigin(
+        value: Literal["anonymous", "use-credentials"],
+    ) -> BaseAttribute:
         """
         "script" attribute: crossorigin  
         How the element handles crossorigin requests  
@@ -56,7 +59,7 @@ class ScriptAttrs:
         return BaseAttribute("defer", value)
 
     @staticmethod
-    def fetchpriority(value) -> BaseAttribute:
+    def fetchpriority(value: Literal["auto", "high", "low"]) -> BaseAttribute:
         """
         "script" attribute: fetchpriority  
         Sets the priority for fetches initiated by the element  
