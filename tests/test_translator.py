@@ -7,7 +7,7 @@ def test_translate():
     """
     Basic text of html -> html_compose translation
     """
-    ht = """
+    html = """
         <section id="preview">
         <h2>Preview</h2>
         <pre>  preformatted  </pre>
@@ -105,9 +105,17 @@ def test_translate():
             ],
         ],
     ]
-    lines = [line for line in t.translate(ht).strip().splitlines() if line]
-    lines[1] = lines[1] + ".render()"
-    output = eval("\n".join(lines[1:]))
-    soup1 = BeautifulSoup(output, "html.parser")
-    soup2 = BeautifulSoup(expected.render(), "html.parser")
-    assert str(soup1) == str(soup2)
+
+    tresult = t.translate(html)
+
+    def _test_translation(r: t.TranslateResult):
+        lines = "\n\n".join(tresult.elements) + ".render()"
+        exec(tresult.import_statement)
+        print(lines)
+        output = eval(lines)
+        soup1 = BeautifulSoup(output, "html.parser")
+        soup2 = BeautifulSoup(expected.render(), "html.parser")
+        assert str(soup1) == str(soup2)
+
+    _test_translation(t.translate(html))
+    _test_translation(t.translate(html, "ht"))

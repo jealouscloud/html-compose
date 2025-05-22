@@ -25,7 +25,23 @@ def from_html(args):
 
     if is_stdin:
         print("---\n")
-    print(translate_html.translate(html_content, args.noimport))
+
+    tresult = translate_html.translate(html_content, args.noimport)
+
+    if tresult is None:
+        print("Failed to translate HTML content")
+        return
+
+    if tresult.import_statement:
+        print(tresult.import_statement, "\n")
+
+    if tresult.custom_elements:
+        print("\n".join(tresult.custom_elements))
+
+    if len(tresult.elements) > 1:
+        print(tresult.as_array())
+    elif len(tresult.elements) == 1:
+        print(tresult.elements[0])
 
 
 def parse_html_translate(parser):

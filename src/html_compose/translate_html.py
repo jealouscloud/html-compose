@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 from bs4.element import Doctype
 
 from . import elements as el_list
+from .custom_element import CustomElement
 from .util_funcs import safe_name
 
 
@@ -27,6 +28,10 @@ def read_string(input_str: NavigableString) -> Union[str, None]:
     return repr(result)
 
 
+# HTML spec doesn't say this casually, but these are preformatted.
+WHITESPACE_PRE = ["pre", "textarea", "listing", "xmp"]
+
+
 def read_pre_string(input_str: NavigableString) -> Union[str, None]:
     """
     pre elements do the same as above, but remove the first newline
@@ -37,7 +42,34 @@ def read_pre_string(input_str: NavigableString) -> Union[str, None]:
     return repr(result)
 
 
-def translate(html: str, import_module: Optional[str] = None) -> str:
+class TranslateResult:
+    """
+    Class to hold the result of the translation
+    """
+
+    def __init__(
+        self,
+        elements: list[str],
+        tags: dict[str, Any],
+        import_statement: str = "",
+        custom_elements: Optional[list[str]] = None,
+    ):
+        self.elements = elements
+        self.tags = tags
+        self.import_statement = import_statement
+        self.custom_elements = custom_elements or []
+
+    def as_array(self):
+        """
+        Return the elements as an array
+        """
+        sep = ",\n"
+        return f"[\n{sep.join(self.elements)}\n]"
+
+
+def translate(
+    html: str, import_module: Optional[str] = None
+) -> TranslateResult:
     """
     Translate HTML string into Python code representing a similar HTML structure
 
@@ -50,6 +82,8 @@ def translate(html: str, import_module: Optional[str] = None) -> str:
     if import_module is not None:
         prefix = import_module + ("." if import_module else "")
 
+    custom_elements = set()
+
     def process_element(element) -> Union[str, None]:
         if isinstance(element, Doctype):
             dt: Doctype = element
@@ -61,10 +95,22 @@ def translate(html: str, import_module: Optional[str] = None) -> str:
         assert isinstance(element, Tag)
         safe_tag_name = safe_name(element.name)
         if safe_tag_name not in tags:
-            tags[safe_tag_name] = getattr(el_list, safe_tag_name)
+            try:
+                tags[safe_tag_name] = getattr(el_list, safe_tag_name)
+            except AttributeError:
+                # This is a custom element, let's add it to the list
+                tags["CustomElement"] = None
+                tags[safe_tag_name] = CustomElement.create(safe_tag_name)
+                custom_elements.add(safe_tag_name)
+        is_custom = safe_tag_name in custom_elements
         tag_cls = tags[safe_tag_name]
 
-        result = [f"{prefix}{safe_tag_name}"]
+        if is_custom:
+            # Custom elements aren't imported
+            result = [f"{safe_tag_name}"]
+        else:
+            result = [f"{prefix}{safe_tag_name}"]
+
         if element.attrs:
             param_attrs = {}
             dict_attrs = {}
@@ -108,7 +154,9 @@ def translate(html: str, import_module: Optional[str] = None) -> str:
 
         children: list[str] = []
         for child in element.children:
-            if element.name == "pre" and isinstance(child, NavigableString):
+            if element.name in WHITESPACE_PRE and isinstance(
+                child, NavigableString
+            ):
                 processed = read_pre_string(child)
                 if processed:
                     children.append(processed)
@@ -123,11 +171,24 @@ def translate(html: str, import_module: Optional[str] = None) -> str:
         return "".join(result)
 
     elements = [process_element(child) for child in soup.children]
+    import_statement = ""
+    if not import_module:
+        keys = [key for key in tags.keys() if key not in custom_elements]
+        if len(keys) > 3:
+            # Add parens
+            import_statement = f"from html_compose import ({', '.join(keys)})"
+        else:
+            import_statement = f"from html_compose import {', '.join(keys)}"
+    else:
+        if import_module == "html_compose":
+            import_statement = "import html_compose"
+        else:
+            import_statement = f"import html_compose as {import_module}"
 
-    if not tags:
-        return "No HTML tags found"
+    custom_el_stmts = [
+        f'{e} = {prefix}CustomElement.create("{e}")' for e in custom_elements
+    ]
 
-    return "\n\n".join(
-        [f"from html_compose import {', '.join(tags.keys())}"]
-        + [e for e in elements if e]
+    return TranslateResult(
+        [e for e in elements if e], tags, import_statement, custom_el_stmts
     )
