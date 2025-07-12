@@ -53,6 +53,7 @@ def doctype(dtype: str = "html"):
     return unsafe_text(f"<!DOCTYPE {dtype}>")
 
 
+from .base_attribute import BaseAttribute
 from .base_element import BaseElement
 from .custom_element import CustomElement
 
