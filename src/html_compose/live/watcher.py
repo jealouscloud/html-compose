@@ -145,6 +145,7 @@ class WatchCond:
         action: Optional[Union[ShellCommand, Callable]],
         ignore_glob: Optional[Union[str, list[str]]] = None,
         delay: float = 0,
+        server_reload: bool = True,
         no_reload: bool = False,
     ):
         """
@@ -170,6 +171,7 @@ class WatchCond:
             self.ignore_glob = [ignore_glob]
         else:
             self.ignore_glob = ignore_glob
+        self.server_reload = server_reload
         self.no_reload = no_reload
         if action is None:
             self.task = Task(None, delay)
