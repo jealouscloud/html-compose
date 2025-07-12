@@ -102,7 +102,7 @@ def live_server(
                     paths_hit.add(hit.path)
 
                     for cond in hit.conds:
-                        if not cond.no_reload:
+                        if cond.reload:
                             pending_reload.add(hit.path)
 
                         conds_hit.add(cond)
@@ -116,7 +116,7 @@ def live_server(
                     if cond.task:
                         tr.add_task(cond.task)
 
-                    if cond.no_reload:
+                    if not cond.reload:
                         continue
                     delay = max(delay, cond.task.delay)
                     reload_tripped = True
