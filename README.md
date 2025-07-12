@@ -133,7 +133,7 @@ a([tab]
               action=live.ShellCommand(
                   ["sass", "--update", "static/sass:static/css"]
               ),
-              no_reload=True,  # Nobody reads -these- files so we don't need to reload the server
+              reload=False,  # Nobody reads -these- files so we don't need to reload the server
           ),
           live.WatchCond(
               path_glob="./static/css/", 
@@ -216,8 +216,8 @@ Updates pertaining to those changes should be shipped into the actual module und
 
 # Dependencies
 
-- PalletsProjects [markupsafe](https://github.com/pallets/markupsafe/) for text escaping
-- `beautifulsoup4` to optionally beautify HTML
+- PalletsProjects [markupsafe](https://github.com/pallets/markupsafe/) for text escaping. Its "fast" implementation saves significant cycles in the sanitization process.
+- Optional: `beautifulsoup4` to beautify HTML
 
 # Development tools ⚙️
 
