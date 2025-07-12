@@ -104,168 +104,214 @@ class input(BaseElement): # type: ignore[misc]
         ----------
         `attrs`: 
             A list or dictionary of attributes for the element
+        
         `id` :
             The element's ID
+        
         `class_` :
             Classes to which the element belongs
+        
         `accept` :
             Hint for expected file type in file upload controls  
-        
             Set of comma-separated tokens* consisting of valid MIME type strings with no parameters or audio/*, video/*, or image/*
+        
         `alpha` :
             Allow the color's alpha component to be set
+        
         `alt` :
             Replacement text for use when images are not available
+        
         `autocomplete` :
             Hint for form autofill feature  
-        
             Autofill field name and related tokens*
+        
         `checked` :
             Whether the control is checked
+        
         `colorspace` :
             The color space of the serialized color
+        
         `dirname` :
             Name of form control to use for sending the element's directionality in form submission
+        
         `disabled` :
             Whether the form control is disabled
+        
         `form` :
             Associates the element with a form element  
-        
             ID*
+        
         `formaction` :
             URL to use for form submission  
-        
             Valid non-empty URL potentially surrounded by spaces
+        
         `formenctype` :
             Entry list encoding type to use for form submission
+        
         `formmethod` :
             Variant to use for form submission
+        
         `formnovalidate` :
             Bypass form control validation for form submission
+        
         `formtarget` :
             Navigable for form submission  
-        
             Valid navigable target name or keyword
+        
         `height` :
             Vertical dimension
+        
         `list` :
             List of autocomplete options  
-        
             ID*
+        
         `max` :
             Maximum value  
-        
             Varies*
+        
         `maxlength` :
             Maximum length of value
+        
         `min` :
             Minimum value  
-        
             Varies*
+        
         `minlength` :
             Minimum length of value
+        
         `multiple` :
             Whether to allow multiple values
+        
         `name` :
             Name of the element to use for form submission and in the form.elements API
+        
         `pattern` :
             Pattern to be matched by the form control's value  
-        
             Regular expression matching the JavaScript Pattern production
+        
         `placeholder` :
             User-visible label to be placed within the form control
+        
         `popovertarget` :
             Targets a popover element to toggle, show, or hide  
-        
             ID*
+        
         `popovertargetaction` :
             Indicates whether a targeted popover element is to be toggled, shown, or hidden
+        
         `readonly` :
             Whether to allow the value to be edited by the user
+        
         `required` :
             Whether the control is required for form submission
+        
         `size` :
             Size of the control  
-        
             Valid non-negative integer greater than zero
+        
         `src` :
             Address of the resource  
-        
             Valid non-empty URL potentially surrounded by spaces
+        
         `step` :
             Granularity to be matched by the form control's value
+        
         `title` :
             Description of pattern (when used with pattern attribute)
+        
         `type` :
             Type of form control  
-        
             input type keyword
+        
         `value` :
             Value of the form control  
-        
             Varies*
+        
         `width` :
             Horizontal dimension
+        
         `accesskey` :
             Keyboard shortcut to activate or focus element
+        
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
+        
         `autocorrect` :
             Recommended autocorrection behavior (for supported input methods)
+        
         `autofocus` :
             Automatically focus the element when the page is loaded
+        
         `contenteditable` :
             Whether the element is editable
+        
         `dir` :
             The text directionality of the element
+        
         `draggable` :
             Whether the element is draggable
+        
         `enterkeyhint` :
             Hint for selecting an enter key action
+        
         `hidden` :
             Whether the element is relevant
+        
         `inert` :
             Whether the element is inert.
+        
         `inputmode` :
             Hint for selecting an input modality
+        
         `is_` :
             Creates a customized built-in element  
-        
             Valid custom element name of a defined customized built-in element
+        
         `itemid` :
             Global identifier for a microdata item  
-        
             Valid URL potentially surrounded by spaces
+        
         `itemprop` :
             Property names of a microdata item
+        
         `itemref` :
             Referenced elements
+        
         `itemscope` :
             Introduces a microdata item
+        
         `itemtype` :
             Item types of a microdata item
+        
         `lang` :
             Language of the element  
-        
             Valid BCP 47 language tag or the empty string
+        
         `nonce` :
             Cryptographic nonce used in Content Security Policy checks [CSP]
+        
         `popover` :
             Makes the element a popover element
+        
         `slot` :
             The element's desired slot
+        
         `spellcheck` :
             Whether the element is to have its spelling and grammar checked
+        
         `style` :
             Presentational and formatting instructions  
-        
             CSS declarations*
+        
         `tabindex` :
             Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        
         `translate` :
             Whether the element is to be translated when the page is localized
+        
         `writingsuggestions` :
             Whether the element can offer writing suggestions or not.
+        
         """ #fmt: skip
         super().__init__(
             "input",

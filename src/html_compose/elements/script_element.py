@@ -124,98 +124,131 @@ class script(BaseElement):
         ----------
         `attrs`: 
             A list or dictionary of attributes for the element
+        
         `id` :
             The element's ID
+        
         `class_` :
             Classes to which the element belongs
+        
         `async_` :
             Execute script when available, without blocking while fetching
+        
         `blocking` :
             Whether the element is potentially render-blocking
+        
         `crossorigin` :
             How the element handles crossorigin requests
+        
         `defer` :
             Defer script execution
+        
         `fetchpriority` :
             Sets the priority for fetches initiated by the element
+        
         `integrity` :
             Integrity metadata used in Subresource Integrity checks [SRI]
+        
         `nomodule` :
             Prevents execution in user agents that support module scripts
+        
         `referrerpolicy` :
             Referrer policy for fetches initiated by the element  
-        
             Referrer policy
+        
         `src` :
             Address of the resource  
-        
             Valid non-empty URL potentially surrounded by spaces
+        
         `type` :
             Type of script  
-        
             "module"; a valid MIME type string that is not a JavaScript MIME type essence match
+        
         `accesskey` :
             Keyboard shortcut to activate or focus element
+        
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
+        
         `autocorrect` :
             Recommended autocorrection behavior (for supported input methods)
+        
         `autofocus` :
             Automatically focus the element when the page is loaded
+        
         `contenteditable` :
             Whether the element is editable
+        
         `dir` :
             The text directionality of the element
+        
         `draggable` :
             Whether the element is draggable
+        
         `enterkeyhint` :
             Hint for selecting an enter key action
+        
         `hidden` :
             Whether the element is relevant
+        
         `inert` :
             Whether the element is inert.
+        
         `inputmode` :
             Hint for selecting an input modality
+        
         `is_` :
             Creates a customized built-in element  
-        
             Valid custom element name of a defined customized built-in element
+        
         `itemid` :
             Global identifier for a microdata item  
-        
             Valid URL potentially surrounded by spaces
+        
         `itemprop` :
             Property names of a microdata item
+        
         `itemref` :
             Referenced elements
+        
         `itemscope` :
             Introduces a microdata item
+        
         `itemtype` :
             Item types of a microdata item
+        
         `lang` :
             Language of the element  
-        
             Valid BCP 47 language tag or the empty string
+        
         `nonce` :
             Cryptographic nonce used in Content Security Policy checks [CSP]
+        
         `popover` :
             Makes the element a popover element
+        
         `slot` :
             The element's desired slot
+        
         `spellcheck` :
             Whether the element is to have its spelling and grammar checked
+        
         `style` :
             Presentational and formatting instructions  
-        
             CSS declarations*
+        
         `tabindex` :
             Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        
         `title` :
             Advisory information for the element
+        
         `translate` :
             Whether the element is to be translated when the page is localized
+        
         `writingsuggestions` :
             Whether the element can offer writing suggestions or not.
+        
         """  # fmt: skip
         super().__init__(
             "script", void_element=False, attrs=attrs, children=children

@@ -130,124 +130,157 @@ class link(BaseElement):  # type: ignore[misc]
         ----------
         `attrs`: 
             A list or dictionary of attributes for the element
+        
         `id` :
             The element's ID
+        
         `class_` :
             Classes to which the element belongs
+        
         `as_` :
             Potential destination for a preload request (for rel="preload" and rel="modulepreload")  
-        
             Potential destination, for rel="preload"; script-like destination, for rel="modulepreload"
+        
         `blocking` :
             Whether the element is potentially render-blocking
+        
         `color` :
             Color to use when customizing a site's icon (for rel="mask-icon")  
-        
             CSS <color>
+        
         `crossorigin` :
             How the element handles crossorigin requests
+        
         `disabled` :
             Whether the link is disabled
+        
         `fetchpriority` :
             Sets the priority for fetches initiated by the element
+        
         `href` :
             Address of the hyperlink  
-        
             Valid non-empty URL potentially surrounded by spaces
+        
         `hreflang` :
             Language of the linked resource  
-        
             Valid BCP 47 language tag
+        
         `imagesizes` :
             Image sizes for different page layouts (for rel="preload")  
-        
             Valid source size list
+        
         `imagesrcset` :
             Images to use in different situations, e.g., high-resolution displays, small monitors, etc. (for rel="preload")  
-        
             Comma-separated list of image candidate strings
+        
         `integrity` :
             Integrity metadata used in Subresource Integrity checks [SRI]
+        
         `media` :
             Applicable media  
-        
             Valid media query list
+        
         `referrerpolicy` :
             Referrer policy for fetches initiated by the element  
-        
             Referrer policy
+        
         `rel` :
             Relationship between the document containing the hyperlink and the destination resource
+        
         `sizes` :
             Sizes of the icons (for rel="icon")
+        
         `title` :
             CSS style sheet set name
         `title` :
             Title of the link
+        
         `type` :
             Hint for the type of the referenced resource  
-        
             Valid MIME type string
+        
         `accesskey` :
             Keyboard shortcut to activate or focus element
+        
         `autocapitalize` :
             Recommended autocapitalization behavior (for supported input methods)
+        
         `autocorrect` :
             Recommended autocorrection behavior (for supported input methods)
+        
         `autofocus` :
             Automatically focus the element when the page is loaded
+        
         `contenteditable` :
             Whether the element is editable
+        
         `dir` :
             The text directionality of the element
+        
         `draggable` :
             Whether the element is draggable
+        
         `enterkeyhint` :
             Hint for selecting an enter key action
+        
         `hidden` :
             Whether the element is relevant
+        
         `inert` :
             Whether the element is inert.
+        
         `inputmode` :
             Hint for selecting an input modality
+        
         `is_` :
             Creates a customized built-in element  
-        
             Valid custom element name of a defined customized built-in element
+        
         `itemid` :
             Global identifier for a microdata item  
-        
             Valid URL potentially surrounded by spaces
+        
         `itemprop` :
             Property names of a microdata item
+        
         `itemref` :
             Referenced elements
+        
         `itemscope` :
             Introduces a microdata item
+        
         `itemtype` :
             Item types of a microdata item
+        
         `lang` :
             Language of the element  
-        
             Valid BCP 47 language tag or the empty string
+        
         `nonce` :
             Cryptographic nonce used in Content Security Policy checks [CSP]
+        
         `popover` :
             Makes the element a popover element
+        
         `slot` :
             The element's desired slot
+        
         `spellcheck` :
             Whether the element is to have its spelling and grammar checked
+        
         `style` :
             Presentational and formatting instructions  
-        
             CSS declarations*
+        
         `tabindex` :
             Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+        
         `translate` :
             Whether the element is to be translated when the page is localized
+        
         `writingsuggestions` :
             Whether the element can offer writing suggestions or not.
+        
         """  # fmt: skip
         super().__init__(
             "link", void_element=True, attrs=attrs, children=children
