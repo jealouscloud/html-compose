@@ -61,7 +61,7 @@ class BaseElement(ElementBase):
         Initialize an HTML element
 
         Args:
-            name (str): The name of the element.
+            tag (str): The tag of the element.
             void_element (bool): Indicates if the element is a void element. Defaults to False.
             attrs: A list of attributes for the element.
                 It can also be a dictionary of key,value strings.
