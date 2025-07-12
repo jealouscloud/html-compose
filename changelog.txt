@@ -1,3 +1,6 @@
+# 0.8.1
+* WatchCond: Flip condition no_reload param -> reload param, with correct docstring
+
 # 0.8.0
 * Add custom element generator CustomElement.create or create_element
   * BaseElement now takes id/class_ params because this justifies their existence

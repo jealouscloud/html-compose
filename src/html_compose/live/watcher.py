@@ -146,7 +146,7 @@ class WatchCond:
         ignore_glob: Optional[Union[str, list[str]]] = None,
         delay: float = 0,
         server_reload: bool = True,
-        no_reload: bool = False,
+        reload: bool = True,
     ):
         """
         Initialize a WatchCond.
@@ -157,7 +157,8 @@ class WatchCond:
         :param delay: Delay in seconds before running the action after a change.
 
                       The timer resets after each change to de-duplicate file change events.
-        :param no_reload: If True, do not reload the daemon after a change. This is useful for generators like sass.
+        :param server_reload: If False, do not reload the daemon process after a change - just the browser.
+        :param reload: If False, neither the browser nor the server will be reloaded. This is useful for triggering js/css builds.
 
         """
         self.path_glob = path_glob
@@ -172,7 +173,7 @@ class WatchCond:
         else:
             self.ignore_glob = ignore_glob
         self.server_reload = server_reload
-        self.no_reload = no_reload
+        self.reload = reload
         if action is None:
             self.task = Task(None, delay)
         elif isinstance(action, ShellCommand):
