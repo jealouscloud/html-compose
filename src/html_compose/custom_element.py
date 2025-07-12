@@ -18,13 +18,27 @@ class CustomElement(BaseElement):
         class_: Optional[Union[str, list]] = None,
         children: Optional[list] = None,
     ):
+        """
+        Initialize a custom HTML element
+
+        Args:
+            attrs: A list of attributes for the element.
+                It can also be a dictionary of key,value strings.
+                Defaults to None.
+            id (str): The ID of the element. Defaults to None.
+            class_: The class of the element. Defaults to None.
+            children: A list of child elements. Defaults to None.
+        """
         tag = self.__class__.tag
         if tag == "UNSET":
             raise ValueError(
                 "CustomElement must be created with a tag name using the create() method."
             )
         super().__init__(
-            self.__class__.tag, self.__class__.is_void, attrs, children
+            self.__class__.tag,
+            void_element=self.__class__.is_void,
+            attrs=attrs,
+            children=children,
         )
         if not (id is None or id is False):
             self._process_attr("id", id)
