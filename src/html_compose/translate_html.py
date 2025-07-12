@@ -1,6 +1,7 @@
 import inspect
 import re
-from typing import Any, Optional, Union
+from functools import cache
+from typing import Any, Optional, Union, cast
 
 from bs4 import BeautifulSoup, NavigableString, Tag
 from bs4.element import Doctype
@@ -9,23 +10,82 @@ from . import elements as el_list
 from .custom_element import CustomElement
 from .util_funcs import safe_name
 
+SPEC_WS = r"[\t\n\r ]"
 
-def read_string(input_str: NavigableString) -> Union[str, None]:
+
+@cache
+def get_phrasing_tags():
+    """
+    Get the list of phrasing tags from the HTML spec
+    """
+    result = []
+    for e in dir(el_list):
+        val = getattr(el_list, e)
+        if isinstance(val, type) and issubclass(val, el_list.BaseElement):
+            if val is el_list.BaseElement:
+                continue
+
+            categories = getattr(val, "categories")
+            tag = getattr(val, "tag")
+            for c in categories:
+                if "phrasing" in c:
+                    result.append(tag)
+    return result
+
+
+def read_string(
+    input_str: NavigableString,
+    prev_tag: Optional[Tag],
+    next_tag: Optional[Tag],
+    phrasing_tags: list[str],
+) -> Union[str, None]:
     """
     Helper to sort of 'auto-translate' HTML formatted strings into what
     they would be viewed as in a browser, which can then be represented in
-    Python
+    Python.
 
-    Remove leading and trailing whitespace, and replace multiple spaces with a single space.
-
+    It collapses whitespace based on the context of the surrounding tags.
     """
-    result = re.sub(r"\s+", " ", str(input_str), flags=re.MULTILINE)
-    result = (
-        result.lstrip()
-    )  # Leading and trailing whitespace typically ignored
+    text = str(input_str)
+
+    # Trim if the previous or next tag is not an inline (phrasing) tag
+    trim_left = False
+    if prev_tag:
+        trim_left = prev_tag.name not in phrasing_tags
+    else:
+        # No previous sibling, trim leading space
+        trim_left = True
+
+    trim_right = False
+    if next_tag:
+        trim_right = next_tag.name not in phrasing_tags
+    else:
+        # No next sibling, trim trailing space
+        trim_right = True
+
+    if trim_left:
+        text = text.lstrip()
+    if trim_right:
+        text = text.rstrip()
+
+    # Collapse multiple whitespace characters into a single space
+    result = re.sub(f"{SPEC_WS}+", " ", text)
+
     if not result:
         return None
-    return repr(result)
+
+    # If the original string was just whitespace and it got completely removed,
+    # but it was between two inline tags, we should preserve a single space.
+    if not result and input_str.strip() == "":
+        if (
+            prev_tag
+            and next_tag
+            and prev_tag.name in phrasing_tags
+            and next_tag.name in phrasing_tags
+        ):
+            return repr(" ")
+
+    return repr(result) if result else None
 
 
 # HTML spec doesn't say this casually, but these are preformatted.
@@ -67,6 +127,10 @@ class TranslateResult:
         return f"[\n{sep.join(self.elements)}\n]"
 
 
+def is_preformatted(tag_name):
+    return tag_name in {"pre", "textarea"}
+
+
 def translate(
     html: str, import_module: Optional[str] = None
 ) -> TranslateResult:
@@ -84,13 +148,15 @@ def translate(
 
     custom_elements = set()
 
+    phrasing_tags = get_phrasing_tags()
+
     def process_element(element) -> Union[str, None]:
         if isinstance(element, Doctype):
             dt: Doctype = element
             tags["doctype"] = None
             return f"doctype({repr(dt)})"
         elif isinstance(element, NavigableString):
-            return read_string(element)
+            return read_string(element, None, None, phrasing_tags)
 
         assert isinstance(element, Tag)
         safe_tag_name = safe_name(element.name)
@@ -153,17 +219,45 @@ def translate(
             result.append("()")
 
         children: list[str] = []
-        for child in element.children:
+        child_nodes = list(element.children)
+        for i, child in enumerate(child_nodes):
             if element.name in WHITESPACE_PRE and isinstance(
                 child, NavigableString
             ):
                 processed = read_pre_string(child)
                 if processed:
                     children.append(processed)
-            else:
+                continue
+
+            if isinstance(child, NavigableString):
+                # We step backwards until we find a tag
+                prev_tag = next(
+                    (
+                        cast(Tag, child_nodes[j])
+                        for j in range(i - 1, -1, -1)
+                        if isinstance(child_nodes[j], Tag)
+                    ),
+                    None,
+                )
+                # Same deal, forwards until we find a tag
+                next_tag = next(
+                    (
+                        cast(Tag, child_nodes[j])
+                        for j in range(i + 1, len(child_nodes))
+                        if isinstance(child_nodes[j], Tag)
+                    ),
+                    None,
+                )
+                processed = read_string(
+                    child, prev_tag, next_tag, phrasing_tags
+                )
+                if processed:
+                    children.append(processed)
+            elif isinstance(child, Tag):
                 processed = process_element(child)
                 if processed:
                     children.append(processed)
+
         if children:
             result.append("[")
             result.append(", ".join(children))

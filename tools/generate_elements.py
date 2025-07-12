@@ -183,6 +183,7 @@ def gen_elements():
             if real_element in ("link", "input", "style"):
                 # Duplicate "title" definition
                 comment = " # type: ignore[misc]"
+            categories_list = categories.split()
             template = [
                 "",
                 f"class {fixed_name}(BaseElement):{comment}",
@@ -195,6 +196,8 @@ def gen_elements():
                 f"    Interface: {interface}  ",
                 f"    Documentation: {docs}  ",
                 '    """ # fmt: skip',
+                f"    tag = {repr(real_element)}",
+                f"    categories = {repr(categories_list)}",
                 f"    class hint(GlobalAttrs{attr_string}):",
                 '        """',
                 f'        Type hints for "{real_element}" attrs  ',
