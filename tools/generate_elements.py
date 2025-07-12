@@ -28,7 +28,6 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
         docstring.append(f"    {attrdef.description}")
         if not value_hint_to_python_type(attrdef.value_desc):
             docstring[-1] += "  "  # markdown newline
-            docstring.append("")
             docstring.append(f"    {attrdef.value_desc}")
 
         def_dict = {"attr": attrdef, "docstring": docstring}
@@ -129,6 +128,7 @@ def gen_elements():
             attr_docstrings = [
                 "`attrs`: ",
                 "    A list or dictionary of attributes for the element",
+                "",
             ]
 
             attr_list = []
@@ -139,7 +139,7 @@ def gen_elements():
             def add_param(p):
                 if p.name in attr_names:
                     return
-                attr_docstrings.extend(p.docstrings)
+                attr_docstrings.extend(p.docstrings + [""])
                 attr_list.append(p.param)
                 assign_list.append(p.assignment)
                 attr_names.add(p.name)
@@ -276,5 +276,16 @@ if __name__ == "__main__":
             init_data.append(f"from .{name}_element import {name}")
 
         imports = ", ".join(map(lambda x: f"'{x}'", el_names))
-        init_data.append(f"\n__all__ = [{imports}]")
+        init_data.append(
+            "\n".join(
+                [
+                    "",
+                    "import os",
+                    "# hack: force PDOC to treat elements as submodules",
+                    'if not os.environ.get("PDOC_GENERATING", False):',
+                    f"    __all__ = [{imports}]",
+                ]
+            )
+        )
+
         (Path(path_name) / "__init__.py").write_text("\n".join(init_data))

@@ -21,13 +21,21 @@ class CustomElement(BaseElement):
         """
         Initialize a custom HTML element
 
-        Args:
-            attrs: A list of attributes for the element.
-                It can also be a dictionary of key,value strings.
-                Defaults to None.
-            id (str): The ID of the element. Defaults to None.
-            class_: The class of the element. Defaults to None.
-            children: A list of child elements. Defaults to None.
+
+        Parameters
+        ----------
+        `attrs`:
+            A list or dictionary of attributes for the element
+
+        `id` :
+            The element's ID
+
+        `class_` :
+            Classes to which the element belongs
+
+        `children` :
+            A list of child elements. Defaults to None.
+
         """
         tag = self.__class__.tag
         if tag == "UNSET":
