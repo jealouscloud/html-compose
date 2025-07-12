@@ -68,6 +68,8 @@ dev-dependencies = [
     "ipython>=8.33.0",
     "watchfiles>=1.0.4",
     "websockets>=15.0.1",
+    "pdoc>=15.0.4",
+    "ruff>=0.12.3",
 ]
 [project.scripts]
 "html-convert" = "html_compose.cli:html_convert"
