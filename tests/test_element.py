@@ -167,6 +167,7 @@ def test_document():
         head=None,
         body=[h.button["Button"], h.br(), h.p["demo 2"]],
     )
+
     expected = "\n".join(
         [
             "<!DOCTYPE html>",
@@ -195,6 +196,13 @@ def test_float_precision():
 def test_list_attribute():
     el = div({"class": ["a", "b", "c"]})
     assert el.render() == '<div class="a b c"></div>'
+
+
+def test_hint_attribute():
+    r = h.button([h.button.hint.onclick("alert('Hello!')")])[
+        "Click me!"
+    ].render()
+    assert r == '<button onclick="alert(&#39;Hello!&#39;)">Click me!</button>'
 
 
 def test_rel_array():
