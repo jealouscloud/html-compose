@@ -54,6 +54,10 @@ def doctype(dtype: str = "html"):
 
 
 from .base_element import BaseElement
+from .custom_element import CustomElement
+
+create_element = CustomElement.create
+
 from .document import HTML5Document
 
 # ruff: noqa: F401, E402

@@ -130,7 +130,8 @@ def live_server(
                     print(
                         f"Reloading daemon after {daemon_task.delay} seconds..."
                     )
-                    tr.add_task(daemon_task)
+                    if any([c.server_reload for c in conds_hit]):
+                        tr.add_task(daemon_task)
                     tr.add_task(browser_update_task)
             sleep(loop_delay)
     except KeyboardInterrupt:

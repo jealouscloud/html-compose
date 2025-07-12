@@ -63,8 +63,6 @@ class BaseElement(ElementBase):
         Args:
             name (str): The name of the element.
             void_element (bool): Indicates if the element is a void element. Defaults to False.
-            id (str): The ID of the element. Defaults to None.
-            class_: The class of the element. Defaults to None.
             attrs: A list of attributes for the element.
                 It can also be a dictionary of key,value strings.
                 Defaults to None.

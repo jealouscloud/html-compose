@@ -16,6 +16,8 @@ class a(BaseElement):
     Interface: HTMLAnchorElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a  
     """ # fmt: skip
+    tag = 'a'
+    categories = ['flow', 'phrasing*', 'interactive', 'palpable']
     class hint(GlobalAttrs, AnchorAttrs):
         """
         Type hints for "a" attrs  
@@ -259,6 +261,8 @@ class abbr(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr  
     """ # fmt: skip
+    tag = 'abbr'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "abbr" attrs  
@@ -452,6 +456,8 @@ class address(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address  
     """ # fmt: skip
+    tag = 'address'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "address" attrs  
@@ -645,6 +651,8 @@ class area(BaseElement):
     Interface: HTMLAreaElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area  
     """ # fmt: skip
+    tag = 'area'
+    categories = ['flow', 'phrasing']
     class hint(GlobalAttrs, AreaAttrs):
         """
         Type hints for "area" attrs  
@@ -891,6 +899,8 @@ class article(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article  
     """ # fmt: skip
+    tag = 'article'
+    categories = ['flow', 'sectioning', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "article" attrs  
@@ -1084,6 +1094,8 @@ class aside(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside  
     """ # fmt: skip
+    tag = 'aside'
+    categories = ['flow', 'sectioning', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "aside" attrs  
@@ -1277,6 +1289,8 @@ class audio(BaseElement):
     Interface: HTMLAudioElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio  
     """ # fmt: skip
+    tag = 'audio'
+    categories = ['flow', 'phrasing', 'embedded', 'interactive', 'palpable*']
     class hint(GlobalAttrs, AudioAttrs):
         """
         Type hints for "audio" attrs  
@@ -1507,6 +1521,8 @@ class b(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b  
     """ # fmt: skip
+    tag = 'b'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "b" attrs  
@@ -1700,6 +1716,8 @@ class base(BaseElement):
     Interface: HTMLBaseElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base  
     """ # fmt: skip
+    tag = 'base'
+    categories = ['metadata']
     class hint(GlobalAttrs, BaseAttrs):
         """
         Type hints for "base" attrs  
@@ -1907,6 +1925,8 @@ class bdi(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi  
     """ # fmt: skip
+    tag = 'bdi'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "bdi" attrs  
@@ -2100,6 +2120,8 @@ class bdo(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo  
     """ # fmt: skip
+    tag = 'bdo'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "bdo" attrs  
@@ -2293,6 +2315,8 @@ class blockquote(BaseElement):
     Interface: HTMLQuoteElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote  
     """ # fmt: skip
+    tag = 'blockquote'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs, BlockquoteAttrs):
         """
         Type hints for "blockquote" attrs  
@@ -2493,6 +2517,8 @@ class body(BaseElement):
     Interface: HTMLBodyElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body  
     """ # fmt: skip
+    tag = 'body'
+    categories = ['none']
     class hint(GlobalAttrs, BodyAttrs):
         """
         Type hints for "body" attrs  
@@ -2686,6 +2712,8 @@ class br(BaseElement):
     Interface: HTMLBRElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br  
     """ # fmt: skip
+    tag = 'br'
+    categories = ['flow', 'phrasing']
     class hint(GlobalAttrs):
         """
         Type hints for "br" attrs  
@@ -2879,6 +2907,8 @@ class button(BaseElement):
     Interface: HTMLButtonElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button  
     """ # fmt: skip
+    tag = 'button'
+    categories = ['flow', 'phrasing', 'interactive', 'listed', 'labelable', 'submittable', 'form-associated', 'palpable']
     class hint(GlobalAttrs, ButtonAttrs):
         """
         Type hints for "button" attrs  
@@ -3140,6 +3170,8 @@ class canvas(BaseElement):
     Interface: HTMLCanvasElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas  
     """ # fmt: skip
+    tag = 'canvas'
+    categories = ['flow', 'phrasing', 'embedded', 'palpable']
     class hint(GlobalAttrs, CanvasAttrs):
         """
         Type hints for "canvas" attrs  
@@ -3343,6 +3375,8 @@ class caption(BaseElement):
     Interface: HTMLTableCaptionElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption  
     """ # fmt: skip
+    tag = 'caption'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "caption" attrs  
@@ -3536,6 +3570,8 @@ class cite(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite  
     """ # fmt: skip
+    tag = 'cite'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "cite" attrs  
@@ -3729,6 +3765,8 @@ class code(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code  
     """ # fmt: skip
+    tag = 'code'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "code" attrs  
@@ -3922,6 +3960,8 @@ class col(BaseElement):
     Interface: HTMLTableColElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col  
     """ # fmt: skip
+    tag = 'col'
+    categories = ['none']
     class hint(GlobalAttrs, ColAttrs):
         """
         Type hints for "col" attrs  
@@ -4122,6 +4162,8 @@ class colgroup(BaseElement):
     Interface: HTMLTableColElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup  
     """ # fmt: skip
+    tag = 'colgroup'
+    categories = ['none']
     class hint(GlobalAttrs, ColgroupAttrs):
         """
         Type hints for "colgroup" attrs  
@@ -4322,6 +4364,8 @@ class data(BaseElement):
     Interface: HTMLDataElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data  
     """ # fmt: skip
+    tag = 'data'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs, DataAttrs):
         """
         Type hints for "data" attrs  
@@ -4520,6 +4564,8 @@ class datalist(BaseElement):
     Interface: HTMLDataListElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist  
     """ # fmt: skip
+    tag = 'datalist'
+    categories = ['flow', 'phrasing']
     class hint(GlobalAttrs):
         """
         Type hints for "datalist" attrs  
@@ -4713,6 +4759,8 @@ class dd(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd  
     """ # fmt: skip
+    tag = 'dd'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "dd" attrs  
@@ -4906,6 +4954,8 @@ class del_(BaseElement):
     Interface: HTMLModElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del  
     """ # fmt: skip
+    tag = 'del'
+    categories = ['flow', 'phrasing*', 'palpable']
     class hint(GlobalAttrs, DelAttrs):
         """
         Type hints for "del" attrs  
@@ -5113,6 +5163,8 @@ class details(BaseElement):
     Interface: HTMLDetailsElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details  
     """ # fmt: skip
+    tag = 'details'
+    categories = ['flow', 'interactive', 'palpable']
     class hint(GlobalAttrs, DetailsAttrs):
         """
         Type hints for "details" attrs  
@@ -5316,6 +5368,8 @@ class dfn(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn  
     """ # fmt: skip
+    tag = 'dfn'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "dfn" attrs  
@@ -5509,6 +5563,8 @@ class dialog(BaseElement):
     Interface: HTMLDialogElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog  
     """ # fmt: skip
+    tag = 'dialog'
+    categories = ['flow']
     class hint(GlobalAttrs, DialogAttrs):
         """
         Type hints for "dialog" attrs  
@@ -5707,6 +5763,8 @@ class div(BaseElement):
     Interface: HTMLDivElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div  
     """ # fmt: skip
+    tag = 'div'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "div" attrs  
@@ -5900,6 +5958,8 @@ class dl(BaseElement):
     Interface: HTMLDListElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl  
     """ # fmt: skip
+    tag = 'dl'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "dl" attrs  
@@ -6093,6 +6153,8 @@ class dt(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt  
     """ # fmt: skip
+    tag = 'dt'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "dt" attrs  
@@ -6286,6 +6348,8 @@ class em(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em  
     """ # fmt: skip
+    tag = 'em'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "em" attrs  
@@ -6479,6 +6543,8 @@ class embed(BaseElement):
     Interface: HTMLEmbedElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed  
     """ # fmt: skip
+    tag = 'embed'
+    categories = ['flow', 'phrasing', 'embedded', 'interactive', 'palpable']
     class hint(GlobalAttrs, EmbedAttrs):
         """
         Type hints for "embed" attrs  
@@ -6696,6 +6762,8 @@ class fieldset(BaseElement):
     Interface: HTMLFieldSetElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset  
     """ # fmt: skip
+    tag = 'fieldset'
+    categories = ['flow', 'listed', 'form-associated', 'palpable']
     class hint(GlobalAttrs, FieldsetAttrs):
         """
         Type hints for "fieldset" attrs  
@@ -6906,6 +6974,8 @@ class figcaption(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption  
     """ # fmt: skip
+    tag = 'figcaption'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "figcaption" attrs  
@@ -7099,6 +7169,8 @@ class figure(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure  
     """ # fmt: skip
+    tag = 'figure'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "figure" attrs  
@@ -7292,6 +7364,8 @@ class footer(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer  
     """ # fmt: skip
+    tag = 'footer'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "footer" attrs  
@@ -7485,6 +7559,8 @@ class form(BaseElement):
     Interface: HTMLFormElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form  
     """ # fmt: skip
+    tag = 'form'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs, FormAttrs):
         """
         Type hints for "form" attrs  
@@ -7724,6 +7800,8 @@ class h1(BaseElement):
     Interface: HTMLHeadingElement  
     Documentation: None  
     """ # fmt: skip
+    tag = 'h1'
+    categories = ['flow', 'heading', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "h1" attrs  
@@ -7917,6 +7995,8 @@ class h2(BaseElement):
     Interface: HTMLHeadingElement  
     Documentation: None  
     """ # fmt: skip
+    tag = 'h2'
+    categories = ['flow', 'heading', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "h2" attrs  
@@ -8110,6 +8190,8 @@ class h3(BaseElement):
     Interface: HTMLHeadingElement  
     Documentation: None  
     """ # fmt: skip
+    tag = 'h3'
+    categories = ['flow', 'heading', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "h3" attrs  
@@ -8303,6 +8385,8 @@ class h4(BaseElement):
     Interface: HTMLHeadingElement  
     Documentation: None  
     """ # fmt: skip
+    tag = 'h4'
+    categories = ['flow', 'heading', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "h4" attrs  
@@ -8496,6 +8580,8 @@ class h5(BaseElement):
     Interface: HTMLHeadingElement  
     Documentation: None  
     """ # fmt: skip
+    tag = 'h5'
+    categories = ['flow', 'heading', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "h5" attrs  
@@ -8689,6 +8775,8 @@ class h6(BaseElement):
     Interface: HTMLHeadingElement  
     Documentation: None  
     """ # fmt: skip
+    tag = 'h6'
+    categories = ['flow', 'heading', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "h6" attrs  
@@ -8882,6 +8970,8 @@ class head(BaseElement):
     Interface: HTMLHeadElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head  
     """ # fmt: skip
+    tag = 'head'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "head" attrs  
@@ -9075,6 +9165,8 @@ class header(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header  
     """ # fmt: skip
+    tag = 'header'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "header" attrs  
@@ -9268,6 +9360,8 @@ class hgroup(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup  
     """ # fmt: skip
+    tag = 'hgroup'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "hgroup" attrs  
@@ -9461,6 +9555,8 @@ class hr(BaseElement):
     Interface: HTMLHRElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr  
     """ # fmt: skip
+    tag = 'hr'
+    categories = ['flow']
     class hint(GlobalAttrs):
         """
         Type hints for "hr" attrs  
@@ -9654,6 +9750,8 @@ class html(BaseElement):
     Interface: HTMLHtmlElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html  
     """ # fmt: skip
+    tag = 'html'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "html" attrs  
@@ -9847,6 +9945,8 @@ class i(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i  
     """ # fmt: skip
+    tag = 'i'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "i" attrs  
@@ -10040,6 +10140,8 @@ class iframe(BaseElement):
     Interface: HTMLIFrameElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe  
     """ # fmt: skip
+    tag = 'iframe'
+    categories = ['flow', 'phrasing', 'embedded', 'interactive', 'palpable']
     class hint(GlobalAttrs, IframeAttrs):
         """
         Type hints for "iframe" attrs  
@@ -10293,6 +10395,8 @@ class img(BaseElement):
     Interface: HTMLImageElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img  
     """ # fmt: skip
+    tag = 'img'
+    categories = ['flow', 'phrasing', 'embedded', 'interactive*', 'form-associated', 'palpable']
     class hint(GlobalAttrs, ImgAttrs):
         """
         Type hints for "img" attrs  
@@ -10561,6 +10665,8 @@ class input(BaseElement): # type: ignore[misc]
     Interface: HTMLInputElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input  
     """ # fmt: skip
+    tag = 'input'
+    categories = ['flow', 'phrasing', 'interactive*', 'listed', 'labelable', 'submittable', 'resettable', 'form-associated', 'palpable*']
     class hint(GlobalAttrs, InputAttrs):
         """
         Type hints for "input" attrs  
@@ -10952,6 +11058,8 @@ class ins(BaseElement):
     Interface: HTMLModElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins  
     """ # fmt: skip
+    tag = 'ins'
+    categories = ['flow', 'phrasing*', 'palpable']
     class hint(GlobalAttrs, InsAttrs):
         """
         Type hints for "ins" attrs  
@@ -11159,6 +11267,8 @@ class kbd(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd  
     """ # fmt: skip
+    tag = 'kbd'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "kbd" attrs  
@@ -11352,6 +11462,8 @@ class label(BaseElement):
     Interface: HTMLLabelElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label  
     """ # fmt: skip
+    tag = 'label'
+    categories = ['flow', 'phrasing', 'interactive', 'palpable']
     class hint(GlobalAttrs, LabelAttrs):
         """
         Type hints for "label" attrs  
@@ -11552,6 +11664,8 @@ class legend(BaseElement):
     Interface: HTMLLegendElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend  
     """ # fmt: skip
+    tag = 'legend'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "legend" attrs  
@@ -11745,6 +11859,8 @@ class li(BaseElement):
     Interface: HTMLLIElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li  
     """ # fmt: skip
+    tag = 'li'
+    categories = ['none']
     class hint(GlobalAttrs, LiAttrs):
         """
         Type hints for "li" attrs  
@@ -11943,6 +12059,8 @@ class link(BaseElement): # type: ignore[misc]
     Interface: HTMLLinkElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link  
     """ # fmt: skip
+    tag = 'link'
+    categories = ['metadata', 'flow*', 'phrasing*']
     class hint(GlobalAttrs, LinkAttrs):
         """
         Type hints for "link" attrs  
@@ -12236,6 +12354,8 @@ class main(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main  
     """ # fmt: skip
+    tag = 'main'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "main" attrs  
@@ -12429,6 +12549,8 @@ class map(BaseElement):
     Interface: HTMLMapElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map  
     """ # fmt: skip
+    tag = 'map'
+    categories = ['flow', 'phrasing*', 'palpable']
     class hint(GlobalAttrs, MapAttrs):
         """
         Type hints for "map" attrs  
@@ -12627,6 +12749,8 @@ class mark(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark  
     """ # fmt: skip
+    tag = 'mark'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "mark" attrs  
@@ -12820,6 +12944,8 @@ class menu(BaseElement):
     Interface: HTMLMenuElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu  
     """ # fmt: skip
+    tag = 'menu'
+    categories = ['flow', 'palpable*']
     class hint(GlobalAttrs):
         """
         Type hints for "menu" attrs  
@@ -13013,6 +13139,8 @@ class meta(BaseElement):
     Interface: HTMLMetaElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta  
     """ # fmt: skip
+    tag = 'meta'
+    categories = ['metadata', 'flow*', 'phrasing*']
     class hint(GlobalAttrs, MetaAttrs):
         """
         Type hints for "meta" attrs  
@@ -13233,6 +13361,8 @@ class meter(BaseElement):
     Interface: HTMLMeterElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter  
     """ # fmt: skip
+    tag = 'meter'
+    categories = ['flow', 'phrasing', 'labelable', 'palpable']
     class hint(GlobalAttrs, MeterAttrs):
         """
         Type hints for "meter" attrs  
@@ -13456,6 +13586,8 @@ class nav(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav  
     """ # fmt: skip
+    tag = 'nav'
+    categories = ['flow', 'sectioning', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "nav" attrs  
@@ -13649,6 +13781,8 @@ class noscript(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript  
     """ # fmt: skip
+    tag = 'noscript'
+    categories = ['metadata', 'flow', 'phrasing']
     class hint(GlobalAttrs):
         """
         Type hints for "noscript" attrs  
@@ -13842,6 +13976,8 @@ class object(BaseElement):
     Interface: HTMLObjectElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object  
     """ # fmt: skip
+    tag = 'object'
+    categories = ['flow', 'phrasing', 'embedded', 'interactive*', 'listed', 'form-associated', 'palpable']
     class hint(GlobalAttrs, ObjectAttrs):
         """
         Type hints for "object" attrs  
@@ -14073,6 +14209,8 @@ class ol(BaseElement):
     Interface: HTMLOListElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol  
     """ # fmt: skip
+    tag = 'ol'
+    categories = ['flow', 'palpable*']
     class hint(GlobalAttrs, OlAttrs):
         """
         Type hints for "ol" attrs  
@@ -14281,6 +14419,8 @@ class optgroup(BaseElement):
     Interface: HTMLOptGroupElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup  
     """ # fmt: skip
+    tag = 'optgroup'
+    categories = ['none']
     class hint(GlobalAttrs, OptgroupAttrs):
         """
         Type hints for "optgroup" attrs  
@@ -14484,6 +14624,8 @@ class option(BaseElement):
     Interface: HTMLOptionElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option  
     """ # fmt: skip
+    tag = 'option'
+    categories = ['none']
     class hint(GlobalAttrs, OptionAttrs):
         """
         Type hints for "option" attrs  
@@ -14697,6 +14839,8 @@ class output(BaseElement):
     Interface: HTMLOutputElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output  
     """ # fmt: skip
+    tag = 'output'
+    categories = ['flow', 'phrasing', 'listed', 'labelable', 'resettable', 'form-associated', 'palpable']
     class hint(GlobalAttrs, OutputAttrs):
         """
         Type hints for "output" attrs  
@@ -14907,6 +15051,8 @@ class p(BaseElement):
     Interface: HTMLParagraphElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p  
     """ # fmt: skip
+    tag = 'p'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "p" attrs  
@@ -15100,6 +15246,8 @@ class picture(BaseElement):
     Interface: HTMLPictureElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture  
     """ # fmt: skip
+    tag = 'picture'
+    categories = ['flow', 'phrasing', 'embedded', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "picture" attrs  
@@ -15293,6 +15441,8 @@ class pre(BaseElement):
     Interface: HTMLPreElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre  
     """ # fmt: skip
+    tag = 'pre'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "pre" attrs  
@@ -15486,6 +15636,8 @@ class progress(BaseElement):
     Interface: HTMLProgressElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress  
     """ # fmt: skip
+    tag = 'progress'
+    categories = ['flow', 'phrasing', 'labelable', 'palpable']
     class hint(GlobalAttrs, ProgressAttrs):
         """
         Type hints for "progress" attrs  
@@ -15689,6 +15841,8 @@ class q(BaseElement):
     Interface: HTMLQuoteElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q  
     """ # fmt: skip
+    tag = 'q'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs, QAttrs):
         """
         Type hints for "q" attrs  
@@ -15889,6 +16043,8 @@ class rp(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp  
     """ # fmt: skip
+    tag = 'rp'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "rp" attrs  
@@ -16082,6 +16238,8 @@ class rt(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt  
     """ # fmt: skip
+    tag = 'rt'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "rt" attrs  
@@ -16275,6 +16433,8 @@ class ruby(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby  
     """ # fmt: skip
+    tag = 'ruby'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "ruby" attrs  
@@ -16468,6 +16628,8 @@ class s(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s  
     """ # fmt: skip
+    tag = 's'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "s" attrs  
@@ -16661,6 +16823,8 @@ class samp(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp  
     """ # fmt: skip
+    tag = 'samp'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "samp" attrs  
@@ -16854,6 +17018,8 @@ class script(BaseElement):
     Interface: HTMLScriptElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script  
     """ # fmt: skip
+    tag = 'script'
+    categories = ['metadata', 'flow', 'phrasing', 'script-supporting']
     class hint(GlobalAttrs, ScriptAttrs):
         """
         Type hints for "script" attrs  
@@ -17103,6 +17269,8 @@ class search(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search  
     """ # fmt: skip
+    tag = 'search'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "search" attrs  
@@ -17296,6 +17464,8 @@ class section(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section  
     """ # fmt: skip
+    tag = 'section'
+    categories = ['flow', 'sectioning', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "section" attrs  
@@ -17489,6 +17659,8 @@ class select(BaseElement):
     Interface: HTMLSelectElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select  
     """ # fmt: skip
+    tag = 'select'
+    categories = ['flow', 'phrasing', 'interactive', 'listed', 'labelable', 'submittable', 'resettable', 'form-associated', 'palpable']
     class hint(GlobalAttrs, SelectAttrs):
         """
         Type hints for "select" attrs  
@@ -17723,6 +17895,8 @@ class slot(BaseElement):
     Interface: HTMLSlotElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot  
     """ # fmt: skip
+    tag = 'slot'
+    categories = ['flow', 'phrasing']
     class hint(GlobalAttrs, SlotAttrs):
         """
         Type hints for "slot" attrs  
@@ -17921,6 +18095,8 @@ class small(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small  
     """ # fmt: skip
+    tag = 'small'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "small" attrs  
@@ -18114,6 +18290,8 @@ class source(BaseElement):
     Interface: HTMLSourceElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source  
     """ # fmt: skip
+    tag = 'source'
+    categories = ['none']
     class hint(GlobalAttrs, SourceAttrs):
         """
         Type hints for "source" attrs  
@@ -18352,6 +18530,8 @@ class span(BaseElement):
     Interface: HTMLSpanElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span  
     """ # fmt: skip
+    tag = 'span'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "span" attrs  
@@ -18545,6 +18725,8 @@ class strong(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong  
     """ # fmt: skip
+    tag = 'strong'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "strong" attrs  
@@ -18738,6 +18920,8 @@ class style(BaseElement): # type: ignore[misc]
     Interface: HTMLStyleElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style  
     """ # fmt: skip
+    tag = 'style'
+    categories = ['metadata']
     class hint(GlobalAttrs, StyleAttrs):
         """
         Type hints for "style" attrs  
@@ -18943,6 +19127,8 @@ class sub(BaseElement):
     Interface: HTMLElement  
     Documentation: None  
     """ # fmt: skip
+    tag = 'sub'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "sub" attrs  
@@ -19136,6 +19322,8 @@ class summary(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary  
     """ # fmt: skip
+    tag = 'summary'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "summary" attrs  
@@ -19329,6 +19517,8 @@ class sup(BaseElement):
     Interface: HTMLElement  
     Documentation: None  
     """ # fmt: skip
+    tag = 'sup'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "sup" attrs  
@@ -19522,6 +19712,8 @@ class svg(BaseElement):
     Interface: SVGSVGElement  
     Documentation: None  
     """ # fmt: skip
+    tag = 'svg'
+    categories = ['flow', 'phrasing', 'embedded', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "svg" attrs  
@@ -19715,6 +19907,8 @@ class table(BaseElement):
     Interface: HTMLTableElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table  
     """ # fmt: skip
+    tag = 'table'
+    categories = ['flow', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "table" attrs  
@@ -19908,6 +20102,8 @@ class tbody(BaseElement):
     Interface: HTMLTableSectionElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody  
     """ # fmt: skip
+    tag = 'tbody'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "tbody" attrs  
@@ -20101,6 +20297,8 @@ class td(BaseElement):
     Interface: HTMLTableCellElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td  
     """ # fmt: skip
+    tag = 'td'
+    categories = ['none']
     class hint(GlobalAttrs, TdAttrs):
         """
         Type hints for "td" attrs  
@@ -20311,6 +20509,8 @@ class template(BaseElement):
     Interface: HTMLTemplateElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template  
     """ # fmt: skip
+    tag = 'template'
+    categories = ['metadata', 'flow', 'phrasing', 'script-supporting']
     class hint(GlobalAttrs, TemplateAttrs):
         """
         Type hints for "template" attrs  
@@ -20524,6 +20724,8 @@ class textarea(BaseElement):
     Interface: HTMLTextAreaElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea  
     """ # fmt: skip
+    tag = 'textarea'
+    categories = ['flow', 'phrasing', 'interactive', 'listed', 'labelable', 'submittable', 'resettable', 'form-associated', 'palpable']
     class hint(GlobalAttrs, TextareaAttrs):
         """
         Type hints for "textarea" attrs  
@@ -20790,6 +20992,8 @@ class tfoot(BaseElement):
     Interface: HTMLTableSectionElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot  
     """ # fmt: skip
+    tag = 'tfoot'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "tfoot" attrs  
@@ -20983,6 +21187,8 @@ class th(BaseElement):
     Interface: HTMLTableCellElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th  
     """ # fmt: skip
+    tag = 'th'
+    categories = ['interactive*']
     class hint(GlobalAttrs, ThAttrs):
         """
         Type hints for "th" attrs  
@@ -21203,6 +21409,8 @@ class thead(BaseElement):
     Interface: HTMLTableSectionElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead  
     """ # fmt: skip
+    tag = 'thead'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "thead" attrs  
@@ -21396,6 +21604,8 @@ class time(BaseElement):
     Interface: HTMLTimeElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time  
     """ # fmt: skip
+    tag = 'time'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs, TimeAttrs):
         """
         Type hints for "time" attrs  
@@ -21596,6 +21806,8 @@ class title(BaseElement):
     Interface: HTMLTitleElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title  
     """ # fmt: skip
+    tag = 'title'
+    categories = ['metadata']
     class hint(GlobalAttrs):
         """
         Type hints for "title" attrs  
@@ -21789,6 +22001,8 @@ class tr(BaseElement):
     Interface: HTMLTableRowElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr  
     """ # fmt: skip
+    tag = 'tr'
+    categories = ['none']
     class hint(GlobalAttrs):
         """
         Type hints for "tr" attrs  
@@ -21982,6 +22196,8 @@ class track(BaseElement):
     Interface: HTMLTrackElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track  
     """ # fmt: skip
+    tag = 'track'
+    categories = ['none']
     class hint(GlobalAttrs, TrackAttrs):
         """
         Type hints for "track" attrs  
@@ -22204,6 +22420,8 @@ class u(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u  
     """ # fmt: skip
+    tag = 'u'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "u" attrs  
@@ -22397,6 +22615,8 @@ class ul(BaseElement):
     Interface: HTMLUListElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul  
     """ # fmt: skip
+    tag = 'ul'
+    categories = ['flow', 'palpable*']
     class hint(GlobalAttrs):
         """
         Type hints for "ul" attrs  
@@ -22590,6 +22810,8 @@ class var(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var  
     """ # fmt: skip
+    tag = 'var'
+    categories = ['flow', 'phrasing', 'palpable']
     class hint(GlobalAttrs):
         """
         Type hints for "var" attrs  
@@ -22783,6 +23005,8 @@ class video(BaseElement):
     Interface: HTMLVideoElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video  
     """ # fmt: skip
+    tag = 'video'
+    categories = ['flow', 'phrasing', 'embedded', 'interactive', 'palpable']
     class hint(GlobalAttrs, VideoAttrs):
         """
         Type hints for "video" attrs  
@@ -23035,6 +23259,8 @@ class wbr(BaseElement):
     Interface: HTMLElement  
     Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr  
     """ # fmt: skip
+    tag = 'wbr'
+    categories = ['flow', 'phrasing']
     class hint(GlobalAttrs):
         """
         Type hints for "wbr" attrs  

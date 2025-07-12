@@ -116,6 +116,6 @@ def test_glob_func():
         ),
     ]
     for pattern, target, expected in test_cases:
-        assert (
-            glob_matcher(pattern, target) == expected
-        ), f"Test failed for pattern {pattern} and target {target}"
+        assert glob_matcher(pattern, target) == expected, (
+            f"Test failed for pattern {pattern} and target {target}"
+        )

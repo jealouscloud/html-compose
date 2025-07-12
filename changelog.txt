@@ -1,3 +1,19 @@
+# 0.8.0
+* Add custom element generator CustomElement.create or create_element
+  * BaseElement now takes id/class_ params because this justifies their existence
+* html translator will now output an array if an array is given
+* Improve import statement output in translator
+* Translator will generate custom elements for elements it does not recognize.
+  - One reason this was added is that html_compose has no intention of implementing
+    deprecated HTML elements, but it previously breaks when trying to reproduce
+    them.
+* Fix translator inappropriately stripping leading whitespace
+* WatchConds can optionally not reload the server via server_reload param
+
+# 0.7.0
+* Improved type hint generation for lists and literals
+* Add -n / --noimport <optional module name> to `html-compose convert` which will will output, if --noimport ht is used, `ht.div` instead of importing each class
+
 # 0.6.3
 * Minor repo polish
 

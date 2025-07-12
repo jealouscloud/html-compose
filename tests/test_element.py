@@ -202,3 +202,11 @@ def test_rel_array():
     # correctly
     el = a(rel=["noopener", "noreferrer"])
     assert el.render() == '<a rel="noopener noreferrer"></a>'
+
+
+def test_custom_element():
+    from html_compose import CustomElement
+
+    custom = CustomElement.create("custom")
+    el = custom["Hello world"]
+    assert el.render() == "<custom>Hello world</custom>"
