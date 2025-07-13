@@ -31,7 +31,7 @@ jobs:
 
       - name: Run type checker
         run: |
-          rye run mypy src/html_compose/
+          mypy src/html_compose/
 
       - name: Run tests
         run: |
