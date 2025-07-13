@@ -188,7 +188,7 @@ def test_float_precision():
     c = h.h1[num].render()
     assert c == "<h1>0.333</h1>"
     # Now set globally
-    h.elements.BaseElement.FLOAT_PRECISION = 0
+    h.BaseElement.FLOAT_PRECISION = 0
     d = h.h1[num].render()
     assert d == "<h1>0</h1>"
 
