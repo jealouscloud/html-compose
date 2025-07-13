@@ -97,7 +97,7 @@ nav.pdoc a.class:hover {
 }
 
 nav.pdoc a::before {
-    content: "module ";
+    content: "";
     font-style: italic;
     color: #9d9d9d;
 }
