@@ -100,7 +100,7 @@ def deferred_resolve(self):
     children = None if self.is_void_element else [child for child in self.resolve_tree()]
 
     # Yield opening tag, children, and closing tag
-    yield f"<{self.name} {attr_string}>"
+    yield f"<{self.name} {attrs}>"
     if children:
         yield from children
     yield f"</{self.name}>"

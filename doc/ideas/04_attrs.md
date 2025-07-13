@@ -6,7 +6,7 @@ from html_compose import div
 is_error = False
 
 # keyword arg syntax (preferred)
-# note that attrs that conflict with python keywords
+# note that attrs that conflict with Python keywords
 # have an underscore_ appended. This was chosen so autocomplete still works.
 
 div(class_="flex")

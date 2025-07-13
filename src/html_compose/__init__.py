@@ -5,15 +5,15 @@
 ## Quick Start Guide
 
 For user comfort, the `[]` syntax provides a natural way to define child
-elements, making the code look more like the HTML structure it represents and
+elements which makes the code look more like the HTML structure it represents and
 less like a list of procedures.
 
 Behind the scenes, this is just the `BaseElement.append(...)` method.
 
 Text is always escaped, so XSS directly in the HTML is not possible.
-Via this mechanism, javascript within HTML attributes is always escaped.
+Via this mechanism, JavaScript within HTML attributes is always escaped.
 
-Just don't pass user input into javascript attributes.
+Just don't pass user input into JavaScript attributes.
 
 If you want to insert unsafe text, use the `unsafe_text(...)` function.
 
@@ -22,8 +22,10 @@ You can import elements directly from this module or .elements i.e.
 * `from html_compose.elements import a, div, span` or
 * `import html_compose.elements as e`
 
-If you think HTML frame boilerplate is no fun, so you can use the `HTML5Document` function
+If you think HTML frame boilerplate is no fun, you can use the `HTML5Document` function
 to generate a complete HTML5 document with a title, language, and body content.
+
+It will return a string you can send directly to the client.
 
 ```python
 from html_compose import HTML5Document, p, script, link
@@ -55,7 +57,7 @@ bar()["Hello world"].render() # <bar>Hello world</bar>
 Type hints are given wherever possible, so you can use your IDE to
 complete element names and attributes.
 
-Read more about these in the [element documentation](html_compose/elements).
+Read more about these in the [elements documentation](html_compose/elements).
 
 ## Command-line Interface
 An `html-compose` command-line interface is available which can be used to
@@ -83,7 +85,7 @@ from markupsafe import Markup, escape
 
 def escape_text(value) -> Markup:
     """
-    Escape unsafe text to be inserted to HTML
+    Escape unsafe text to be inserted into HTML
 
     Optionally casting to string
     """

@@ -1,5 +1,5 @@
 # Code Generator
-Idea: What if your editor had built in hinting around HTML properties?
+Idea: What if your editor had built-in hinting around HTML properties?
 
 ## Implementation
 We take information from the HTML spec living document and MDN.
