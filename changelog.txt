@@ -1,3 +1,11 @@
+# 0.9.0
+This is primarly a documentation/automation patch.
+
+* Docs: build with pdoc. Automate with Github runner.
+* Improve and add more documentation
+* elements: move from elements.py to elements/name_element.py i.e. a_element.py
+* Export BaseAttribute directly from module
+
 # 0.8.1
 * WatchCond: Flip condition no_reload param -> reload param, with correct docstring
 
