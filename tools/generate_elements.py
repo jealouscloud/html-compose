@@ -17,6 +17,114 @@ processed_attr = namedtuple(
 )
 
 
+def elements_docstring():
+    """
+    Generate a docstring for the elements module.
+    """
+    return """
+This module contains HTML elements.
+
+Each element is a class that inherits from BaseElement.
+
+The classes are generated from the WhatWG HTML specification.
+We do not generate deprecated elements.
+
+Each class has a hint class that provides type hints for the attributes.
+
+## Construction
+#### `[]` syntax
+1. There is special syntax for constructed elements which will append
+  any given parameters to the elements children. Internally this is simply
+  `BaseElement.append(...)`
+2. There is a special syntax for _unconstructed_ elements which will create
+  an element with no parameters and append the children.
+
+Example:
+```python
+from html_compose import p, strong
+# Internally, this is what we're doing
+# p().append("Hello ", strong().append("world!"))
+
+# Syntax 1.
+link = a()["Hello ", strong()["world!"]]
+
+# Syntax 2.
+link = a["Hello ", strong["world!"]]
+```
+
+#### Basic usage
+Most hints are available right in the constructor signature.
+
+This was done because it makes the constructor hint too heavy.
+
+```python
+from html_compose import a
+
+link = a(href="https://example.com", target="_blank")["Click here"]
+link.render()  # '<a href="https://example.com" target="_blank">Click here</a>'
+```
+#### Attributes that aren't in the constructor signature
+**Note that events like .onclick are _not_ available in the constructor.**
+
+We do however provide the type hint via `<element>.hint`
+
+The first positional argument is `attrs=` which can be a list of attributes.
+We generate many of these for type hints under `<element>.hint or `<element>._`
+
+```python
+# attrs can also be a list of BaseAttribute objects
+link = a([a.hint.onclick("alert(1)")],
+         href="https://example.com", target="_blank")["Click here"]
+```
+
+#### With attributes that aren't built-in
+The first positional argument is `attrs=` which can also be a dictionary.
+
+```python
+from html_compose import a
+# You can simply define any attribute in the attrs dict
+link = a({"href": "https://example.com",
+          "target": "_blank"})["Click here"]
+link.render()  # '<a href="https://example.com" target="_blank">Click here</a>'
+
+# attrs can also be a list of BaseAttribute objects
+link = a([a.hint.onclick("alert(1)")],
+         href="https://example.com", target="_blank")["Click here"]
+```
+#### Framework Attributes
+Some attributes are not part of the HTML specification, but are
+commonly used in web frameworks. You can make your own hint class to wrap these
+
+```python
+from html_compose.base_attribute import BaseAttribute
+from html_compose import button
+class htmx:
+    '''
+    Attributes for the HTMX framework.
+    '''
+
+    @staticmethod
+    def hx_get(value: str) -> BaseAttribute:
+        '''
+        htmx attribute: hx-get
+            The hx-get attribute will cause an element to issue a
+            GET to the specified URL and swap the HTML into the DOM
+            using a swap strategy
+
+        :param value: URI to GET when the element is activated
+        :return: An hx-get attribute to be added to your element
+        '''
+
+        return BaseAttribute("hx-get", value)
+
+btn = button([htmx.hx_get("/api/data")])["Click me!"]
+btn.render()  # '<button hx-get="/api/data">Click me!</button>'
+```
+
+Publish your own to make someone elses development experience better!
+"""
+
+
 def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
     processed: list[processed_attr] = []
     attrdefs = {}
@@ -271,7 +379,7 @@ if __name__ == "__main__":
             path = Path(path_name) / element.name
             path.write_text(data)
         print(f"Copied generated elements to: {real_path}")
-        init_data = []
+        init_data = [f'"""{elements_docstring()}\n"""']
         for name in el_names:
             init_data.append(f"from .{name}_element import {name}")
 

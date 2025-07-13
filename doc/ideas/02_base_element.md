@@ -1,4 +1,4 @@
-# Idea
+# Base Element
 
 The base element has tricks built into it so that you can write HTML faster.
 

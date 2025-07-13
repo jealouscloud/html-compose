@@ -1,11 +1,11 @@
-# Idea
+# Live Reload
 If it takes multiple steps to make a change, I'm going to make a change slowly.
 
 If I have to do nothing to notice my change immediately, I'm going to make changes quickly.
 
 The idea is to iterate rapidly, so we provide a generic tool to help you do just that.
 
-## Live Reload
+
 Live reload is an optional feature of html-compose to aid in rapid development.
 
 Browser based livereload is provided by 
@@ -58,8 +58,8 @@ live.server(
         live.WatchCond(
             "node-app/**/*.js",
             action=live.ShellCommand("./build.sh"),
-            # no_reload means not to try to reload the daemon
-            no_reload=True,
+            # no reload means not to try to reload the daemon or browser
+            reload=False,
         ),
         live.WatchCond(
             # Trigger reload when the bro
