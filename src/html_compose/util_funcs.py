@@ -1,3 +1,9 @@
+"""
+Library utility functions
+
+Not inteded to be used directly by library users.
+"""
+
 import inspect
 import json
 from functools import lru_cache
