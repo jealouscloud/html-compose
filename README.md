@@ -72,22 +72,34 @@ a([tab]
 
 - ⚡ Lazy evaluation leading to performance gains
 * 🛏 Define children via `[]` syntax:
+  * 💡 It works by running `append`, then returning `self` 
+    so it can be chained
   ```python
   from html_compose import p, strong
-  p()["a", strong()["bold"], "statement"]
-  #<p>a <strong>bold</strong> statement
+
+  p()["a ", strong()["bold"], "statement"]
+
+  # <p>a <strong>bold</strong> statement</p>
+  
   # The above is identical to
-  p().append(["a", strong()["bold"], "statement"])
+  para = p()
+  bold_text = strong()
+  bold_text.append("bold")
+
+  para.append(["a ", bold_text, "statement"])
   ```
 * 🧩 Skip constructor via same `[]` syntax for elements with no attributes.
   ```python
-  from html_compose import ul, li
+  from html_compose import ul, li, p, strong
+
   ul[
       li["Look ma!"],
       li["No constructor!"],
       li["This feels natural"],
       li["for text elements"]
   ]
+
+  p["a ", strong["bold"], " statement"]
   ```
 * 🌐 Define attributes in a variety of ways:
   ```python
@@ -108,7 +120,7 @@ a([tab]
   div(class_={"dark-mode": is_dark_mode, "flex": True})
   # <div class="flex"></div>
   
-  ## Combine the two `
+  ## Combine the two
   div(attrs=[div.class_("flex")], class_={"dark-mode": True})
   # <div class="flex dark-mode"></div>
   ```
@@ -178,7 +190,7 @@ Inspiration and motivation for this library are listed below.
 - [alpinejs](https://alpinejs.dev/) Another "dumb client" transition library
 - [hyperaxe](https://github.com/ungoldman/hyperaxe) Similar tool for JavaScript
 - [flexx](https://github.com/flexxui/flexx) A Python super toolkit for developing user applications
-- [lit](https://lit.dev/) lit and the web component engine that it wraps
+- [lit](https://lit.dev/) and the web component engine that it wraps
 
 # The WhatWG spec 📝
 The Web Hypertext Application Technology Working Group (WHATWG) is a community of people interested in evolving HTML and related technologies.

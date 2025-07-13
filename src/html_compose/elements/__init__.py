@@ -20,7 +20,10 @@ Example:
 ```python
 from html_compose import p, strong
 # Internally, this is what we're doing
-# p().append("Hello ", strong().append("world!"))
+# e1 = p()
+# e2 = strong()
+# e2.append("world!")
+# e1.append("Hello ", e2)
 
 # Syntax 1.
 link = a()["Hello ", strong()["world!"]]

@@ -290,6 +290,25 @@ class BaseElement(ElementBase):
             )
 
     def append(self, *child_or_childs: Node):
+        """
+        This method appends one or more elements to the list of children
+        under this element.
+
+        In order to facilitate fluid tree construction, it accepts:
+        * A single child element, like a text string or another element
+        * A callable that returns a valid child when called
+        * A list, tuple, or iterable of child elements or callables
+        * n positional arguments which may be a mix of child elements,
+          callables, or iterables
+
+
+        This method is the backbone for the `[]` syntax.
+
+        Parameters
+        ----------
+        `child_or_childs`:
+            Any acceptable child including iterables and callables.
+        """
         if self.is_void_element:
             raise ValueError(f"Void element {self.tag} cannot have children")
 

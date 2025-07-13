@@ -8,7 +8,7 @@ For user comfort, the `[]` syntax provides a natural way to define child
 elements which makes the code look more like the HTML structure it represents and
 less like a list of procedures.
 
-Behind the scenes, this is just the `BaseElement.append(...)` method.
+Behind the scenes, this is just the .base_element.BaseElement.append method.
 
 Text is always escaped, so XSS directly in the HTML is not possible.
 Via this mechanism, JavaScript within HTML attributes is always escaped.
