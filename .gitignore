@@ -9,6 +9,9 @@ wheels/
 # venv
 .venv
 
+# html docs
+pdoc/
+
 # spec read/generation
 tools/reference
 tools/spec_reference.json

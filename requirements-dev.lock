@@ -37,8 +37,12 @@ iniconfig==2.0.0
 ipython==8.33.0
 jedi==0.19.2
     # via ipython
+jinja2==3.1.6
+    # via pdoc
 markupsafe==2.1.5
     # via html-compose
+    # via jinja2
+    # via pdoc
 matplotlib-inline==0.1.7
     # via ipython
 mypy==1.15.0
@@ -50,6 +54,7 @@ packaging==24.1
     # via pytest
 parso==0.8.4
     # via jedi
+pdoc==15.0.4
 pexpect==4.9.0
     # via ipython
 pluggy==1.5.0
@@ -62,9 +67,11 @@ pure-eval==0.2.3
     # via stack-data
 pygments==2.19.1
     # via ipython
+    # via pdoc
 pyright==1.1.396
 pytest==8.3.3
 requests==2.32.3
+ruff==0.12.3
 sniffio==1.3.1
     # via anyio
 soupsieve==2.6

@@ -1,4 +1,4 @@
-# Idea
+# Attributes
 There are multiple ways to define attributes for an html element i.e.
 
 ```python

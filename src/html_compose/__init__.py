@@ -1,3 +1,81 @@
+"""
+
+`html-compose` is a library for natural HTML composition directly in Python.
+
+## Quick Start Guide
+
+For user comfort, the `[]` syntax provides a natural way to define child
+elements, making the code look more like the HTML structure it represents and
+less like a list of procedures.
+
+Behind the scenes, this is just the `BaseElement.append(...)` method.
+
+Text is always escaped, so XSS directly in the HTML is not possible.
+Via this mechanism, javascript within HTML attributes is always escaped.
+
+Just don't pass user input into javascript attributes.
+
+If you want to insert unsafe text, use the `unsafe_text(...)` function.
+
+You can import elements directly from this module or .elements i.e.
+* `from html_compose import a, div, span` or
+* `from html_compose.elements import a, div, span` or
+* `import html_compose.elements as e`
+
+If you think HTML frame boilerplate is no fun, so you can use the `HTML5Document` function
+to generate a complete HTML5 document with a title, language, and body content.
+
+```python
+from html_compose import HTML5Document, p, script, link
+
+doc = HTML5Document(
+    "Site Title",
+    lang="en",
+    head=[
+            script(src="/public/bundle.js"),
+            link(rel="stylesheet", href="/public/style.css"),
+    ],
+    body=[p["Hello, world!"]],
+)
+```
+
+Custom elements can be created with `CustomElement.create` / `create_element`.
+
+```python
+from html_compose.custom_element import CustomElement
+foo = CustomElement.create("foo")
+foo["Hello world"].render() # <foo>Hello world</foo>
+
+from html_compose import create_element
+bar = create_element("bar")
+bar()["Hello world"].render() # <bar>Hello world</bar>
+```
+
+## Type hints
+Type hints are given wherever possible, so you can use your IDE to
+complete element names and attributes.
+
+Read more about these in the [element documentation](html_compose/elements).
+
+## Command-line Interface
+An `html-compose` command-line interface is available which can be used to
+convert native HTML into html-compose syntax.
+This is useful when starting from a tutorial or template.
+
+```
+$ html-compose convert {filename or empty for stdin}
+```
+
+## Core Ideas
+We are going to dive into the technicals and core ideas of the library.
+
+.. include:: ../../doc/ideas/01_iterator.md
+.. include:: ../../doc/ideas/02_base_element.md
+.. include:: ../../doc/ideas/03_code_generator.md
+.. include:: ../../doc/ideas/04_attrs.md
+.. include:: ../../doc/ideas/05_livereload.md
+"""
+
 from typing import Union
 
 from markupsafe import Markup, escape
@@ -53,6 +131,7 @@ def doctype(dtype: str = "html"):
     return unsafe_text(f"<!DOCTYPE {dtype}>")
 
 
+from .base_attribute import BaseAttribute
 from .base_element import BaseElement
 from .custom_element import CustomElement
 

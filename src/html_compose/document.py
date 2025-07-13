@@ -16,6 +16,17 @@ def HTML5Document(
     Return an HTML5 document with the given title and content.
     It also defines meta viewport for mobile support.
 
+    tldr:
+    ```
+      doctype("html")
+      html(lang=lang)[
+        head[
+          meta(name="viewport", content="width=device-width, initial-scale=1.0")
+          title(title)
+        ]
+        body[body]]
+    ```
+
     When using livereload, an environment variable is set which adds
     livereload-js to the head of the document.
 

@@ -6,6 +6,7 @@ from typing import Any, Optional, Union, cast
 from bs4 import BeautifulSoup, NavigableString, Tag
 from bs4.element import Doctype
 
+from . import BaseElement
 from . import elements as el_list
 from .custom_element import CustomElement
 from .util_funcs import safe_name
@@ -21,8 +22,8 @@ def get_phrasing_tags():
     result = []
     for e in dir(el_list):
         val = getattr(el_list, e)
-        if isinstance(val, type) and issubclass(val, el_list.BaseElement):
-            if val is el_list.BaseElement:
+        if isinstance(val, type) and issubclass(val, BaseElement):
+            if val is BaseElement:
                 continue
 
             categories = getattr(val, "categories")

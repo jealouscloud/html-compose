@@ -1,5 +1,5 @@
-# Idea
-What if your editor had built in hinting around HTML properties?
+# Code Generator
+Idea: What if your editor had built in hinting around HTML properties?
 
 ## Implementation
 We take information from the HTML spec living document and MDN.
@@ -14,7 +14,7 @@ the `tools` directory contains:
 
 * `tools/generated/*_attrs.py` is the intermediate directory so runs do not write to source control directory, but you can see when a new change has happened.
 
-## Extension of this idea:
+<!-- ## Extension of this idea:
 TBD
 
-caniuse data can be used to generate warnings based on browser targets
+caniuse data can be used to generate warnings based on browser targets -->
