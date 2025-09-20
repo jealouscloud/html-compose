@@ -12,6 +12,10 @@ def generate_class_template(
     safe_class_name = safe_class_name.lower()
     if element_name == "Global Attribute":
         element_name = "global"
+
+    if attr_name in ("class", "style"):
+        type_data = ": Union[str, list, dict]"
+
     template = f'''
     @staticmethod
     def {safe_class_name.lower()}(value{type_data}) -> BaseAttribute:
