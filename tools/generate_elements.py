@@ -176,6 +176,10 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
             param_type = value_hint_to_python_type(attrdef.value_desc)
             if param_type and param_type not in param_types:
                 param_types.append(param_type)
+        # Hardcode override for class and style, which uniquely are intended
+        # for multiple types
+        if attrdef.name in ("class", "style"):
+            param_types = ["str", "list", "dict"]
 
         p_type = f"Union[{', '.join(param_types)}]"
         if len(param_types) == 1:

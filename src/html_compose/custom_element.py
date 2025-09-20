@@ -6,6 +6,10 @@ from .util_funcs import safe_name
 
 
 class CustomElement(BaseElement):
+    """
+    Custom HTML element
+    """
+
     tag = "UNSET"
     is_void = False
 
