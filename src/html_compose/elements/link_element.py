@@ -38,7 +38,7 @@ class link(BaseElement):  # type: ignore[misc]
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[Union[str, list]] = None,
+        class_: Optional[Union[str, list, dict]] = None,
         as_: Optional[str] = None,
         blocking: Optional[Union[str, list]] = None,
         color: Optional[str] = None,
@@ -114,7 +114,7 @@ class link(BaseElement):  # type: ignore[misc]
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
         slot: Optional[str] = None,
         spellcheck: Optional[Union[str, Literal["true", "false", ""]]] = None,
-        style: Optional[str] = None,
+        style: Optional[Union[str, list, dict]] = None,
         tabindex: Optional[Union[str, int]] = None,
         translate: Optional[Union[str, Literal["yes", "no"]]] = None,
         writingsuggestions: Optional[

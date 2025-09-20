@@ -38,7 +38,7 @@ class video(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[Union[str, list]] = None,
+        class_: Optional[Union[str, list, dict]] = None,
         autoplay: Optional[Union[str, bool]] = None,
         controls: Optional[Union[str, bool]] = None,
         crossorigin: Optional[
@@ -108,7 +108,7 @@ class video(BaseElement):
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
         slot: Optional[str] = None,
         spellcheck: Optional[Union[str, Literal["true", "false", ""]]] = None,
-        style: Optional[str] = None,
+        style: Optional[Union[str, list, dict]] = None,
         tabindex: Optional[Union[str, int]] = None,
         title: Optional[str] = None,
         translate: Optional[Union[str, Literal["yes", "no"]]] = None,

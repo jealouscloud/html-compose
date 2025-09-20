@@ -38,7 +38,7 @@ class iframe(BaseElement):
             Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
         ] = None,
         id: Optional[str] = None,
-        class_: Optional[Union[str, list]] = None,
+        class_: Optional[Union[str, list, dict]] = None,
         allow: Optional[str] = None,
         allowfullscreen: Optional[Union[str, bool]] = None,
         height: Optional[Union[str, int]] = None,
@@ -103,7 +103,7 @@ class iframe(BaseElement):
         popover: Optional[Union[str, Literal["auto", "manual"]]] = None,
         slot: Optional[str] = None,
         spellcheck: Optional[Union[str, Literal["true", "false", ""]]] = None,
-        style: Optional[str] = None,
+        style: Optional[Union[str, list, dict]] = None,
         tabindex: Optional[Union[str, int]] = None,
         title: Optional[str] = None,
         translate: Optional[Union[str, Literal["yes", "no"]]] = None,

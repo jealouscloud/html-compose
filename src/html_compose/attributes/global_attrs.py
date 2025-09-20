@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal
+from typing import Literal, Union
 
 
 class GlobalAttrs:
@@ -59,7 +59,7 @@ class GlobalAttrs:
         return BaseAttribute("autofocus", value)
 
     @staticmethod
-    def class_(value: list) -> BaseAttribute:
+    def class_(value: Union[str, list, dict]) -> BaseAttribute:
         """
         "global" attribute: class  
         Classes to which the element belongs  
@@ -316,7 +316,7 @@ class GlobalAttrs:
         return BaseAttribute("spellcheck", value)
 
     @staticmethod
-    def style(value) -> BaseAttribute:
+    def style(value: Union[str, list, dict]) -> BaseAttribute:
         """
         "global" attribute: style  
         Presentational and formatting instructions  

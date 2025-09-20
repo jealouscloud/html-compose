@@ -64,7 +64,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def class_(value: list) -> BaseAttribute:
+    def class_(value: Union[str, list, dict]) -> BaseAttribute:
         """
         "global" attribute: class  
         Classes to which the element belongs  
@@ -344,7 +344,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def style(value) -> BaseAttribute:
+    def style(value: Union[str, list, dict]) -> BaseAttribute:
         """
         "global" attribute: style  
         Presentational and formatting instructions  
