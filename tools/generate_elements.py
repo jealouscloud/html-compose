@@ -274,18 +274,14 @@ def gen_elements():
                 spec_attrs = _spec["attributes"]
                 if spec_attrs:
                     processed = generate_attrs(attr_class, spec_attrs)
-                    shifted = [
-                        x for x in processed if not x.name.startswith("on")
-                    ]
+                    shifted = [x for x in processed]
                     for p in shifted:
                         add_param(p)
                     extra_attrs = "\n".join(attr_list)
                     attr_assignment = "\n".join(assign_list)
 
             global_shifted = [
-                x
-                for x in global_processed
-                if not x.name.startswith("on") and x.name not in ("id", "class")
+                x for x in global_processed if x.name not in ("id", "class")
             ]
             for p in global_shifted:
                 add_param(p)
