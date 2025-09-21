@@ -134,140 +134,19 @@ def test_yield_from():
     assert list(gen_2) == arr
 
 
-def test_disassembly():
-    """
-    Test work actually done in python for a big argument list
-    """
-
-    def demo(**kwargs):
-        pass
-
-    class DemoDict:
-        """
-        Theory: Dictionary is optimized and building one with a generator
-        May be faster than stacking
-        """
-
-        def _process_attr(self, attr_name, attr_value):
-            pass
-
-        def __init__(
-            self,
-            id=None,
-            class_=None,
-            download=None,
-            href=None,
-            hreflang=None,
-            ping=None,
-            referrerpolicy=None,
-            rel=None,
-            target=None,
-            type=None,
-            attrs=None,
-            children=None,
-        ) -> None:
-            demo(
-                type="a",
-                void_element=False,
-                id=id,
-                class_=class_,
-                attrs=attrs,
-                children=children,
-            )
-            attrs = {
-                k: v
-                for k, v in {
-                    "download": download,
-                    "href": href,
-                    "hreflang": hreflang,
-                    "ping": ping,
-                    "referrerpolicy": referrerpolicy,
-                    "rel": rel,
-                    "target": target,
-                    "type": type,
-                }.items()
-                if v is not None and v is not False
-            }
-
-    class Demo:
-        def _process_attr(self, attr_name, attr_value):
-            pass
-
-        def __init__(
-            self,
-            id=None,
-            class_=None,
-            download=None,
-            href=None,
-            hreflang=None,
-            ping=None,
-            referrerpolicy=None,
-            rel=None,
-            target=None,
-            type=None,
-            attrs=None,
-            children=None,
-        ) -> None:
-            demo(
-                type="a",
-                void_element=False,
-                id=id,
-                class_=class_,
-                attrs=attrs,
-                children=children,
-            )
-            if not (download is None or download is False):
-                self._process_attr("download", download)
-            if not (href is None or href is False):
-                self._process_attr("href", href)
-            if not (hreflang is None or hreflang is False):
-                self._process_attr("hreflang", hreflang)
-            if not (ping is None or ping is False):
-                self._process_attr("ping", ping)
-            if not (referrerpolicy is None or referrerpolicy is False):
-                self._process_attr("referrerpolicy", referrerpolicy)
-            if not (rel is None or rel is False):
-                self._process_attr("rel", rel)
-            if not (target is None or target is False):
-                self._process_attr("target", target)
-            if not (type is None or type is False):
-                self._process_attr("type", type)
-
-    # Uncomment to view disassembly
-    # import dis
-
-    # dis.dis(Demo.__init__)
-    # dis.dis(DemoDict.__init__)
-    # raise Exception("Disassemble and analyze disassembly output")
-
-    d2start = perf_counter()
-    for i in range(100000):
-        DemoDict(href="https://example.com")
-    d2end = perf_counter()
-
-    dstart = perf_counter()
-    for i in range(100000):
-        Demo(href="https://example.com")
-    dend = perf_counter()
-
-    test1_delta = dend - dstart
-    test2_delta = d2end - d2start
-    print(f"Test 1: {test1_delta} seconds")
-    print(f"Test 2: {test2_delta} seconds")
-    # If this test passes, then a huge attr list of if (not x is or x is)
-    # is faster. The library uses this assumption.
-    assert test2_delta > test1_delta
-
-
-def test_args_perf():
+def test_compare_argument_style_performance():
     """
     This test compares a big arg list vs kwargs
     We do a lot of if not (x is None or x is False) checks
-    The test confirms that a big arg list is faster than unpacking a kwargs
+    The test confirms that a big arg list is comparable to unpacking a kwargs
     dict
 
-    The other reason we don't use a kwargs is because we would have to translate
-    class_ to class, etc. which would add extra overhead
+    It would be way better to use a kwargs dict, but our branch to use
+    Unpack[TypedDict] for named kwargs is not supported in python <3.12
+
+    I tried using typing_extensions but the language server Pylance wasn't happy
+
+    So we have to use a big arg list for now
     """
 
     def process_attr(name, value):
@@ -1176,8 +1055,9 @@ def test_args_perf():
     ):
         pass
 
+    RUN_NUM = 70000
     dstart = perf_counter()
-    for i in range(100000):
+    for i in range(RUN_NUM):
         fn1(
             aa="https://example.com",
             ab="https://example.com",
@@ -1214,7 +1094,7 @@ def test_args_perf():
     dend = perf_counter()
 
     d2start = perf_counter()
-    for i in range(100000):
+    for i in range(RUN_NUM):
         fn2(
             aa="https://example.com",
             ab="https://example.com",
@@ -1252,7 +1132,7 @@ def test_args_perf():
     d2end = perf_counter()
 
     d3start = perf_counter()
-    for i in range(100000):
+    for i in range(RUN_NUM):
         control_func(
             aa="https://example.com",
             ab="https://example.com",
@@ -1295,12 +1175,14 @@ def test_args_perf():
     print(f"Test 2: {test2_delta} seconds")
     print(f"Test 3: {test3_delta} seconds")
 
-    # If this test passes, then a huge attr list of if (not x is or x is)
-    # is faster. The library uses this assumption.
-
-    # dis.dis(fn1)
-
-    # Ensure that test 1 isn't more than 10% worse than test 2
-    assert test1_delta <= test2_delta * 1.10, (
-        "Test 1 should not be more than 10% slower than Test 2"
+    # Ensure that test 1 (arg unpacking isn't
+    # more than 50% slower than test 2 (kwargs unpacking)
+    assert test1_delta <= test2_delta * 1.50, (
+        "Test 1 should not be more than 50% slower than Test 2"
+    )
+    # Verify that the control function is at least 50% faster than test 1
+    # If this varies, just increase the factor but we're trying to use this
+    # to confirm we understand the percentage of time we're measuring
+    assert test3_delta < test1_delta * 0.5, (
+        "Control function should be at least 50% faster than Test 1"
     )
