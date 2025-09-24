@@ -1,3 +1,4 @@
+import pytest
 from bs4 import BeautifulSoup
 
 import html_compose as h
@@ -52,6 +53,14 @@ def test_attr_syntax_variations():
     assert a == b
     c = div(id=1, attrs=[{"accesskey": "a"}, div._.tabindex(1)]).render()
     assert c == b
+
+
+def test_attr_syntax_antipattern():
+    """
+    Ensure our code prevents unsafe behavior like this:
+    """
+    with pytest.raises(Exception):
+        div(id=1, attrs=["asdf=1"])  # type: ignore
 
 
 def test_nested_callables():
