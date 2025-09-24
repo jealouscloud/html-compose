@@ -59,7 +59,7 @@ def test_nested_callables():
     Test that nesting callables works correctly.
     """
     a = div()
-    a.append("text", lambda x: div()[x.tag, lambda y: y.tag])
+    a.append("text", lambda x: div()[x.tag, lambda y: y.tag])  # type: ignore
     assert a.render() == "<div>text<div>divdiv</div></div>"
 
 
@@ -91,7 +91,7 @@ def test_id():
 
 def test_href():
     literal = '<a href="https://google.com">Search Engine</a>'
-    a1 = a(href=a._.href("https://google.com"))["Search Engine"].render()
+    a1 = a([a._.href("https://google.com")])["Search Engine"].render()
     a2 = a(href="https://google.com")["Search Engine"].render()
     assert a1 == literal
     assert a2 == literal
@@ -145,7 +145,7 @@ def test_class_getitem():
 
     A syntax alteration was added __class_getitem__ which this test verifies.
     """
-    el = div["demo"]
+    el = div()["demo"]
     assert el.render() == "<div>demo</div>"
 
 
@@ -177,19 +177,23 @@ def test_document():
     assert doc == expected
 
 
+def test_noconstructor():
+    assert h.h1["Demo"].render() == "<h1>Demo</h1>"  # type: ignore
+
+
 def test_float_precision():
     """Test float precision and setting per-element settings"""
     num = 1 / 3
-    a = h.p[num].render()
+    a = h.p()[num].render()
     assert a == "<p>0.333</p>"
-    h.p.FLOAT_PRECISION = 0
-    b = h.p[num].render()
+    h.p.FLOAT_PRECISION = 0  # type: ignore
+    b = h.p()[num].render()
     assert b == "<p>0</p>"
-    c = h.h1[num].render()
+    c = h.h1()[num].render()
     assert c == "<h1>0.333</h1>"
     # Now set globally
-    h.BaseElement.FLOAT_PRECISION = 0
-    d = h.h1[num].render()
+    h.BaseElement.FLOAT_PRECISION = 0  # type: ignore
+    d = h.h1()[num].render()
     assert d == "<h1>0</h1>"
 
 
@@ -211,10 +215,13 @@ def test_rel_array():
     el = a(rel=["noopener", "noreferrer"])
     assert el.render() == '<a rel="noopener noreferrer"></a>'
 
+    el = a(rel={"noopener": 0, "noreferrer": 1})
+    assert el.render() == '<a rel="noreferrer"></a>'
+
 
 def test_custom_element():
     from html_compose import CustomElement
 
     custom = CustomElement.create("custom")
     el = custom["Hello world"]
-    assert el.render() == "<custom>Hello world</custom>"
+    assert el.render() == "<custom>Hello world</custom>"  # type: ignore

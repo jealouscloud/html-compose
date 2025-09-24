@@ -29,7 +29,7 @@ def value_hint_to_python_type(value):
         # this works
         return f"Literal{value}"
     if value in ("Text", "Text*"):
-        return "str"
+        return "StrLike"
     if value == "Boolean attribute":
         return "bool"
     if value in ("Valid non-negative integer", "Valid integer"):
@@ -37,7 +37,7 @@ def value_hint_to_python_type(value):
     if value.startswith("Valid floating-point number"):
         return "float"
     if "space-separated tokens" in value:
-        return "list"
+        return "Resolvable"
     return None
 
 

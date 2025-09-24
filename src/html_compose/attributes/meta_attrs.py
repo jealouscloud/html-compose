@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal
+from ..base_types import StrLike
 
 
 class MetaAttrs:
@@ -21,7 +22,7 @@ class MetaAttrs:
         return BaseAttribute("charset", value)
 
     @staticmethod
-    def content(value: str) -> BaseAttribute:
+    def content(value: StrLike) -> BaseAttribute:
         """
         "meta" attribute: content  
         Value of the element  
@@ -65,7 +66,7 @@ class MetaAttrs:
         return BaseAttribute("media", value)
 
     @staticmethod
-    def name(value: str) -> BaseAttribute:
+    def name(value: StrLike) -> BaseAttribute:
         """
         "meta" attribute: name  
         Metadata name  

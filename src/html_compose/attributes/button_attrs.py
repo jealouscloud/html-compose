@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal
+from ..base_types import StrLike
 
 
 class ButtonAttrs:
@@ -99,7 +100,7 @@ class ButtonAttrs:
         return BaseAttribute("formtarget", value)
 
     @staticmethod
-    def name(value: str) -> BaseAttribute:
+    def name(value: StrLike) -> BaseAttribute:
         """
         "button" attribute: name  
         Name of the element to use for form submission and in the form.elements API  
@@ -149,7 +150,7 @@ class ButtonAttrs:
         return BaseAttribute("type", value)
 
     @staticmethod
-    def value(value: str) -> BaseAttribute:
+    def value(value: StrLike) -> BaseAttribute:
         """
         "button" attribute: value  
         Value to be used for form submission  

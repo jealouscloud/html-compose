@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal
+from ..base_types import StrLike
 
 
 class InputAttrs:
@@ -33,7 +34,7 @@ class InputAttrs:
         return BaseAttribute("alpha", value)
 
     @staticmethod
-    def alt(value: str) -> BaseAttribute:
+    def alt(value: StrLike) -> BaseAttribute:
         """
         "input" attribute: alt  
         Replacement text for use when images are not available  
@@ -83,7 +84,7 @@ class InputAttrs:
         return BaseAttribute("colorspace", value)
 
     @staticmethod
-    def dirname(value: str) -> BaseAttribute:
+    def dirname(value: StrLike) -> BaseAttribute:
         """
         "input" attribute: dirname  
         Name of form control to use for sending the element's directionality in form submission  
@@ -269,7 +270,7 @@ class InputAttrs:
         return BaseAttribute("multiple", value)
 
     @staticmethod
-    def name(value: str) -> BaseAttribute:
+    def name(value: StrLike) -> BaseAttribute:
         """
         "input" attribute: name  
         Name of the element to use for form submission and in the form.elements API  
@@ -293,7 +294,7 @@ class InputAttrs:
         return BaseAttribute("pattern", value)
 
     @staticmethod
-    def placeholder(value: str) -> BaseAttribute:
+    def placeholder(value: StrLike) -> BaseAttribute:
         """
         "input" attribute: placeholder  
         User-visible label to be placed within the form control  
@@ -391,7 +392,7 @@ class InputAttrs:
         return BaseAttribute("step", value)
 
     @staticmethod
-    def title(value: str) -> BaseAttribute:
+    def title(value: StrLike) -> BaseAttribute:
         """
         "input" attribute: title  
         Description of pattern (when used with pattern attribute)  

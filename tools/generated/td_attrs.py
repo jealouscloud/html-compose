@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal, Union
+from ..base_types import Resolvable, StrLike
 
 class TdAttrs:
     """ 
@@ -22,7 +23,7 @@ class TdAttrs:
 
 
     @staticmethod
-    def headers(value: list) -> BaseAttribute:
+    def headers(value: Resolvable) -> BaseAttribute:
         """
         "td" attribute: headers  
         The header cells for this cell  

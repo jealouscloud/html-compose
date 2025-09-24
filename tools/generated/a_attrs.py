@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal, Union
+from ..base_types import Resolvable, StrLike
 
 class AnchorAttrs:
     """ 
@@ -8,7 +9,7 @@ class AnchorAttrs:
     """ 
     
     @staticmethod
-    def download(value: str) -> BaseAttribute:
+    def download(value: StrLike) -> BaseAttribute:
         """
         "a" attribute: download  
         Whether to download the resource instead of navigating to it, and its filename if so  
@@ -50,7 +51,7 @@ class AnchorAttrs:
 
 
     @staticmethod
-    def ping(value: list) -> BaseAttribute:
+    def ping(value: Resolvable) -> BaseAttribute:
         """
         "a" attribute: ping  
         URLs to ping  
@@ -78,7 +79,7 @@ class AnchorAttrs:
 
 
     @staticmethod
-    def rel(value: list) -> BaseAttribute:
+    def rel(value: Resolvable) -> BaseAttribute:
         """
         "a" attribute: rel  
         Relationship between the location in the document containing the hyperlink and the destination resource  

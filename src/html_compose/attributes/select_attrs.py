@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from ..base_types import StrLike
 
 
 class SelectAttrs:
@@ -56,7 +57,7 @@ class SelectAttrs:
         return BaseAttribute("multiple", value)
 
     @staticmethod
-    def name(value: str) -> BaseAttribute:
+    def name(value: StrLike) -> BaseAttribute:
         """
         "select" attribute: name  
         Name of the element to use for form submission and in the form.elements API  

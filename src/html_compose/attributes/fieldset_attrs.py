@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from ..base_types import StrLike
 
 
 class FieldsetAttrs:
@@ -32,7 +33,7 @@ class FieldsetAttrs:
         return BaseAttribute("form", value)
 
     @staticmethod
-    def name(value: str) -> BaseAttribute:
+    def name(value: StrLike) -> BaseAttribute:
         """
         "fieldset" attribute: name  
         Name of the element to use for form submission and in the form.elements API  

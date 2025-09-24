@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal
+from ..base_types import StrLike
 
 
 class ImgAttrs:
@@ -9,7 +10,7 @@ class ImgAttrs:
     """
 
     @staticmethod
-    def alt(value: str) -> BaseAttribute:
+    def alt(value: StrLike) -> BaseAttribute:
         """
         "img" attribute: alt  
         Replacement text for use when images are not available  

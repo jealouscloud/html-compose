@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal, Union
+from ..base_types import Resolvable, StrLike
 
 class SlotAttrs:
     """ 
@@ -8,7 +9,7 @@ class SlotAttrs:
     """ 
     
     @staticmethod
-    def name(value: str) -> BaseAttribute:
+    def name(value: StrLike) -> BaseAttribute:
         """
         "slot" attribute: name  
         Name of shadow tree slot  

@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal
+from ..base_types import Resolvable, StrLike
 
 
 class ThAttrs:
@@ -9,7 +10,7 @@ class ThAttrs:
     """
 
     @staticmethod
-    def abbr(value: str) -> BaseAttribute:
+    def abbr(value: StrLike) -> BaseAttribute:
         """
         "th" attribute: abbr  
         Alternative label to use for the header cell when referencing the cell in other contexts  
@@ -33,7 +34,7 @@ class ThAttrs:
         return BaseAttribute("colspan", value)
 
     @staticmethod
-    def headers(value: list) -> BaseAttribute:
+    def headers(value: Resolvable) -> BaseAttribute:
         """
         "th" attribute: headers  
         The header cells for this cell  

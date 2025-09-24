@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from ..base_types import Resolvable
 
 
 class TdAttrs:
@@ -20,7 +21,7 @@ class TdAttrs:
         return BaseAttribute("colspan", value)
 
     @staticmethod
-    def headers(value: list) -> BaseAttribute:
+    def headers(value: Resolvable) -> BaseAttribute:
         """
         "td" attribute: headers  
         The header cells for this cell  

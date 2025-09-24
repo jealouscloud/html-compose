@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal, Union, Callable
+from ..base_types import Resolvable, StrLike
 
 class GlobalAttrs:
     """ 
@@ -8,7 +9,7 @@ class GlobalAttrs:
     """ 
     
     @staticmethod
-    def accesskey(value: list) -> BaseAttribute:
+    def accesskey(value: Resolvable) -> BaseAttribute:
         """
         "global" attribute: accesskey  
         Keyboard shortcut to activate or focus element  
@@ -64,7 +65,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def class_(value: Union[str, list, dict]) -> BaseAttribute:
+    def class_(value: Resolvable) -> BaseAttribute:
         """
         "global" attribute: class  
         Classes to which the element belongs  
@@ -148,7 +149,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def id(value: str) -> BaseAttribute:
+    def id(value: StrLike) -> BaseAttribute:
         """
         "global" attribute: id  
         The element's ID  
@@ -218,7 +219,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def itemprop(value: list) -> BaseAttribute:
+    def itemprop(value: Resolvable) -> BaseAttribute:
         """
         "global" attribute: itemprop  
         Property names of a microdata item  
@@ -232,7 +233,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def itemref(value: list) -> BaseAttribute:
+    def itemref(value: Resolvable) -> BaseAttribute:
         """
         "global" attribute: itemref  
         Referenced elements  
@@ -260,7 +261,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def itemtype(value: list) -> BaseAttribute:
+    def itemtype(value: Resolvable) -> BaseAttribute:
         """
         "global" attribute: itemtype  
         Item types of a microdata item  
@@ -288,7 +289,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def nonce(value: str) -> BaseAttribute:
+    def nonce(value: StrLike) -> BaseAttribute:
         """
         "global" attribute: nonce  
         Cryptographic nonce used in Content Security Policy checks [CSP]  
@@ -316,7 +317,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def slot(value: str) -> BaseAttribute:
+    def slot(value: StrLike) -> BaseAttribute:
         """
         "global" attribute: slot  
         The element's desired slot  
@@ -344,7 +345,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def style(value: Union[str, list, dict]) -> BaseAttribute:
+    def style(value: Resolvable) -> BaseAttribute:
         """
         "global" attribute: style  
         Presentational and formatting instructions  
@@ -372,7 +373,7 @@ class GlobalAttrs:
 
 
     @staticmethod
-    def title(value: str) -> BaseAttribute:
+    def title(value: StrLike) -> BaseAttribute:
         """
         "global" attribute: title  
         Advisory information for the element  

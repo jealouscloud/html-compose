@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal
+from ..base_types import Resolvable, StrLike
 
 
 class LinkAttrs:
@@ -21,7 +22,7 @@ class LinkAttrs:
         return BaseAttribute("as", value)
 
     @staticmethod
-    def blocking(value: list) -> BaseAttribute:
+    def blocking(value: Resolvable) -> BaseAttribute:
         """
         "link" attribute: blocking  
         Whether the element is potentially render-blocking  
@@ -131,7 +132,7 @@ class LinkAttrs:
         return BaseAttribute("imagesrcset", value)
 
     @staticmethod
-    def integrity(value: str) -> BaseAttribute:
+    def integrity(value: StrLike) -> BaseAttribute:
         """
         "link" attribute: integrity  
         Integrity metadata used in Subresource Integrity checks [SRI]  
@@ -167,7 +168,7 @@ class LinkAttrs:
         return BaseAttribute("referrerpolicy", value)
 
     @staticmethod
-    def rel(value: list) -> BaseAttribute:
+    def rel(value: Resolvable) -> BaseAttribute:
         """
         "link" attribute: rel  
         Relationship between the document containing the hyperlink and the destination resource  
@@ -179,7 +180,7 @@ class LinkAttrs:
         return BaseAttribute("rel", value)
 
     @staticmethod
-    def sizes(value: list) -> BaseAttribute:
+    def sizes(value: Resolvable) -> BaseAttribute:
         """
         "link" attribute: sizes  
         Sizes of the icons (for rel="icon")  

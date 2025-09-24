@@ -1,8 +1,8 @@
-from typing import Callable, Generator, Optional, Union
+from typing import Callable, Generator, Iterable, Mapping, Optional, Union
 
 from . import escape_text, unsafe_text, util_funcs
 from .attributes import BaseAttribute, GlobalAttrs
-from .base_types import ElementBase, Node, _HasHtml
+from .base_types import ElementBase, Node, Resolvable, _HasHtml
 
 SPECIAL_ATTRS = {"class": GlobalAttrs.class_, "style": GlobalAttrs.style}
 
@@ -52,9 +52,12 @@ class BaseElement(ElementBase):
         self,
         tag: str,
         void_element: bool = False,
-        attrs: Union[
-            dict[str, Union[str, list, dict]], list[BaseAttribute], None
-        ] = None,
+        attrs: Iterable[BaseAttribute]
+        | Mapping[str, Resolvable]
+        | Iterable[
+            BaseAttribute | Iterable[BaseAttribute] | Mapping[str, Resolvable]
+        ]
+        | None = None,
         children: Optional[list] = None,
     ) -> None:
         """

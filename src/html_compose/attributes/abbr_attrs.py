@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from ..base_types import StrLike
 
 
 class AbbrAttrs:
@@ -8,7 +9,7 @@ class AbbrAttrs:
     """
 
     @staticmethod
-    def title(value: str) -> BaseAttribute:
+    def title(value: StrLike) -> BaseAttribute:
         """
         "abbr" attribute: title  
         Full term or expansion of abbreviation  

@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from ..base_types import Resolvable, StrLike
 
 
 class StyleAttrs:
@@ -8,7 +9,7 @@ class StyleAttrs:
     """
 
     @staticmethod
-    def blocking(value: list) -> BaseAttribute:
+    def blocking(value: Resolvable) -> BaseAttribute:
         """
         "style" attribute: blocking  
         Whether the element is potentially render-blocking  
@@ -32,7 +33,7 @@ class StyleAttrs:
         return BaseAttribute("media", value)
 
     @staticmethod
-    def title(value: str) -> BaseAttribute:
+    def title(value: StrLike) -> BaseAttribute:
         """
         "style" attribute: title  
         CSS style sheet set name  

@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from ..base_types import StrLike
 
 
 class MapAttrs:
@@ -8,7 +9,7 @@ class MapAttrs:
     """
 
     @staticmethod
-    def name(value: str) -> BaseAttribute:
+    def name(value: StrLike) -> BaseAttribute:
         """
         "map" attribute: name  
         Name of image map to reference from the usemap attribute  

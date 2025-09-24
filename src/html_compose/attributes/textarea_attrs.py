@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal
+from ..base_types import StrLike
 
 
 class TextareaAttrs:
@@ -33,7 +34,7 @@ class TextareaAttrs:
         return BaseAttribute("cols", value)
 
     @staticmethod
-    def dirname(value: str) -> BaseAttribute:
+    def dirname(value: StrLike) -> BaseAttribute:
         """
         "textarea" attribute: dirname  
         Name of form control to use for sending the element's directionality in form submission  
@@ -93,7 +94,7 @@ class TextareaAttrs:
         return BaseAttribute("minlength", value)
 
     @staticmethod
-    def name(value: str) -> BaseAttribute:
+    def name(value: StrLike) -> BaseAttribute:
         """
         "textarea" attribute: name  
         Name of the element to use for form submission and in the form.elements API  
@@ -105,7 +106,7 @@ class TextareaAttrs:
         return BaseAttribute("name", value)
 
     @staticmethod
-    def placeholder(value: str) -> BaseAttribute:
+    def placeholder(value: StrLike) -> BaseAttribute:
         """
         "textarea" attribute: placeholder  
         User-visible label to be placed within the form control  

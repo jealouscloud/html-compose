@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from ..base_types import StrLike
 
 
 class OptionAttrs:
@@ -20,7 +21,7 @@ class OptionAttrs:
         return BaseAttribute("disabled", value)
 
     @staticmethod
-    def label(value: str) -> BaseAttribute:
+    def label(value: StrLike) -> BaseAttribute:
         """
         "option" attribute: label  
         User-visible label  
@@ -44,7 +45,7 @@ class OptionAttrs:
         return BaseAttribute("selected", value)
 
     @staticmethod
-    def value(value: str) -> BaseAttribute:
+    def value(value: StrLike) -> BaseAttribute:
         """
         "option" attribute: value  
         Value to be used for form submission  
