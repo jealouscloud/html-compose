@@ -1,5 +1,7 @@
-# 0.9.1
-* Class and style params now correctly type hint str | list | dict.
+# 0.10.0
+* onclick/action attrs are now generated as kwargs.
+* Improve typing: class and style params now correctly type hint, along with other type hint
+  improvements.
 
 # 0.9.0
 This is primarly a documentation/automation patch.

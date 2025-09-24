@@ -1,6 +1,6 @@
 [project]
 name = "html-compose"
-version = "0.9.1"
+version = "0.10.0"
 description = "Composable HTML generation in python"
 authors = [
     { name = "jealouscloud", email = "github@noaha.org" }
