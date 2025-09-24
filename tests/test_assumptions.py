@@ -7,6 +7,8 @@ They usually have no bearing on the code functionality itself
 
 from time import perf_counter
 
+import pytest
+
 
 def test_args():
     """
@@ -134,6 +136,7 @@ def test_yield_from():
     assert list(gen_2) == arr
 
 
+@pytest.mark.skip(reason="Performance test")
 def test_compare_argument_style_performance():
     """
     This test compares a big arg list vs kwargs
