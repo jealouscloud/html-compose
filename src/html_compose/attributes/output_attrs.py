@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from ..base_types import Resolvable, StrLike
 
 
 class OutputAttrs:
@@ -8,7 +9,7 @@ class OutputAttrs:
     """
 
     @staticmethod
-    def for_(value: list) -> BaseAttribute:
+    def for_(value: Resolvable) -> BaseAttribute:
         """
         "output" attribute: for  
         Specifies controls from which the output was calculated  
@@ -32,7 +33,7 @@ class OutputAttrs:
         return BaseAttribute("form", value)
 
     @staticmethod
-    def name(value: str) -> BaseAttribute:
+    def name(value: StrLike) -> BaseAttribute:
         """
         "output" attribute: name  
         Name of the element to use for form submission and in the form.elements API  

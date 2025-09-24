@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal
+from ..base_types import Resolvable
 
 
 class IframeAttrs:
@@ -81,7 +82,7 @@ class IframeAttrs:
         return BaseAttribute("referrerpolicy", value)
 
     @staticmethod
-    def sandbox(value: list) -> BaseAttribute:
+    def sandbox(value: Resolvable) -> BaseAttribute:
         """
         "iframe" attribute: sandbox  
         Security rules for nested content  

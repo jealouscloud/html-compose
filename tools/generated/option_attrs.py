@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal, Union
+from ..base_types import Resolvable, StrLike
 
 class OptionAttrs:
     """ 
@@ -22,7 +23,7 @@ class OptionAttrs:
 
 
     @staticmethod
-    def label(value: str) -> BaseAttribute:
+    def label(value: StrLike) -> BaseAttribute:
         """
         "option" attribute: label  
         User-visible label  
@@ -50,7 +51,7 @@ class OptionAttrs:
 
 
     @staticmethod
-    def value(value: str) -> BaseAttribute:
+    def value(value: StrLike) -> BaseAttribute:
         """
         "option" attribute: value  
         Value to be used for form submission  

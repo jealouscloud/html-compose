@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal, Union
+from ..base_types import Resolvable, StrLike
 
 class OptgroupAttrs:
     """ 
@@ -22,7 +23,7 @@ class OptgroupAttrs:
 
 
     @staticmethod
-    def label(value: str) -> BaseAttribute:
+    def label(value: StrLike) -> BaseAttribute:
         """
         "optgroup" attribute: label  
         User-visible label  

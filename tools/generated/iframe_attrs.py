@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal, Union
+from ..base_types import Resolvable, StrLike
 
 class IframeAttrs:
     """ 
@@ -92,7 +93,7 @@ class IframeAttrs:
 
 
     @staticmethod
-    def sandbox(value: list) -> BaseAttribute:
+    def sandbox(value: Resolvable) -> BaseAttribute:
         """
         "iframe" attribute: sandbox  
         Security rules for nested content  

@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from ..base_types import StrLike
 
 
 class SlotAttrs:
@@ -8,7 +9,7 @@ class SlotAttrs:
     """
 
     @staticmethod
-    def name(value: str) -> BaseAttribute:
+    def name(value: StrLike) -> BaseAttribute:
         """
         "slot" attribute: name  
         Name of shadow tree slot  

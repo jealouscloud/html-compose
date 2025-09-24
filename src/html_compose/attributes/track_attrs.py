@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal
+from ..base_types import StrLike
 
 
 class TrackAttrs:
@@ -37,7 +38,7 @@ class TrackAttrs:
         return BaseAttribute("kind", value)
 
     @staticmethod
-    def label(value: str) -> BaseAttribute:
+    def label(value: StrLike) -> BaseAttribute:
         """
         "track" attribute: label  
         User-visible label  

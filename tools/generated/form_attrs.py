@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal, Union
+from ..base_types import Resolvable, StrLike
 
 class FormAttrs:
     """ 
@@ -78,7 +79,7 @@ class FormAttrs:
 
 
     @staticmethod
-    def name(value: str) -> BaseAttribute:
+    def name(value: StrLike) -> BaseAttribute:
         """
         "form" attribute: name  
         Name of form to use in the document.forms API  

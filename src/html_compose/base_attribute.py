@@ -1,15 +1,12 @@
-from typing import Iterable, Tuple, TypeAlias, Union
+from typing import Iterable, Tuple, Union
 
 from markupsafe import Markup
+
+from .base_types import Resolvable
 
 
 def unsafe_text(value) -> str:
     return Markup(str(value))
-
-
-Resolveable: TypeAlias = Union[
-    None, str, list[str], dict[str, str], float, int, bool
-]
 
 
 class BaseAttribute:
@@ -22,7 +19,7 @@ class BaseAttribute:
     __slots__ = ("name", "data", "delimeter")
 
     def __init__(
-        self, name: str, data: Resolveable = None, delimeter: str = " "
+        self, name: str, data: Resolvable = None, delimeter: str = " "
     ):
         self.name = name
         self.data = data
@@ -33,7 +30,9 @@ class BaseAttribute:
         Join a list of strings
         Split out for implementors to override
         """
-        return self.delimeter.join(input_data)
+        return self.delimeter.join(
+            x if isinstance(x, str) else str(x) for x in input_data
+        )
 
     def list_string_generator(self, data):
         """

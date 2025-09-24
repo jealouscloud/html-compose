@@ -14,7 +14,7 @@ def generate_class_template(
         element_name = "global"
 
     if attr_name in ("class", "style"):
-        type_data = ": Union[str, list, dict]"
+        type_data = ": Resolvable"
 
     template = f'''
     @staticmethod
@@ -56,6 +56,7 @@ def global_attrs():
     doc_lines = [
         "from . import BaseAttribute",
         "from typing import Literal, Union, Callable",
+        "from ..base_types import Resolvable, StrLike",
         "",
         "class GlobalAttrs:",
         '    """ ',
@@ -116,6 +117,7 @@ def other_attrs():
         doc_lines = [
             "from . import BaseAttribute",
             "from typing import Literal, Union",
+            "from ..base_types import Resolvable, StrLike",
             "",
             f"class {attr_class_name}:",
             '    """ ',

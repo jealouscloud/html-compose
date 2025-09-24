@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from ..base_types import StrLike
 
 
 class DataAttrs:
@@ -8,7 +9,7 @@ class DataAttrs:
     """
 
     @staticmethod
-    def value(value: str) -> BaseAttribute:
+    def value(value: StrLike) -> BaseAttribute:
         """
         "data" attribute: value  
         Machine-readable value  

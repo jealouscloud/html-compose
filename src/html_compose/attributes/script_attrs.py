@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal
+from ..base_types import Resolvable, StrLike
 
 
 class ScriptAttrs:
@@ -21,7 +22,7 @@ class ScriptAttrs:
         return BaseAttribute("async", value)
 
     @staticmethod
-    def blocking(value: list) -> BaseAttribute:
+    def blocking(value: Resolvable) -> BaseAttribute:
         """
         "script" attribute: blocking  
         Whether the element is potentially render-blocking  
@@ -71,7 +72,7 @@ class ScriptAttrs:
         return BaseAttribute("fetchpriority", value)
 
     @staticmethod
-    def integrity(value: str) -> BaseAttribute:
+    def integrity(value: StrLike) -> BaseAttribute:
         """
         "script" attribute: integrity  
         Integrity metadata used in Subresource Integrity checks [SRI]  

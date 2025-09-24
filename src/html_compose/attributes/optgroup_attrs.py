@@ -1,4 +1,5 @@
 from . import BaseAttribute
+from ..base_types import StrLike
 
 
 class OptgroupAttrs:
@@ -20,7 +21,7 @@ class OptgroupAttrs:
         return BaseAttribute("disabled", value)
 
     @staticmethod
-    def label(value: str) -> BaseAttribute:
+    def label(value: StrLike) -> BaseAttribute:
         """
         "optgroup" attribute: label  
         User-visible label  

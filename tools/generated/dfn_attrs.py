@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal, Union
+from ..base_types import Resolvable, StrLike
 
 class DfnAttrs:
     """ 
@@ -8,7 +9,7 @@ class DfnAttrs:
     """ 
     
     @staticmethod
-    def title(value: str) -> BaseAttribute:
+    def title(value: StrLike) -> BaseAttribute:
         """
         "dfn" attribute: title  
         Full term or expansion of abbreviation  

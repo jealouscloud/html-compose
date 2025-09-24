@@ -1,6 +1,6 @@
 import typing
 from functools import lru_cache
-from typing import Callable, Iterable
+from typing import Callable, Iterable, Mapping
 
 from . import util_funcs
 
@@ -77,4 +77,15 @@ Node = (
     | _HasHtml  # Returns HTML that does not need escaping
     | Iterable["Node"]
     | Callable[[], "Node"]
+    | Callable[[ElementBase], "Node"]
+    | Callable[[ElementBase, ElementBase], "Node"]
+)
+
+# These types are used for attribute values
+StrLike = str | float | int | bool
+Resolvable = (
+    None
+    | StrLike
+    | Iterable[StrLike]
+    | Mapping[StrLike, bool]  # key-value pairs which resolve if .value is True
 )

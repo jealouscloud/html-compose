@@ -1,5 +1,6 @@
 from . import BaseAttribute
 from typing import Literal
+from ..base_types import Resolvable, StrLike
 
 
 class AreaAttrs:
@@ -9,7 +10,7 @@ class AreaAttrs:
     """
 
     @staticmethod
-    def alt(value: str) -> BaseAttribute:
+    def alt(value: StrLike) -> BaseAttribute:
         """
         "area" attribute: alt  
         Replacement text for use when images are not available  
@@ -33,7 +34,7 @@ class AreaAttrs:
         return BaseAttribute("coords", value)
 
     @staticmethod
-    def download(value: str) -> BaseAttribute:
+    def download(value: StrLike) -> BaseAttribute:
         """
         "area" attribute: download  
         Whether to download the resource instead of navigating to it, and its filename if so  
@@ -57,7 +58,7 @@ class AreaAttrs:
         return BaseAttribute("href", value)
 
     @staticmethod
-    def ping(value: list) -> BaseAttribute:
+    def ping(value: Resolvable) -> BaseAttribute:
         """
         "area" attribute: ping  
         URLs to ping  
@@ -81,7 +82,7 @@ class AreaAttrs:
         return BaseAttribute("referrerpolicy", value)
 
     @staticmethod
-    def rel(value: list) -> BaseAttribute:
+    def rel(value: Resolvable) -> BaseAttribute:
         """
         "area" attribute: rel  
         Relationship between the location in the document containing the hyperlink and the destination resource  
