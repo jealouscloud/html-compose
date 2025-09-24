@@ -1,5 +1,5 @@
 # 0.10.0
-* onclick/onaction attrs are now generated as kwargs.
+* onclick/onaction attrs are now generated as kwargs for elements.
 * Improve typing: class and style params now correctly type hint, along with other type hint
   improvements.
 
