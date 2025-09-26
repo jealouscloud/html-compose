@@ -1,4 +1,4 @@
-from typing import Literal, Optional, Iterable, Mapping
+from typing import Literal, Iterable, Mapping
 
 from ..attributes import GlobalAttrs, ThAttrs
 from ..base_attribute import BaseAttribute
@@ -170,7 +170,7 @@ class th(BaseElement):
         writingsuggestions: Literal["true", "false", ""]
         | StrLike
         | None = None,
-        children: Optional[list] = None,
+        children: list | None = None,
     ) -> None:
         """
         Initialize 'th' (Table header cell) element.  

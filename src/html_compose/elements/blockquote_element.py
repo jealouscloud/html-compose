@@ -1,4 +1,4 @@
-from typing import Literal, Optional, Iterable, Mapping
+from typing import Literal, Iterable, Mapping
 
 from ..attributes import GlobalAttrs, BlockquoteAttrs
 from ..base_attribute import BaseAttribute
@@ -164,7 +164,7 @@ class blockquote(BaseElement):
         writingsuggestions: Literal["true", "false", ""]
         | StrLike
         | None = None,
-        children: Optional[list] = None,
+        children: list | None = None,
     ) -> None:
         """
         Initialize 'blockquote' (A section quoted from another source) element.  

@@ -327,7 +327,7 @@ def gen_elements():
                 "Mapping[str, Resolvable] | "
                 "Iterable[BaseAttribute | Iterable[BaseAttribute] | Mapping[str,Resolvable]] | None = None,",
                 extra_attrs,
-                "        children: Optional[list] = None",
+                "        children: list | None = None",
                 "    ) -> None:",
                 '        """',
                 f"        Initialize '{real_element}' ({desc}) element.  ",
@@ -347,7 +347,7 @@ def gen_elements():
             ]
             result.append((fixed_name, "\n".join(template)))
 
-    header = f"""from typing import Union, Literal, Optional, Iterable, Mapping
+    header = f"""from typing import Literal, Iterable, Mapping
 
 from ..attributes import GlobalAttrs, {", ".join(attr_imports)}
 from ..base_attribute import BaseAttribute

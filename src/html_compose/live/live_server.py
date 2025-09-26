@@ -1,5 +1,4 @@
 from time import sleep
-from typing import Optional
 
 from ..util_funcs import generate_livereload_env
 from .livereload_server import reload_because, run_server
@@ -23,8 +22,8 @@ def live_server(
     print_paths=True,
     loop_delay=1,
     livereload_delay=0.2,
-    proxy_host: Optional[str] = None,
-    proxy_uri: Optional[str] = None,
+    proxy_host: str | None = None,
+    proxy_uri: str | None = None,
 ) -> None:
     """
     Run a live-reload server that also runs and reloads your Python server.

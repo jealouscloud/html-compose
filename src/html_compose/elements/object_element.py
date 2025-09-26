@@ -1,4 +1,4 @@
-from typing import Literal, Optional, Iterable, Mapping
+from typing import Literal, Iterable, Mapping
 
 from ..attributes import GlobalAttrs, ObjectAttrs
 from ..base_attribute import BaseAttribute
@@ -177,7 +177,7 @@ class object(BaseElement):
         writingsuggestions: Literal["true", "false", ""]
         | StrLike
         | None = None,
-        children: Optional[list] = None,
+        children: list | None = None,
     ) -> None:
         """
         Initialize 'object' (Image, child navigable, or plugin) element.  

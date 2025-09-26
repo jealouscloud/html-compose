@@ -1,4 +1,4 @@
-from typing import Literal, Optional, Iterable, Mapping
+from typing import Literal, Iterable, Mapping
 
 from ..attributes import GlobalAttrs, SelectAttrs
 from ..base_attribute import BaseAttribute
@@ -180,7 +180,7 @@ class select(BaseElement):
         writingsuggestions: Literal["true", "false", ""]
         | StrLike
         | None = None,
-        children: Optional[list] = None,
+        children: list | None = None,
     ) -> None:
         """
         Initialize 'select' (List box control) element.  

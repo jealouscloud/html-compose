@@ -1,4 +1,4 @@
-from typing import Literal, Optional, Iterable, Mapping
+from typing import Literal, Iterable, Mapping
 
 from ..attributes import GlobalAttrs, AreaAttrs
 from ..base_attribute import BaseAttribute
@@ -174,7 +174,7 @@ class area(BaseElement):
         writingsuggestions: Literal["true", "false", ""]
         | StrLike
         | None = None,
-        children: Optional[list] = None,
+        children: list | None = None,
     ) -> None:
         """
         Initialize 'area' (Hyperlink or dead area on an image map) element.  

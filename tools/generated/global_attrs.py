@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union, Callable
+from typing import Literal, Callable
 from ..base_types import Resolvable, StrLike
 
 class GlobalAttrs:

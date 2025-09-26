@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union
+from typing import Literal
 from ..base_types import Resolvable, StrLike
 
 class DelAttrs:

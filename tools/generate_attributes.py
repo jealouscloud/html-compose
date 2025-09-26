@@ -55,7 +55,7 @@ def global_attrs():
     doc = "\n\n".join(result)
     doc_lines = [
         "from . import BaseAttribute",
-        "from typing import Literal, Union, Callable",
+        "from typing import Literal, Callable",
         "from ..base_types import Resolvable, StrLike",
         "",
         "class GlobalAttrs:",
@@ -116,7 +116,7 @@ def other_attrs():
         doc = "\n\n".join(result)
         doc_lines = [
             "from . import BaseAttribute",
-            "from typing import Literal, Union",
+            "from typing import Literal",
             "from ..base_types import Resolvable, StrLike",
             "",
             f"class {attr_class_name}:",

@@ -78,8 +78,6 @@ We are going to dive into the technicals and core ideas of the library.
 .. include:: ../../doc/ideas/05_livereload.md
 """
 
-from typing import Union
-
 from markupsafe import Markup, escape
 
 
@@ -95,7 +93,7 @@ def escape_text(value) -> Markup:
         return escape(str(value))
 
 
-def unsafe_text(value: Union[str, Markup]) -> Markup:
+def unsafe_text(value: str | Markup) -> Markup:
     """
     Return input string as Markup
 

@@ -1,7 +1,8 @@
-from typing import Optional, Union
+from typing import Iterable, Mapping
 
 from .attributes import BaseAttribute, GlobalAttrs
 from .base_element import BaseElement
+from .base_types import Resolvable
 from .util_funcs import safe_name
 
 
@@ -15,12 +16,15 @@ class CustomElement(BaseElement):
 
     def __init__(
         self,
-        attrs: Optional[
-            Union[dict[str, Union[str, dict, list]], list[BaseAttribute]]
-        ] = None,
-        id: Optional[str] = None,
-        class_: Optional[Union[str, list]] = None,
-        children: Optional[list] = None,
+        attrs: Iterable[BaseAttribute]
+        | Mapping[str, Resolvable]
+        | Iterable[
+            BaseAttribute | Iterable[BaseAttribute] | Mapping[str, Resolvable]
+        ]
+        | None = None,
+        id: str | None = None,
+        class_: str | list | None = None,
+        children: list | None = None,
     ):
         """
         Initialize a custom HTML element

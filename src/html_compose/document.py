@@ -1,16 +1,14 @@
-from typing import Optional, Union
-
 from . import base_types, doctype, pretty_print, unsafe_text
 from . import elements as el
 from .util_funcs import get_livereload_env
 
 
 def HTML5Document(
-    title: Optional[str] = None,
-    lang: Optional[str] = None,
-    head: Optional[list] = None,
-    body: Union[list[base_types.Node], el.body, None] = None,
-    prettify: Union[bool, str] = False,
+    title: str | None = None,
+    lang: str | None = None,
+    head: list | None = None,
+    body: list[base_types.Node] | el.body | None = None,
+    prettify: bool | str = False,
 ) -> str:
     """
     Return an HTML5 document with the given title and content.
@@ -63,7 +61,9 @@ def HTML5Document(
     html = el.html(lang=lang)[head_el, body_el]
     result = f"{header}\n{html.render()}"
     if prettify:
-        return pretty_print(result)
+        if prettify is True:
+            return pretty_print(result)
+        return pretty_print(result, features=prettify)
     else:
         return result
 

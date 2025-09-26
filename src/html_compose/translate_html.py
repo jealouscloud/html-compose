@@ -1,7 +1,7 @@
 import inspect
 import re
 from functools import cache
-from typing import Any, Optional, Union, cast
+from typing import Any, cast
 
 from bs4 import BeautifulSoup, NavigableString, Tag
 from bs4.element import Doctype
@@ -36,10 +36,10 @@ def get_phrasing_tags():
 
 def read_string(
     input_str: NavigableString,
-    prev_tag: Optional[Tag],
-    next_tag: Optional[Tag],
+    prev_tag: Tag | None,
+    next_tag: Tag | None,
     phrasing_tags: list[str],
-) -> Union[str, None]:
+) -> str | None:
     """
     Helper to sort of 'auto-translate' HTML formatted strings into what
     they would be viewed as in a browser, which can then be represented in
@@ -93,7 +93,7 @@ def read_string(
 WHITESPACE_PRE = ["pre", "textarea", "listing", "xmp"]
 
 
-def read_pre_string(input_str: NavigableString) -> Union[str, None]:
+def read_pre_string(input_str: NavigableString) -> str | None:
     """
     pre elements do the same as above, but remove the first newline
     """
@@ -113,7 +113,7 @@ class TranslateResult:
         elements: list[str],
         tags: dict[str, Any],
         import_statement: str = "",
-        custom_elements: Optional[list[str]] = None,
+        custom_elements: list[str] | None = None,
     ):
         self.elements = elements
         self.tags = tags
@@ -132,9 +132,7 @@ def is_preformatted(tag_name):
     return tag_name in {"pre", "textarea"}
 
 
-def translate(
-    html: str, import_module: Optional[str] = None
-) -> TranslateResult:
+def translate(html: str, import_module: str | None = None) -> TranslateResult:
     """
     Translate HTML string into Python code representing a similar HTML structure
 
@@ -151,7 +149,7 @@ def translate(
 
     phrasing_tags = get_phrasing_tags()
 
-    def process_element(element) -> Union[str, None]:
+    def process_element(element) -> str | None:
         if isinstance(element, Doctype):
             dt: Doctype = element
             tags["doctype"] = None
