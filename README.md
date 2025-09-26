@@ -124,7 +124,7 @@ a([tab]
   div(attrs=[div.class_("flex")], class_={"dark-mode": True})
   # <div class="flex dark-mode"></div>
 
-  # Style produces redimentary css statements
+  # Style produces basic css statements
   # but does no special quoting
   div(style={
     "flex-direction": "row",
