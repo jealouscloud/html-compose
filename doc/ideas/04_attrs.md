@@ -94,7 +94,7 @@ An exception to the rule is `style`
 ```python
 from html_compose import div
 
-# This is NOT the correct way to use a dictionary
+# the style attribute has special handling.
 div.hint.style({
         'background': "red", # OK
         "flow-direction": "row"
