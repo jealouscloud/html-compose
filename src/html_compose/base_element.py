@@ -1,4 +1,4 @@
-from typing import Callable, Generator, Iterable, Mapping, Optional, Union
+from typing import Callable, Generator, Iterable, Mapping
 
 from . import escape_text, unsafe_text, util_funcs
 from .attributes import BaseAttribute, GlobalAttrs
@@ -58,7 +58,7 @@ class BaseElement(ElementBase):
             BaseAttribute | Iterable[BaseAttribute] | Mapping[str, Resolvable]
         ]
         | None = None,
-        children: Optional[list] = None,
+        children: list | None = None,
     ) -> None:
         """
         Initialize an HTML element
@@ -84,7 +84,9 @@ class BaseElement(ElementBase):
 
         return False
 
-    def _process_attr(self, attr_name, attr_data):
+    def _process_attr(
+        self, attr_name: str, attr_data: str | Resolvable | BaseAttribute | None
+    ):
         """
         Add an attribute for the element to the internal _attrs dict
         We technically allow stacking for supported attributes.
@@ -92,7 +94,7 @@ class BaseElement(ElementBase):
 
         Args:
             attr_name (str): The name of the attribute.
-            attr_data (Union[str, BaseAttribute]): The data for the attribute.
+            attr_data (str | Resolvable): The data for the attribute.
         """
         if attr_data is None or attr_data is False:
             return  # noop
@@ -277,7 +279,7 @@ class BaseElement(ElementBase):
 
     def _resolve_tree(
         self, parent=None
-    ) -> Generator[Union[str, Callable], None, None]:
+    ) -> Generator[str | Callable, None, None]:
         """
         Walk html element tree and yield all resolved children
 

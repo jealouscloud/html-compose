@@ -1,4 +1,4 @@
-from typing import Union, Literal, Optional, Iterable, Mapping
+from typing import Literal, Iterable, Mapping
 
 from ..attributes import GlobalAttrs, AnchorAttrs, AreaAttrs, AudioAttrs, BaseAttrs, BlockquoteAttrs, BodyAttrs, ButtonAttrs, CanvasAttrs, ColAttrs, ColgroupAttrs, DataAttrs, DelAttrs, DetailsAttrs, DialogAttrs, EmbedAttrs, FieldsetAttrs, FormAttrs, IframeAttrs, ImgAttrs, InputAttrs, InsAttrs, LabelAttrs, LiAttrs, LinkAttrs, MapAttrs, MetaAttrs, MeterAttrs, ObjectAttrs, OlAttrs, OptgroupAttrs, OptionAttrs, OutputAttrs, ProgressAttrs, QAttrs, ScriptAttrs, SelectAttrs, SlotAttrs, SourceAttrs, StyleAttrs, TdAttrs, TemplateAttrs, TextareaAttrs, ThAttrs, TimeAttrs, TrackAttrs, VideoAttrs
 from ..base_attribute import BaseAttribute
@@ -128,12 +128,12 @@ class base(BaseElement):
         popover: Literal['auto', 'manual'] | StrLike | None = None,
         slot: StrLike | None = None,
         spellcheck: Literal['true', 'false', ''] | StrLike | None = None,
-        style: Resolvable | None = None,
+        style: Resolvable | Mapping[StrLike, StrLike] | None = None,
         tabindex: int | StrLike | None = None,
         title: StrLike | None = None,
         translate: Literal['yes', 'no'] | StrLike | None = None,
         writingsuggestions: Literal['true', 'false', ''] | StrLike | None = None,
-        children: Optional[list] = None
+        children: list | None = None
     ) -> None:
         """
         Initialize 'base' (Base URL and default target navigable for hyperlinks and forms) element.  

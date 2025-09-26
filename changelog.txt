@@ -1,3 +1,10 @@
+# 0.10.1
+* Style parameter: when input is a dict[str, str], assume the user wants simple f"{key}: {value}" css statements
+* Type hints: Cleanup type hints to all be 3.10 style
+* Fix pretty print not accepting custom beautifulsoup encoder
+* [breaking] Fix base_attribute "delimiter" argument spelling
+  This is considered a minor but potentially breaking change.
+
 # 0.10.0
 * onclick/onaction attrs are now generated as kwargs for elements.
 * Improve typing: class and style params now correctly type hint, as do other

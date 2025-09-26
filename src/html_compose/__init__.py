@@ -78,8 +78,6 @@ We are going to dive into the technicals and core ideas of the library.
 .. include:: ../../doc/ideas/05_livereload.md
 """
 
-from typing import Union
-
 from markupsafe import Markup, escape
 
 
@@ -95,7 +93,7 @@ def escape_text(value) -> Markup:
         return escape(str(value))
 
 
-def unsafe_text(value: Union[str, Markup]) -> Markup:
+def unsafe_text(value: str | Markup) -> Markup:
     """
     Return input string as Markup
 
@@ -121,7 +119,7 @@ def pretty_print(html_str: str, features="html.parser") -> str:
     # so we lazy load bs4
     from bs4 import BeautifulSoup  # type: ignore[import-untyped]
 
-    return BeautifulSoup(html_str, features="html.parser").prettify(
+    return BeautifulSoup(html_str, features=features).prettify(
         formatter="html5"
     )
 

@@ -6,7 +6,7 @@ from pathlib import Path
 from threading import RLock, Thread
 from time import sleep, time
 from traceback import print_exc
-from typing import Callable, Optional, Union
+from typing import Callable
 
 from watchfiles._rust_notify import RustNotify
 
@@ -17,9 +17,7 @@ CWD = Path(".").absolute()
 
 class ShellCommand:
     def __init__(
-        self,
-        command: Union[str, list[str]],
-        env: Optional[dict[str, str]] = None,
+        self, command: str | list[str], env: dict[str, str] | None = None
     ):
         self.command = command
         self.env = os.environ.copy()
@@ -28,9 +26,7 @@ class ShellCommand:
 
 
 class Task:
-    def __init__(
-        self, action: Optional[Callable], delay: float = 0.0, sync=False
-    ):
+    def __init__(self, action: Callable | None, delay: float = 0.0, sync=False):
         self.action = action
         self.delay = delay
         self.update_count = 0
@@ -141,9 +137,9 @@ class WatchCond:
 
     def __init__(
         self,
-        path_glob: Union[str, list[str]],
-        action: Optional[Union[ShellCommand, Callable]],
-        ignore_glob: Optional[Union[str, list[str]]] = None,
+        path_glob: str | list[str],
+        action: ShellCommand | Callable | None,
+        ignore_glob: str | list[str] | None = None,
         delay: float = 0,
         server_reload: bool = True,
         reload: bool = True,

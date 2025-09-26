@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal, Union
+from typing import Literal, Iterable, Mapping
 from ..base_types import Resolvable, StrLike
 
 class SourceAttrs:

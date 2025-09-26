@@ -58,7 +58,7 @@ The same rule is applied anywhere else a name conflicts with a keyword i.e. the 
 
 ### Repeat Attributes
 
-In the event `class` or `style` occur multiple times, they are concatenated with the correct delimeter in the order they're received.
+In the event `class` or `style` occur multiple times, they are concatenated with the correct delimiter in the order they're received.
 
 Because there's no clear way to concat other attributes, an exception is raised.
 

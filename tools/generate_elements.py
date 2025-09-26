@@ -182,7 +182,9 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
             param_types.append("StrLike")
         # Hardcode override for class and style, which uniquely are intended
         # for multiple types
-        if attrdef.name in ("class", "style"):
+        if attrdef.name == "style":
+            param_types = ["Resolvable", "Mapping[StrLike, StrLike]"]
+        elif attrdef.name == "class":
             param_types = ["Resolvable"]
 
         p_type = f"{' | '.join(param_types)}"
@@ -327,7 +329,7 @@ def gen_elements():
                 "Mapping[str, Resolvable] | "
                 "Iterable[BaseAttribute | Iterable[BaseAttribute] | Mapping[str,Resolvable]] | None = None,",
                 extra_attrs,
-                "        children: Optional[list] = None",
+                "        children: list | None = None",
                 "    ) -> None:",
                 '        """',
                 f"        Initialize '{real_element}' ({desc}) element.  ",
@@ -347,7 +349,7 @@ def gen_elements():
             ]
             result.append((fixed_name, "\n".join(template)))
 
-    header = f"""from typing import Union, Literal, Optional, Iterable, Mapping
+    header = f"""from typing import Literal, Iterable, Mapping
 
 from ..attributes import GlobalAttrs, {", ".join(attr_imports)}
 from ..base_attribute import BaseAttribute

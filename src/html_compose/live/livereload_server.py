@@ -1,12 +1,11 @@
 import json
 import threading
 from time import sleep
-from typing import Optional
 
 from websockets.sync.server import Server, serve
 
 sockets = set()
-server: Optional[Server] = None
+server: Server | None = None
 
 
 def run_ws(websocket):

@@ -1,4 +1,4 @@
-from typing import Literal, Optional, Iterable, Mapping
+from typing import Literal, Iterable, Mapping
 
 from ..attributes import GlobalAttrs, StyleAttrs
 from ..base_attribute import BaseAttribute
@@ -159,13 +159,13 @@ class style(BaseElement):  # type: ignore[misc]
         popover: Literal["auto", "manual"] | StrLike | None = None,
         slot: StrLike | None = None,
         spellcheck: Literal["true", "false", ""] | StrLike | None = None,
-        style: Resolvable | None = None,
+        style: Resolvable | Mapping[StrLike, StrLike] | None = None,
         tabindex: int | StrLike | None = None,
         translate: Literal["yes", "no"] | StrLike | None = None,
         writingsuggestions: Literal["true", "false", ""]
         | StrLike
         | None = None,
-        children: Optional[list] = None,
+        children: list | None = None,
     ) -> None:
         """
         Initialize 'style' (Embedded styling information) element.  

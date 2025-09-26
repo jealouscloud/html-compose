@@ -1,4 +1,4 @@
-from typing import Iterable, Tuple, Union
+from typing import Iterable, Tuple
 
 from markupsafe import Markup
 
@@ -16,21 +16,21 @@ class BaseAttribute:
     Attribute Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
     """
 
-    __slots__ = ("name", "data", "delimeter")
+    __slots__ = ("name", "data", "delimiter")
 
     def __init__(
-        self, name: str, data: Resolvable = None, delimeter: str = " "
+        self, name: str, data: Resolvable = None, delimiter: str = " "
     ):
         self.name = name
         self.data = data
-        self.delimeter = delimeter
+        self.delimiter = delimiter
 
     def resolve_join(self, input_data: Iterable):
         """
         Join a list of strings
         Split out for implementors to override
         """
-        return self.delimeter.join(
+        return self.delimiter.join(
             x if isinstance(x, str) else str(x) for x in input_data
         )
 
@@ -58,7 +58,18 @@ class BaseAttribute:
                 continue
             yield key
 
-    def resolve_data(self) -> Union[None, str]:
+    def dict_style_string_generator(self, data):
+        """
+        Resolve dictionary key, value into css statement pairs
+
+
+        The implementation is the simplest `<key>: <value>.
+        User is therefore responsible for quoting.
+        """
+        for key, value in data.items():
+            yield f"{key}: {value}"
+
+    def resolve_data(self) -> str | None:
         """
         Resolve right half of attribute into a string
 
@@ -89,13 +100,18 @@ class BaseAttribute:
             _resolved = self.list_string_generator(data)
         # dictionary of key value pairs
         elif isinstance(data, dict):
-            _resolved = self.dict_string_generator(data)
+            if self.name == "style":
+                # Magic: Style attribute with key-value pairs procudes
+                # basic css statements.
+                _resolved = self.dict_style_string_generator(data)
+            else:
+                _resolved = self.dict_string_generator(data)
         else:
             raise ValueError(f"Input data type {data} not supported")
 
         return self.resolve_join(_resolved)
 
-    def evaluate(self) -> Union[None, Tuple[str, str]]:
+    def evaluate(self) -> Tuple[str, str] | None:
         """
         Evaluate attribute, return key, value as tuple
         or None if attribute is falsey
@@ -110,8 +126,8 @@ class BaseAttribute:
         return (self.name, resolved)
 
     def __repr__(self):
-        if self.delimeter != " ":
-            return f"BaseAttribute{{name={repr(self.name)}, data={repr(self.data)}, delimeter={repr(self.data)}}}"
+        if self.delimiter != " ":
+            return f"BaseAttribute{{name={repr(self.name)}, data={repr(self.data)}, delimiter={repr(self.data)}}}"
 
         return (
             f"BaseAttribute{{name={repr(self.name)}, data={repr(self.data)}}}"

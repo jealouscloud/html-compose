@@ -1,5 +1,5 @@
 from . import BaseAttribute
-from typing import Literal
+from typing import Literal, Iterable, Mapping
 from ..base_types import Resolvable, StrLike
 
 
@@ -60,7 +60,7 @@ class GlobalAttrs:
         return BaseAttribute("autofocus", value)
 
     @staticmethod
-    def class_(value: Resolvable) -> BaseAttribute:
+    def class_(value: StrLike | Iterable[StrLike]) -> BaseAttribute:
         """
         "global" attribute: class  
         Classes to which the element belongs  
@@ -317,7 +317,7 @@ class GlobalAttrs:
         return BaseAttribute("spellcheck", value)
 
     @staticmethod
-    def style(value: Resolvable) -> BaseAttribute:
+    def style(value: Resolvable | Mapping[StrLike, StrLike]) -> BaseAttribute:
         """
         "global" attribute: style  
         Presentational and formatting instructions  
@@ -326,7 +326,7 @@ class GlobalAttrs:
         :return: An style attribute to be added to your element
         """  # fmt: skip
 
-        return BaseAttribute("style", value)
+        return BaseAttribute("style", value, delimiter="; ")
 
     @staticmethod
     def tabindex(value: int) -> BaseAttribute:

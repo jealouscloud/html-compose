@@ -9,7 +9,7 @@ import json
 from functools import lru_cache
 from os import getenv
 from pathlib import PurePath
-from typing import Any, Generator, Iterable, Optional
+from typing import Any, Generator, Iterable
 
 
 def join_attrs(k, value_trusted):
@@ -72,7 +72,7 @@ def safe_name(name):
     return name
 
 
-def get_livereload_env() -> Optional[dict]:
+def get_livereload_env() -> dict | None:
     enabled = getenv("HTMLCOMPOSE_LIVERELOAD") == "1"
     if not enabled:
         return None
@@ -86,7 +86,7 @@ def get_livereload_env() -> Optional[dict]:
 
 
 def generate_livereload_env(
-    host, port, proxy_host: Optional[str], proxy_uri: Optional[str] = None
+    host, port, proxy_host: str | None, proxy_uri: str | None = None
 ) -> dict:
     flags = {
         "port": port,
