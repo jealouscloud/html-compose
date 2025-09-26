@@ -148,6 +148,14 @@ def test_kw_arg_attr():
     )
 
 
+def test_style_arg():
+    el = div(id="test", style={"color": "red", "background-color": "blue"})
+    assert (
+        el.render()
+        == '<div id="test" style="color: red; background-color: blue"></div>'
+    )
+
+
 def test_class_getitem():
     """
     Sometimes I forget to construct elements that only contain a string.

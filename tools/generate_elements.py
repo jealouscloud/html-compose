@@ -182,7 +182,9 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
             param_types.append("StrLike")
         # Hardcode override for class and style, which uniquely are intended
         # for multiple types
-        if attrdef.name in ("class", "style"):
+        if attrdef.name == "style":
+            param_types = ["Resolvable", "Mapping[StrLike, StrLike]"]
+        elif attrdef.name == "class":
             param_types = ["Resolvable"]
 
         p_type = f"{' | '.join(param_types)}"

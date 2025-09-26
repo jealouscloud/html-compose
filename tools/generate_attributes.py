@@ -13,9 +13,12 @@ def generate_class_template(
     if element_name == "Global Attribute":
         element_name = "global"
 
-    if attr_name in ("class", "style"):
-        type_data = ": Resolvable"
+    if attr_name == "style":
+        type_data = ": Resolvable | Mapping[StrLike, StrLike]"
+    elif attr_name == "class":
+        type_data = ": StrLike | Iterable[StrLike]"
 
+    delimiter_stmt = "" if attr_name != "style" else ", delimiter='; '"
     template = f'''
     @staticmethod
     def {safe_class_name.lower()}(value{type_data}) -> BaseAttribute:
@@ -27,7 +30,7 @@ def generate_class_template(
         :return: An {attr_name} attribute to be added to your element
         """ # fmt: skip
         
-        return BaseAttribute("{attr_name}", value)
+        return BaseAttribute("{attr_name}", value{delimiter_stmt})
             '''
     return template
 
@@ -55,7 +58,7 @@ def global_attrs():
     doc = "\n\n".join(result)
     doc_lines = [
         "from . import BaseAttribute",
-        "from typing import Literal, Callable",
+        "from typing import Literal, Callable, Iterable, Mapping",
         "from ..base_types import Resolvable, StrLike",
         "",
         "class GlobalAttrs:",
@@ -116,7 +119,7 @@ def other_attrs():
         doc = "\n\n".join(result)
         doc_lines = [
             "from . import BaseAttribute",
-            "from typing import Literal",
+            "from typing import Literal, Iterable, Mapping",
             "from ..base_types import Resolvable, StrLike",
             "",
             f"class {attr_class_name}:",

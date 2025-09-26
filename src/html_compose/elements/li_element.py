@@ -157,7 +157,7 @@ class li(BaseElement):
         popover: Literal["auto", "manual"] | StrLike | None = None,
         slot: StrLike | None = None,
         spellcheck: Literal["true", "false", ""] | StrLike | None = None,
-        style: Resolvable | None = None,
+        style: Resolvable | Mapping[StrLike, StrLike] | None = None,
         tabindex: int | StrLike | None = None,
         title: StrLike | None = None,
         translate: Literal["yes", "no"] | StrLike | None = None,

@@ -77,6 +77,34 @@ div._.class_("red")
 # "red"
 ```
 
+An easy mistake is getting caught assuming the dictionary will resolve the value
+```python
+from html_compose import div
+
+# This is NOT the correct way to use a dictionary
+div.hint.class_({
+        'color': "red", # ❌ Incorrect use
+    }
+)
+# "color" ❌ is likely not what you wanted
+
+```
+
+An exception to the rule is `style`
+```python
+from html_compose import div
+
+# This is NOT the correct way to use a dictionary
+div.hint.style({
+        'background': "red", # OK
+        "flow-direction": "row"
+    }
+)
+"background: red; flow-directionn: row"
+```
+The implementation is the simplest `<key>: <value>. 
+User is therefore responsible for quoting.
+
 ## `attrs=` parameter syntax
 
 In the constructor for any element, you can specify the `attrs` parameter.

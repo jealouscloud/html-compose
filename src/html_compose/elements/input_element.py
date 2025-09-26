@@ -211,7 +211,7 @@ class input(BaseElement):  # type: ignore[misc]
         popover: Literal["auto", "manual"] | StrLike | None = None,
         slot: StrLike | None = None,
         spellcheck: Literal["true", "false", ""] | StrLike | None = None,
-        style: Resolvable | None = None,
+        style: Resolvable | Mapping[StrLike, StrLike] | None = None,
         tabindex: int | StrLike | None = None,
         translate: Literal["yes", "no"] | StrLike | None = None,
         writingsuggestions: Literal["true", "false", ""]
