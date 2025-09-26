@@ -123,6 +123,57 @@ a([tab]
   ## Combine the two
   div(attrs=[div.class_("flex")], class_={"dark-mode": True})
   # <div class="flex dark-mode"></div>
+
+  # Style produces redimentary css statements
+  # but does no special quoting
+  div(style={
+    "flex-direction": "row",
+    "background": "indigo"
+  })
+  # <div style="flex-direction: row; background: indigo">
+
+  class Flex:
+    """
+    Flexbox helper class with potentially
+    clearer language
+    """
+    flow_from = Literal
+        ["start", 
+        "end", 
+        "center", 
+        "between", 
+        "around", 
+        "evenly"
+    ]
+    across_items = Literal[
+        "start",
+        "end",
+        "center",
+        "stretch",
+        "baseline",
+    ]
+
+    @staticmethod
+    def row(
+        flow_from: flow_from | None = None,
+        cross: across_items | None = None,
+        gap: str | int = 0,
+        size_basis: str | int | None = None,
+    ) -> str:
+        """
+        Standard row flexbox - left to right
+
+        :param flow_from: item positioning rule (justify-content)
+        :param cross: cross axis positioning rule (align-items)
+        :param gap: spacing between items (px if int, otherwise raw CSS)
+        :param size_basis: flex-basis value - initial size. px if int, otherwise raw CSS
+        :return: CSS style string
+        """
+        return Flex._impl("row", flow_from, cross, gap, size_basis)
+  
+  div(style=Flex.row(flow_from"center", cross="stretch"))
+
+  # <div style="flex-direction: row; justify-content: center; align-items: stretch;"></div>
   ```
 
 * 🎭 Type hints for the editor generated from WhatWG spec
