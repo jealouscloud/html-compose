@@ -88,11 +88,6 @@ class BaseAttribute:
         if isinstance(data, int):
             return str(data)
 
-        # Just a bool that needs to be marshalled to a string
-        # evaluate normally blocks this
-        if isinstance(data, bool):
-            return "true" if data else "false"
-
         if data is None:
             return None
 
