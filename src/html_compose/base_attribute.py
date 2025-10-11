@@ -83,6 +83,15 @@ class BaseAttribute:
             return "true"
 
         if data is False:
+            warn(
+                f"Attribute fired with data set to False. "
+                f"We will emit {self.name}=false, but in general HTML treats "
+                'attrname="any value" as true. '
+                "If you are sure about this, ignore this warning with "
+                "warnings.filterwarnings('ignore', '"
+                "Attribute fired with data set to False')",
+                stacklevel=2,
+            )
             return "false"
         # Just a string
         if isinstance(data, str):
