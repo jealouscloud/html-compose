@@ -1,4 +1,5 @@
 from typing import Iterable, Tuple
+from warnings import warn
 
 from markupsafe import Markup
 
@@ -77,6 +78,12 @@ class BaseAttribute:
         """
 
         data = self.data
+
+        if data is True:
+            return "true"
+
+        if data is False:
+            return "false"
         # Just a string
         if isinstance(data, str):
             return data
