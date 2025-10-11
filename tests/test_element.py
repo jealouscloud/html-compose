@@ -2,7 +2,7 @@ import pytest
 from bs4 import BeautifulSoup
 
 import html_compose as h
-from html_compose import a, div, img
+from html_compose import a, div, img, script
 
 
 def get_soup(input: str):
@@ -139,6 +139,14 @@ def test_generic_attr():
     assert el.render() == '<div data-foo="bar"></div>'
     el = div(attrs=[BaseAttribute("data-foo", "bar")])
     assert el.render() == '<div data-foo="bar"></div>'
+
+
+def test_defer_arg():
+    """
+    Confirm that boolean attributes work as expected
+    """
+    assert script(defer=True).render() == '<script defer="true"></script>'
+    assert script(defer=False).render() == "<script></script>"
 
 
 def test_kw_arg_attr():
