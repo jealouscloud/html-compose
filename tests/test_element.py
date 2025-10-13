@@ -196,7 +196,11 @@ def test_document():
     expected = "\n".join(
         [
             "<!DOCTYPE html>",
-            '<html lang="en"><head><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Test</title></head><body><button>Button</button><br/><p>demo 2</p></body></html>',
+            '<html lang="en">',
+            '<head><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Test</title></head>',
+            "",
+            "<body><button>Button</button><br/><p>demo 2</p></body>",
+            "</html>",
         ]
     )
     assert doc == expected

@@ -76,6 +76,7 @@ We are going to dive into the technicals and core ideas of the library.
 .. include:: ../../doc/ideas/03_code_generator.md
 .. include:: ../../doc/ideas/04_attrs.md
 .. include:: ../../doc/ideas/05_livereload.md
+.. include:: ../../doc/ideas/06_resource_imports.md
 """
 
 from markupsafe import Markup, escape
@@ -137,7 +138,13 @@ from .custom_element import CustomElement
 
 create_element = CustomElement.create
 
-from .document import HTML5Document
+# ruff: noqa: F401, E402
+from .document import (
+    HTML5Document,
+    HTML5Stream,
+    document_generator,
+    document_streamer,
+)
 
 # ruff: noqa: F401, E402
 from .elements import (
@@ -254,4 +261,12 @@ from .elements import (
     var,
     video,
     wbr,
+)
+
+# ruff: noqa: F401, E402
+from .resource import (
+    css_import,
+    font_import_manual,
+    font_import_provider,
+    js_import,
 )
