@@ -44,9 +44,6 @@ link = a(href="https://example.com", target="_blank")["Click here"]
 link.render()  # '<a href="https://example.com" target="_blank">Click here</a>'
 ```
 #### Attributes that aren't in the constructor signature
-**Note that events like .onclick are _not_ available in the constructor.**
-
-We do however provide the type hint via `<element>.hint`
 
 The first positional argument is `attrs=` which can be a list of attributes.
 We generate many of these for type hints under `<element>.hint or `<element>._`
