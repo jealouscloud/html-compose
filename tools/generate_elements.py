@@ -104,7 +104,7 @@ class htmx:
     '''
 
     @staticmethod
-    def hx_get(value: str) -> BaseAttribute:
+    def get(value: str) -> BaseAttribute:
         '''
         htmx attribute: hx-get
             The hx-get attribute will cause an element to issue a
@@ -117,7 +117,7 @@ class htmx:
 
         return BaseAttribute("hx-get", value)
 
-btn = button([htmx.hx_get("/api/data")])["Click me!"]
+btn = button([htmx.get("/api/data")])["Click me!"]
 btn.render()  # '<button hx-get="/api/data">Click me!</button>'
 ```
 

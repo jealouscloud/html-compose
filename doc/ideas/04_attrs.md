@@ -225,7 +225,7 @@ class htmx:
     '''
 
     @staticmethod
-    def hx_get(value: str) -> BaseAttribute:
+    def get(value: str) -> BaseAttribute:
         '''
         htmx attribute: hx-get
             The hx-get attribute will cause an element to issue a
@@ -244,7 +244,7 @@ Where we can write
 
 ```python
 button(
-    [htmx.hx_get("/api/data")], 
+    [htmx.get("/api/data")], 
     class_="btn primary"
 )["Click me!"]
 ```
