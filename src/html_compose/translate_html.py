@@ -1,7 +1,7 @@
 import inspect
 import re
 from functools import cache
-from typing import Any, cast
+from typing import Any
 
 from bs4 import BeautifulSoup, NavigableString, PageElement, Tag
 from bs4.element import Doctype
