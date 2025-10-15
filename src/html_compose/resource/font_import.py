@@ -309,9 +309,9 @@ class font_import_provider(_font_import_base):
                 "If hash is set, crossorigin must be set to ''/'anonymous'"
             )
         self.preconnect_crossorigin = preconnect_crossorigin
-        if preconnect_crossorigin is None:
+        if preconnect_crossorigin is None and self.crossorigin:
             if self.crossorigin != "user-credentials":
-                self.preconnect_crossorigin = self.crossorigin
+                self.preconnect_crossorigin = self.crossorigin  # type: ignore[assignment]
             else:
                 raise ValueError(
                     "Please set preconnect_crossorigin explicitly if "
