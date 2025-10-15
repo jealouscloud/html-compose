@@ -3,7 +3,7 @@ import re
 from functools import cache
 from typing import Any, cast
 
-from bs4 import BeautifulSoup, NavigableString, Tag
+from bs4 import BeautifulSoup, NavigableString, PageElement, Tag
 from bs4.element import Doctype
 
 from . import BaseElement, escape_text
@@ -161,7 +161,7 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
 
     import_unsafe_text = False
 
-    def process_element(element) -> str | None:
+    def process_element(element: PageElement) -> str | None:
         if isinstance(element, Doctype):
             dt: Doctype = element
             tags["doctype"] = None
@@ -250,19 +250,15 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
                 # We step backwards until we find a tag
                 prev_tag = next(
                     (
-                        cast(Tag, child_nodes[j])
-                        for j in range(i - 1, -1, -1)
-                        if isinstance(child_nodes[j], Tag)
+                        j
+                        for j in reversed(child_nodes[:i])
+                        if isinstance(j, Tag)
                     ),
                     None,
                 )
                 # Same deal, forwards until we find a tag
                 next_tag = next(
-                    (
-                        cast(Tag, child_nodes[j])
-                        for j in range(i + 1, len(child_nodes))
-                        if isinstance(child_nodes[j], Tag)
-                    ),
+                    (j for j in child_nodes[i + 1 :] if isinstance(j, Tag)),
                     None,
                 )
                 processed = read_string(
