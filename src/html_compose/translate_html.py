@@ -6,7 +6,7 @@ from typing import Any, cast
 from bs4 import BeautifulSoup, NavigableString, Tag
 from bs4.element import Doctype
 
-from . import BaseElement
+from . import BaseElement, escape_text
 from . import elements as el_list
 from .custom_element import CustomElement
 from .util_funcs import safe_name
@@ -86,7 +86,12 @@ def read_string(
         ):
             return repr(" ")
 
-    return repr(result) if result else None
+    if escape_text(result) != result:
+        # If the text (e.g., '&', '<'), would be escaped,
+        # To preserve the exact parsed string, we must wrap it in `unsafe_text`.
+        return f"unsafe_text({repr(result)})"
+
+    return repr(result)
 
 
 # HTML spec doesn't say this casually, but these are preformatted.
@@ -100,6 +105,11 @@ def read_pre_string(input_str: NavigableString) -> str | None:
     result = re.sub("^\n", "", input_str)
     if not result:
         return None
+
+    if escape_text(result) != result:
+        # If the text (e.g., '&', '<'), would be escaped,
+        # To preserve the exact parsed string, we must wrap it in `unsafe_text`.
+        return f"unsafe_text({repr(result)})"
     return repr(result)
 
 
@@ -148,6 +158,8 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
     custom_elements = set()
 
     phrasing_tags = get_phrasing_tags()
+
+    import_unsafe_text = False
 
     def process_element(element) -> str | None:
         if isinstance(element, Doctype):
@@ -262,7 +274,10 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
                 processed = process_element(child)
                 if processed:
                     children.append(processed)
-
+        for text_element in children:
+            if text_element.startswith("unsafe_text("):
+                nonlocal import_unsafe_text
+                import_unsafe_text = True
         if children:
             result.append("[")
             result.append(", ".join(children))
@@ -278,11 +293,17 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
             import_statement = f"from html_compose import ({', '.join(keys)})"
         else:
             import_statement = f"from html_compose import {', '.join(keys)}"
+
+        if import_unsafe_text:
+            import_statement += ", unsafe_text"
     else:
         if import_module == "html_compose":
             import_statement = "import html_compose"
         else:
             import_statement = f"import html_compose as {import_module}"
+
+        if import_unsafe_text:
+            import_statement += "\nfrom html_compose import unsafe_text"
 
     custom_el_stmts = [
         f'{e} = {prefix}CustomElement.create("{e}")' for e in custom_elements
