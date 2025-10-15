@@ -182,6 +182,12 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
             tag_keys = inspect.signature(tag_cls.__init__).parameters.keys()
 
             for key, value in element.attrs.items():
+                # value bs4 gives us is sometimes
+                # like (key='rel', value=['preconnect'])
+                # If the attribute value is a list of one item, unwrap it
+                if isinstance(value, list) and len(value) == 1:
+                    value = value[0]
+
                 if key in ("attrs", "self", "children"):
                     # These are params of the constructor but the HTML given
                     # clashes with them
