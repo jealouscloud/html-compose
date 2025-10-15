@@ -6,6 +6,9 @@
 * Add html_compose.document document_generator and document_streamer for use
   with html_compose.resource imports, acting as the most helpful way to generate
   an HTML document
+* Importer improvements: Survive round trip for more text. Output single elements
+  when we identify an attribtue could be a list
+* Minor documentation improvements
 
 
 # 0.10.1
