@@ -12,48 +12,68 @@ class ThAttrs:
     @staticmethod
     def abbr(value: StrLike) -> BaseAttribute:
         """
-        "th" attribute: abbr  
-        Alternative label to use for the header cell when referencing the cell in other contexts  
+        "th" attribute: abbr
+        Alternative label to use for the header cell when referencing the cell in other contexts
 
-        :param value: Text*  
-        :return: An abbr attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text*
+
+        Returns:
+            An abbr attribute to be added to your element
+
+        """
 
         return BaseAttribute("abbr", value)
 
     @staticmethod
     def colspan(value) -> BaseAttribute:
         """
-        "th" attribute: colspan  
-        Number of columns that the cell is to span  
+        "th" attribute: colspan
+        Number of columns that the cell is to span
 
-        :param value: Valid non-negative integer greater than zero  
-        :return: An colspan attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer greater than zero
+
+        Returns:
+            An colspan attribute to be added to your element
+
+        """
 
         return BaseAttribute("colspan", value)
 
     @staticmethod
     def headers(value: Resolvable) -> BaseAttribute:
         """
-        "th" attribute: headers  
-        The header cells for this cell  
+        "th" attribute: headers
+        The header cells for this cell
 
-        :param value: Unordered set of unique space-separated tokens consisting of IDs*  
-        :return: An headers attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Unordered set of unique space-separated tokens consisting of IDs*
+
+        Returns:
+            An headers attribute to be added to your element
+
+        """
 
         return BaseAttribute("headers", value)
 
     @staticmethod
     def rowspan(value: int) -> BaseAttribute:
         """
-        "th" attribute: rowspan  
-        Number of rows that the cell is to span  
+        "th" attribute: rowspan
+        Number of rows that the cell is to span
 
-        :param value: Valid non-negative integer  
-        :return: An rowspan attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+
+        Returns:
+            An rowspan attribute to be added to your element
+
+        """
 
         return BaseAttribute("rowspan", value)
 
@@ -62,11 +82,16 @@ class ThAttrs:
         value: Literal["row", "col", "rowgroup", "colgroup"],
     ) -> BaseAttribute:
         """
-        "th" attribute: scope  
-        Specifies which cells the header cell applies to  
+        "th" attribute: scope
+        Specifies which cells the header cell applies to
 
-        :param value: ['row', 'col', 'rowgroup', 'colgroup']  
-        :return: An scope attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                ['row', 'col', 'rowgroup', 'colgroup']
+
+        Returns:
+            An scope attribute to be added to your element
+
+        """
 
         return BaseAttribute("scope", value)

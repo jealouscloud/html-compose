@@ -14,9 +14,14 @@ class GlobalAttrs:
         "global" attribute: accesskey  
         Keyboard shortcut to activate or focus element  
 
-        :param value: Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length  
-        :return: An accesskey attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Ordered set of unique space-separated tokens, none of which are identical to another, each consisting of one code point in length
+        
+        Returns:
+            An accesskey attribute to be added to your element
+
+        """
         
         return BaseAttribute("accesskey", value)
             
@@ -28,9 +33,14 @@ class GlobalAttrs:
         "global" attribute: autocapitalize  
         Recommended autocapitalization behavior (for supported input methods)  
 
-        :param value: ['on', 'off', 'none', 'sentences', 'words', 'characters']  
-        :return: An autocapitalize attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['on', 'off', 'none', 'sentences', 'words', 'characters']
+        
+        Returns:
+            An autocapitalize attribute to be added to your element
+
+        """
         
         return BaseAttribute("autocapitalize", value)
             
@@ -42,9 +52,14 @@ class GlobalAttrs:
         "global" attribute: autocorrect  
         Recommended autocorrection behavior (for supported input methods)  
 
-        :param value: ['on', 'off']  
-        :return: An autocorrect attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['on', 'off']
+        
+        Returns:
+            An autocorrect attribute to be added to your element
+
+        """
         
         return BaseAttribute("autocorrect", value)
             
@@ -56,9 +71,14 @@ class GlobalAttrs:
         "global" attribute: autofocus  
         Automatically focus the element when the page is loaded  
 
-        :param value: Boolean attribute  
-        :return: An autofocus attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An autofocus attribute to be added to your element
+
+        """
         
         return BaseAttribute("autofocus", value)
             
@@ -70,9 +90,14 @@ class GlobalAttrs:
         "global" attribute: class  
         Classes to which the element belongs  
 
-        :param value: Set of space-separated tokens  
-        :return: An class attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Set of space-separated tokens
+        
+        Returns:
+            An class attribute to be added to your element
+
+        """
         
         return BaseAttribute("class", value)
             
@@ -84,9 +109,14 @@ class GlobalAttrs:
         "global" attribute: contenteditable  
         Whether the element is editable  
 
-        :param value: ['true', 'plaintext-only', 'false']  
-        :return: An contenteditable attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['true', 'plaintext-only', 'false']
+        
+        Returns:
+            An contenteditable attribute to be added to your element
+
+        """
         
         return BaseAttribute("contenteditable", value)
             
@@ -98,9 +128,14 @@ class GlobalAttrs:
         "global" attribute: dir  
         The text directionality of the element  
 
-        :param value: ['ltr', 'rtl', 'auto']  
-        :return: An dir attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['ltr', 'rtl', 'auto']
+        
+        Returns:
+            An dir attribute to be added to your element
+
+        """
         
         return BaseAttribute("dir", value)
             
@@ -112,9 +147,14 @@ class GlobalAttrs:
         "global" attribute: draggable  
         Whether the element is draggable  
 
-        :param value: ['true', 'false']  
-        :return: An draggable attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['true', 'false']
+        
+        Returns:
+            An draggable attribute to be added to your element
+
+        """
         
         return BaseAttribute("draggable", value)
             
@@ -126,9 +166,14 @@ class GlobalAttrs:
         "global" attribute: enterkeyhint  
         Hint for selecting an enter key action  
 
-        :param value: ['enter', 'done', 'go', 'next', 'previous', 'search', 'send']  
-        :return: An enterkeyhint attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['enter', 'done', 'go', 'next', 'previous', 'search', 'send']
+        
+        Returns:
+            An enterkeyhint attribute to be added to your element
+
+        """
         
         return BaseAttribute("enterkeyhint", value)
             
@@ -140,9 +185,14 @@ class GlobalAttrs:
         "global" attribute: hidden  
         Whether the element is relevant  
 
-        :param value: ['until-found', 'hidden', '']  
-        :return: An hidden attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['until-found', 'hidden', '']
+        
+        Returns:
+            An hidden attribute to be added to your element
+
+        """
         
         return BaseAttribute("hidden", value)
             
@@ -154,9 +204,14 @@ class GlobalAttrs:
         "global" attribute: id  
         The element's ID  
 
-        :param value: Text*  
-        :return: An id attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text*
+        
+        Returns:
+            An id attribute to be added to your element
+
+        """
         
         return BaseAttribute("id", value)
             
@@ -168,9 +223,14 @@ class GlobalAttrs:
         "global" attribute: inert  
         Whether the element is inert.  
 
-        :param value: Boolean attribute  
-        :return: An inert attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An inert attribute to be added to your element
+
+        """
         
         return BaseAttribute("inert", value)
             
@@ -182,9 +242,14 @@ class GlobalAttrs:
         "global" attribute: inputmode  
         Hint for selecting an input modality  
 
-        :param value: ['none', 'text', 'tel', 'email', 'url', 'numeric', 'decimal', 'search']  
-        :return: An inputmode attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['none', 'text', 'tel', 'email', 'url', 'numeric', 'decimal', 'search']
+        
+        Returns:
+            An inputmode attribute to be added to your element
+
+        """
         
         return BaseAttribute("inputmode", value)
             
@@ -196,9 +261,14 @@ class GlobalAttrs:
         "global" attribute: is  
         Creates a customized built-in element  
 
-        :param value: Valid custom element name of a defined customized built-in element  
-        :return: An is attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid custom element name of a defined customized built-in element
+        
+        Returns:
+            An is attribute to be added to your element
+
+        """
         
         return BaseAttribute("is", value)
             
@@ -210,9 +280,14 @@ class GlobalAttrs:
         "global" attribute: itemid  
         Global identifier for a microdata item  
 
-        :param value: Valid URL potentially surrounded by spaces  
-        :return: An itemid attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid URL potentially surrounded by spaces
+        
+        Returns:
+            An itemid attribute to be added to your element
+
+        """
         
         return BaseAttribute("itemid", value)
             
@@ -224,9 +299,14 @@ class GlobalAttrs:
         "global" attribute: itemprop  
         Property names of a microdata item  
 
-        :param value: Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*  
-        :return: An itemprop attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Unordered set of unique space-separated tokens consisting of valid absolute URLs, defined property names, or text*
+        
+        Returns:
+            An itemprop attribute to be added to your element
+
+        """
         
         return BaseAttribute("itemprop", value)
             
@@ -238,9 +318,14 @@ class GlobalAttrs:
         "global" attribute: itemref  
         Referenced elements  
 
-        :param value: Unordered set of unique space-separated tokens consisting of IDs*  
-        :return: An itemref attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Unordered set of unique space-separated tokens consisting of IDs*
+        
+        Returns:
+            An itemref attribute to be added to your element
+
+        """
         
         return BaseAttribute("itemref", value)
             
@@ -252,9 +337,14 @@ class GlobalAttrs:
         "global" attribute: itemscope  
         Introduces a microdata item  
 
-        :param value: Boolean attribute  
-        :return: An itemscope attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An itemscope attribute to be added to your element
+
+        """
         
         return BaseAttribute("itemscope", value)
             
@@ -266,9 +356,14 @@ class GlobalAttrs:
         "global" attribute: itemtype  
         Item types of a microdata item  
 
-        :param value: Unordered set of unique space-separated tokens consisting of valid absolute URLs*  
-        :return: An itemtype attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Unordered set of unique space-separated tokens consisting of valid absolute URLs*
+        
+        Returns:
+            An itemtype attribute to be added to your element
+
+        """
         
         return BaseAttribute("itemtype", value)
             
@@ -280,9 +375,14 @@ class GlobalAttrs:
         "global" attribute: lang  
         Language of the element  
 
-        :param value: Valid BCP 47 language tag or the empty string  
-        :return: An lang attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid BCP 47 language tag or the empty string
+        
+        Returns:
+            An lang attribute to be added to your element
+
+        """
         
         return BaseAttribute("lang", value)
             
@@ -294,9 +394,14 @@ class GlobalAttrs:
         "global" attribute: nonce  
         Cryptographic nonce used in Content Security Policy checks [CSP]  
 
-        :param value: Text  
-        :return: An nonce attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text
+        
+        Returns:
+            An nonce attribute to be added to your element
+
+        """
         
         return BaseAttribute("nonce", value)
             
@@ -308,9 +413,14 @@ class GlobalAttrs:
         "global" attribute: popover  
         Makes the element a popover element  
 
-        :param value: ['auto', 'manual']  
-        :return: An popover attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['auto', 'manual']
+        
+        Returns:
+            An popover attribute to be added to your element
+
+        """
         
         return BaseAttribute("popover", value)
             
@@ -322,9 +432,14 @@ class GlobalAttrs:
         "global" attribute: slot  
         The element's desired slot  
 
-        :param value: Text  
-        :return: An slot attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text
+        
+        Returns:
+            An slot attribute to be added to your element
+
+        """
         
         return BaseAttribute("slot", value)
             
@@ -336,9 +451,14 @@ class GlobalAttrs:
         "global" attribute: spellcheck  
         Whether the element is to have its spelling and grammar checked  
 
-        :param value: ['true', 'false', '']  
-        :return: An spellcheck attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['true', 'false', '']
+        
+        Returns:
+            An spellcheck attribute to be added to your element
+
+        """
         
         return BaseAttribute("spellcheck", value)
             
@@ -350,9 +470,14 @@ class GlobalAttrs:
         "global" attribute: style  
         Presentational and formatting instructions  
 
-        :param value: CSS declarations*  
-        :return: An style attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                CSS declarations*
+        
+        Returns:
+            An style attribute to be added to your element
+
+        """
         
         return BaseAttribute("style", value, delimiter='; ')
             
@@ -364,9 +489,14 @@ class GlobalAttrs:
         "global" attribute: tabindex  
         Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation  
 
-        :param value: Valid integer  
-        :return: An tabindex attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid integer
+        
+        Returns:
+            An tabindex attribute to be added to your element
+
+        """
         
         return BaseAttribute("tabindex", value)
             
@@ -378,9 +508,14 @@ class GlobalAttrs:
         "global" attribute: title  
         Advisory information for the element  
 
-        :param value: Text  
-        :return: An title attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text
+        
+        Returns:
+            An title attribute to be added to your element
+
+        """
         
         return BaseAttribute("title", value)
             
@@ -392,9 +527,14 @@ class GlobalAttrs:
         "global" attribute: translate  
         Whether the element is to be translated when the page is localized  
 
-        :param value: ['yes', 'no']  
-        :return: An translate attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['yes', 'no']
+        
+        Returns:
+            An translate attribute to be added to your element
+
+        """
         
         return BaseAttribute("translate", value)
             
@@ -406,9 +546,14 @@ class GlobalAttrs:
         "global" attribute: writingsuggestions  
         Whether the element can offer writing suggestions or not.  
 
-        :param value: ['true', 'false', '']  
-        :return: An writingsuggestions attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['true', 'false', '']
+        
+        Returns:
+            An writingsuggestions attribute to be added to your element
+
+        """
         
         return BaseAttribute("writingsuggestions", value)
             
@@ -420,9 +565,14 @@ class GlobalAttrs:
         "global" attribute: onauxclick  
         auxclick event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onauxclick attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onauxclick attribute to be added to your element
+
+        """
         
         return BaseAttribute("onauxclick", value)
             
@@ -434,9 +584,14 @@ class GlobalAttrs:
         "global" attribute: onbeforeinput  
         beforeinput event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onbeforeinput attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onbeforeinput attribute to be added to your element
+
+        """
         
         return BaseAttribute("onbeforeinput", value)
             
@@ -448,9 +603,14 @@ class GlobalAttrs:
         "global" attribute: onbeforematch  
         beforematch event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onbeforematch attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onbeforematch attribute to be added to your element
+
+        """
         
         return BaseAttribute("onbeforematch", value)
             
@@ -462,9 +622,14 @@ class GlobalAttrs:
         "global" attribute: onbeforetoggle  
         beforetoggle event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onbeforetoggle attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onbeforetoggle attribute to be added to your element
+
+        """
         
         return BaseAttribute("onbeforetoggle", value)
             
@@ -476,9 +641,14 @@ class GlobalAttrs:
         "global" attribute: onblur  
         blur event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onblur attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onblur attribute to be added to your element
+
+        """
         
         return BaseAttribute("onblur", value)
             
@@ -490,9 +660,14 @@ class GlobalAttrs:
         "global" attribute: oncancel  
         cancel event handler  
 
-        :param value: Event handler content attribute  
-        :return: An oncancel attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An oncancel attribute to be added to your element
+
+        """
         
         return BaseAttribute("oncancel", value)
             
@@ -504,9 +679,14 @@ class GlobalAttrs:
         "global" attribute: oncanplay  
         canplay event handler  
 
-        :param value: Event handler content attribute  
-        :return: An oncanplay attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An oncanplay attribute to be added to your element
+
+        """
         
         return BaseAttribute("oncanplay", value)
             
@@ -518,9 +698,14 @@ class GlobalAttrs:
         "global" attribute: oncanplaythrough  
         canplaythrough event handler  
 
-        :param value: Event handler content attribute  
-        :return: An oncanplaythrough attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An oncanplaythrough attribute to be added to your element
+
+        """
         
         return BaseAttribute("oncanplaythrough", value)
             
@@ -532,9 +717,14 @@ class GlobalAttrs:
         "global" attribute: onchange  
         change event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onchange attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onchange attribute to be added to your element
+
+        """
         
         return BaseAttribute("onchange", value)
             
@@ -546,9 +736,14 @@ class GlobalAttrs:
         "global" attribute: onclick  
         click event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onclick attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onclick attribute to be added to your element
+
+        """
         
         return BaseAttribute("onclick", value)
             
@@ -560,9 +755,14 @@ class GlobalAttrs:
         "global" attribute: onclose  
         close event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onclose attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onclose attribute to be added to your element
+
+        """
         
         return BaseAttribute("onclose", value)
             
@@ -574,9 +774,14 @@ class GlobalAttrs:
         "global" attribute: oncontextlost  
         contextlost event handler  
 
-        :param value: Event handler content attribute  
-        :return: An oncontextlost attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An oncontextlost attribute to be added to your element
+
+        """
         
         return BaseAttribute("oncontextlost", value)
             
@@ -588,9 +793,14 @@ class GlobalAttrs:
         "global" attribute: oncontextmenu  
         contextmenu event handler  
 
-        :param value: Event handler content attribute  
-        :return: An oncontextmenu attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An oncontextmenu attribute to be added to your element
+
+        """
         
         return BaseAttribute("oncontextmenu", value)
             
@@ -602,9 +812,14 @@ class GlobalAttrs:
         "global" attribute: oncontextrestored  
         contextrestored event handler  
 
-        :param value: Event handler content attribute  
-        :return: An oncontextrestored attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An oncontextrestored attribute to be added to your element
+
+        """
         
         return BaseAttribute("oncontextrestored", value)
             
@@ -616,9 +831,14 @@ class GlobalAttrs:
         "global" attribute: oncopy  
         copy event handler  
 
-        :param value: Event handler content attribute  
-        :return: An oncopy attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An oncopy attribute to be added to your element
+
+        """
         
         return BaseAttribute("oncopy", value)
             
@@ -630,9 +850,14 @@ class GlobalAttrs:
         "global" attribute: oncuechange  
         cuechange event handler  
 
-        :param value: Event handler content attribute  
-        :return: An oncuechange attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An oncuechange attribute to be added to your element
+
+        """
         
         return BaseAttribute("oncuechange", value)
             
@@ -644,9 +869,14 @@ class GlobalAttrs:
         "global" attribute: oncut  
         cut event handler  
 
-        :param value: Event handler content attribute  
-        :return: An oncut attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An oncut attribute to be added to your element
+
+        """
         
         return BaseAttribute("oncut", value)
             
@@ -658,9 +888,14 @@ class GlobalAttrs:
         "global" attribute: ondblclick  
         dblclick event handler  
 
-        :param value: Event handler content attribute  
-        :return: An ondblclick attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ondblclick attribute to be added to your element
+
+        """
         
         return BaseAttribute("ondblclick", value)
             
@@ -672,9 +907,14 @@ class GlobalAttrs:
         "global" attribute: ondrag  
         drag event handler  
 
-        :param value: Event handler content attribute  
-        :return: An ondrag attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ondrag attribute to be added to your element
+
+        """
         
         return BaseAttribute("ondrag", value)
             
@@ -686,9 +926,14 @@ class GlobalAttrs:
         "global" attribute: ondragend  
         dragend event handler  
 
-        :param value: Event handler content attribute  
-        :return: An ondragend attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ondragend attribute to be added to your element
+
+        """
         
         return BaseAttribute("ondragend", value)
             
@@ -700,9 +945,14 @@ class GlobalAttrs:
         "global" attribute: ondragenter  
         dragenter event handler  
 
-        :param value: Event handler content attribute  
-        :return: An ondragenter attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ondragenter attribute to be added to your element
+
+        """
         
         return BaseAttribute("ondragenter", value)
             
@@ -714,9 +964,14 @@ class GlobalAttrs:
         "global" attribute: ondragleave  
         dragleave event handler  
 
-        :param value: Event handler content attribute  
-        :return: An ondragleave attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ondragleave attribute to be added to your element
+
+        """
         
         return BaseAttribute("ondragleave", value)
             
@@ -728,9 +983,14 @@ class GlobalAttrs:
         "global" attribute: ondragover  
         dragover event handler  
 
-        :param value: Event handler content attribute  
-        :return: An ondragover attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ondragover attribute to be added to your element
+
+        """
         
         return BaseAttribute("ondragover", value)
             
@@ -742,9 +1002,14 @@ class GlobalAttrs:
         "global" attribute: ondragstart  
         dragstart event handler  
 
-        :param value: Event handler content attribute  
-        :return: An ondragstart attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ondragstart attribute to be added to your element
+
+        """
         
         return BaseAttribute("ondragstart", value)
             
@@ -756,9 +1021,14 @@ class GlobalAttrs:
         "global" attribute: ondrop  
         drop event handler  
 
-        :param value: Event handler content attribute  
-        :return: An ondrop attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ondrop attribute to be added to your element
+
+        """
         
         return BaseAttribute("ondrop", value)
             
@@ -770,9 +1040,14 @@ class GlobalAttrs:
         "global" attribute: ondurationchange  
         durationchange event handler  
 
-        :param value: Event handler content attribute  
-        :return: An ondurationchange attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ondurationchange attribute to be added to your element
+
+        """
         
         return BaseAttribute("ondurationchange", value)
             
@@ -784,9 +1059,14 @@ class GlobalAttrs:
         "global" attribute: onemptied  
         emptied event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onemptied attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onemptied attribute to be added to your element
+
+        """
         
         return BaseAttribute("onemptied", value)
             
@@ -798,9 +1078,14 @@ class GlobalAttrs:
         "global" attribute: onended  
         ended event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onended attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onended attribute to be added to your element
+
+        """
         
         return BaseAttribute("onended", value)
             
@@ -812,9 +1097,14 @@ class GlobalAttrs:
         "global" attribute: onerror  
         error event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onerror attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onerror attribute to be added to your element
+
+        """
         
         return BaseAttribute("onerror", value)
             
@@ -826,9 +1116,14 @@ class GlobalAttrs:
         "global" attribute: onfocus  
         focus event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onfocus attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onfocus attribute to be added to your element
+
+        """
         
         return BaseAttribute("onfocus", value)
             
@@ -840,9 +1135,14 @@ class GlobalAttrs:
         "global" attribute: onformdata  
         formdata event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onformdata attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onformdata attribute to be added to your element
+
+        """
         
         return BaseAttribute("onformdata", value)
             
@@ -854,9 +1154,14 @@ class GlobalAttrs:
         "global" attribute: oninput  
         input event handler  
 
-        :param value: Event handler content attribute  
-        :return: An oninput attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An oninput attribute to be added to your element
+
+        """
         
         return BaseAttribute("oninput", value)
             
@@ -868,9 +1173,14 @@ class GlobalAttrs:
         "global" attribute: oninvalid  
         invalid event handler  
 
-        :param value: Event handler content attribute  
-        :return: An oninvalid attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An oninvalid attribute to be added to your element
+
+        """
         
         return BaseAttribute("oninvalid", value)
             
@@ -882,9 +1192,14 @@ class GlobalAttrs:
         "global" attribute: onkeydown  
         keydown event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onkeydown attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onkeydown attribute to be added to your element
+
+        """
         
         return BaseAttribute("onkeydown", value)
             
@@ -896,9 +1211,14 @@ class GlobalAttrs:
         "global" attribute: onkeypress  
         keypress event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onkeypress attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onkeypress attribute to be added to your element
+
+        """
         
         return BaseAttribute("onkeypress", value)
             
@@ -910,9 +1230,14 @@ class GlobalAttrs:
         "global" attribute: onkeyup  
         keyup event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onkeyup attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onkeyup attribute to be added to your element
+
+        """
         
         return BaseAttribute("onkeyup", value)
             
@@ -924,9 +1249,14 @@ class GlobalAttrs:
         "global" attribute: onload  
         load event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onload attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onload attribute to be added to your element
+
+        """
         
         return BaseAttribute("onload", value)
             
@@ -938,9 +1268,14 @@ class GlobalAttrs:
         "global" attribute: onloadeddata  
         loadeddata event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onloadeddata attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onloadeddata attribute to be added to your element
+
+        """
         
         return BaseAttribute("onloadeddata", value)
             
@@ -952,9 +1287,14 @@ class GlobalAttrs:
         "global" attribute: onloadedmetadata  
         loadedmetadata event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onloadedmetadata attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onloadedmetadata attribute to be added to your element
+
+        """
         
         return BaseAttribute("onloadedmetadata", value)
             
@@ -966,9 +1306,14 @@ class GlobalAttrs:
         "global" attribute: onloadstart  
         loadstart event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onloadstart attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onloadstart attribute to be added to your element
+
+        """
         
         return BaseAttribute("onloadstart", value)
             
@@ -980,9 +1325,14 @@ class GlobalAttrs:
         "global" attribute: onmousedown  
         mousedown event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onmousedown attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onmousedown attribute to be added to your element
+
+        """
         
         return BaseAttribute("onmousedown", value)
             
@@ -994,9 +1344,14 @@ class GlobalAttrs:
         "global" attribute: onmouseenter  
         mouseenter event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onmouseenter attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onmouseenter attribute to be added to your element
+
+        """
         
         return BaseAttribute("onmouseenter", value)
             
@@ -1008,9 +1363,14 @@ class GlobalAttrs:
         "global" attribute: onmouseleave  
         mouseleave event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onmouseleave attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onmouseleave attribute to be added to your element
+
+        """
         
         return BaseAttribute("onmouseleave", value)
             
@@ -1022,9 +1382,14 @@ class GlobalAttrs:
         "global" attribute: onmousemove  
         mousemove event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onmousemove attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onmousemove attribute to be added to your element
+
+        """
         
         return BaseAttribute("onmousemove", value)
             
@@ -1036,9 +1401,14 @@ class GlobalAttrs:
         "global" attribute: onmouseout  
         mouseout event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onmouseout attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onmouseout attribute to be added to your element
+
+        """
         
         return BaseAttribute("onmouseout", value)
             
@@ -1050,9 +1420,14 @@ class GlobalAttrs:
         "global" attribute: onmouseover  
         mouseover event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onmouseover attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onmouseover attribute to be added to your element
+
+        """
         
         return BaseAttribute("onmouseover", value)
             
@@ -1064,9 +1439,14 @@ class GlobalAttrs:
         "global" attribute: onmouseup  
         mouseup event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onmouseup attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onmouseup attribute to be added to your element
+
+        """
         
         return BaseAttribute("onmouseup", value)
             
@@ -1078,9 +1458,14 @@ class GlobalAttrs:
         "global" attribute: onpaste  
         paste event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onpaste attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onpaste attribute to be added to your element
+
+        """
         
         return BaseAttribute("onpaste", value)
             
@@ -1092,9 +1477,14 @@ class GlobalAttrs:
         "global" attribute: onpause  
         pause event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onpause attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onpause attribute to be added to your element
+
+        """
         
         return BaseAttribute("onpause", value)
             
@@ -1106,9 +1496,14 @@ class GlobalAttrs:
         "global" attribute: onplay  
         play event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onplay attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onplay attribute to be added to your element
+
+        """
         
         return BaseAttribute("onplay", value)
             
@@ -1120,9 +1515,14 @@ class GlobalAttrs:
         "global" attribute: onplaying  
         playing event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onplaying attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onplaying attribute to be added to your element
+
+        """
         
         return BaseAttribute("onplaying", value)
             
@@ -1134,9 +1534,14 @@ class GlobalAttrs:
         "global" attribute: onprogress  
         progress event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onprogress attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onprogress attribute to be added to your element
+
+        """
         
         return BaseAttribute("onprogress", value)
             
@@ -1148,9 +1553,14 @@ class GlobalAttrs:
         "global" attribute: onratechange  
         ratechange event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onratechange attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onratechange attribute to be added to your element
+
+        """
         
         return BaseAttribute("onratechange", value)
             
@@ -1162,9 +1572,14 @@ class GlobalAttrs:
         "global" attribute: onreset  
         reset event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onreset attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onreset attribute to be added to your element
+
+        """
         
         return BaseAttribute("onreset", value)
             
@@ -1176,9 +1591,14 @@ class GlobalAttrs:
         "global" attribute: onresize  
         resize event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onresize attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onresize attribute to be added to your element
+
+        """
         
         return BaseAttribute("onresize", value)
             
@@ -1190,9 +1610,14 @@ class GlobalAttrs:
         "global" attribute: onscroll  
         scroll event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onscroll attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onscroll attribute to be added to your element
+
+        """
         
         return BaseAttribute("onscroll", value)
             
@@ -1204,9 +1629,14 @@ class GlobalAttrs:
         "global" attribute: onscrollend  
         scrollend event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onscrollend attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onscrollend attribute to be added to your element
+
+        """
         
         return BaseAttribute("onscrollend", value)
             
@@ -1218,9 +1648,14 @@ class GlobalAttrs:
         "global" attribute: onsecuritypolicyviolation  
         securitypolicyviolation event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onsecuritypolicyviolation attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onsecuritypolicyviolation attribute to be added to your element
+
+        """
         
         return BaseAttribute("onsecuritypolicyviolation", value)
             
@@ -1232,9 +1667,14 @@ class GlobalAttrs:
         "global" attribute: onseeked  
         seeked event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onseeked attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onseeked attribute to be added to your element
+
+        """
         
         return BaseAttribute("onseeked", value)
             
@@ -1246,9 +1686,14 @@ class GlobalAttrs:
         "global" attribute: onseeking  
         seeking event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onseeking attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onseeking attribute to be added to your element
+
+        """
         
         return BaseAttribute("onseeking", value)
             
@@ -1260,9 +1705,14 @@ class GlobalAttrs:
         "global" attribute: onselect  
         select event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onselect attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onselect attribute to be added to your element
+
+        """
         
         return BaseAttribute("onselect", value)
             
@@ -1274,9 +1724,14 @@ class GlobalAttrs:
         "global" attribute: onslotchange  
         slotchange event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onslotchange attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onslotchange attribute to be added to your element
+
+        """
         
         return BaseAttribute("onslotchange", value)
             
@@ -1288,9 +1743,14 @@ class GlobalAttrs:
         "global" attribute: onstalled  
         stalled event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onstalled attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onstalled attribute to be added to your element
+
+        """
         
         return BaseAttribute("onstalled", value)
             
@@ -1302,9 +1762,14 @@ class GlobalAttrs:
         "global" attribute: onsubmit  
         submit event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onsubmit attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onsubmit attribute to be added to your element
+
+        """
         
         return BaseAttribute("onsubmit", value)
             
@@ -1316,9 +1781,14 @@ class GlobalAttrs:
         "global" attribute: onsuspend  
         suspend event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onsuspend attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onsuspend attribute to be added to your element
+
+        """
         
         return BaseAttribute("onsuspend", value)
             
@@ -1330,9 +1800,14 @@ class GlobalAttrs:
         "global" attribute: ontimeupdate  
         timeupdate event handler  
 
-        :param value: Event handler content attribute  
-        :return: An ontimeupdate attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ontimeupdate attribute to be added to your element
+
+        """
         
         return BaseAttribute("ontimeupdate", value)
             
@@ -1344,9 +1819,14 @@ class GlobalAttrs:
         "global" attribute: ontoggle  
         toggle event handler  
 
-        :param value: Event handler content attribute  
-        :return: An ontoggle attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ontoggle attribute to be added to your element
+
+        """
         
         return BaseAttribute("ontoggle", value)
             
@@ -1358,9 +1838,14 @@ class GlobalAttrs:
         "global" attribute: onvolumechange  
         volumechange event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onvolumechange attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onvolumechange attribute to be added to your element
+
+        """
         
         return BaseAttribute("onvolumechange", value)
             
@@ -1372,9 +1857,14 @@ class GlobalAttrs:
         "global" attribute: onwaiting  
         waiting event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onwaiting attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onwaiting attribute to be added to your element
+
+        """
         
         return BaseAttribute("onwaiting", value)
             
@@ -1386,9 +1876,14 @@ class GlobalAttrs:
         "global" attribute: onwheel  
         wheel event handler  
 
-        :param value: Event handler content attribute  
-        :return: An onwheel attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onwheel attribute to be added to your element
+
+        """
         
         return BaseAttribute("onwheel", value)
             

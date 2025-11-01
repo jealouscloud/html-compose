@@ -26,9 +26,14 @@ def generate_class_template(
         "{element_name}" attribute: {attr_name}  
         {attr_desc}  
 
-        :param value: {value_desc}  
-        :return: An {attr_name} attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                {value_desc}
+        
+        Returns:
+            An {attr_name} attribute to be added to your element
+
+        """
         
         return BaseAttribute("{attr_name}", value{delimiter_stmt})
             '''

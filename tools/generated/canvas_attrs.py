@@ -14,9 +14,14 @@ class CanvasAttrs:
         "canvas" attribute: height  
         Vertical dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An height attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An height attribute to be added to your element
+
+        """
         
         return BaseAttribute("height", value)
             
@@ -28,9 +33,14 @@ class CanvasAttrs:
         "canvas" attribute: width  
         Horizontal dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An width attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An width attribute to be added to your element
+
+        """
         
         return BaseAttribute("width", value)
             

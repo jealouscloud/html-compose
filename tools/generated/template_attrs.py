@@ -14,9 +14,14 @@ class TemplateAttrs:
         "template" attribute: shadowrootclonable  
         Sets clonable on a declarative shadow root  
 
-        :param value: Boolean attribute  
-        :return: An shadowrootclonable attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An shadowrootclonable attribute to be added to your element
+
+        """
         
         return BaseAttribute("shadowrootclonable", value)
             
@@ -28,9 +33,14 @@ class TemplateAttrs:
         "template" attribute: shadowrootdelegatesfocus  
         Sets delegates focus on a declarative shadow root  
 
-        :param value: Boolean attribute  
-        :return: An shadowrootdelegatesfocus attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An shadowrootdelegatesfocus attribute to be added to your element
+
+        """
         
         return BaseAttribute("shadowrootdelegatesfocus", value)
             
@@ -42,9 +52,14 @@ class TemplateAttrs:
         "template" attribute: shadowrootmode  
         Enables streaming declarative shadow roots  
 
-        :param value: ['open', 'closed']  
-        :return: An shadowrootmode attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['open', 'closed']
+        
+        Returns:
+            An shadowrootmode attribute to be added to your element
+
+        """
         
         return BaseAttribute("shadowrootmode", value)
             
@@ -56,9 +71,14 @@ class TemplateAttrs:
         "template" attribute: shadowrootserializable  
         Sets serializable on a declarative shadow root  
 
-        :param value: Boolean attribute  
-        :return: An shadowrootserializable attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An shadowrootserializable attribute to be added to your element
+
+        """
         
         return BaseAttribute("shadowrootserializable", value)
             

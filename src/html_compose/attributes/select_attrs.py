@@ -11,83 +11,118 @@ class SelectAttrs:
     @staticmethod
     def autocomplete(value) -> BaseAttribute:
         """
-        "select" attribute: autocomplete  
-        Hint for form autofill feature  
+        "select" attribute: autocomplete
+        Hint for form autofill feature
 
-        :param value: Autofill field name and related tokens*  
-        :return: An autocomplete attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Autofill field name and related tokens*
+
+        Returns:
+            An autocomplete attribute to be added to your element
+
+        """
 
         return BaseAttribute("autocomplete", value)
 
     @staticmethod
     def disabled(value: bool) -> BaseAttribute:
         """
-        "select" attribute: disabled  
-        Whether the form control is disabled  
+        "select" attribute: disabled
+        Whether the form control is disabled
 
-        :param value: Boolean attribute  
-        :return: An disabled attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An disabled attribute to be added to your element
+
+        """
 
         return BaseAttribute("disabled", value)
 
     @staticmethod
     def form(value) -> BaseAttribute:
         """
-        "select" attribute: form  
-        Associates the element with a form element  
+        "select" attribute: form
+        Associates the element with a form element
 
-        :param value: ID*  
-        :return: An form attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                ID*
+
+        Returns:
+            An form attribute to be added to your element
+
+        """
 
         return BaseAttribute("form", value)
 
     @staticmethod
     def multiple(value: bool) -> BaseAttribute:
         """
-        "select" attribute: multiple  
-        Whether to allow multiple values  
+        "select" attribute: multiple
+        Whether to allow multiple values
 
-        :param value: Boolean attribute  
-        :return: An multiple attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An multiple attribute to be added to your element
+
+        """
 
         return BaseAttribute("multiple", value)
 
     @staticmethod
     def name(value: StrLike) -> BaseAttribute:
         """
-        "select" attribute: name  
-        Name of the element to use for form submission and in the form.elements API  
+        "select" attribute: name
+        Name of the element to use for form submission and in the form.elements API
 
-        :param value: Text*  
-        :return: An name attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text*
+
+        Returns:
+            An name attribute to be added to your element
+
+        """
 
         return BaseAttribute("name", value)
 
     @staticmethod
     def required(value: bool) -> BaseAttribute:
         """
-        "select" attribute: required  
-        Whether the control is required for form submission  
+        "select" attribute: required
+        Whether the control is required for form submission
 
-        :param value: Boolean attribute  
-        :return: An required attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An required attribute to be added to your element
+
+        """
 
         return BaseAttribute("required", value)
 
     @staticmethod
     def size(value) -> BaseAttribute:
         """
-        "select" attribute: size  
-        Size of the control  
+        "select" attribute: size
+        Size of the control
 
-        :param value: Valid non-negative integer greater than zero  
-        :return: An size attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer greater than zero
+
+        Returns:
+            An size attribute to be added to your element
+
+        """
 
         return BaseAttribute("size", value)

@@ -11,11 +11,16 @@ class BdoAttrs:
     @staticmethod
     def dir(value: Literal["ltr", "rtl"]) -> BaseAttribute:
         """
-        "bdo" attribute: dir  
-        The text directionality of the element  
+        "bdo" attribute: dir
+        The text directionality of the element
 
-        :param value: ['ltr', 'rtl']  
-        :return: An dir attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                ['ltr', 'rtl']
+
+        Returns:
+            An dir attribute to be added to your element
+
+        """
 
         return BaseAttribute("dir", value)

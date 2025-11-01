@@ -14,9 +14,14 @@ class ImgAttrs:
         "img" attribute: alt  
         Replacement text for use when images are not available  
 
-        :param value: Text*  
-        :return: An alt attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text*
+        
+        Returns:
+            An alt attribute to be added to your element
+
+        """
         
         return BaseAttribute("alt", value)
             
@@ -28,9 +33,14 @@ class ImgAttrs:
         "img" attribute: crossorigin  
         How the element handles crossorigin requests  
 
-        :param value: ['anonymous', 'use-credentials']  
-        :return: An crossorigin attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['anonymous', 'use-credentials']
+        
+        Returns:
+            An crossorigin attribute to be added to your element
+
+        """
         
         return BaseAttribute("crossorigin", value)
             
@@ -42,9 +52,14 @@ class ImgAttrs:
         "img" attribute: decoding  
         Decoding hint to use when processing this image for presentation  
 
-        :param value: ['sync', 'async', 'auto']  
-        :return: An decoding attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['sync', 'async', 'auto']
+        
+        Returns:
+            An decoding attribute to be added to your element
+
+        """
         
         return BaseAttribute("decoding", value)
             
@@ -56,9 +71,14 @@ class ImgAttrs:
         "img" attribute: fetchpriority  
         Sets the priority for fetches initiated by the element  
 
-        :param value: ['auto', 'high', 'low']  
-        :return: An fetchpriority attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['auto', 'high', 'low']
+        
+        Returns:
+            An fetchpriority attribute to be added to your element
+
+        """
         
         return BaseAttribute("fetchpriority", value)
             
@@ -70,9 +90,14 @@ class ImgAttrs:
         "img" attribute: height  
         Vertical dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An height attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An height attribute to be added to your element
+
+        """
         
         return BaseAttribute("height", value)
             
@@ -84,9 +109,14 @@ class ImgAttrs:
         "img" attribute: ismap  
         Whether the image is a server-side image map  
 
-        :param value: Boolean attribute  
-        :return: An ismap attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An ismap attribute to be added to your element
+
+        """
         
         return BaseAttribute("ismap", value)
             
@@ -98,9 +128,14 @@ class ImgAttrs:
         "img" attribute: loading  
         Used when determining loading deferral  
 
-        :param value: ['lazy', 'eager']  
-        :return: An loading attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['lazy', 'eager']
+        
+        Returns:
+            An loading attribute to be added to your element
+
+        """
         
         return BaseAttribute("loading", value)
             
@@ -112,9 +147,14 @@ class ImgAttrs:
         "img" attribute: referrerpolicy  
         Referrer policy for fetches initiated by the element  
 
-        :param value: Referrer policy  
-        :return: An referrerpolicy attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Referrer policy
+        
+        Returns:
+            An referrerpolicy attribute to be added to your element
+
+        """
         
         return BaseAttribute("referrerpolicy", value)
             
@@ -126,9 +166,14 @@ class ImgAttrs:
         "img" attribute: sizes  
         Image sizes for different page layouts  
 
-        :param value: Valid source size list  
-        :return: An sizes attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid source size list
+        
+        Returns:
+            An sizes attribute to be added to your element
+
+        """
         
         return BaseAttribute("sizes", value)
             
@@ -140,9 +185,14 @@ class ImgAttrs:
         "img" attribute: src  
         Address of the resource  
 
-        :param value: Valid non-empty URL potentially surrounded by spaces  
-        :return: An src attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-empty URL potentially surrounded by spaces
+        
+        Returns:
+            An src attribute to be added to your element
+
+        """
         
         return BaseAttribute("src", value)
             
@@ -154,9 +204,14 @@ class ImgAttrs:
         "img" attribute: srcset  
         Images to use in different situations, e.g., high-resolution displays, small monitors, etc.  
 
-        :param value: Comma-separated list of image candidate strings  
-        :return: An srcset attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Comma-separated list of image candidate strings
+        
+        Returns:
+            An srcset attribute to be added to your element
+
+        """
         
         return BaseAttribute("srcset", value)
             
@@ -168,9 +223,14 @@ class ImgAttrs:
         "img" attribute: usemap  
         Name of image map to use  
 
-        :param value: Valid hash-name reference*  
-        :return: An usemap attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid hash-name reference*
+        
+        Returns:
+            An usemap attribute to be added to your element
+
+        """
         
         return BaseAttribute("usemap", value)
             
@@ -182,9 +242,14 @@ class ImgAttrs:
         "img" attribute: width  
         Horizontal dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An width attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An width attribute to be added to your element
+
+        """
         
         return BaseAttribute("width", value)
             

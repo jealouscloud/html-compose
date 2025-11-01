@@ -14,9 +14,14 @@ class ObjectAttrs:
         "object" attribute: data  
         Address of the resource  
 
-        :param value: Valid non-empty URL potentially surrounded by spaces  
-        :return: An data attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-empty URL potentially surrounded by spaces
+        
+        Returns:
+            An data attribute to be added to your element
+
+        """
         
         return BaseAttribute("data", value)
             
@@ -28,9 +33,14 @@ class ObjectAttrs:
         "object" attribute: form  
         Associates the element with a form element  
 
-        :param value: ID*  
-        :return: An form attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ID*
+        
+        Returns:
+            An form attribute to be added to your element
+
+        """
         
         return BaseAttribute("form", value)
             
@@ -42,9 +52,14 @@ class ObjectAttrs:
         "object" attribute: height  
         Vertical dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An height attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An height attribute to be added to your element
+
+        """
         
         return BaseAttribute("height", value)
             
@@ -56,9 +71,14 @@ class ObjectAttrs:
         "object" attribute: name  
         Name of content navigable  
 
-        :param value: Valid navigable target name or keyword  
-        :return: An name attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid navigable target name or keyword
+        
+        Returns:
+            An name attribute to be added to your element
+
+        """
         
         return BaseAttribute("name", value)
             
@@ -70,9 +90,14 @@ class ObjectAttrs:
         "object" attribute: type  
         Type of embedded resource  
 
-        :param value: Valid MIME type string  
-        :return: An type attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid MIME type string
+        
+        Returns:
+            An type attribute to be added to your element
+
+        """
         
         return BaseAttribute("type", value)
             
@@ -84,9 +109,14 @@ class ObjectAttrs:
         "object" attribute: width  
         Horizontal dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An width attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An width attribute to be added to your element
+
+        """
         
         return BaseAttribute("width", value)
             

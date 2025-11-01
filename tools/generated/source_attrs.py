@@ -14,9 +14,14 @@ class SourceAttrs:
         "source" attribute: height  
         Vertical dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An height attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An height attribute to be added to your element
+
+        """
         
         return BaseAttribute("height", value)
             
@@ -28,9 +33,14 @@ class SourceAttrs:
         "source" attribute: media  
         Applicable media  
 
-        :param value: Valid media query list  
-        :return: An media attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid media query list
+        
+        Returns:
+            An media attribute to be added to your element
+
+        """
         
         return BaseAttribute("media", value)
             
@@ -42,9 +52,14 @@ class SourceAttrs:
         "source" attribute: sizes  
         Image sizes for different page layouts  
 
-        :param value: Valid source size list  
-        :return: An sizes attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid source size list
+        
+        Returns:
+            An sizes attribute to be added to your element
+
+        """
         
         return BaseAttribute("sizes", value)
             
@@ -56,9 +71,14 @@ class SourceAttrs:
         "source" attribute: src  
         Address of the resource  
 
-        :param value: Valid non-empty URL potentially surrounded by spaces  
-        :return: An src attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-empty URL potentially surrounded by spaces
+        
+        Returns:
+            An src attribute to be added to your element
+
+        """
         
         return BaseAttribute("src", value)
             
@@ -70,9 +90,14 @@ class SourceAttrs:
         "source" attribute: srcset  
         Images to use in different situations, e.g., high-resolution displays, small monitors, etc.  
 
-        :param value: Comma-separated list of image candidate strings  
-        :return: An srcset attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Comma-separated list of image candidate strings
+        
+        Returns:
+            An srcset attribute to be added to your element
+
+        """
         
         return BaseAttribute("srcset", value)
             
@@ -84,9 +109,14 @@ class SourceAttrs:
         "source" attribute: type  
         Type of embedded resource  
 
-        :param value: Valid MIME type string  
-        :return: An type attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid MIME type string
+        
+        Returns:
+            An type attribute to be added to your element
+
+        """
         
         return BaseAttribute("type", value)
             
@@ -98,9 +128,14 @@ class SourceAttrs:
         "source" attribute: width  
         Horizontal dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An width attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An width attribute to be added to your element
+
+        """
         
         return BaseAttribute("width", value)
             

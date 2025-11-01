@@ -11,11 +11,16 @@ class DataAttrs:
     @staticmethod
     def value(value: StrLike) -> BaseAttribute:
         """
-        "data" attribute: value  
-        Machine-readable value  
+        "data" attribute: value
+        Machine-readable value
 
-        :param value: Text*  
-        :return: An value attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text*
+
+        Returns:
+            An value attribute to be added to your element
+
+        """
 
         return BaseAttribute("value", value)

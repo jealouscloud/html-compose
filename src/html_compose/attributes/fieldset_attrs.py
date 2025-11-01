@@ -11,35 +11,50 @@ class FieldsetAttrs:
     @staticmethod
     def disabled(value: bool) -> BaseAttribute:
         """
-        "fieldset" attribute: disabled  
-        Whether the descendant form controls, except any inside legend, are disabled  
+        "fieldset" attribute: disabled
+        Whether the descendant form controls, except any inside legend, are disabled
 
-        :param value: Boolean attribute  
-        :return: An disabled attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An disabled attribute to be added to your element
+
+        """
 
         return BaseAttribute("disabled", value)
 
     @staticmethod
     def form(value) -> BaseAttribute:
         """
-        "fieldset" attribute: form  
-        Associates the element with a form element  
+        "fieldset" attribute: form
+        Associates the element with a form element
 
-        :param value: ID*  
-        :return: An form attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                ID*
+
+        Returns:
+            An form attribute to be added to your element
+
+        """
 
         return BaseAttribute("form", value)
 
     @staticmethod
     def name(value: StrLike) -> BaseAttribute:
         """
-        "fieldset" attribute: name  
-        Name of the element to use for form submission and in the form.elements API  
+        "fieldset" attribute: name
+        Name of the element to use for form submission and in the form.elements API
 
-        :param value: Text*  
-        :return: An name attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text*
+
+        Returns:
+            An name attribute to be added to your element
+
+        """
 
         return BaseAttribute("name", value)

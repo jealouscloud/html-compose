@@ -14,9 +14,14 @@ class AudioAttrs:
         "audio" attribute: autoplay  
         Hint that the media resource can be started automatically when the page is loaded  
 
-        :param value: Boolean attribute  
-        :return: An autoplay attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An autoplay attribute to be added to your element
+
+        """
         
         return BaseAttribute("autoplay", value)
             
@@ -28,9 +33,14 @@ class AudioAttrs:
         "audio" attribute: controls  
         Show user agent controls  
 
-        :param value: Boolean attribute  
-        :return: An controls attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An controls attribute to be added to your element
+
+        """
         
         return BaseAttribute("controls", value)
             
@@ -42,9 +52,14 @@ class AudioAttrs:
         "audio" attribute: crossorigin  
         How the element handles crossorigin requests  
 
-        :param value: ['anonymous', 'use-credentials']  
-        :return: An crossorigin attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['anonymous', 'use-credentials']
+        
+        Returns:
+            An crossorigin attribute to be added to your element
+
+        """
         
         return BaseAttribute("crossorigin", value)
             
@@ -56,9 +71,14 @@ class AudioAttrs:
         "audio" attribute: loop  
         Whether to loop the media resource  
 
-        :param value: Boolean attribute  
-        :return: An loop attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An loop attribute to be added to your element
+
+        """
         
         return BaseAttribute("loop", value)
             
@@ -70,9 +90,14 @@ class AudioAttrs:
         "audio" attribute: muted  
         Whether to mute the media resource by default  
 
-        :param value: Boolean attribute  
-        :return: An muted attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An muted attribute to be added to your element
+
+        """
         
         return BaseAttribute("muted", value)
             
@@ -84,9 +109,14 @@ class AudioAttrs:
         "audio" attribute: preload  
         Hints how much buffering the media resource will likely need  
 
-        :param value: ['none', 'metadata', 'auto']  
-        :return: An preload attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['none', 'metadata', 'auto']
+        
+        Returns:
+            An preload attribute to be added to your element
+
+        """
         
         return BaseAttribute("preload", value)
             
@@ -98,9 +128,14 @@ class AudioAttrs:
         "audio" attribute: src  
         Address of the resource  
 
-        :param value: Valid non-empty URL potentially surrounded by spaces  
-        :return: An src attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-empty URL potentially surrounded by spaces
+        
+        Returns:
+            An src attribute to be added to your element
+
+        """
         
         return BaseAttribute("src", value)
             

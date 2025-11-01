@@ -10,11 +10,16 @@ class LiAttrs:
     @staticmethod
     def value(value: int) -> BaseAttribute:
         """
-        "li" attribute: value  
-        Ordinal value of the list item  
+        "li" attribute: value
+        Ordinal value of the list item
 
-        :param value: Valid integer  
-        :return: An value attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid integer
+
+        Returns:
+            An value attribute to be added to your element
+
+        """
 
         return BaseAttribute("value", value)

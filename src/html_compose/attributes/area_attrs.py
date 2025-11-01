@@ -12,84 +12,119 @@ class AreaAttrs:
     @staticmethod
     def alt(value: StrLike) -> BaseAttribute:
         """
-        "area" attribute: alt  
-        Replacement text for use when images are not available  
+        "area" attribute: alt
+        Replacement text for use when images are not available
 
-        :param value: Text*  
-        :return: An alt attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text*
+
+        Returns:
+            An alt attribute to be added to your element
+
+        """
 
         return BaseAttribute("alt", value)
 
     @staticmethod
     def coords(value) -> BaseAttribute:
         """
-        "area" attribute: coords  
-        Coordinates for the shape to be created in an image map  
+        "area" attribute: coords
+        Coordinates for the shape to be created in an image map
 
-        :param value: Valid list of floating-point numbers*  
-        :return: An coords attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid list of floating-point numbers*
+
+        Returns:
+            An coords attribute to be added to your element
+
+        """
 
         return BaseAttribute("coords", value)
 
     @staticmethod
     def download(value: StrLike) -> BaseAttribute:
         """
-        "area" attribute: download  
-        Whether to download the resource instead of navigating to it, and its filename if so  
+        "area" attribute: download
+        Whether to download the resource instead of navigating to it, and its filename if so
 
-        :param value: Text  
-        :return: An download attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text
+
+        Returns:
+            An download attribute to be added to your element
+
+        """
 
         return BaseAttribute("download", value)
 
     @staticmethod
     def href(value) -> BaseAttribute:
         """
-        "area" attribute: href  
-        Address of the hyperlink  
+        "area" attribute: href
+        Address of the hyperlink
 
-        :param value: Valid URL potentially surrounded by spaces  
-        :return: An href attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid URL potentially surrounded by spaces
+
+        Returns:
+            An href attribute to be added to your element
+
+        """
 
         return BaseAttribute("href", value)
 
     @staticmethod
     def ping(value: Resolvable) -> BaseAttribute:
         """
-        "area" attribute: ping  
-        URLs to ping  
+        "area" attribute: ping
+        URLs to ping
 
-        :param value: Set of space-separated tokens consisting of valid non-empty URLs  
-        :return: An ping attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Set of space-separated tokens consisting of valid non-empty URLs
+
+        Returns:
+            An ping attribute to be added to your element
+
+        """
 
         return BaseAttribute("ping", value)
 
     @staticmethod
     def referrerpolicy(value) -> BaseAttribute:
         """
-        "area" attribute: referrerpolicy  
-        Referrer policy for fetches initiated by the element  
+        "area" attribute: referrerpolicy
+        Referrer policy for fetches initiated by the element
 
-        :param value: Referrer policy  
-        :return: An referrerpolicy attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Referrer policy
+
+        Returns:
+            An referrerpolicy attribute to be added to your element
+
+        """
 
         return BaseAttribute("referrerpolicy", value)
 
     @staticmethod
     def rel(value: Resolvable) -> BaseAttribute:
         """
-        "area" attribute: rel  
-        Relationship between the location in the document containing the hyperlink and the destination resource  
+        "area" attribute: rel
+        Relationship between the location in the document containing the hyperlink and the destination resource
 
-        :param value: Unordered set of unique space-separated tokens*  
-        :return: An rel attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Unordered set of unique space-separated tokens*
+
+        Returns:
+            An rel attribute to be added to your element
+
+        """
 
         return BaseAttribute("rel", value)
 
@@ -98,23 +133,33 @@ class AreaAttrs:
         value: Literal["circle", "default", "poly", "rect"],
     ) -> BaseAttribute:
         """
-        "area" attribute: shape  
-        The kind of shape to be created in an image map  
+        "area" attribute: shape
+        The kind of shape to be created in an image map
 
-        :param value: ['circle', 'default', 'poly', 'rect']  
-        :return: An shape attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                ['circle', 'default', 'poly', 'rect']
+
+        Returns:
+            An shape attribute to be added to your element
+
+        """
 
         return BaseAttribute("shape", value)
 
     @staticmethod
     def target(value) -> BaseAttribute:
         """
-        "area" attribute: target  
-        Navigable for hyperlink navigation  
+        "area" attribute: target
+        Navigable for hyperlink navigation
 
-        :param value: Valid navigable target name or keyword  
-        :return: An target attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid navigable target name or keyword
+
+        Returns:
+            An target attribute to be added to your element
+
+        """
 
         return BaseAttribute("target", value)

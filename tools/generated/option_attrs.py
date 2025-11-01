@@ -14,9 +14,14 @@ class OptionAttrs:
         "option" attribute: disabled  
         Whether the form control is disabled  
 
-        :param value: Boolean attribute  
-        :return: An disabled attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An disabled attribute to be added to your element
+
+        """
         
         return BaseAttribute("disabled", value)
             
@@ -28,9 +33,14 @@ class OptionAttrs:
         "option" attribute: label  
         User-visible label  
 
-        :param value: Text  
-        :return: An label attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text
+        
+        Returns:
+            An label attribute to be added to your element
+
+        """
         
         return BaseAttribute("label", value)
             
@@ -42,9 +52,14 @@ class OptionAttrs:
         "option" attribute: selected  
         Whether the option is selected by default  
 
-        :param value: Boolean attribute  
-        :return: An selected attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An selected attribute to be added to your element
+
+        """
         
         return BaseAttribute("selected", value)
             
@@ -56,9 +71,14 @@ class OptionAttrs:
         "option" attribute: value  
         Value to be used for form submission  
 
-        :param value: Text  
-        :return: An value attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text
+        
+        Returns:
+            An value attribute to be added to your element
+
+        """
         
         return BaseAttribute("value", value)
             

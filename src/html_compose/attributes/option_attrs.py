@@ -11,47 +11,67 @@ class OptionAttrs:
     @staticmethod
     def disabled(value: bool) -> BaseAttribute:
         """
-        "option" attribute: disabled  
-        Whether the form control is disabled  
+        "option" attribute: disabled
+        Whether the form control is disabled
 
-        :param value: Boolean attribute  
-        :return: An disabled attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An disabled attribute to be added to your element
+
+        """
 
         return BaseAttribute("disabled", value)
 
     @staticmethod
     def label(value: StrLike) -> BaseAttribute:
         """
-        "option" attribute: label  
-        User-visible label  
+        "option" attribute: label
+        User-visible label
 
-        :param value: Text  
-        :return: An label attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text
+
+        Returns:
+            An label attribute to be added to your element
+
+        """
 
         return BaseAttribute("label", value)
 
     @staticmethod
     def selected(value: bool) -> BaseAttribute:
         """
-        "option" attribute: selected  
-        Whether the option is selected by default  
+        "option" attribute: selected
+        Whether the option is selected by default
 
-        :param value: Boolean attribute  
-        :return: An selected attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An selected attribute to be added to your element
+
+        """
 
         return BaseAttribute("selected", value)
 
     @staticmethod
     def value(value: StrLike) -> BaseAttribute:
         """
-        "option" attribute: value  
-        Value to be used for form submission  
+        "option" attribute: value
+        Value to be used for form submission
 
-        :param value: Text  
-        :return: An value attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text
+
+        Returns:
+            An value attribute to be added to your element
+
+        """
 
         return BaseAttribute("value", value)

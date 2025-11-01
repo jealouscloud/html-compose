@@ -14,9 +14,14 @@ class AnchorAttrs:
         "a" attribute: download  
         Whether to download the resource instead of navigating to it, and its filename if so  
 
-        :param value: Text  
-        :return: An download attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text
+        
+        Returns:
+            An download attribute to be added to your element
+
+        """
         
         return BaseAttribute("download", value)
             
@@ -28,9 +33,14 @@ class AnchorAttrs:
         "a" attribute: href  
         Address of the hyperlink  
 
-        :param value: Valid URL potentially surrounded by spaces  
-        :return: An href attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid URL potentially surrounded by spaces
+        
+        Returns:
+            An href attribute to be added to your element
+
+        """
         
         return BaseAttribute("href", value)
             
@@ -42,9 +52,14 @@ class AnchorAttrs:
         "a" attribute: hreflang  
         Language of the linked resource  
 
-        :param value: Valid BCP 47 language tag  
-        :return: An hreflang attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid BCP 47 language tag
+        
+        Returns:
+            An hreflang attribute to be added to your element
+
+        """
         
         return BaseAttribute("hreflang", value)
             
@@ -56,9 +71,14 @@ class AnchorAttrs:
         "a" attribute: ping  
         URLs to ping  
 
-        :param value: Set of space-separated tokens consisting of valid non-empty URLs  
-        :return: An ping attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Set of space-separated tokens consisting of valid non-empty URLs
+        
+        Returns:
+            An ping attribute to be added to your element
+
+        """
         
         return BaseAttribute("ping", value)
             
@@ -70,9 +90,14 @@ class AnchorAttrs:
         "a" attribute: referrerpolicy  
         Referrer policy for fetches initiated by the element  
 
-        :param value: Referrer policy  
-        :return: An referrerpolicy attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Referrer policy
+        
+        Returns:
+            An referrerpolicy attribute to be added to your element
+
+        """
         
         return BaseAttribute("referrerpolicy", value)
             
@@ -84,9 +109,14 @@ class AnchorAttrs:
         "a" attribute: rel  
         Relationship between the location in the document containing the hyperlink and the destination resource  
 
-        :param value: Unordered set of unique space-separated tokens*  
-        :return: An rel attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Unordered set of unique space-separated tokens*
+        
+        Returns:
+            An rel attribute to be added to your element
+
+        """
         
         return BaseAttribute("rel", value)
             
@@ -98,9 +128,14 @@ class AnchorAttrs:
         "a" attribute: target  
         Navigable for hyperlink navigation  
 
-        :param value: Valid navigable target name or keyword  
-        :return: An target attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid navigable target name or keyword
+        
+        Returns:
+            An target attribute to be added to your element
+
+        """
         
         return BaseAttribute("target", value)
             
@@ -112,9 +147,14 @@ class AnchorAttrs:
         "a" attribute: type  
         Hint for the type of the referenced resource  
 
-        :param value: Valid MIME type string  
-        :return: An type attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid MIME type string
+        
+        Returns:
+            An type attribute to be added to your element
+
+        """
         
         return BaseAttribute("type", value)
             

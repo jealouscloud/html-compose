@@ -14,9 +14,14 @@ class OlAttrs:
         "ol" attribute: reversed  
         Number the list backwards  
 
-        :param value: Boolean attribute  
-        :return: An reversed attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An reversed attribute to be added to your element
+
+        """
         
         return BaseAttribute("reversed", value)
             
@@ -28,9 +33,14 @@ class OlAttrs:
         "ol" attribute: start  
         Starting value of the list  
 
-        :param value: Valid integer  
-        :return: An start attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid integer
+        
+        Returns:
+            An start attribute to be added to your element
+
+        """
         
         return BaseAttribute("start", value)
             
@@ -42,9 +52,14 @@ class OlAttrs:
         "ol" attribute: type  
         Kind of list marker  
 
-        :param value: ['1', 'a', 'A', 'i', 'I']  
-        :return: An type attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['1', 'a', 'A', 'i', 'I']
+        
+        Returns:
+            An type attribute to be added to your element
+
+        """
         
         return BaseAttribute("type", value)
             
