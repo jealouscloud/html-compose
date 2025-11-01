@@ -149,6 +149,7 @@ class WatchCond:
 
         :param path_glob: Glob pattern(s) to watch for changes.
         :param action: Action to run when a change is detected. Shell command or function.
+                       When action is None, no action is run but reloads may still occur.
         :param ignore_glob: Glob patterns to ignore.
         :param delay: Delay in seconds before running the action after a change.
 
