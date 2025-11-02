@@ -260,138 +260,139 @@ def doctype(dtype: str = "html"):
     return unsafe_text(f"<!DOCTYPE {dtype}>")
 
 
-from .base_attribute import BaseAttribute
-from .base_element import BaseElement
-from .custom_element import CustomElement
+# The imports are organized to avoid circular dependencies
+# The import x as x pattern is interpreted by some tools as "public export"
+
+# ruff: noqa: E402
+
+# Library primitives
+from .base_attribute import BaseAttribute as BaseAttribute
+from .base_element import BaseElement as BaseElement
+from .custom_element import CustomElement as CustomElement
 
 create_element = CustomElement.create
-
-# ruff: noqa: F401, E402
+# Document features
 from .document import HTML5Document as HTML5Document
 from .document import document_generator as document_generator
 from .document import document_streamer as document_streamer
 
-# ruff: noqa: F401, E402
-from .elements import (
-    a,
-    abbr,
-    address,
-    area,
-    article,
-    aside,
-    audio,
-    b,
-    base,
-    bdi,
-    bdo,
-    blockquote,
-    body,
-    br,
-    button,
-    canvas,
-    caption,
-    cite,
-    code,
-    col,
-    colgroup,
-    data,
-    datalist,
-    dd,
-    del_,
-    details,
-    dfn,
-    dialog,
-    div,
-    dl,
-    dt,
-    em,
-    embed,
-    fieldset,
-    figcaption,
-    figure,
-    footer,
-    form,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    head,
-    header,
-    hgroup,
-    hr,
-    html,
-    i,
-    iframe,
-    img,
-    input,
-    ins,
-    kbd,
-    label,
-    legend,
-    li,
-    link,
-    main,
-    map,
-    mark,
-    menu,
-    meta,
-    meter,
-    nav,
-    noscript,
-    object,
-    ol,
-    optgroup,
-    option,
-    output,
-    p,
-    picture,
-    pre,
-    progress,
-    q,
-    rp,
-    rt,
-    ruby,
-    s,
-    samp,
-    script,
-    search,
-    section,
-    select,
-    slot,
-    small,
-    source,
-    span,
-    strong,
-    style,
-    sub,
-    summary,
-    sup,
-    svg,
-    table,
-    tbody,
-    td,
-    template,
-    textarea,
-    tfoot,
-    th,
-    thead,
-    time,
-    title,
-    tr,
-    track,
-    u,
-    ul,
-    var,
-    video,
-    wbr,
-)
+# Elements
+from .elements import a as a
+from .elements import abbr as abbr
+from .elements import address as address
+from .elements import area as area
+from .elements import article as article
+from .elements import aside as aside
+from .elements import audio as audio
+from .elements import b as b
+from .elements import base as base
+from .elements import bdi as bdi
+from .elements import bdo as bdo
+from .elements import blockquote as blockquote
+from .elements import body as body
+from .elements import br as br
+from .elements import button as button
+from .elements import canvas as canvas
+from .elements import caption as caption
+from .elements import cite as cite
+from .elements import code as code
+from .elements import col as col
+from .elements import colgroup as colgroup
+from .elements import data as data
+from .elements import datalist as datalist
+from .elements import dd as dd
+from .elements import del_ as del_
+from .elements import details as details
+from .elements import dfn as dfn
+from .elements import dialog as dialog
+from .elements import div as div
+from .elements import dl as dl
+from .elements import dt as dt
+from .elements import em as em
+from .elements import embed as embed
+from .elements import fieldset as fieldset
+from .elements import figcaption as figcaption
+from .elements import figure as figure
+from .elements import footer as footer
+from .elements import form as form
+from .elements import h1 as h1
+from .elements import h2 as h2
+from .elements import h3 as h3
+from .elements import h4 as h4
+from .elements import h5 as h5
+from .elements import h6 as h6
+from .elements import head as head
+from .elements import header as header
+from .elements import hgroup as hgroup
+from .elements import hr as hr
+from .elements import html as html
+from .elements import i as i
+from .elements import iframe as iframe
+from .elements import img as img
+from .elements import input as input
+from .elements import ins as ins
+from .elements import kbd as kbd
+from .elements import label as label
+from .elements import legend as legend
+from .elements import li as li
+from .elements import link as link
+from .elements import main as main
+from .elements import map as map
+from .elements import mark as mark
+from .elements import menu as menu
+from .elements import meta as meta
+from .elements import meter as meter
+from .elements import nav as nav
+from .elements import noscript as noscript
+from .elements import object as object
+from .elements import ol as ol
+from .elements import optgroup as optgroup
+from .elements import option as option
+from .elements import output as output
+from .elements import p as p
+from .elements import picture as picture
+from .elements import pre as pre
+from .elements import progress as progress
+from .elements import q as q
+from .elements import rp as rp
+from .elements import rt as rt
+from .elements import ruby as ruby
+from .elements import s as s
+from .elements import samp as samp
+from .elements import script as script
+from .elements import search as search
+from .elements import section as section
+from .elements import select as select
+from .elements import slot as slot
+from .elements import small as small
+from .elements import source as source
+from .elements import span as span
+from .elements import strong as strong
+from .elements import style as style
+from .elements import sub as sub
+from .elements import summary as summary
+from .elements import sup as sup
+from .elements import svg as svg
+from .elements import table as table
+from .elements import tbody as tbody
+from .elements import td as td
+from .elements import template as template
+from .elements import textarea as textarea
+from .elements import tfoot as tfoot
+from .elements import th as th
+from .elements import thead as thead
+from .elements import time as time
+from .elements import title as title
+from .elements import tr as tr
+from .elements import track as track
+from .elements import u as u
+from .elements import ul as ul
+from .elements import var as var
+from .elements import video as video
+from .elements import wbr as wbr
 
-# ruff: noqa: F401, E402
-from .resource import (
-    css_import,
-    font_import_manual,
-    font_import_provider,
-    js_import,
-)
+# Resource features
+from .resource import css_import as css_import
+from .resource import font_import_manual as font_import_manual
+from .resource import font_import_provider as font_import_provider
+from .resource import js_import as js_import

@@ -14,13 +14,13 @@ class _HasHtml(typing.Protocol):
         ...
 
 
-class ElementBase(_HasHtml):
+class ElementBase:
     """
     Base class for all HTML elements
 
     Defined here to avoid circular imports for Node definition
 
-    Implementers define: __init__, render, context, __html__
+    Implementers define: __init__, render, __html__
 
     See: BaseElement
     """

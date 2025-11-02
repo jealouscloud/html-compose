@@ -389,7 +389,7 @@ if __name__ == "__main__":
         print(f"Copied generated elements to: {real_path}")
         init_data = [f'"""{elements_docstring()}\n"""']
         for name in el_names:
-            init_data.append(f"from .{name}_element import {name}")
+            init_data.append(f"from .{name}_element import {name} as {name}")
 
         imports = ", ".join(map(lambda x: f"'{x}'", el_names))
         init_data.append(

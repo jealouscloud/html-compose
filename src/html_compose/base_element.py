@@ -1,4 +1,5 @@
-from typing import Callable, Generator, Iterable, Mapping
+from abc import ABCMeta
+from typing import Any, Callable, Generator, Iterable, Mapping, TypeVar, cast
 
 from . import escape_text, unsafe_text, util_funcs
 from .attributes import BaseAttribute, GlobalAttrs
@@ -7,7 +8,28 @@ from .base_types import ElementBase, Node, Resolvable, _HasHtml
 SPECIAL_ATTRS = {"class": GlobalAttrs.class_, "style": GlobalAttrs.style}
 
 
-class BaseElement(ElementBase):
+T = TypeVar("T", bound="BaseElement")
+
+
+class ElementMeta(ABCMeta):
+    """
+    The metaclass for all HTML elements to hack the base class interface
+    """
+
+    # We aggressively hack the type checker here
+    def __getitem__(cls: type[T], key: Node) -> T:  # type: ignore  # pyright: ignore[reportGeneralTypeIssues]
+        """
+        This implements a shortcut to the constructor for a given element.
+
+        Example:
+        If the user passes `h1["Demo"]` the user likely expects h1()["Demo"]
+        """
+        inst = cls()  # type: ignore # pyright: ignore[reportCallIssue]
+        inst.append(key)
+        return inst
+
+
+class BaseElement(ElementBase, metaclass=ElementMeta):
     """
     Base HTML element
 
@@ -15,16 +37,6 @@ class BaseElement(ElementBase):
     """
 
     __slots__ = ("tag", "attrs", "_children", "is_void_element")
-
-    @classmethod
-    def __class_getitem__(cls, key):
-        """
-        This implements a shortcut to the constructor for a given element.
-
-        Example:
-        If the user passes `h1["Demo"]` the user likely expects h1()["Demo"]
-        """
-        return cls()[key]  # pyright: ignore[reportCallIssue]
 
     def __getitem__(self, key):
         """
@@ -71,13 +83,13 @@ class BaseElement(ElementBase):
                 Defaults to None.
             children: A list of child elements. Defaults to None.
         """
-        self.tag = tag
-        self.attrs = self._resolve_attrs(attrs)
+        self.tag: str = tag
+        self.attrs: dict[str, str] = self._resolve_attrs(attrs)
 
-        self._children = children if children else []
-        self.is_void_element = void_element
+        self._children: list[Node] = children if children else []
+        self.is_void_element: bool = void_element
 
-    def __eq__(self, other):
+    def __eq__(self, other: Any):
         """Compare rendered HTML instead of class data"""
         if isinstance(other, self.__class__):
             return self.render() == other.render()
@@ -128,14 +140,22 @@ class BaseElement(ElementBase):
             else:
                 self.attrs[attr_name] = resolved_value
 
-    def _resolve_attrs(self, attrs) -> dict[str, str]:
+    def _resolve_attrs(
+        self,
+        attrs: Iterable[BaseAttribute]
+        | Mapping[str, Resolvable]
+        | Iterable[
+            BaseAttribute | Iterable[BaseAttribute] | Mapping[str, Resolvable]
+        ]
+        | None,
+    ) -> dict[str, str]:
         """
         Resolve attributes into key/value pairs
         """
         if not attrs:
             return {}
 
-        attr_dict = {}
+        attr_dict: dict[str, str] = {}
         # These are sent to us in format:
         # key, value (unescaped)
         if isinstance(attrs, (list, tuple)):
@@ -147,13 +167,19 @@ class BaseElement(ElementBase):
                     key, value = result
                     attr_dict[key] = value
                 elif isinstance(item, tuple) and len(item) == 2:
-                    attr = BaseAttribute(item[0], item[1]).evaluate()
+                    # no runtime checking here, but hint the type checker
+                    item = cast(tuple[str, Resolvable], item)
+
+                    attr = BaseAttribute(name=item[0], data=item[1]).evaluate()
                     if not attr:
                         continue
 
                     a_name, a_value = attr
                     attr_dict[a_name] = a_value
-                elif isinstance(item, dict):
+                elif isinstance(item, Mapping):
+                    # no runtime checking here, but hint the type checker
+                    item = cast(Mapping[str, Resolvable], item)
+
                     for key, value in item.items():
                         attr = BaseAttribute(key, value).evaluate()
                         if not attr:
@@ -166,6 +192,9 @@ class BaseElement(ElementBase):
                     )
 
         elif isinstance(attrs, dict):
+            # hint the type checker
+            attrs = cast(Mapping[str, Resolvable], attrs)
+
             for key, value in attrs.items():
                 attr = BaseAttribute(key, value).evaluate()
                 if attr:
@@ -177,7 +206,9 @@ class BaseElement(ElementBase):
 
         return attr_dict
 
-    def _call_callable(self, func, parent):
+    def _call_callable(
+        self, func: Callable, parent: ElementBase | None
+    ) -> Node:
         """
         Executor for callable elements
 
@@ -204,11 +235,11 @@ class BaseElement(ElementBase):
             raise ValueError(
                 "Lambda received has too many parameters to process"
             )
-
-        return result
+        # assume the result is a Node, including None
+        return cast(Node, result)
 
     def _resolve_child(
-        self, child: Node, call_callables, parent
+        self, child: Node, call_callables: bool, parent: ElementBase | None
     ) -> Generator[str, None, None]:
         """
         Child resolver for elements
@@ -271,15 +302,15 @@ class BaseElement(ElementBase):
             else:
                 result = child
                 while callable(result):
-                    result = self._call_callable(child, parent)
+                    result = self._call_callable(child, parent)  # type: ignore[assignment]
 
                 yield from self._resolve_child(result, call_callables, parent)
         else:
             raise ValueError(f"Unknown child type: {type(child)}")
 
     def _resolve_tree(
-        self, parent=None
-    ) -> Generator[str | Callable, None, None]:
+        self, parent: ElementBase | None = None
+    ) -> Generator[str | Callable[..., Node], None, None]:
         """
         Walk html element tree and yield all resolved children
 
@@ -336,7 +367,9 @@ class BaseElement(ElementBase):
             # Applies to iterables, callables, literal elements
             self._children.append(args)
 
-    def deferred_resolve(self, parent) -> Generator[str, None, None]:
+    def deferred_resolve(
+        self, parent: ElementBase | None = None
+    ) -> Generator[str, None, None]:
         """
         Resolve all attributes and children of the HTML element, except for callable children.
 
@@ -389,10 +422,12 @@ class BaseElement(ElementBase):
             else:
                 yield f"<{self.tag}>"
 
-            yield from children  # type: ignore[misc]
+            yield from children  # type: ignore[misc] # pyright: ignore[reportReturnType,reportOptionalIterable]
             yield f"</{self.tag}>"
 
-    def resolve(self, parent=None) -> Generator[str, None, None]:
+    def resolve(
+        self, parent: ElementBase | None = None
+    ) -> Generator[str, None, None]:
         """
         Generate the flat HTML [string] iterator for the HTML element
         """
@@ -406,7 +441,7 @@ class BaseElement(ElementBase):
             else:
                 yield element
 
-    def render(self, parent=None) -> str:
+    def render(self, parent: ElementBase | None = None) -> str:
         """
         Render the HTML element
         """
