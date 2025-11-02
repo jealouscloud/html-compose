@@ -4,8 +4,9 @@
 * html_compose.document: Add streaming document generators which will produce
   head element before other content.
 * Add js/css/font composition along with other changes to html_compose.document
-* Change HTML5Document into a class with a .render and .stream function
-  which wrap other functionality in the module
+* [breaking] Change HTML5Document into a class with a .render and .stream function
+  which wrap other functionality in the module. 
+  The signature is now different which may require updates.
 * HTML converter improvements: Survive round trip for more text. 
   Output single elements when we identify an attribute could be a list
 
