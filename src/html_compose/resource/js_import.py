@@ -55,8 +55,7 @@ class js_import:
         Alpine.start()
         '''
     ]
-
-    ...
+    ```
 
     ## Generated "HTML":
 

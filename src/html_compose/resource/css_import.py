@@ -29,9 +29,7 @@ class css_import:
     )
 
     ]
-    ...
-
-    ...
+    ```
 
     ## Generated "HTML":
 
