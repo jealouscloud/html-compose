@@ -94,6 +94,9 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
         if isinstance(other, self.__class__):
             return self.render() == other.render()
 
+        if isinstance(other, str):
+            return self.render() == other
+
         return False
 
     def _process_attr(
