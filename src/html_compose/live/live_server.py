@@ -1,4 +1,5 @@
-from time import sleep
+from socket import create_connection
+from socket import timeout as socket_timeout
 from time import sleep, time
 
 from ..util_funcs import generate_livereload_env
@@ -13,6 +14,27 @@ from .watcher import (
 )
 
 
+def _wait_for_server(
+    host: str, port: int, timeout: float, daemon_task: ProcessTask
+) -> None:
+    start_time = time()
+    print(f"Waiting for server at {host}:{port} to come online...")
+    while time() - start_time < timeout:
+        try:
+            with create_connection((host, port), timeout=1):
+                print(f"{host}:{port} is online.")
+                return
+        except (ConnectionRefusedError, socket_timeout):
+            sleep(0.25)
+
+    daemon_task.cancel()
+    daemon_task.canceling = False  # this is an early term
+
+    raise RuntimeError(
+        f"Unable to reach {host}:{port} after {int(timeout)} seconds."
+    )
+
+
 def live_server(
     daemon: ShellCommand,
     daemon_delay: float,
@@ -23,6 +45,9 @@ def live_server(
     print_paths=True,
     loop_delay=1,
     livereload_delay=0.2,
+    daemon_host: str | None = None,
+    daemon_port: int | None = None,
+    daemon_timeout: float = 30.0,
     proxy_host: str | None = None,
     proxy_uri: str | None = None,
 ) -> None:
@@ -60,6 +85,16 @@ def live_server(
 
     :param livereload_delay: Delay livereload server update until x seconds after daemon update
     :type livereload_delay: float
+
+    :param daemon_host: Host the HTTP server daemon listens on. Used to determine when the server is back up.
+    :type daemon_host: str | None
+
+    :param daemon_port: Port the HTTP server daemon listens on. Used to determine when the server is back up.
+    :type daemon_port: int | None
+
+    :param daemon_timeout: Timeout in seconds to wait for daemon port to come online after restart.
+    :type daemon_timeout: int | None
+
     :param proxy_uri: If websocket is behind a reverse proxy, this is the URI to reach it by.
                       This is useful if you are developing behind SSL.
     :type proxy_uri: str
@@ -98,6 +133,15 @@ def live_server(
     def reload():
         changed = list(pending_reload)
         pending_reload.clear()
+        if daemon_port is not None:
+            # If specified, we want to wait for the listening daemon port
+            # to show up before we tell the browser to reload.
+            _wait_for_server(
+                daemon_host or host,
+                daemon_port,
+                daemon_timeout,
+                daemon_task=daemon_task,
+            )
         reload_because(changed)
 
     browser_update_task = Task(reload, delay=0, sync=False)
