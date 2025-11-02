@@ -1,102 +1,64 @@
-from typing import Any, Generator, Iterable, Literal
+from typing import Any, Generator, Iterable, Literal, TypeAlias
 from urllib.parse import urlencode
 
 from . import base_types, doctype, pretty_print, resource, unsafe_text
 from . import elements as el
 from .util_funcs import get_livereload_env
 
+Node: TypeAlias = base_types.Node
+
+
+def generate_head(
+    title: str | None = None,
+    js: Iterable[str | resource.js_import] | None = None,
+    css: Iterable[str | resource.css_import] | None = None,
+    fonts: Iterable[resource.font_import_manual | resource.font_import_provider]
+    | None = None,
+    extra: Iterable[Node] | None = None,
+    skip_meta: bool = False,
+) -> el.head:
+    """
+    Generate a head element with common imports and arguments.
+
+    By default, this includes a viewport meta tag.
+
+    :param title: HTML document title
+    :param js: A list of javascript imports to include in the head
+    :param css: A list of CSS imports to include in the head
+    :param fonts: A list of font imports to include in the head
+    :param extra: Any extra elements to include at the end of the head
+    :param skip_meta: Skip the meta viewport tag
+
+    :return: A head element with the specified imports and title
+    """
+    head_elements: list[Node] = resource.to_elements(
+        js=js, css=css, fonts=fonts
+    )
+    if extra:
+        head_elements.extend(extra)
+
+    return el.head()[
+        el.meta(
+            name="viewport", content="width=device-width, initial-scale=1.0"
+        )
+        if not skip_meta
+        else None,
+        el.title()[title] if title else None,
+        head_elements,
+    ]
+
 
 def document_streamer(
-    title: str | None = None,
     lang: str | None = None,
-    js: Iterable[str | resource.js_import] | None = None,
-    css: Iterable[str | resource.css_import] | None = None,
-    fonts: Iterable[resource.font_import_manual | resource.font_import_provider]
-    | None = None,
-    head_extra: Iterable[base_types.Node] | None = None,
-    body_content: Iterable[base_types.Node] | el.body | None = None,
+    head: Iterable[Node] | el.head | None = None,
+    body: Iterable[Node] | el.body | None = None,
     stream_mode: Literal["head_only", "full"] = "head_only",
 ) -> Generator[str, Any, None]:
     """
-    A convenience function to generate a full HTML5 document.
+    Return a full HTML5 document as a generator, yielding parts as strings.
 
-    This is a higher-level function that wraps around HTML5Document,
-    allowing you to specify common elements like JavaScript and CSS imports,
-    as well as additional head content.
-
-    :param title: The title of the document
-    :param lang: The language of the document.
-                 English is "en", or consult HTML documentation
-    :param js: A list of javascript imports to include in the head
-    :param css: A list of CSS imports to include in the head
-    :param head_extra: Additional elements to include in the head
-    :param body_content: A 'body' element or a list of children to add to the 'body' element
-    :param stream_mode: If set, return a generator that yields parts of the document.
-                        "head_only" yields the head, then full body,
-                        "full" yields the entire document in parts.
-    :return: A complete HTML5 document as a string generator
-    """
-    head_elements: list[base_types.Node] = resource.to_elements(js, css, fonts)
-    if head_extra:
-        head_elements.extend(head_extra)
-    return HTML5Stream(
-        title=title,
-        lang=lang,
-        head=head_elements,
-        body=body_content,
-        stream_mode=stream_mode,
-    )
-
-
-def document_generator(
-    title: str | None = None,
-    lang: str | None = None,
-    js: Iterable[str | resource.js_import] | None = None,
-    css: Iterable[str | resource.css_import] | None = None,
-    fonts: Iterable[resource.font_import_manual | resource.font_import_provider]
-    | None = None,
-    head_extra: Iterable[base_types.Node] | None = None,
-    body_content: Iterable[base_types.Node] | el.body | None = None,
-) -> str:
-    """
-    A convenience function to generate a full HTML5 document.
-
-    This is a higher-level function that wraps around HTML5Document,
-    allowing you to specify common elements like JavaScript and CSS imports,
-    as well as additional head content.
-
-    :param title: The title of the document
-    :param lang: The language of the document.
-                 English is "en", or consult HTML documentation
-    :param js: A list of javascript imports to include in the head
-    :param css: A list of CSS imports to include in the head
-    :param head_extra: Additional elements to include in the head
-    :param body_content: A 'body' element or a list of children to add to the 'body' element
-    :return: A complete HTML5 document as a string
-    """
-    return "".join(
-        document_streamer(
-            title=title,
-            lang=lang,
-            js=js,
-            css=css,
-            fonts=fonts,
-            head_extra=head_extra,
-            body_content=body_content,
-            stream_mode="full",
-        )
-    )
-
-
-def HTML5Stream(
-    title: str | None = None,
-    lang: str | None = None,
-    head: list | None = None,
-    body: Iterable[base_types.Node] | el.body | None = None,
-    stream_mode: Literal["head_only", "full"] = "head_only",
-) -> Generator[str, Any, None]:
-    """
-    A streaming version of HTML5Document.
+    stream_mode controls whether to yield just the head first, then body,
+    or the full document in parts.
 
     tldr:
     ```
@@ -104,7 +66,7 @@ def HTML5Stream(
       html(lang=lang)[
         head[
           meta(name="viewport", content="width=device-width, initial-scale=1.0")
-          title(title)
+          ...,
         ]
         body[body]]
     ```
@@ -112,11 +74,11 @@ def HTML5Stream(
     When using livereload, an environment variable is set which adds
     livereload-js to the head of the document.
 
-    :param title: The title of the document
     :param lang: The language of the document.
                  English is "en", or consult HTML documentation
     :param head: Children to add to the <head> element,
-                 which already defines viewport and title
+                 which already defines viewport.
+                 A head element passed directly will be used unmodified.
     :param body: A 'body' element or a list of children to add to the 'body' element
     :param stream_mode: If set, return a generator that yields parts of the document.
                         "head_only" yields the head, then full body,
@@ -126,49 +88,48 @@ def HTML5Stream(
     """
     # Enable HTML5 and prevent quirks mode
     header = doctype("html")
-
-    head_el = el.head()[
-        el.meta(  # enable mobile rendering
-            name="viewport", content="width=device-width, initial-scale=1.0"
-        ),
-        el.title()[title] if title else None,
-        head if head else None,
-    ]
+    if isinstance(head, el.head):
+        head_el = head
+    else:
+        head_el = generate_head(extra=head)
     # None if disabled
     live_reload_flags = get_livereload_env()
     # Feature: Live reloading for development
     # Fires when HTMLCOMPOSE_LIVERELOAD=1
     if live_reload_flags:
         head_el.append(_livereload_script_tag(live_reload_flags))
+    # Produce our HTML element and save its parts
     html_el = el.html(lang=lang).resolve()
     html_el_start = next(html_el)
     html_el_end = next(html_el)
+    # Yield up until end of the head element
     yield f"{header}\n{html_el_start}\n{head_el.render()}\n\n"
+
+    # Setup the body element
     if isinstance(body, el.body):
         body_el = body
     else:
         body_el = el.body()[body]
     if stream_mode == "full":
+        # Resolve in pieces
         for body_part in body_el.resolve():
             yield body_part
         yield "\n"
         yield html_el_end
     elif stream_mode == "head_only":
+        # Resolve all at once
         yield f"{body_el.render()}\n{html_el_end}"
     else:
         raise ValueError("stream_mode must be 'head_only' or 'full'")
 
 
-def HTML5Document(
-    title: str | None = None,
+def document_generator(
     lang: str | None = None,
-    head: list | None = None,
-    body: Iterable[base_types.Node] | el.body | None = None,
-    prettify: bool | str = False,
-) -> str:
+    head: el.head | list | None = None,
+    body: Iterable[Node] | el.body | None = None,
+):
     """
-    Return an HTML5 document with the given title and content.
-    It also defines meta viewport for mobile support.
+    Return a full HTML5 document as a string.
 
     tldr:
     ```
@@ -184,27 +145,20 @@ def HTML5Document(
     When using livereload, an environment variable is set which adds
     livereload-js to the head of the document.
 
-    :param title: The title of the document
+
     :param lang: The language of the document.
                  English is "en", or consult HTML documentation
     :param head: Children to add to the <head> element,
-                 which already defines viewport and title
+                 which already defines viewport.
+                 A head element passed directly will be used unmodified.
     :param body: A 'body' element or a list of children to add to the 'body' element
-    :param prettify: If true, prettify HTML output.
-                     If the value is a string, use that parser for BeautifulSoup
+
+    :return: A full HTML5 document as a string
+
     """
-    # Enable HTML5 and prevent quirks mode
-    result = "".join(
-        HTML5Stream(
-            title=title, lang=lang, head=head, body=body, stream_mode="full"
-        )
+    return "".join(
+        document_streamer(lang=lang, head=head, body=body, stream_mode="full")
     )
-    if prettify:
-        if prettify is True:
-            return pretty_print(result)
-        return pretty_print(result, features=prettify)
-    else:
-        return result
 
 
 def get_livereload_uri() -> str:
@@ -258,3 +212,93 @@ def _livereload_script_tag(live_reload_settings):
             )
         )
     ]
+
+
+class HTML5Document:
+    """
+    A convenience class to generate a full HTML5 document.
+
+    Allows you to specify common elements like JavaScript and CSS imports,
+    as well as additional head content.
+
+    When using livereload, an environment variable is set which adds
+    livereload-js to the head of the document.
+    """
+
+    def __init__(
+        self,
+        title: str | None = None,
+        lang: str | None = None,
+        js: Iterable[str | resource.js_import] | None = None,
+        css: Iterable[str | resource.css_import] | None = None,
+        fonts: Iterable[
+            resource.font_import_manual | resource.font_import_provider
+        ]
+        | None = None,
+        head_extra: Iterable[Node] | None = None,
+        body: Iterable[Node] | el.body | None = None,
+    ) -> None:
+        """
+
+        :param title: The title of the document
+        :param lang: The language of the document.
+                     English is "en", or consult HTML documentation
+        :param js: A list of javascript imports to include in the head
+        :param css: A list of CSS imports to include in the head
+        :param fonts: A list of font imports to include in the head
+        :param head_extra: Additional elements to include in the head
+        :param body: A 'body' element or a list of elements to include in the body
+        :param stream_mode: If set, return a generator that yields parts of the document.
+                            "head_only" yields the head, then full body,
+                            "full" yields the entire document in parts.
+        """
+        self.title = title
+        self.lang = lang
+        self.js = js
+        self.css = css
+        self.fonts = fonts
+        self.head_extra = head_extra
+        if isinstance(body, el.body):
+            self.body = body
+        else:
+            self.body = el.body()[body]
+
+    def render(self) -> str:
+        """
+        Return the full HTML5 document as a string.
+        """
+        return "".join(self.stream(stream_mode="full"))
+
+    def stream(
+        self, stream_mode: Literal["head_only", "full"] = "head_only"
+    ) -> Generator[str, Any, None]:
+        """
+        Return a generator that yields parts of the HTML5 document as strings.
+
+        :param stream_mode: Parts of the document to stream. If "head_only",
+                            we yield the head, then the full body.
+                            If "full", we yield the entire document in parts.
+
+        :return: A generator that yields parts of the HTML5 document as strings.
+        """
+        return document_streamer(
+            lang=self.lang,
+            head=generate_head(
+                title=self.title,
+                js=self.js,
+                css=self.css,
+                fonts=self.fonts,
+                extra=self.head_extra,
+            ),
+            body=self.body,
+            stream_mode=stream_mode,
+        )
+
+    def __html__(self) -> str:
+        return self.render()
+
+    def __str__(self) -> str:
+        return self.render()
+
+    def __repr__(self) -> str:
+        return pretty_print(str(self))

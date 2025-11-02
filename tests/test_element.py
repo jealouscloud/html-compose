@@ -187,10 +187,7 @@ def test_equivalent():
 
 def test_document():
     doc = h.HTML5Document(
-        "Test",
-        lang="en",
-        head=None,
-        body=[h.button["Button"], h.br(), h.p["demo 2"]],
+        "Test", lang="en", body=[h.button["Button"], h.br(), h.p["demo 2"]]
     )
 
     expected = "\n".join(
@@ -203,7 +200,7 @@ def test_document():
             "</html>",
         ]
     )
-    assert doc == expected
+    assert str(doc) == expected
 
 
 def test_noconstructor():

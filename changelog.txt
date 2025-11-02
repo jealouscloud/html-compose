@@ -3,12 +3,11 @@
   js_import, css_import, and font_import helpers
 * html_compose.document: Add streaming document generators which will produce
   head element before other content.
-* Add html_compose.document document_generator and document_streamer for use
-  with html_compose.resource imports, acting as the most helpful way to generate
-  an HTML document
-* Importer improvements: Survive round trip for more text. Output single elements
-  when we identify an attribtue could be a list
-* Minor documentation improvements
+* Add js/css/font composition along with other changes to html_compose.document
+* Change HTML5Document into a class with a .render and .stream function
+  which wrap other functionality in the module
+* HTML converter improvements: Survive round trip for more text. 
+  Output single elements when we identify an attribute could be a list
 
 
 # 0.10.1

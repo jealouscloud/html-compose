@@ -1,7 +1,7 @@
 import pytest
 
 import html_compose.elements as el
-from html_compose.document import document_streamer
+from html_compose.document import HTML5Document
 from html_compose.resource import (
     css_import,
     font_import_manual,
@@ -124,16 +124,13 @@ def test_gen_docs():
         print(line)
     print("---")
     print(
-        "".join(
-            document_streamer(
-                title="demo",
-                lang="en",
-                js=js,
-                css=css,
-                fonts=fonts,
-                body_content=[el.h1()["Hello world"]],
-                stream_mode="full",
-            )
+        HTML5Document(
+            title="demo",
+            lang="en",
+            js=js,
+            css=css,
+            fonts=fonts,
+            body=[el.h1()["Hello world"]],
         )
     )
     assert False
@@ -297,14 +294,9 @@ def test_importer():
 def test_document_generator():
     css = get_css()
     js = get_js()
-    result = document_streamer(
-        title="demo",
-        lang="en",
-        js=js,
-        css=css,
-        body_content=[el.h1()["Hello world"]],
-        stream_mode="full",
-    )
+    result = HTML5Document(
+        title="demo", lang="en", js=js, css=css, body=[el.h1()["Hello world"]]
+    ).stream("full")
     expected = [
         '<!DOCTYPE html>\n<html lang="en">\n<head><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>demo</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" as="style" rel="preload"/><link href="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm" integrity="sha384-Yf57wlxlrA1+0X6Ye9NOBxQ1tpmiwI/9mFpv9tT/Rh2UAajwwAlTWHnvTGYhgv7p" crossorigin="anonymous" rel="modulepreload"/><link href="./static/admin.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" rel="stylesheet"/><script type="importmap">{"imports": {"admin": "./static/admin.js", "alpinejs": "https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm"}}</script><script src="./static/admin.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm" type="module" integrity="sha384-Yf57wlxlrA1+0X6Ye9NOBxQ1tpmiwI/9mFpv9tT/Rh2UAajwwAlTWHnvTGYhgv7p" crossorigin="anonymous"></script></head>\n\n',
         "<body>",

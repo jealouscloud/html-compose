@@ -267,12 +267,9 @@ from .custom_element import CustomElement
 create_element = CustomElement.create
 
 # ruff: noqa: F401, E402
-from .document import (
-    HTML5Document,
-    HTML5Stream,
-    document_generator,
-    document_streamer,
-)
+from .document import HTML5Document as HTML5Document
+from .document import document_generator as document_generator
+from .document import document_streamer as document_streamer
 
 # ruff: noqa: F401, E402
 from .elements import (
