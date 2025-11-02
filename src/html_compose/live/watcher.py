@@ -5,7 +5,6 @@ import subprocess
 from pathlib import Path
 from threading import RLock, Thread
 from time import sleep, time
-from traceback import print_exc
 from typing import Callable
 
 from watchfiles._rust_notify import RustNotify
@@ -31,21 +30,36 @@ class Task:
         self.delay = delay
         self.update_count = 0
         self.sync = sync
+        self.exc: Exception | None = None
+        self.complete: bool | None = None
 
     def active_check(self, update_id):
         return self.update_count == update_id
 
-    def _run(self):
+    def _do_run(self):
+        try:
+            if self.action:
+                self.action()
+        except Exception as e:
+            self.exc = e
+        self.complete = True
+
+    def run(self):
         """
         Execute the task's action.
+
+        If this is not a sync task it runs in a thread.
+
+        self.exc is set if an exception occurred during execution.
         """
+        self.complete = False
         if not self.action:
             return
 
         if self.sync:
-            self.action()
+            self._do_run()
         else:
-            Thread(target=self.action, daemon=True).start()
+            Thread(target=self._do_run, daemon=True).start()
 
     def cancel(self):
         # Implement cancellation logic here
@@ -57,23 +71,47 @@ class ProcessTask(Task):
         self.command = command
         self.process = None
         super().__init__(self._run_process, delay, sync)
+        self.canceling = False
 
     def _run_process(self):
-        if self.process:
-            # Subprocess will skip these steps if the process is already closed
-            self.process.terminate()
-            # Wait on the process to actually end
-            self.process.wait()
+        self.cancel()  # Close existing proc if it is open
 
         shell = isinstance(self.command.command, str)
         self.process = subprocess.Popen(
             self.command.command, shell=shell, env=self.command.env
         )
 
-    def cancel(self):
+        self.canceling = False
+
+    def cancel(self) -> None:
         if self.process:
+            self.canceling = True
+            # Subprocess will skip these steps if the process is already closed
             self.process.terminate()
-            self.process.wait()
+            # Wait on the process to actually end
+            try:
+                self.process.wait()
+            except KeyboardInterrupt:
+                # This would happen on the main thread
+                # The user is waiting for us to close but we're waiting on
+                # a 'graceful' close.
+                # The user wants us to hurry up, so kill -9 it.
+                print(f"ProcessTask: sigkill for {self.command.command}.")
+                self.process.kill()
+
+    def has_ended_early(self) -> bool:
+        if self.canceling:
+            return False
+
+        if self.process:
+            return self.process.poll() is not None
+
+        return False
+
+    def status_code(self) -> int | None:
+        if self.process:
+            return self.process.poll()
+        return None
 
 
 class TaskRunner:
@@ -99,34 +137,60 @@ class TaskRunner:
             task.update_count += 1
             self.tasks.append((task.update_count, time() + task.delay, task))
 
-    def worker(self):
-        to_remove = []
-        to_run = []
+    def worker(self) -> None:
+        to_remove: list[int] = []
+        to_run: list[Task] = []
+        running: list[Task] = []
+
+        def _exit(exc: Exception) -> None:
+            for i in running:
+                i.cancel()
+            self.cancel()
+            raise exc
+
         while not self.cancelled:
+            # Acquire lock to safely access shared task list.
             with self.lock:
                 now = time()
+                # Iterate through all pending tasks.
                 for i, entry in enumerate(self.tasks):
                     update_id, due, task = entry
+                    # Perform "active check" to debounce rapid events.
                     if not task.active_check(update_id):
-                        to_remove.append(i)
+                        to_remove.append(i)  # Mark stale task for removal.
                         continue
 
+                    # If task is not stale and due time has passed, mark for removal and run.
                     if now >= due:
                         to_remove.append(i)
                         to_run.append(task)
+
+                # Remove all marked (stale or due) tasks in reverse to avoid index errors.
                 for i in reversed(to_remove):
                     del self.tasks[i]
                 to_remove.clear()
 
-            # Run tasks outside of lock
+            # Release the lock.
+            # Execute all tasks to be run outside the lock to avoid blocking.
             for task in to_run:
-                try:
-                    task._run()
-                except Exception:
-                    # User code can fail, don't let it kill our loop
-                    print_exc()
+                running.append(task)
+                task.run()
+                if task.sync:
+                    running.remove(task)
+                if task.exc:
+                    _exit(exc=task.exc)
+
+            # Check for completed async tasks.
+            for i in reversed(range(len(running))):
+                task = running[i]
+                if task.complete:
+                    del running[i]
+                    if task.exc:
+                        _exit(exc=task.exc)
+            # Clear the to_run list for the next iteration.
             to_run.clear()
 
+            # Sleep briefly to prevent busy-waiting and high CPU usage.
             sleep(0.1)
 
 
@@ -145,18 +209,31 @@ class WatchCond:
         reload: bool = True,
     ):
         """
-        Initialize a WatchCond.
+        Initializes a WatchCond.
 
-        :param path_glob: Glob pattern(s) to watch for changes.
-        :param action: Action to run when a change is detected. Shell command or function.
-                       When action is None, no action is run but reloads may still occur.
-        :param ignore_glob: Glob patterns to ignore.
-        :param delay: Delay in seconds before running the action after a change.
+        Args:
+            path_glob:
+                Glob pattern(s) to watch for changes.
 
-                      The timer resets after each change to de-duplicate file change events.
-        :param server_reload: If False, do not reload the daemon process after a change - just the browser.
-        :param reload: If False, neither the browser nor the server will be reloaded. This is useful for triggering js/css builds.
+            action:
+                Action to run when a change is detected. Shell command or function.
+                When action is None, no action is run but reloads may still occur.
 
+            ignore_glob:
+                Glob patterns to ignore.
+
+            delay:
+                Delay in seconds before running the action after a change.
+                The timer resets after each change to de-duplicate file change events.
+
+            reload:
+                If False, neither the browser nor the server will be reloaded.
+                This is useful for triggering js/css builds, which you might
+                pair with a separate WatchCond on the build output directory
+                that does the reloading.
+
+            server_reload:
+                If False, do not reload the daemon process after a change; just the browser.
         """
         self.path_glob = path_glob
         if isinstance(path_glob, str):

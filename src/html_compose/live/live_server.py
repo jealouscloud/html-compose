@@ -1,4 +1,5 @@
 from time import sleep
+from time import sleep, time
 
 from ..util_funcs import generate_livereload_env
 from .livereload_server import reload_because, run_server
@@ -35,25 +36,34 @@ def live_server(
 
     :param daemon: Command to run in the background, typically a Python server
     :type daemon: ShellCommand
+
     :param daemon_delay: Delay in seconds before restarting the daemon after a change.
     :type daemon_delay: float
+
     :param conds: List of watch conditions, which are a path and action.
-    :type conds:
+    :type conds: list[WatchCond]
+
     :param force_polling: Force slow stat() polling backend - useful if your platform is unable to support OS based watching.
     :type force_polling: bool
+
     :param host: Host for livereload server websocket to listen on
     :type host: str
+
     :param port: Port for livereload server websocket to listen on
     :type port: int
+
     :param print_paths: Enumerate paths being monitored
-    :type print_paths:
+    :type print_paths: bool
+
     :param loop_delay: Set delay between checks for changes. Usually unnecessary.
     :type loop_delay: float
+
     :param livereload_delay: Delay livereload server update until x seconds after daemon update
     :type livereload_delay: float
     :param proxy_uri: If websocket is behind a reverse proxy, this is the URI to reach it by.
                       This is useful if you are developing behind SSL.
     :type proxy_uri: str
+
     :param proxy_host: If websocket is behind a reverse proxy, this is the host to reach it by.
                        This is useful if you are developing behind SSL.
     :type proxy_host: str
@@ -93,6 +103,16 @@ def live_server(
     browser_update_task = Task(reload, delay=0, sync=False)
     try:
         while True:
+            if tr.cancelled:
+                print("Task runner has closed. Exiting...")
+                break
+
+            if daemon_task.has_ended_early():
+                status = daemon_task.status_code()
+                print(
+                    f"Daemon process has exited with code {status}. Exiting..."
+                )
+                break
             hits = w.changed()
             if hits:
                 paths_hit = set()
