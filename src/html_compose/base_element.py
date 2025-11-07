@@ -446,7 +446,7 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
                     element, call_callables=True, parent=parent
                 )
             else:
-                yield element
+                yield cast(str, element)
 
     def render(self, parent: ElementBase | None = None) -> str:
         """
