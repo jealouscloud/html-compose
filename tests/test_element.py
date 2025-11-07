@@ -251,3 +251,8 @@ def test_custom_element():
     custom = CustomElement.create("custom")
     el = custom["Hello world"]
     assert el.render() == "<custom>Hello world</custom>"  # type: ignore
+
+
+def test_callable_br():
+    a = div()[h.p["hi"], h.br, h.p["there"]]
+    assert a.render() == "<div><p>hi</p><br/><p>there</p></div>"

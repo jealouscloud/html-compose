@@ -264,8 +264,12 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
             # Recursively resolve the element tree
             yield from child.resolve(self)
 
+        elif isinstance(child, ElementMeta) and not hasattr(child, "__self__"):
+            # This is an uninstantiated class-based element like elements.br
+            inst: BaseElement = child()
+            yield from inst.resolve()
+
         elif isinstance(child, _HasHtml):
-            # Fetch raw HTML from object
             yield unsafe_text(child.__html__())
 
         elif isinstance(child, str):
