@@ -376,7 +376,7 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
 
     def deferred_resolve(
         self, parent: ElementBase | None = None
-    ) -> Generator[str, None, None]:
+    ) -> Generator[Node, None, None]:
         """
         Resolve all attributes and children of the HTML element, except for callable children.
 
