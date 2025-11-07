@@ -428,8 +428,8 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
                 yield f"<{self.tag} {attr_string}>"
             else:
                 yield f"<{self.tag}>"
-
-            yield from children  # type: ignore[misc] # pyright: ignore[reportReturnType,reportOptionalIterable]
+            if children is not None:
+                yield from children
             yield f"</{self.tag}>"
 
     def resolve(
