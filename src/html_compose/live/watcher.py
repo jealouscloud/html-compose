@@ -415,7 +415,7 @@ class Watcher:
                 if not stat.S_ISREG(st.st_mode):
                     # Not a regular file, skip it
                     continue
-                mtime = st.st_mtime
+                mtime = int(st.st_mtime)
             except OSError:
                 # Might be deleted, we'll catch it later
                 continue
