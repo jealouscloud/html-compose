@@ -14,9 +14,14 @@ class ScriptAttrs:
         "script" attribute: async  
         Execute script when available, without blocking while fetching  
 
-        :param value: Boolean attribute  
-        :return: An async attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An async attribute to be added to your element
+
+        """
         
         return BaseAttribute("async", value)
             
@@ -28,9 +33,14 @@ class ScriptAttrs:
         "script" attribute: blocking  
         Whether the element is potentially render-blocking  
 
-        :param value: Unordered set of unique space-separated tokens*  
-        :return: An blocking attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Unordered set of unique space-separated tokens*
+        
+        Returns:
+            An blocking attribute to be added to your element
+
+        """
         
         return BaseAttribute("blocking", value)
             
@@ -42,9 +52,14 @@ class ScriptAttrs:
         "script" attribute: crossorigin  
         How the element handles crossorigin requests  
 
-        :param value: ['anonymous', 'use-credentials']  
-        :return: An crossorigin attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['anonymous', 'use-credentials']
+        
+        Returns:
+            An crossorigin attribute to be added to your element
+
+        """
         
         return BaseAttribute("crossorigin", value)
             
@@ -56,9 +71,14 @@ class ScriptAttrs:
         "script" attribute: defer  
         Defer script execution  
 
-        :param value: Boolean attribute  
-        :return: An defer attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An defer attribute to be added to your element
+
+        """
         
         return BaseAttribute("defer", value)
             
@@ -70,9 +90,14 @@ class ScriptAttrs:
         "script" attribute: fetchpriority  
         Sets the priority for fetches initiated by the element  
 
-        :param value: ['auto', 'high', 'low']  
-        :return: An fetchpriority attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['auto', 'high', 'low']
+        
+        Returns:
+            An fetchpriority attribute to be added to your element
+
+        """
         
         return BaseAttribute("fetchpriority", value)
             
@@ -84,9 +109,14 @@ class ScriptAttrs:
         "script" attribute: integrity  
         Integrity metadata used in Subresource Integrity checks [SRI]  
 
-        :param value: Text  
-        :return: An integrity attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text
+        
+        Returns:
+            An integrity attribute to be added to your element
+
+        """
         
         return BaseAttribute("integrity", value)
             
@@ -98,9 +128,14 @@ class ScriptAttrs:
         "script" attribute: nomodule  
         Prevents execution in user agents that support module scripts  
 
-        :param value: Boolean attribute  
-        :return: An nomodule attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An nomodule attribute to be added to your element
+
+        """
         
         return BaseAttribute("nomodule", value)
             
@@ -112,9 +147,14 @@ class ScriptAttrs:
         "script" attribute: referrerpolicy  
         Referrer policy for fetches initiated by the element  
 
-        :param value: Referrer policy  
-        :return: An referrerpolicy attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Referrer policy
+        
+        Returns:
+            An referrerpolicy attribute to be added to your element
+
+        """
         
         return BaseAttribute("referrerpolicy", value)
             
@@ -126,9 +166,14 @@ class ScriptAttrs:
         "script" attribute: src  
         Address of the resource  
 
-        :param value: Valid non-empty URL potentially surrounded by spaces  
-        :return: An src attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-empty URL potentially surrounded by spaces
+        
+        Returns:
+            An src attribute to be added to your element
+
+        """
         
         return BaseAttribute("src", value)
             
@@ -140,9 +185,14 @@ class ScriptAttrs:
         "script" attribute: type  
         Type of script  
 
-        :param value: "module"; a valid MIME type string that is not a JavaScript MIME type essence match  
-        :return: An type attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                "module"; a valid MIME type string that is not a JavaScript MIME type essence match
+        
+        Returns:
+            An type attribute to be added to your element
+
+        """
         
         return BaseAttribute("type", value)
             

@@ -14,9 +14,14 @@ class OutputAttrs:
         "output" attribute: for  
         Specifies controls from which the output was calculated  
 
-        :param value: Unordered set of unique space-separated tokens consisting of IDs*  
-        :return: An for attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Unordered set of unique space-separated tokens consisting of IDs*
+        
+        Returns:
+            An for attribute to be added to your element
+
+        """
         
         return BaseAttribute("for", value)
             
@@ -28,9 +33,14 @@ class OutputAttrs:
         "output" attribute: form  
         Associates the element with a form element  
 
-        :param value: ID*  
-        :return: An form attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ID*
+        
+        Returns:
+            An form attribute to be added to your element
+
+        """
         
         return BaseAttribute("form", value)
             
@@ -42,9 +52,14 @@ class OutputAttrs:
         "output" attribute: name  
         Name of the element to use for form submission and in the form.elements API  
 
-        :param value: Text*  
-        :return: An name attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text*
+        
+        Returns:
+            An name attribute to be added to your element
+
+        """
         
         return BaseAttribute("name", value)
             

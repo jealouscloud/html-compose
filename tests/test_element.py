@@ -2,7 +2,7 @@ import pytest
 from bs4 import BeautifulSoup
 
 import html_compose as h
-from html_compose import a, div, img
+from html_compose import a, div, img, script
 
 
 def get_soup(input: str):
@@ -141,6 +141,14 @@ def test_generic_attr():
     assert el.render() == '<div data-foo="bar"></div>'
 
 
+def test_defer_arg():
+    """
+    Confirm that boolean attributes work as expected
+    """
+    assert script(defer=True).render() == '<script defer="true"></script>'
+    assert script(defer=False).render() == "<script></script>"
+
+
 def test_kw_arg_attr():
     el = div(id="test", class_="test-class", tabindex=1)
     assert (
@@ -179,19 +187,20 @@ def test_equivalent():
 
 def test_document():
     doc = h.HTML5Document(
-        "Test",
-        lang="en",
-        head=None,
-        body=[h.button["Button"], h.br(), h.p["demo 2"]],
+        "Test", lang="en", body=[h.button["Button"], h.br(), h.p["demo 2"]]
     )
 
     expected = "\n".join(
         [
             "<!DOCTYPE html>",
-            '<html lang="en"><head><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Test</title></head><body><button>Button</button><br/><p>demo 2</p></body></html>',
+            '<html lang="en">',
+            '<head><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Test</title></head>',
+            "",
+            "<body><button>Button</button><br/><p>demo 2</p></body>",
+            "</html>",
         ]
     )
-    assert doc == expected
+    assert str(doc) == expected
 
 
 def test_noconstructor():
@@ -242,3 +251,8 @@ def test_custom_element():
     custom = CustomElement.create("custom")
     el = custom["Hello world"]
     assert el.render() == "<custom>Hello world</custom>"  # type: ignore
+
+
+def test_callable_br():
+    a = div()[h.p["hi"], h.br, h.p["there"]]
+    assert a.render() == "<div><p>hi</p><br/><p>there</p></div>"

@@ -14,9 +14,14 @@ class BodyAttrs:
         "body" attribute: onafterprint  
         afterprint event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onafterprint attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onafterprint attribute to be added to your element
+
+        """
         
         return BaseAttribute("onafterprint", value)
             
@@ -28,9 +33,14 @@ class BodyAttrs:
         "body" attribute: onbeforeprint  
         beforeprint event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onbeforeprint attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onbeforeprint attribute to be added to your element
+
+        """
         
         return BaseAttribute("onbeforeprint", value)
             
@@ -42,9 +52,14 @@ class BodyAttrs:
         "body" attribute: onbeforeunload  
         beforeunload event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onbeforeunload attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onbeforeunload attribute to be added to your element
+
+        """
         
         return BaseAttribute("onbeforeunload", value)
             
@@ -56,9 +71,14 @@ class BodyAttrs:
         "body" attribute: onhashchange  
         hashchange event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onhashchange attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onhashchange attribute to be added to your element
+
+        """
         
         return BaseAttribute("onhashchange", value)
             
@@ -70,9 +90,14 @@ class BodyAttrs:
         "body" attribute: onlanguagechange  
         languagechange event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onlanguagechange attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onlanguagechange attribute to be added to your element
+
+        """
         
         return BaseAttribute("onlanguagechange", value)
             
@@ -84,9 +109,14 @@ class BodyAttrs:
         "body" attribute: onmessage  
         message event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onmessage attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onmessage attribute to be added to your element
+
+        """
         
         return BaseAttribute("onmessage", value)
             
@@ -98,9 +128,14 @@ class BodyAttrs:
         "body" attribute: onmessageerror  
         messageerror event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onmessageerror attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onmessageerror attribute to be added to your element
+
+        """
         
         return BaseAttribute("onmessageerror", value)
             
@@ -112,9 +147,14 @@ class BodyAttrs:
         "body" attribute: onoffline  
         offline event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onoffline attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onoffline attribute to be added to your element
+
+        """
         
         return BaseAttribute("onoffline", value)
             
@@ -126,9 +166,14 @@ class BodyAttrs:
         "body" attribute: ononline  
         online event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An ononline attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An ononline attribute to be added to your element
+
+        """
         
         return BaseAttribute("ononline", value)
             
@@ -140,9 +185,14 @@ class BodyAttrs:
         "body" attribute: onpagehide  
         pagehide event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onpagehide attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onpagehide attribute to be added to your element
+
+        """
         
         return BaseAttribute("onpagehide", value)
             
@@ -154,9 +204,14 @@ class BodyAttrs:
         "body" attribute: onpagereveal  
         pagereveal event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onpagereveal attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onpagereveal attribute to be added to your element
+
+        """
         
         return BaseAttribute("onpagereveal", value)
             
@@ -168,9 +223,14 @@ class BodyAttrs:
         "body" attribute: onpageshow  
         pageshow event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onpageshow attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onpageshow attribute to be added to your element
+
+        """
         
         return BaseAttribute("onpageshow", value)
             
@@ -182,9 +242,14 @@ class BodyAttrs:
         "body" attribute: onpageswap  
         pageswap event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onpageswap attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onpageswap attribute to be added to your element
+
+        """
         
         return BaseAttribute("onpageswap", value)
             
@@ -196,9 +261,14 @@ class BodyAttrs:
         "body" attribute: onpopstate  
         popstate event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onpopstate attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onpopstate attribute to be added to your element
+
+        """
         
         return BaseAttribute("onpopstate", value)
             
@@ -210,9 +280,14 @@ class BodyAttrs:
         "body" attribute: onrejectionhandled  
         rejectionhandled event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onrejectionhandled attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onrejectionhandled attribute to be added to your element
+
+        """
         
         return BaseAttribute("onrejectionhandled", value)
             
@@ -224,9 +299,14 @@ class BodyAttrs:
         "body" attribute: onstorage  
         storage event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onstorage attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onstorage attribute to be added to your element
+
+        """
         
         return BaseAttribute("onstorage", value)
             
@@ -238,9 +318,14 @@ class BodyAttrs:
         "body" attribute: onunhandledrejection  
         unhandledrejection event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onunhandledrejection attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onunhandledrejection attribute to be added to your element
+
+        """
         
         return BaseAttribute("onunhandledrejection", value)
             
@@ -252,9 +337,14 @@ class BodyAttrs:
         "body" attribute: onunload  
         unload event handler for Window object  
 
-        :param value: Event handler content attribute  
-        :return: An onunload attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Event handler content attribute
+        
+        Returns:
+            An onunload attribute to be added to your element
+
+        """
         
         return BaseAttribute("onunload", value)
             

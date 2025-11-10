@@ -11,11 +11,16 @@ class MapAttrs:
     @staticmethod
     def name(value: StrLike) -> BaseAttribute:
         """
-        "map" attribute: name  
-        Name of image map to reference from the usemap attribute  
+        "map" attribute: name
+        Name of image map to reference from the usemap attribute
 
-        :param value: Text*  
-        :return: An name attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text*
+
+        Returns:
+            An name attribute to be added to your element
+
+        """
 
         return BaseAttribute("name", value)

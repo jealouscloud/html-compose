@@ -12,155 +12,220 @@ class TextareaAttrs:
     @staticmethod
     def autocomplete(value) -> BaseAttribute:
         """
-        "textarea" attribute: autocomplete  
-        Hint for form autofill feature  
+        "textarea" attribute: autocomplete
+        Hint for form autofill feature
 
-        :param value: Autofill field name and related tokens*  
-        :return: An autocomplete attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Autofill field name and related tokens*
+
+        Returns:
+            An autocomplete attribute to be added to your element
+
+        """
 
         return BaseAttribute("autocomplete", value)
 
     @staticmethod
     def cols(value) -> BaseAttribute:
         """
-        "textarea" attribute: cols  
-        Maximum number of characters per line  
+        "textarea" attribute: cols
+        Maximum number of characters per line
 
-        :param value: Valid non-negative integer greater than zero  
-        :return: An cols attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer greater than zero
+
+        Returns:
+            An cols attribute to be added to your element
+
+        """
 
         return BaseAttribute("cols", value)
 
     @staticmethod
     def dirname(value: StrLike) -> BaseAttribute:
         """
-        "textarea" attribute: dirname  
-        Name of form control to use for sending the element's directionality in form submission  
+        "textarea" attribute: dirname
+        Name of form control to use for sending the element's directionality in form submission
 
-        :param value: Text*  
-        :return: An dirname attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text*
+
+        Returns:
+            An dirname attribute to be added to your element
+
+        """
 
         return BaseAttribute("dirname", value)
 
     @staticmethod
     def disabled(value: bool) -> BaseAttribute:
         """
-        "textarea" attribute: disabled  
-        Whether the form control is disabled  
+        "textarea" attribute: disabled
+        Whether the form control is disabled
 
-        :param value: Boolean attribute  
-        :return: An disabled attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An disabled attribute to be added to your element
+
+        """
 
         return BaseAttribute("disabled", value)
 
     @staticmethod
     def form(value) -> BaseAttribute:
         """
-        "textarea" attribute: form  
-        Associates the element with a form element  
+        "textarea" attribute: form
+        Associates the element with a form element
 
-        :param value: ID*  
-        :return: An form attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                ID*
+
+        Returns:
+            An form attribute to be added to your element
+
+        """
 
         return BaseAttribute("form", value)
 
     @staticmethod
     def maxlength(value: int) -> BaseAttribute:
         """
-        "textarea" attribute: maxlength  
-        Maximum length of value  
+        "textarea" attribute: maxlength
+        Maximum length of value
 
-        :param value: Valid non-negative integer  
-        :return: An maxlength attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+
+        Returns:
+            An maxlength attribute to be added to your element
+
+        """
 
         return BaseAttribute("maxlength", value)
 
     @staticmethod
     def minlength(value: int) -> BaseAttribute:
         """
-        "textarea" attribute: minlength  
-        Minimum length of value  
+        "textarea" attribute: minlength
+        Minimum length of value
 
-        :param value: Valid non-negative integer  
-        :return: An minlength attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+
+        Returns:
+            An minlength attribute to be added to your element
+
+        """
 
         return BaseAttribute("minlength", value)
 
     @staticmethod
     def name(value: StrLike) -> BaseAttribute:
         """
-        "textarea" attribute: name  
-        Name of the element to use for form submission and in the form.elements API  
+        "textarea" attribute: name
+        Name of the element to use for form submission and in the form.elements API
 
-        :param value: Text*  
-        :return: An name attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text*
+
+        Returns:
+            An name attribute to be added to your element
+
+        """
 
         return BaseAttribute("name", value)
 
     @staticmethod
     def placeholder(value: StrLike) -> BaseAttribute:
         """
-        "textarea" attribute: placeholder  
-        User-visible label to be placed within the form control  
+        "textarea" attribute: placeholder
+        User-visible label to be placed within the form control
 
-        :param value: Text*  
-        :return: An placeholder attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text*
+
+        Returns:
+            An placeholder attribute to be added to your element
+
+        """
 
         return BaseAttribute("placeholder", value)
 
     @staticmethod
     def readonly(value: bool) -> BaseAttribute:
         """
-        "textarea" attribute: readonly  
-        Whether to allow the value to be edited by the user  
+        "textarea" attribute: readonly
+        Whether to allow the value to be edited by the user
 
-        :param value: Boolean attribute  
-        :return: An readonly attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An readonly attribute to be added to your element
+
+        """
 
         return BaseAttribute("readonly", value)
 
     @staticmethod
     def required(value: bool) -> BaseAttribute:
         """
-        "textarea" attribute: required  
-        Whether the control is required for form submission  
+        "textarea" attribute: required
+        Whether the control is required for form submission
 
-        :param value: Boolean attribute  
-        :return: An required attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An required attribute to be added to your element
+
+        """
 
         return BaseAttribute("required", value)
 
     @staticmethod
     def rows(value) -> BaseAttribute:
         """
-        "textarea" attribute: rows  
-        Number of lines to show  
+        "textarea" attribute: rows
+        Number of lines to show
 
-        :param value: Valid non-negative integer greater than zero  
-        :return: An rows attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer greater than zero
+
+        Returns:
+            An rows attribute to be added to your element
+
+        """
 
         return BaseAttribute("rows", value)
 
     @staticmethod
     def wrap(value: Literal["soft", "hard"]) -> BaseAttribute:
         """
-        "textarea" attribute: wrap  
-        How the value of the form control is to be wrapped for form submission  
+        "textarea" attribute: wrap
+        How the value of the form control is to be wrapped for form submission
 
-        :param value: ['soft', 'hard']  
-        :return: An wrap attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                ['soft', 'hard']
+
+        Returns:
+            An wrap attribute to be added to your element
+
+        """
 
         return BaseAttribute("wrap", value)

@@ -10,23 +10,33 @@ class CanvasAttrs:
     @staticmethod
     def height(value: int) -> BaseAttribute:
         """
-        "canvas" attribute: height  
-        Vertical dimension  
+        "canvas" attribute: height
+        Vertical dimension
 
-        :param value: Valid non-negative integer  
-        :return: An height attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+
+        Returns:
+            An height attribute to be added to your element
+
+        """
 
         return BaseAttribute("height", value)
 
     @staticmethod
     def width(value: int) -> BaseAttribute:
         """
-        "canvas" attribute: width  
-        Horizontal dimension  
+        "canvas" attribute: width
+        Horizontal dimension
 
-        :param value: Valid non-negative integer  
-        :return: An width attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+
+        Returns:
+            An width attribute to be added to your element
+
+        """
 
         return BaseAttribute("width", value)

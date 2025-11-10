@@ -14,9 +14,14 @@ class SelectAttrs:
         "select" attribute: autocomplete  
         Hint for form autofill feature  
 
-        :param value: Autofill field name and related tokens*  
-        :return: An autocomplete attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Autofill field name and related tokens*
+        
+        Returns:
+            An autocomplete attribute to be added to your element
+
+        """
         
         return BaseAttribute("autocomplete", value)
             
@@ -28,9 +33,14 @@ class SelectAttrs:
         "select" attribute: disabled  
         Whether the form control is disabled  
 
-        :param value: Boolean attribute  
-        :return: An disabled attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An disabled attribute to be added to your element
+
+        """
         
         return BaseAttribute("disabled", value)
             
@@ -42,9 +52,14 @@ class SelectAttrs:
         "select" attribute: form  
         Associates the element with a form element  
 
-        :param value: ID*  
-        :return: An form attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ID*
+        
+        Returns:
+            An form attribute to be added to your element
+
+        """
         
         return BaseAttribute("form", value)
             
@@ -56,9 +71,14 @@ class SelectAttrs:
         "select" attribute: multiple  
         Whether to allow multiple values  
 
-        :param value: Boolean attribute  
-        :return: An multiple attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An multiple attribute to be added to your element
+
+        """
         
         return BaseAttribute("multiple", value)
             
@@ -70,9 +90,14 @@ class SelectAttrs:
         "select" attribute: name  
         Name of the element to use for form submission and in the form.elements API  
 
-        :param value: Text*  
-        :return: An name attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text*
+        
+        Returns:
+            An name attribute to be added to your element
+
+        """
         
         return BaseAttribute("name", value)
             
@@ -84,9 +109,14 @@ class SelectAttrs:
         "select" attribute: required  
         Whether the control is required for form submission  
 
-        :param value: Boolean attribute  
-        :return: An required attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An required attribute to be added to your element
+
+        """
         
         return BaseAttribute("required", value)
             
@@ -98,9 +128,14 @@ class SelectAttrs:
         "select" attribute: size  
         Size of the control  
 
-        :param value: Valid non-negative integer greater than zero  
-        :return: An size attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer greater than zero
+        
+        Returns:
+            An size attribute to be added to your element
+
+        """
         
         return BaseAttribute("size", value)
             

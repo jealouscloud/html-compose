@@ -1,12 +1,12 @@
 import inspect
 import re
 from functools import cache
-from typing import Any, cast
+from typing import Any
 
-from bs4 import BeautifulSoup, NavigableString, Tag
+from bs4 import BeautifulSoup, NavigableString, PageElement, Tag
 from bs4.element import Doctype
 
-from . import BaseElement
+from . import BaseElement, escape_text
 from . import elements as el_list
 from .custom_element import CustomElement
 from .util_funcs import safe_name
@@ -86,7 +86,12 @@ def read_string(
         ):
             return repr(" ")
 
-    return repr(result) if result else None
+    if escape_text(result) != result:
+        # If the text (e.g., '&', '<'), would be escaped,
+        # To preserve the exact parsed string, we must wrap it in `unsafe_text`.
+        return f"unsafe_text({repr(result)})"
+
+    return repr(result)
 
 
 # HTML spec doesn't say this casually, but these are preformatted.
@@ -100,6 +105,11 @@ def read_pre_string(input_str: NavigableString) -> str | None:
     result = re.sub("^\n", "", input_str)
     if not result:
         return None
+
+    if escape_text(result) != result:
+        # If the text (e.g., '&', '<'), would be escaped,
+        # To preserve the exact parsed string, we must wrap it in `unsafe_text`.
+        return f"unsafe_text({repr(result)})"
     return repr(result)
 
 
@@ -149,7 +159,9 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
 
     phrasing_tags = get_phrasing_tags()
 
-    def process_element(element) -> str | None:
+    import_unsafe_text = False
+
+    def process_element(element: PageElement) -> str | None:
         if isinstance(element, Doctype):
             dt: Doctype = element
             tags["doctype"] = None
@@ -182,6 +194,12 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
             tag_keys = inspect.signature(tag_cls.__init__).parameters.keys()
 
             for key, value in element.attrs.items():
+                # value bs4 gives us is sometimes
+                # like (key='rel', value=['preconnect'])
+                # If the attribute value is a list of one item, unwrap it
+                if isinstance(value, list) and len(value) == 1:
+                    value = value[0]
+
                 if key in ("attrs", "self", "children"):
                     # These are params of the constructor but the HTML given
                     # clashes with them
@@ -232,19 +250,15 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
                 # We step backwards until we find a tag
                 prev_tag = next(
                     (
-                        cast(Tag, child_nodes[j])
-                        for j in range(i - 1, -1, -1)
-                        if isinstance(child_nodes[j], Tag)
+                        j
+                        for j in reversed(child_nodes[:i])
+                        if isinstance(j, Tag)
                     ),
                     None,
                 )
                 # Same deal, forwards until we find a tag
                 next_tag = next(
-                    (
-                        cast(Tag, child_nodes[j])
-                        for j in range(i + 1, len(child_nodes))
-                        if isinstance(child_nodes[j], Tag)
-                    ),
+                    (j for j in child_nodes[i + 1 :] if isinstance(j, Tag)),
                     None,
                 )
                 processed = read_string(
@@ -256,7 +270,10 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
                 processed = process_element(child)
                 if processed:
                     children.append(processed)
-
+        for text_element in children:
+            if text_element.startswith("unsafe_text("):
+                nonlocal import_unsafe_text
+                import_unsafe_text = True
         if children:
             result.append("[")
             result.append(", ".join(children))
@@ -272,11 +289,17 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
             import_statement = f"from html_compose import ({', '.join(keys)})"
         else:
             import_statement = f"from html_compose import {', '.join(keys)}"
+
+        if import_unsafe_text:
+            import_statement += ", unsafe_text"
     else:
         if import_module == "html_compose":
             import_statement = "import html_compose"
         else:
             import_statement = f"import html_compose as {import_module}"
+
+        if import_unsafe_text:
+            import_statement += "\nfrom html_compose import unsafe_text"
 
     custom_el_stmts = [
         f'{e} = {prefix}CustomElement.create("{e}")' for e in custom_elements

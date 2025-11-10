@@ -67,9 +67,6 @@ link = a(href="https://example.com", target="_blank")["Click here"]
 link.render()  # '<a href="https://example.com" target="_blank">Click here</a>'
 ```
 #### Attributes that aren't in the constructor signature
-**Note that events like .onclick are _not_ available in the constructor.**
-
-We do however provide the type hint via `<element>.hint`
 
 The first positional argument is `attrs=` which can be a list of attributes.
 We generate many of these for type hints under `<element>.hint or `<element>._`
@@ -107,7 +104,7 @@ class htmx:
     '''
 
     @staticmethod
-    def hx_get(value: str) -> BaseAttribute:
+    def get(value: str) -> BaseAttribute:
         '''
         htmx attribute: hx-get
             The hx-get attribute will cause an element to issue a
@@ -120,7 +117,7 @@ class htmx:
 
         return BaseAttribute("hx-get", value)
 
-btn = button([htmx.hx_get("/api/data")])["Click me!"]
+btn = button([htmx.get("/api/data")])["Click me!"]
 btn.render()  # '<button hx-get="/api/data">Click me!</button>'
 ```
 
@@ -134,12 +131,12 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
     for attr in attr_list:
         attrdef = ReadAttr(attr)
         dupe = attrdefs.get(attrdef.name, None)
-        docstring = [f"`{attrdef.safe_name}` :"]
+        docstring = [f"{attrdef.safe_name}:"]
 
         docstring.append(f"    {attrdef.description}")
         if not value_hint_to_python_type(attrdef.value_desc):
-            docstring[-1] += "  "  # markdown newline
-            docstring.append(f"    {attrdef.value_desc}")
+            docstring[-1] += ".  "  # markdown newline
+            docstring.append(f"    Value hint: {attrdef.value_desc}")
 
         def_dict = {"attr": attrdef, "docstring": docstring}
         if dupe:
@@ -247,7 +244,7 @@ def gen_elements():
             extra_attrs = ""
             attr_assignment = ""
             attr_docstrings = [
-                "`attrs`: ",
+                "attrs: ",
                 "    A list or dictionary of attributes for the element",
                 "",
             ]
@@ -335,9 +332,8 @@ def gen_elements():
                 f"        Initialize '{real_element}' ({desc}) element.  ",
                 f"        Documentation: {docs}",
                 "",
-                "        Parameters",
-                "        ----------",
-                "        " + "\n        ".join(attr_docstrings),
+                "        Args:",
+                "            " + "\n            ".join(attr_docstrings),
                 '        """ #fmt: skip',
                 "        super().__init__(",
                 f'            "{real_element}",',
@@ -393,7 +389,7 @@ if __name__ == "__main__":
         print(f"Copied generated elements to: {real_path}")
         init_data = [f'"""{elements_docstring()}\n"""']
         for name in el_names:
-            init_data.append(f"from .{name}_element import {name}")
+            init_data.append(f"from .{name}_element import {name} as {name}")
 
         imports = ", ".join(map(lambda x: f"'{x}'", el_names))
         init_data.append(

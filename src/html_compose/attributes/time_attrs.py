@@ -10,11 +10,16 @@ class TimeAttrs:
     @staticmethod
     def datetime(value) -> BaseAttribute:
         """
-        "time" attribute: datetime  
-        Machine-readable value  
+        "time" attribute: datetime
+        Machine-readable value
 
-        :param value: Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string  
-        :return: An datetime attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid month string, valid date string, valid yearless date string, valid time string, valid local date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string
+
+        Returns:
+            An datetime attribute to be added to your element
+
+        """
 
         return BaseAttribute("datetime", value)

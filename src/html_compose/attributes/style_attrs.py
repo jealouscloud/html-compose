@@ -11,35 +11,50 @@ class StyleAttrs:
     @staticmethod
     def blocking(value: Resolvable) -> BaseAttribute:
         """
-        "style" attribute: blocking  
-        Whether the element is potentially render-blocking  
+        "style" attribute: blocking
+        Whether the element is potentially render-blocking
 
-        :param value: Unordered set of unique space-separated tokens*  
-        :return: An blocking attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Unordered set of unique space-separated tokens*
+
+        Returns:
+            An blocking attribute to be added to your element
+
+        """
 
         return BaseAttribute("blocking", value)
 
     @staticmethod
     def media(value) -> BaseAttribute:
         """
-        "style" attribute: media  
-        Applicable media  
+        "style" attribute: media
+        Applicable media
 
-        :param value: Valid media query list  
-        :return: An media attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid media query list
+
+        Returns:
+            An media attribute to be added to your element
+
+        """
 
         return BaseAttribute("media", value)
 
     @staticmethod
     def title(value: StrLike) -> BaseAttribute:
         """
-        "style" attribute: title  
-        CSS style sheet set name  
+        "style" attribute: title
+        CSS style sheet set name
 
-        :param value: Text  
-        :return: An title attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text
+
+        Returns:
+            An title attribute to be added to your element
+
+        """
 
         return BaseAttribute("title", value)

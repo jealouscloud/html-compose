@@ -10,83 +10,118 @@ class SourceAttrs:
     @staticmethod
     def height(value: int) -> BaseAttribute:
         """
-        "source" attribute: height  
-        Vertical dimension  
+        "source" attribute: height
+        Vertical dimension
 
-        :param value: Valid non-negative integer  
-        :return: An height attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+
+        Returns:
+            An height attribute to be added to your element
+
+        """
 
         return BaseAttribute("height", value)
 
     @staticmethod
     def media(value) -> BaseAttribute:
         """
-        "source" attribute: media  
-        Applicable media  
+        "source" attribute: media
+        Applicable media
 
-        :param value: Valid media query list  
-        :return: An media attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid media query list
+
+        Returns:
+            An media attribute to be added to your element
+
+        """
 
         return BaseAttribute("media", value)
 
     @staticmethod
     def sizes(value) -> BaseAttribute:
         """
-        "source" attribute: sizes  
-        Image sizes for different page layouts  
+        "source" attribute: sizes
+        Image sizes for different page layouts
 
-        :param value: Valid source size list  
-        :return: An sizes attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid source size list
+
+        Returns:
+            An sizes attribute to be added to your element
+
+        """
 
         return BaseAttribute("sizes", value)
 
     @staticmethod
     def src(value) -> BaseAttribute:
         """
-        "source" attribute: src  
-        Address of the resource  
+        "source" attribute: src
+        Address of the resource
 
-        :param value: Valid non-empty URL potentially surrounded by spaces  
-        :return: An src attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-empty URL potentially surrounded by spaces
+
+        Returns:
+            An src attribute to be added to your element
+
+        """
 
         return BaseAttribute("src", value)
 
     @staticmethod
     def srcset(value) -> BaseAttribute:
         """
-        "source" attribute: srcset  
-        Images to use in different situations, e.g., high-resolution displays, small monitors, etc.  
+        "source" attribute: srcset
+        Images to use in different situations, e.g., high-resolution displays, small monitors, etc.
 
-        :param value: Comma-separated list of image candidate strings  
-        :return: An srcset attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Comma-separated list of image candidate strings
+
+        Returns:
+            An srcset attribute to be added to your element
+
+        """
 
         return BaseAttribute("srcset", value)
 
     @staticmethod
     def type(value) -> BaseAttribute:
         """
-        "source" attribute: type  
-        Type of embedded resource  
+        "source" attribute: type
+        Type of embedded resource
 
-        :param value: Valid MIME type string  
-        :return: An type attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid MIME type string
+
+        Returns:
+            An type attribute to be added to your element
+
+        """
 
         return BaseAttribute("type", value)
 
     @staticmethod
     def width(value: int) -> BaseAttribute:
         """
-        "source" attribute: width  
-        Horizontal dimension  
+        "source" attribute: width
+        Horizontal dimension
 
-        :param value: Valid non-negative integer  
-        :return: An width attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+
+        Returns:
+            An width attribute to be added to your element
+
+        """
 
         return BaseAttribute("width", value)

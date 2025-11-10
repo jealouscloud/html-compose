@@ -14,9 +14,14 @@ class DetailsAttrs:
         "details" attribute: name  
         Name of group of mutually-exclusive details elements  
 
-        :param value: Text*  
-        :return: An name attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text*
+        
+        Returns:
+            An name attribute to be added to your element
+
+        """
         
         return BaseAttribute("name", value)
             
@@ -28,9 +33,14 @@ class DetailsAttrs:
         "details" attribute: open  
         Whether the details are visible  
 
-        :param value: Boolean attribute  
-        :return: An open attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An open attribute to be added to your element
+
+        """
         
         return BaseAttribute("open", value)
             

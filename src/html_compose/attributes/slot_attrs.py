@@ -11,11 +11,16 @@ class SlotAttrs:
     @staticmethod
     def name(value: StrLike) -> BaseAttribute:
         """
-        "slot" attribute: name  
-        Name of shadow tree slot  
+        "slot" attribute: name
+        Name of shadow tree slot
 
-        :param value: Text  
-        :return: An name attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text
+
+        Returns:
+            An name attribute to be added to your element
+
+        """
 
         return BaseAttribute("name", value)

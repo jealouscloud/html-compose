@@ -127,7 +127,7 @@ If you're using nginx, you would include something like this in your server bloc
     }
 ```
 
-Since you're serving your websocket over SSL, you can now specify when calling `live.server(`:
+Since you're serving your websocket over SSL, you can now specify when calling `live.server`:
 * `proxy_host`: host to reach for the livereload websocket. used in browser instead of `host` parameter.
 
     Example: `my-sweet-website.com`

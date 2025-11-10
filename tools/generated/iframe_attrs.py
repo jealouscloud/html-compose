@@ -14,9 +14,14 @@ class IframeAttrs:
         "iframe" attribute: allow  
         Permissions policy to be applied to the iframe's contents  
 
-        :param value: Serialized permissions policy  
-        :return: An allow attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Serialized permissions policy
+        
+        Returns:
+            An allow attribute to be added to your element
+
+        """
         
         return BaseAttribute("allow", value)
             
@@ -28,9 +33,14 @@ class IframeAttrs:
         "iframe" attribute: allowfullscreen  
         Whether to allow the iframe's contents to use requestFullscreen()  
 
-        :param value: Boolean attribute  
-        :return: An allowfullscreen attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An allowfullscreen attribute to be added to your element
+
+        """
         
         return BaseAttribute("allowfullscreen", value)
             
@@ -42,9 +52,14 @@ class IframeAttrs:
         "iframe" attribute: height  
         Vertical dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An height attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An height attribute to be added to your element
+
+        """
         
         return BaseAttribute("height", value)
             
@@ -56,9 +71,14 @@ class IframeAttrs:
         "iframe" attribute: loading  
         Used when determining loading deferral  
 
-        :param value: ['lazy', 'eager']  
-        :return: An loading attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ['lazy', 'eager']
+        
+        Returns:
+            An loading attribute to be added to your element
+
+        """
         
         return BaseAttribute("loading", value)
             
@@ -70,9 +90,14 @@ class IframeAttrs:
         "iframe" attribute: name  
         Name of content navigable  
 
-        :param value: Valid navigable target name or keyword  
-        :return: An name attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid navigable target name or keyword
+        
+        Returns:
+            An name attribute to be added to your element
+
+        """
         
         return BaseAttribute("name", value)
             
@@ -84,9 +109,14 @@ class IframeAttrs:
         "iframe" attribute: referrerpolicy  
         Referrer policy for fetches initiated by the element  
 
-        :param value: Referrer policy  
-        :return: An referrerpolicy attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Referrer policy
+        
+        Returns:
+            An referrerpolicy attribute to be added to your element
+
+        """
         
         return BaseAttribute("referrerpolicy", value)
             
@@ -98,9 +128,14 @@ class IframeAttrs:
         "iframe" attribute: sandbox  
         Security rules for nested content  
 
-        :param value: Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads" "allow-forms" "allow-modals" "allow-orientation-lock" "allow-pointer-lock" "allow-popups" "allow-popups-to-escape-sandbox" "allow-presentation" "allow-same-origin" "allow-scripts" "allow-top-navigation" "allow-top-navigation-by-user-activation" "allow-top-navigation-to-custom-protocols"  
-        :return: An sandbox attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of "allow-downloads" "allow-forms" "allow-modals" "allow-orientation-lock" "allow-pointer-lock" "allow-popups" "allow-popups-to-escape-sandbox" "allow-presentation" "allow-same-origin" "allow-scripts" "allow-top-navigation" "allow-top-navigation-by-user-activation" "allow-top-navigation-to-custom-protocols"
+        
+        Returns:
+            An sandbox attribute to be added to your element
+
+        """
         
         return BaseAttribute("sandbox", value)
             
@@ -112,9 +147,14 @@ class IframeAttrs:
         "iframe" attribute: src  
         Address of the resource  
 
-        :param value: Valid non-empty URL potentially surrounded by spaces  
-        :return: An src attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-empty URL potentially surrounded by spaces
+        
+        Returns:
+            An src attribute to be added to your element
+
+        """
         
         return BaseAttribute("src", value)
             
@@ -126,9 +166,14 @@ class IframeAttrs:
         "iframe" attribute: srcdoc  
         A document to render in the iframe  
 
-        :param value: The source of an iframe srcdoc document*  
-        :return: An srcdoc attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                The source of an iframe srcdoc document*
+        
+        Returns:
+            An srcdoc attribute to be added to your element
+
+        """
         
         return BaseAttribute("srcdoc", value)
             
@@ -140,9 +185,14 @@ class IframeAttrs:
         "iframe" attribute: width  
         Horizontal dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An width attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An width attribute to be added to your element
+
+        """
         
         return BaseAttribute("width", value)
             

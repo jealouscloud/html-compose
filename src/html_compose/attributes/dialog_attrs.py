@@ -10,11 +10,16 @@ class DialogAttrs:
     @staticmethod
     def open(value: bool) -> BaseAttribute:
         """
-        "dialog" attribute: open  
-        Whether the dialog box is showing  
+        "dialog" attribute: open
+        Whether the dialog box is showing
 
-        :param value: Boolean attribute  
-        :return: An open attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An open attribute to be added to your element
+
+        """
 
         return BaseAttribute("open", value)

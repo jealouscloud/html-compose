@@ -19,7 +19,7 @@ def join_attrs(k, value_trusted):
     return f'{k}="{value_trusted}"'
 
 
-def is_iterable_but_not_str(input_iterable):
+def is_iterable_but_not_str(input_iterable: Any) -> bool:
     """
     Check if an iterable is not a string or bytes.
     Which prevents some bugs.

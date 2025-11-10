@@ -10,23 +10,33 @@ class InsAttrs:
     @staticmethod
     def cite(value) -> BaseAttribute:
         """
-        "ins" attribute: cite  
-        Link to the source of the quotation or more information about the edit  
+        "ins" attribute: cite
+        Link to the source of the quotation or more information about the edit
 
-        :param value: Valid URL potentially surrounded by spaces  
-        :return: An cite attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid URL potentially surrounded by spaces
+
+        Returns:
+            An cite attribute to be added to your element
+
+        """
 
         return BaseAttribute("cite", value)
 
     @staticmethod
     def datetime(value) -> BaseAttribute:
         """
-        "ins" attribute: datetime  
-        Date and (optionally) time of the change  
+        "ins" attribute: datetime
+        Date and (optionally) time of the change
 
-        :param value: Valid date string with optional time  
-        :return: An datetime attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid date string with optional time
+
+        Returns:
+            An datetime attribute to be added to your element
+
+        """
 
         return BaseAttribute("datetime", value)

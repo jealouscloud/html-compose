@@ -1,3 +1,9 @@
+"""
+This module contains HTML attributes.
+
+They typically aren't imported directly
+"""
+
 # ruff: noqa
 from ..base_attribute import BaseAttribute
 from .global_attrs import GlobalAttrs

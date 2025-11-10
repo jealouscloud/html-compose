@@ -11,23 +11,33 @@ class OptgroupAttrs:
     @staticmethod
     def disabled(value: bool) -> BaseAttribute:
         """
-        "optgroup" attribute: disabled  
-        Whether the form control is disabled  
+        "optgroup" attribute: disabled
+        Whether the form control is disabled
 
-        :param value: Boolean attribute  
-        :return: An disabled attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An disabled attribute to be added to your element
+
+        """
 
         return BaseAttribute("disabled", value)
 
     @staticmethod
     def label(value: StrLike) -> BaseAttribute:
         """
-        "optgroup" attribute: label  
-        User-visible label  
+        "optgroup" attribute: label
+        User-visible label
 
-        :param value: Text  
-        :return: An label attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text
+
+        Returns:
+            An label attribute to be added to your element
+
+        """
 
         return BaseAttribute("label", value)

@@ -14,9 +14,14 @@ class ProgressAttrs:
         "progress" attribute: max  
         Upper bound of range  
 
-        :param value: Valid floating-point number*  
-        :return: An max attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid floating-point number*
+        
+        Returns:
+            An max attribute to be added to your element
+
+        """
         
         return BaseAttribute("max", value)
             
@@ -28,9 +33,14 @@ class ProgressAttrs:
         "progress" attribute: value  
         Current value of the element  
 
-        :param value: Valid floating-point number  
-        :return: An value attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid floating-point number
+        
+        Returns:
+            An value attribute to be added to your element
+
+        """
         
         return BaseAttribute("value", value)
             

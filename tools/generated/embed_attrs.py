@@ -14,9 +14,14 @@ class EmbedAttrs:
         "embed" attribute: height  
         Vertical dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An height attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An height attribute to be added to your element
+
+        """
         
         return BaseAttribute("height", value)
             
@@ -28,9 +33,14 @@ class EmbedAttrs:
         "embed" attribute: src  
         Address of the resource  
 
-        :param value: Valid non-empty URL potentially surrounded by spaces  
-        :return: An src attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-empty URL potentially surrounded by spaces
+        
+        Returns:
+            An src attribute to be added to your element
+
+        """
         
         return BaseAttribute("src", value)
             
@@ -42,9 +52,14 @@ class EmbedAttrs:
         "embed" attribute: type  
         Type of embedded resource  
 
-        :param value: Valid MIME type string  
-        :return: An type attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid MIME type string
+        
+        Returns:
+            An type attribute to be added to your element
+
+        """
         
         return BaseAttribute("type", value)
             
@@ -56,9 +71,14 @@ class EmbedAttrs:
         "embed" attribute: width  
         Horizontal dimension  
 
-        :param value: Valid non-negative integer  
-        :return: An width attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer
+        
+        Returns:
+            An width attribute to be added to your element
+
+        """
         
         return BaseAttribute("width", value)
             

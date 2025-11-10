@@ -14,9 +14,14 @@ class LabelAttrs:
         "label" attribute: for  
         Associate the label with form control  
 
-        :param value: ID*  
-        :return: An for attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                ID*
+        
+        Returns:
+            An for attribute to be added to your element
+
+        """
         
         return BaseAttribute("for", value)
             

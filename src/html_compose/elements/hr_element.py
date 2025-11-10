@@ -169,382 +169,381 @@ class hr(BaseElement):
         Initialize 'hr' (Thematic break) element.  
         Documentation: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
 
-        Parameters
-        ----------
-        `attrs`: 
-            A list or dictionary of attributes for the element
-        
-        `id` :
-            The element's ID
-        
-        `class_` :
-            Classes to which the element belongs
-        
-        `accesskey` :
-            Keyboard shortcut to activate or focus element
-        
-        `autocapitalize` :
-            Recommended autocapitalization behavior (for supported input methods)
-        
-        `autocorrect` :
-            Recommended autocorrection behavior (for supported input methods)
-        
-        `autofocus` :
-            Automatically focus the element when the page is loaded
-        
-        `contenteditable` :
-            Whether the element is editable
-        
-        `dir` :
-            The text directionality of the element
-        
-        `draggable` :
-            Whether the element is draggable
-        
-        `enterkeyhint` :
-            Hint for selecting an enter key action
-        
-        `hidden` :
-            Whether the element is relevant
-        
-        `inert` :
-            Whether the element is inert.
-        
-        `inputmode` :
-            Hint for selecting an input modality
-        
-        `is_` :
-            Creates a customized built-in element  
-            Valid custom element name of a defined customized built-in element
-        
-        `itemid` :
-            Global identifier for a microdata item  
-            Valid URL potentially surrounded by spaces
-        
-        `itemprop` :
-            Property names of a microdata item
-        
-        `itemref` :
-            Referenced elements
-        
-        `itemscope` :
-            Introduces a microdata item
-        
-        `itemtype` :
-            Item types of a microdata item
-        
-        `lang` :
-            Language of the element  
-            Valid BCP 47 language tag or the empty string
-        
-        `nonce` :
-            Cryptographic nonce used in Content Security Policy checks [CSP]
-        
-        `onauxclick` :
-            auxclick event handler  
-            Event handler content attribute
-        
-        `onbeforeinput` :
-            beforeinput event handler  
-            Event handler content attribute
-        
-        `onbeforematch` :
-            beforematch event handler  
-            Event handler content attribute
-        
-        `onbeforetoggle` :
-            beforetoggle event handler  
-            Event handler content attribute
-        
-        `onblur` :
-            blur event handler  
-            Event handler content attribute
-        
-        `oncancel` :
-            cancel event handler  
-            Event handler content attribute
-        
-        `oncanplay` :
-            canplay event handler  
-            Event handler content attribute
-        
-        `oncanplaythrough` :
-            canplaythrough event handler  
-            Event handler content attribute
-        
-        `onchange` :
-            change event handler  
-            Event handler content attribute
-        
-        `onclick` :
-            click event handler  
-            Event handler content attribute
-        
-        `onclose` :
-            close event handler  
-            Event handler content attribute
-        
-        `oncontextlost` :
-            contextlost event handler  
-            Event handler content attribute
-        
-        `oncontextmenu` :
-            contextmenu event handler  
-            Event handler content attribute
-        
-        `oncontextrestored` :
-            contextrestored event handler  
-            Event handler content attribute
-        
-        `oncopy` :
-            copy event handler  
-            Event handler content attribute
-        
-        `oncuechange` :
-            cuechange event handler  
-            Event handler content attribute
-        
-        `oncut` :
-            cut event handler  
-            Event handler content attribute
-        
-        `ondblclick` :
-            dblclick event handler  
-            Event handler content attribute
-        
-        `ondrag` :
-            drag event handler  
-            Event handler content attribute
-        
-        `ondragend` :
-            dragend event handler  
-            Event handler content attribute
-        
-        `ondragenter` :
-            dragenter event handler  
-            Event handler content attribute
-        
-        `ondragleave` :
-            dragleave event handler  
-            Event handler content attribute
-        
-        `ondragover` :
-            dragover event handler  
-            Event handler content attribute
-        
-        `ondragstart` :
-            dragstart event handler  
-            Event handler content attribute
-        
-        `ondrop` :
-            drop event handler  
-            Event handler content attribute
-        
-        `ondurationchange` :
-            durationchange event handler  
-            Event handler content attribute
-        
-        `onemptied` :
-            emptied event handler  
-            Event handler content attribute
-        
-        `onended` :
-            ended event handler  
-            Event handler content attribute
-        
-        `onerror` :
-            error event handler  
-            Event handler content attribute
-        
-        `onfocus` :
-            focus event handler  
-            Event handler content attribute
-        
-        `onformdata` :
-            formdata event handler  
-            Event handler content attribute
-        
-        `oninput` :
-            input event handler  
-            Event handler content attribute
-        
-        `oninvalid` :
-            invalid event handler  
-            Event handler content attribute
-        
-        `onkeydown` :
-            keydown event handler  
-            Event handler content attribute
-        
-        `onkeypress` :
-            keypress event handler  
-            Event handler content attribute
-        
-        `onkeyup` :
-            keyup event handler  
-            Event handler content attribute
-        
-        `onload` :
-            load event handler  
-            Event handler content attribute
-        
-        `onloadeddata` :
-            loadeddata event handler  
-            Event handler content attribute
-        
-        `onloadedmetadata` :
-            loadedmetadata event handler  
-            Event handler content attribute
-        
-        `onloadstart` :
-            loadstart event handler  
-            Event handler content attribute
-        
-        `onmousedown` :
-            mousedown event handler  
-            Event handler content attribute
-        
-        `onmouseenter` :
-            mouseenter event handler  
-            Event handler content attribute
-        
-        `onmouseleave` :
-            mouseleave event handler  
-            Event handler content attribute
-        
-        `onmousemove` :
-            mousemove event handler  
-            Event handler content attribute
-        
-        `onmouseout` :
-            mouseout event handler  
-            Event handler content attribute
-        
-        `onmouseover` :
-            mouseover event handler  
-            Event handler content attribute
-        
-        `onmouseup` :
-            mouseup event handler  
-            Event handler content attribute
-        
-        `onpaste` :
-            paste event handler  
-            Event handler content attribute
-        
-        `onpause` :
-            pause event handler  
-            Event handler content attribute
-        
-        `onplay` :
-            play event handler  
-            Event handler content attribute
-        
-        `onplaying` :
-            playing event handler  
-            Event handler content attribute
-        
-        `onprogress` :
-            progress event handler  
-            Event handler content attribute
-        
-        `onratechange` :
-            ratechange event handler  
-            Event handler content attribute
-        
-        `onreset` :
-            reset event handler  
-            Event handler content attribute
-        
-        `onresize` :
-            resize event handler  
-            Event handler content attribute
-        
-        `onscroll` :
-            scroll event handler  
-            Event handler content attribute
-        
-        `onscrollend` :
-            scrollend event handler  
-            Event handler content attribute
-        
-        `onsecuritypolicyviolation` :
-            securitypolicyviolation event handler  
-            Event handler content attribute
-        
-        `onseeked` :
-            seeked event handler  
-            Event handler content attribute
-        
-        `onseeking` :
-            seeking event handler  
-            Event handler content attribute
-        
-        `onselect` :
-            select event handler  
-            Event handler content attribute
-        
-        `onslotchange` :
-            slotchange event handler  
-            Event handler content attribute
-        
-        `onstalled` :
-            stalled event handler  
-            Event handler content attribute
-        
-        `onsubmit` :
-            submit event handler  
-            Event handler content attribute
-        
-        `onsuspend` :
-            suspend event handler  
-            Event handler content attribute
-        
-        `ontimeupdate` :
-            timeupdate event handler  
-            Event handler content attribute
-        
-        `ontoggle` :
-            toggle event handler  
-            Event handler content attribute
-        
-        `onvolumechange` :
-            volumechange event handler  
-            Event handler content attribute
-        
-        `onwaiting` :
-            waiting event handler  
-            Event handler content attribute
-        
-        `onwheel` :
-            wheel event handler  
-            Event handler content attribute
-        
-        `popover` :
-            Makes the element a popover element
-        
-        `slot` :
-            The element's desired slot
-        
-        `spellcheck` :
-            Whether the element is to have its spelling and grammar checked
-        
-        `style` :
-            Presentational and formatting instructions  
-            CSS declarations*
-        
-        `tabindex` :
-            Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
-        
-        `title` :
-            Advisory information for the element
-        
-        `translate` :
-            Whether the element is to be translated when the page is localized
-        
-        `writingsuggestions` :
-            Whether the element can offer writing suggestions or not.
-        
+        Args:
+            attrs: 
+                A list or dictionary of attributes for the element
+            
+            id:
+                The element's ID
+            
+            class_:
+                Classes to which the element belongs
+            
+            accesskey:
+                Keyboard shortcut to activate or focus element
+            
+            autocapitalize:
+                Recommended autocapitalization behavior (for supported input methods)
+            
+            autocorrect:
+                Recommended autocorrection behavior (for supported input methods)
+            
+            autofocus:
+                Automatically focus the element when the page is loaded
+            
+            contenteditable:
+                Whether the element is editable
+            
+            dir:
+                The text directionality of the element
+            
+            draggable:
+                Whether the element is draggable
+            
+            enterkeyhint:
+                Hint for selecting an enter key action
+            
+            hidden:
+                Whether the element is relevant
+            
+            inert:
+                Whether the element is inert.
+            
+            inputmode:
+                Hint for selecting an input modality
+            
+            is_:
+                Creates a customized built-in element.  
+                Value hint: Valid custom element name of a defined customized built-in element
+            
+            itemid:
+                Global identifier for a microdata item.  
+                Value hint: Valid URL potentially surrounded by spaces
+            
+            itemprop:
+                Property names of a microdata item
+            
+            itemref:
+                Referenced elements
+            
+            itemscope:
+                Introduces a microdata item
+            
+            itemtype:
+                Item types of a microdata item
+            
+            lang:
+                Language of the element.  
+                Value hint: Valid BCP 47 language tag or the empty string
+            
+            nonce:
+                Cryptographic nonce used in Content Security Policy checks [CSP]
+            
+            onauxclick:
+                auxclick event handler.  
+                Value hint: Event handler content attribute
+            
+            onbeforeinput:
+                beforeinput event handler.  
+                Value hint: Event handler content attribute
+            
+            onbeforematch:
+                beforematch event handler.  
+                Value hint: Event handler content attribute
+            
+            onbeforetoggle:
+                beforetoggle event handler.  
+                Value hint: Event handler content attribute
+            
+            onblur:
+                blur event handler.  
+                Value hint: Event handler content attribute
+            
+            oncancel:
+                cancel event handler.  
+                Value hint: Event handler content attribute
+            
+            oncanplay:
+                canplay event handler.  
+                Value hint: Event handler content attribute
+            
+            oncanplaythrough:
+                canplaythrough event handler.  
+                Value hint: Event handler content attribute
+            
+            onchange:
+                change event handler.  
+                Value hint: Event handler content attribute
+            
+            onclick:
+                click event handler.  
+                Value hint: Event handler content attribute
+            
+            onclose:
+                close event handler.  
+                Value hint: Event handler content attribute
+            
+            oncontextlost:
+                contextlost event handler.  
+                Value hint: Event handler content attribute
+            
+            oncontextmenu:
+                contextmenu event handler.  
+                Value hint: Event handler content attribute
+            
+            oncontextrestored:
+                contextrestored event handler.  
+                Value hint: Event handler content attribute
+            
+            oncopy:
+                copy event handler.  
+                Value hint: Event handler content attribute
+            
+            oncuechange:
+                cuechange event handler.  
+                Value hint: Event handler content attribute
+            
+            oncut:
+                cut event handler.  
+                Value hint: Event handler content attribute
+            
+            ondblclick:
+                dblclick event handler.  
+                Value hint: Event handler content attribute
+            
+            ondrag:
+                drag event handler.  
+                Value hint: Event handler content attribute
+            
+            ondragend:
+                dragend event handler.  
+                Value hint: Event handler content attribute
+            
+            ondragenter:
+                dragenter event handler.  
+                Value hint: Event handler content attribute
+            
+            ondragleave:
+                dragleave event handler.  
+                Value hint: Event handler content attribute
+            
+            ondragover:
+                dragover event handler.  
+                Value hint: Event handler content attribute
+            
+            ondragstart:
+                dragstart event handler.  
+                Value hint: Event handler content attribute
+            
+            ondrop:
+                drop event handler.  
+                Value hint: Event handler content attribute
+            
+            ondurationchange:
+                durationchange event handler.  
+                Value hint: Event handler content attribute
+            
+            onemptied:
+                emptied event handler.  
+                Value hint: Event handler content attribute
+            
+            onended:
+                ended event handler.  
+                Value hint: Event handler content attribute
+            
+            onerror:
+                error event handler.  
+                Value hint: Event handler content attribute
+            
+            onfocus:
+                focus event handler.  
+                Value hint: Event handler content attribute
+            
+            onformdata:
+                formdata event handler.  
+                Value hint: Event handler content attribute
+            
+            oninput:
+                input event handler.  
+                Value hint: Event handler content attribute
+            
+            oninvalid:
+                invalid event handler.  
+                Value hint: Event handler content attribute
+            
+            onkeydown:
+                keydown event handler.  
+                Value hint: Event handler content attribute
+            
+            onkeypress:
+                keypress event handler.  
+                Value hint: Event handler content attribute
+            
+            onkeyup:
+                keyup event handler.  
+                Value hint: Event handler content attribute
+            
+            onload:
+                load event handler.  
+                Value hint: Event handler content attribute
+            
+            onloadeddata:
+                loadeddata event handler.  
+                Value hint: Event handler content attribute
+            
+            onloadedmetadata:
+                loadedmetadata event handler.  
+                Value hint: Event handler content attribute
+            
+            onloadstart:
+                loadstart event handler.  
+                Value hint: Event handler content attribute
+            
+            onmousedown:
+                mousedown event handler.  
+                Value hint: Event handler content attribute
+            
+            onmouseenter:
+                mouseenter event handler.  
+                Value hint: Event handler content attribute
+            
+            onmouseleave:
+                mouseleave event handler.  
+                Value hint: Event handler content attribute
+            
+            onmousemove:
+                mousemove event handler.  
+                Value hint: Event handler content attribute
+            
+            onmouseout:
+                mouseout event handler.  
+                Value hint: Event handler content attribute
+            
+            onmouseover:
+                mouseover event handler.  
+                Value hint: Event handler content attribute
+            
+            onmouseup:
+                mouseup event handler.  
+                Value hint: Event handler content attribute
+            
+            onpaste:
+                paste event handler.  
+                Value hint: Event handler content attribute
+            
+            onpause:
+                pause event handler.  
+                Value hint: Event handler content attribute
+            
+            onplay:
+                play event handler.  
+                Value hint: Event handler content attribute
+            
+            onplaying:
+                playing event handler.  
+                Value hint: Event handler content attribute
+            
+            onprogress:
+                progress event handler.  
+                Value hint: Event handler content attribute
+            
+            onratechange:
+                ratechange event handler.  
+                Value hint: Event handler content attribute
+            
+            onreset:
+                reset event handler.  
+                Value hint: Event handler content attribute
+            
+            onresize:
+                resize event handler.  
+                Value hint: Event handler content attribute
+            
+            onscroll:
+                scroll event handler.  
+                Value hint: Event handler content attribute
+            
+            onscrollend:
+                scrollend event handler.  
+                Value hint: Event handler content attribute
+            
+            onsecuritypolicyviolation:
+                securitypolicyviolation event handler.  
+                Value hint: Event handler content attribute
+            
+            onseeked:
+                seeked event handler.  
+                Value hint: Event handler content attribute
+            
+            onseeking:
+                seeking event handler.  
+                Value hint: Event handler content attribute
+            
+            onselect:
+                select event handler.  
+                Value hint: Event handler content attribute
+            
+            onslotchange:
+                slotchange event handler.  
+                Value hint: Event handler content attribute
+            
+            onstalled:
+                stalled event handler.  
+                Value hint: Event handler content attribute
+            
+            onsubmit:
+                submit event handler.  
+                Value hint: Event handler content attribute
+            
+            onsuspend:
+                suspend event handler.  
+                Value hint: Event handler content attribute
+            
+            ontimeupdate:
+                timeupdate event handler.  
+                Value hint: Event handler content attribute
+            
+            ontoggle:
+                toggle event handler.  
+                Value hint: Event handler content attribute
+            
+            onvolumechange:
+                volumechange event handler.  
+                Value hint: Event handler content attribute
+            
+            onwaiting:
+                waiting event handler.  
+                Value hint: Event handler content attribute
+            
+            onwheel:
+                wheel event handler.  
+                Value hint: Event handler content attribute
+            
+            popover:
+                Makes the element a popover element
+            
+            slot:
+                The element's desired slot
+            
+            spellcheck:
+                Whether the element is to have its spelling and grammar checked
+            
+            style:
+                Presentational and formatting instructions.  
+                Value hint: CSS declarations*
+            
+            tabindex:
+                Whether the element is focusable and sequentially focusable, and the relative order of the element for the purposes of sequential focus navigation
+            
+            title:
+                Advisory information for the element
+            
+            translate:
+                Whether the element is to be translated when the page is localized
+            
+            writingsuggestions:
+                Whether the element can offer writing suggestions or not.
+            
         """  # fmt: skip
         super().__init__(
             "hr", void_element=True, attrs=attrs, children=children

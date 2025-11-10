@@ -14,9 +14,14 @@ class OptgroupAttrs:
         "optgroup" attribute: disabled  
         Whether the form control is disabled  
 
-        :param value: Boolean attribute  
-        :return: An disabled attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+        
+        Returns:
+            An disabled attribute to be added to your element
+
+        """
         
         return BaseAttribute("disabled", value)
             
@@ -28,9 +33,14 @@ class OptgroupAttrs:
         "optgroup" attribute: label  
         User-visible label  
 
-        :param value: Text  
-        :return: An label attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Text
+        
+        Returns:
+            An label attribute to be added to your element
+
+        """
         
         return BaseAttribute("label", value)
             

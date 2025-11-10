@@ -105,7 +105,7 @@ div.hint.style({
 The implementation is the simplest `<key>: <value>. 
 User is therefore responsible for quoting.
 
-## `attrs=` parameter syntax
+## attrs= parameter syntax
 
 In the constructor for any element, you can specify the `attrs` parameter.
 
@@ -184,7 +184,7 @@ a(href="https://google.com", tabindex=1)
 Under the hood, it's all translated to the `BaseAttribute` class, and the value is
 escaped before rendering.
 
-# Breakdown
+## Breakdown
 
 There are a number of options for declaring an attribute value, which are shown above. 
 The basic idea is 
@@ -225,7 +225,7 @@ class htmx:
     '''
 
     @staticmethod
-    def hx_get(value: str) -> BaseAttribute:
+    def get(value: str) -> BaseAttribute:
         '''
         htmx attribute: hx-get
             The hx-get attribute will cause an element to issue a
@@ -244,7 +244,7 @@ Where we can write
 
 ```python
 button(
-    [htmx.hx_get("/api/data")], 
+    [htmx.get("/api/data")], 
     class_="btn primary"
 )["Click me!"]
 ```

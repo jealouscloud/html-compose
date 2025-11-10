@@ -14,9 +14,14 @@ class QAttrs:
         "q" attribute: cite  
         Link to the source of the quotation or more information about the edit  
 
-        :param value: Valid URL potentially surrounded by spaces  
-        :return: An cite attribute to be added to your element
-        """ # fmt: skip
+        Args:
+            value:
+                Valid URL potentially surrounded by spaces
+        
+        Returns:
+            An cite attribute to be added to your element
+
+        """
         
         return BaseAttribute("cite", value)
             

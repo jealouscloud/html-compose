@@ -10,11 +10,16 @@ class ColgroupAttrs:
     @staticmethod
     def span(value) -> BaseAttribute:
         """
-        "colgroup" attribute: span  
-        Number of columns spanned by the element  
+        "colgroup" attribute: span
+        Number of columns spanned by the element
 
-        :param value: Valid non-negative integer greater than zero  
-        :return: An span attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-negative integer greater than zero
+
+        Returns:
+            An span attribute to be added to your element
+
+        """
 
         return BaseAttribute("span", value)

@@ -11,11 +11,16 @@ class DfnAttrs:
     @staticmethod
     def title(value: StrLike) -> BaseAttribute:
         """
-        "dfn" attribute: title  
-        Full term or expansion of abbreviation  
+        "dfn" attribute: title
+        Full term or expansion of abbreviation
 
-        :param value: Text  
-        :return: An title attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text
+
+        Returns:
+            An title attribute to be added to your element
+
+        """
 
         return BaseAttribute("title", value)

@@ -139,3 +139,17 @@ def test_round_trip():
     lines = "\n\n".join(tresult.elements) + ".render()"
     output = eval(lines)
     assert output == stripped
+
+
+def test_script_round_trip():
+    # Ensure that text nodes with <, >, & survive a round trip
+    html = '<script>if (a < b && c > d) { console.log("hello & welcome"); }</script>'
+    tresult = t.translate(html)
+    print(tresult.import_statement)
+    exec(tresult.import_statement)
+    if tresult.custom_elements:
+        exec("\n".join(tresult.custom_elements))
+    lines = "\n\n".join(tresult.elements) + ".render()"
+    print(lines)
+    output = eval(lines)
+    assert output == html

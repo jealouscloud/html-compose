@@ -12,12 +12,17 @@ class TrackAttrs:
     @staticmethod
     def default(value: bool) -> BaseAttribute:
         """
-        "track" attribute: default  
-        Enable the track if no other text track is more suitable  
+        "track" attribute: default
+        Enable the track if no other text track is more suitable
 
-        :param value: Boolean attribute  
-        :return: An default attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Boolean attribute
+
+        Returns:
+            An default attribute to be added to your element
+
+        """
 
         return BaseAttribute("default", value)
 
@@ -28,47 +33,67 @@ class TrackAttrs:
         ],
     ) -> BaseAttribute:
         """
-        "track" attribute: kind  
-        The type of text track  
+        "track" attribute: kind
+        The type of text track
 
-        :param value: ['subtitles', 'captions', 'descriptions', 'chapters', 'metadata']  
-        :return: An kind attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                ['subtitles', 'captions', 'descriptions', 'chapters', 'metadata']
+
+        Returns:
+            An kind attribute to be added to your element
+
+        """
 
         return BaseAttribute("kind", value)
 
     @staticmethod
     def label(value: StrLike) -> BaseAttribute:
         """
-        "track" attribute: label  
-        User-visible label  
+        "track" attribute: label
+        User-visible label
 
-        :param value: Text  
-        :return: An label attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text
+
+        Returns:
+            An label attribute to be added to your element
+
+        """
 
         return BaseAttribute("label", value)
 
     @staticmethod
     def src(value) -> BaseAttribute:
         """
-        "track" attribute: src  
-        Address of the resource  
+        "track" attribute: src
+        Address of the resource
 
-        :param value: Valid non-empty URL potentially surrounded by spaces  
-        :return: An src attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid non-empty URL potentially surrounded by spaces
+
+        Returns:
+            An src attribute to be added to your element
+
+        """
 
         return BaseAttribute("src", value)
 
     @staticmethod
     def srclang(value) -> BaseAttribute:
         """
-        "track" attribute: srclang  
-        Language of the text track  
+        "track" attribute: srclang
+        Language of the text track
 
-        :param value: Valid BCP 47 language tag  
-        :return: An srclang attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid BCP 47 language tag
+
+        Returns:
+            An srclang attribute to be added to your element
+
+        """
 
         return BaseAttribute("srclang", value)

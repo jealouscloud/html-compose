@@ -12,24 +12,34 @@ class MetaAttrs:
     @staticmethod
     def charset(value: Literal["utf-8"]) -> BaseAttribute:
         """
-        "meta" attribute: charset  
-        Character encoding declaration  
+        "meta" attribute: charset
+        Character encoding declaration
 
-        :param value: ['utf-8']  
-        :return: An charset attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                ['utf-8']
+
+        Returns:
+            An charset attribute to be added to your element
+
+        """
 
         return BaseAttribute("charset", value)
 
     @staticmethod
     def content(value: StrLike) -> BaseAttribute:
         """
-        "meta" attribute: content  
-        Value of the element  
+        "meta" attribute: content
+        Value of the element
 
-        :param value: Text*  
-        :return: An content attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text*
+
+        Returns:
+            An content attribute to be added to your element
+
+        """
 
         return BaseAttribute("content", value)
 
@@ -44,35 +54,50 @@ class MetaAttrs:
         ],
     ) -> BaseAttribute:
         """
-        "meta" attribute: http-equiv  
-        Pragma directive  
+        "meta" attribute: http-equiv
+        Pragma directive
 
-        :param value: ['content-type', 'default-style', 'refresh', 'x-ua-compatible', 'content-security-policy']  
-        :return: An http-equiv attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                ['content-type', 'default-style', 'refresh', 'x-ua-compatible', 'content-security-policy']
+
+        Returns:
+            An http-equiv attribute to be added to your element
+
+        """
 
         return BaseAttribute("http-equiv", value)
 
     @staticmethod
     def media(value) -> BaseAttribute:
         """
-        "meta" attribute: media  
-        Applicable media  
+        "meta" attribute: media
+        Applicable media
 
-        :param value: Valid media query list  
-        :return: An media attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Valid media query list
+
+        Returns:
+            An media attribute to be added to your element
+
+        """
 
         return BaseAttribute("media", value)
 
     @staticmethod
     def name(value: StrLike) -> BaseAttribute:
         """
-        "meta" attribute: name  
-        Metadata name  
+        "meta" attribute: name
+        Metadata name
 
-        :param value: Text*  
-        :return: An name attribute to be added to your element
-        """  # fmt: skip
+        Args:
+            value:
+                Text*
+
+        Returns:
+            An name attribute to be added to your element
+
+        """
 
         return BaseAttribute("name", value)
