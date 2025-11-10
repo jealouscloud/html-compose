@@ -9,7 +9,16 @@
   The signature is now different which may require updates.
 * HTML converter improvements: Survive round trip for more text. 
   Output single elements when we identify an attribute could be a list
-
+* Documentation improvements
+  * Migrate element/attr docstrings to Google style.  
+    Pyright on Zed seems to tolerate this better.
+  * Fix a weird pylance bug on WatchCond
+* Live reload now accepts daemon host/port/timeout and can wait to send browser
+  reload until after the server responds
+* py.typed improvements to module exports
+* Child elements passed uninstantiated will be instantiated at render time
+  * This means you can `p['line 1', br, 'line 2']` where previously you had to `br()`
+* notebook.render accepts _HasHtml which includes documents and elements
 
 # 0.10.1
 * Style parameter: when input is a dict[str, str], assume the user wants simple f"{key}: {value}" css statements
