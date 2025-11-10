@@ -183,7 +183,7 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
                     # no runtime checking here, but hint the type checker
                     item = cast(Mapping[str, Resolvable], item)
 
-                    for key, value in item.items():
+                    for key, value in item.items():  # type: ignore[assignment]
                         attr = BaseAttribute(key, value).evaluate()
                         if not attr:
                             continue
@@ -198,7 +198,7 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
             # hint the type checker
             attrs = cast(Mapping[str, Resolvable], attrs)
 
-            for key, value in attrs.items():
+            for key, value in attrs.items():  # type: ignore[assignment]
                 attr = BaseAttribute(key, value).evaluate()
                 if attr:
                     a_name, a_value = attr
