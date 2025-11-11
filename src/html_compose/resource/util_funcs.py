@@ -35,6 +35,7 @@ def _cachebust_resource_uri(source: str):
                 "does not exist"
             ) from exc
 
+    source = source.lstrip("/")
     resource_path = path.join(base_dir, source)
     now = time()
     ts = misc_stat_cache.get(path.join(base_dir, source), None)
