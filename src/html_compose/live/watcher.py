@@ -263,7 +263,7 @@ class WatchCond:
 
         for pattern in self.ignore_glob:
             if glob_matcher(pattern, path):
-                return True
+                return False
 
         for pattern in self.path_glob:
             if glob_matcher(pattern, path):
