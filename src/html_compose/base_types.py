@@ -65,6 +65,7 @@ class ElementBase:
     def __html__(self) -> str:
         return self.render()
 
+
 # A node resolver is a callable that returns a Node,
 # possibly taking the calling element and parent element as arguments.
 NodeResolver = (
