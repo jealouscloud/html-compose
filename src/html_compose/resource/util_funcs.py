@@ -20,11 +20,8 @@ def _cachebust_resource_uri(source: str):
 
     misc_stat_cache = _State.misc_stat_cache
     stat_cache = _State.stat_cache
-    cache_cap = settings.cache_cap
-    stat_poll_interval = settings.stat_poll_interval
     base_dir = settings.base_dir
-    query_string = settings.query_string
-    base_dir = base_dir
+
     if misc_stat_cache.get(base_dir) is None:
         try:
             misc_stat_cache[base_dir] = int(stat(base_dir).st_mtime)
@@ -39,7 +36,7 @@ def _cachebust_resource_uri(source: str):
     resource_path = path.join(base_dir, source)
     now = time()
     ts = misc_stat_cache.get(path.join(base_dir, source), None)
-    update_ts = ts is None or (now - ts) > stat_poll_interval
+    update_ts = ts is None or (now - ts) > settings.stat_poll_interval
     if update_ts:
         try:
             ts = int(stat(resource_path).st_mtime)
@@ -50,7 +47,7 @@ def _cachebust_resource_uri(source: str):
                 "does not exist"
             ) from exc
 
-        if len(stat_cache) >= cache_cap:
+        if len(stat_cache) >= settings.cache_cap:
             # Clear if it's too big
             stat_cache.clear()
         stat_cache[resource_path] = ts
@@ -65,7 +62,7 @@ def _cachebust_resource_uri(source: str):
         errors="surrogateescape",
     )
     # add our cache buster
-    pairs.append((query_string, str(int(ts))))
+    pairs.append((settings.query_string, str(int(ts))))
     # re assemble the query string, try our best to preservees exactly
     new_qs = urllib.parse.urlencode(
         pairs,
