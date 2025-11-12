@@ -13,7 +13,7 @@ T = TypeVar("T", bound="BaseElement")
 
 class ElementMeta(ABCMeta):
     """
-    The metaclass for all HTML elements to hack the base class interface
+    The metaclass for all HTML elements
     """
 
     # We aggressively hack the type checker here
