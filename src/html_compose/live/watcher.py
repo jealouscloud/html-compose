@@ -263,7 +263,7 @@ class WatchCond:
 
         for pattern in self.ignore_glob:
             if glob_matcher(pattern, path):
-                return True
+                return False
 
         for pattern in self.path_glob:
             if glob_matcher(pattern, path):
@@ -415,7 +415,7 @@ class Watcher:
                 if not stat.S_ISREG(st.st_mode):
                     # Not a regular file, skip it
                     continue
-                mtime = st.st_mtime
+                mtime = int(st.st_mtime)
             except OSError:
                 # Might be deleted, we'll catch it later
                 continue

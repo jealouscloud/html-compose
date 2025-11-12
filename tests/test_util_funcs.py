@@ -114,6 +114,7 @@ def test_glob_func():
             "path/nextsection/dir_cursive/nextsection/end.txt",
             True,
         ),
+        ("front/css/", "front/css/utilities/debug-outline.css", True),
     ]
     for pattern, target, expected in test_cases:
         assert glob_matcher(pattern, target) == expected, (

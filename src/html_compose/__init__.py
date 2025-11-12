@@ -192,6 +192,7 @@ Convert HTML to html-compose syntax—useful when starting from tutorials or tem
 ```sh
 html-compose convert {filename or empty for stdin}
 html-compose convert --noimport el  # produces el.div() style references
+html-convert # an alias for html-compose convert
 ```
 
 `html-convert` provides access to this tool as shorthand.

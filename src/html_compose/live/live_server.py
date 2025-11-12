@@ -123,6 +123,7 @@ def live_server(
     )
 
     daemon_task = ProcessTask(daemon, delay=0, sync=False)
+    daemon_stop_task = Task(action=lambda: daemon_task.cancel(), sync=True)
     # Run livereload server
     server = run_server(host, port)
     tr = TaskRunner()
@@ -186,6 +187,10 @@ def live_server(
 
                 if reload_tripped:
                     daemon_task.delay = delay + daemon_delay
+
+                    # this should make them fire on the same tick, in order
+                    daemon_stop_task.delay = daemon_task.delay
+
                     # This constant should mean the server port is up
                     browser_update_task.delay = (
                         daemon_task.delay + livereload_delay
@@ -194,6 +199,7 @@ def live_server(
                         f"Reloading daemon after {daemon_task.delay} seconds..."
                     )
                     if any([c.server_reload for c in conds_hit]):
+                        tr.add_task(daemon_stop_task)
                         tr.add_task(daemon_task)
                     tr.add_task(browser_update_task)
             sleep(loop_delay)

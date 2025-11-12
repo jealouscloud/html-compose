@@ -102,6 +102,8 @@ Publish your own to make someone elses development experience better!
 
 """
 
+import os
+
 from .a_element import a as a
 from .abbr_element import abbr as abbr
 from .address_element import address as address
@@ -215,8 +217,6 @@ from .ul_element import ul as ul
 from .var_element import var as var
 from .video_element import video as video
 from .wbr_element import wbr as wbr
-
-import os
 
 # hack: force PDOC to treat elements as submodules
 if not os.environ.get("PDOC_GENERATING", False):
