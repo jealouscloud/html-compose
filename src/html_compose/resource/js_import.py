@@ -203,7 +203,7 @@ class js_import:
                 "If hash is set, crossorigin must be set to ''/'anonymous'"
             )
 
-    def uri(self):
+    def uri(self) -> str:
         """
         Returns the source URI - with cache busting if enabled
         which is implemented by getting the mtime of the local file
