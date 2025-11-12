@@ -86,7 +86,7 @@ def get_livereload_env() -> dict | None:
 
 
 def generate_livereload_env(
-    host, port, proxy_host: str | None, proxy_uri: str | None = None
+    host: str, port: int, proxy_host: str | None, proxy_uri: str | None = None
 ) -> dict:
     flags = {
         "port": port,
