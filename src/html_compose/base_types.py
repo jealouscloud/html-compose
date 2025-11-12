@@ -65,6 +65,13 @@ class ElementBase:
     def __html__(self) -> str:
         return self.render()
 
+# A node resolver is a callable that returns a Node,
+# possibly taking the calling element and parent element as arguments.
+NodeResolver = (
+    Callable[[], "Node"]
+    | Callable[[ElementBase], "Node"]
+    | Callable[[ElementBase, ElementBase], "Node"]
+)
 
 # The Node type is a union of all possible types that can be rendered
 Node = (
@@ -76,9 +83,7 @@ Node = (
     | ElementBase  # Base class for all HTML elements
     | _HasHtml  # Returns HTML that does not need escaping
     | Iterable["Node"]
-    | Callable[[], "Node"]
-    | Callable[[ElementBase], "Node"]
-    | Callable[[ElementBase, ElementBase], "Node"]
+    | NodeResolver
 )
 
 # These types are used for attribute values
