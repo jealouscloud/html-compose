@@ -127,7 +127,7 @@ def document_generator(
     lang: str | None = None,
     head: el.head | list | None = None,
     body: Iterable[Node] | el.body | None = None,
-):
+) -> str:
     """
     Return a full HTML5 document as a string.
 
