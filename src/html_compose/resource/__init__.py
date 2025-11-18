@@ -128,7 +128,7 @@ def to_elements(
                 import_map["scopes"] = scopes
             # dump to json; prevent escapes
             js_dump = json.dumps(import_map).replace("<", "\\u003c")
-            script_tags.insert(
+            preload_links.insert(
                 0, el.script(type="importmap")[unsafe_text(js_dump)]
             )
     style_text: list[str] = []

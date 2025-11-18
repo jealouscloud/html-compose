@@ -1,3 +1,6 @@
+# 0.11.2
+* resource module correctly places import map before preload links
+
 # 0.11.1
 * livereload fix: live server waits for daemon to terminate before restarting
 * livereload fix: Fix bug for ignore_glob not firing
