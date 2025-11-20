@@ -194,11 +194,11 @@ def test_js_import():
     ]
     expected = [
         "<head>",
-        '<link href="./static/admin.js" rel="modulepreload"/>',
-        '<link href="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm" integrity="sha384-Yf57wlxlrA1+0X6Ye9NOBxQ1tpmiwI/9mFpv9tT/Rh2UAajwwAlTWHnvTGYhgv7p" crossorigin="anonymous" rel="modulepreload"/>',
         '<script type="importmap">',
         '{"imports": {"admin": "./static/admin.js", "alpinejs": "https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm"}}',
         "</script>",
+        '<link href="./static/admin.js" rel="modulepreload"/>',
+        '<link href="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm" integrity="sha384-Yf57wlxlrA1+0X6Ye9NOBxQ1tpmiwI/9mFpv9tT/Rh2UAajwwAlTWHnvTGYhgv7p" crossorigin="anonymous" rel="modulepreload"/>',
         '<script src="./static/admin.js" type="module">',
         "</script>",
         '<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm" type="module" integrity="sha384-Yf57wlxlrA1+0X6Ye9NOBxQ1tpmiwI/9mFpv9tT/Rh2UAajwwAlTWHnvTGYhgv7p" crossorigin="anonymous">',
@@ -261,13 +261,13 @@ def test_importer():
     elements = to_elements(js, css)
     expected = [
         "<head>",
+        '<script type="importmap">',
+        '{"imports": {"admin": "./static/admin.js", "alpinejs": "https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm"}}',
+        "</script>",
         '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" as="style" rel="preload"/>',
         '<link href="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm" integrity="sha384-Yf57wlxlrA1+0X6Ye9NOBxQ1tpmiwI/9mFpv9tT/Rh2UAajwwAlTWHnvTGYhgv7p" crossorigin="anonymous" rel="modulepreload"/>',
         '<link href="./static/admin.css" rel="stylesheet"/>',
         '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" rel="stylesheet"/>',
-        '<script type="importmap">',
-        '{"imports": {"admin": "./static/admin.js", "alpinejs": "https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm"}}',
-        "</script>",
         '<script src="./static/admin.js" type="module">',
         "</script>",
         '<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm" type="module" integrity="sha384-Yf57wlxlrA1+0X6Ye9NOBxQ1tpmiwI/9mFpv9tT/Rh2UAajwwAlTWHnvTGYhgv7p" crossorigin="anonymous">',
@@ -298,7 +298,7 @@ def test_document_generator():
         title="demo", lang="en", js=js, css=css, body=[el.h1()["Hello world"]]
     ).stream("full")
     expected = [
-        '<!DOCTYPE html>\n<html lang="en">\n<head><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>demo</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" as="style" rel="preload"/><link href="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm" integrity="sha384-Yf57wlxlrA1+0X6Ye9NOBxQ1tpmiwI/9mFpv9tT/Rh2UAajwwAlTWHnvTGYhgv7p" crossorigin="anonymous" rel="modulepreload"/><link href="./static/admin.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" rel="stylesheet"/><script type="importmap">{"imports": {"admin": "./static/admin.js", "alpinejs": "https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm"}}</script><script src="./static/admin.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm" type="module" integrity="sha384-Yf57wlxlrA1+0X6Ye9NOBxQ1tpmiwI/9mFpv9tT/Rh2UAajwwAlTWHnvTGYhgv7p" crossorigin="anonymous"></script></head>\n\n',
+        '<!DOCTYPE html>\n<html lang="en">\n<head><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>demo</title><script type="importmap">{"imports": {"admin": "./static/admin.js", "alpinejs": "https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm"}}</script><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" as="style" rel="preload"/><link href="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm" integrity="sha384-Yf57wlxlrA1+0X6Ye9NOBxQ1tpmiwI/9mFpv9tT/Rh2UAajwwAlTWHnvTGYhgv7p" crossorigin="anonymous" rel="modulepreload"/><link href="./static/admin.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" rel="stylesheet"/><script src="./static/admin.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/+esm" type="module" integrity="sha384-Yf57wlxlrA1+0X6Ye9NOBxQ1tpmiwI/9mFpv9tT/Rh2UAajwwAlTWHnvTGYhgv7p" crossorigin="anonymous"></script></head>\n\n',
         "<body>",
         "<h1>",
         "Hello world",
