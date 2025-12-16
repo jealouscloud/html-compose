@@ -1,3 +1,20 @@
+"""
+HTML5 document generation functions and classes.
+
+The most featureful way to generate a full HTML5 document is to use
+the `HTML5Document` class with `html_compose.resource` types managing
+imports. The benefit of this is automatic and correct ordering of resources,
+preloads, and import mapping.
+
+The most control over the document generation process is to use
+`document_generator` which yields parts of the document as strings.
+
+Streaming alternatives are available via `document_streamer`, or
+`HTML5Document.stream()`.
+
+These will yield chunks as they are generated.
+"""
+
 from typing import Any, Generator, Iterable, Literal, TypeAlias
 from urllib.parse import urlencode
 
