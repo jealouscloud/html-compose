@@ -142,7 +142,9 @@ def is_preformatted(tag_name):
     return tag_name in {"pre", "textarea"}
 
 
-def translate(html: str, import_module: str | None = None) -> TranslateResult:
+def translate(
+    html: str, import_module: str | None = None, constructor: bool = False
+) -> TranslateResult:
     """
     Translate HTML string into Python code representing a similar HTML structure
 
@@ -233,7 +235,9 @@ def translate(html: str, import_module: str | None = None) -> TranslateResult:
 
             result.append(")")
         else:
-            result.append("()")
+            # If no attributes, we can skip the constructor call unless
+            if constructor:
+                result.append("()")
 
         children: list[str] = []
         child_nodes = list(element.children)

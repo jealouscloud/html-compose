@@ -26,7 +26,9 @@ def from_html(args):
     if is_stdin:
         print("---\n")
 
-    tresult = translate_html.translate(html_content, args.noimport)
+    tresult = translate_html.translate(
+        html_content, args.noimport, args.constructor
+    )
 
     if tresult is None:
         print("Failed to translate HTML content")
@@ -59,6 +61,13 @@ def parse_html_translate(parser):
         const="html_compose",
         default=None,
         help="Instead of importing each element, use the specified module name",
+    )
+
+    parser.add_argument(
+        "-c",
+        "--constructor",
+        action="store_true",
+        help="Always output element constructor",
     )
 
 
