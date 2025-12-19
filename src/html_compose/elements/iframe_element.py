@@ -591,7 +591,7 @@ class iframe(BaseElement):
             
         """  # fmt: skip
         super().__init__(
-            "iframe", void_element=True, attrs=attrs, children=children
+            "iframe", void_element=False, attrs=attrs, children=children
         )
         if not (id is None or id is False):
             self._process_attr("id", id)

@@ -560,7 +560,7 @@ class iframe(BaseElement):
         """ #fmt: skip
         super().__init__(
             "iframe",
-            void_element=True,
+            void_element=False,
             attrs=attrs,
             children=children
         )

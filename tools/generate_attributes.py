@@ -80,7 +80,7 @@ def global_attrs():
 def other_attrs():
     for element in spec:
         result = []
-        if element == "_global_attributes":
+        if element in ("_global_attributes", "_special_elements"):
             continue
         attrs = spec[element]["spec"]["attributes"]
         if not attrs:
