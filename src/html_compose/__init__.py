@@ -110,18 +110,26 @@ If you prefer simpler boilerplate generation, `HTML5Document` returns a complete
 document string:
 
 ```python
-from html_compose import HTML5Document, p, script, link
+from html_compose import HTML5Document, p, script, link, meta
 
 doc: str = HTML5Document(
     "Site Title",
     lang="en",
-    head=[
-        script(src="/public/bundle.js"),
-        link(rel="stylesheet", href="/public/style.css"),
+    js=[
+        '/public/bundle.js',
+    ],
+    css=[
+        '/public/style.css',
+    ],
+    head_extra=[
+        meta(name='robots', content='index, follow'),
     ],
     body=[p["Hello, world!"]],
 )
 ```
+See `html_compose.resource` for advanced resource configuration,
+or view `html_compose.document` for for more on document generation.
+
 
 ### Composing Elements
 
