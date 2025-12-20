@@ -256,3 +256,13 @@ def test_custom_element():
 def test_callable_br():
     a = div()[h.p["hi"], h.br, h.p["there"]]
     assert a.render() == "<div><p>hi</p><br/><p>there</p></div>"
+
+
+def test_list_render():
+    a = [h.li[x] for x in range(5)]
+    assert h.render(a) == "<li>0</li><li>1</li><li>2</li><li>3</li><li>4</li>"
+
+
+def test_el_render():
+    a = h.div()["content"]
+    assert h.render(a) == "<div>content</div>"
