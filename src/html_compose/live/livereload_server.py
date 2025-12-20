@@ -50,6 +50,7 @@ def live_reloader(host, port):
     with serve(run_ws, host, port) as srv:
         global server
         server = srv
+        print(f"Running livereload WebSocket server at ws://{host}:{port}")
         server.serve_forever()
 
 
@@ -59,7 +60,6 @@ def close():
 
 
 def run_server(host, port) -> Server:
-    print(f"Starting livereload WebSocket server at ws://{host}:{port}")
     threading.Thread(
         target=live_reloader, args=(host, port), daemon=True
     ).start()
