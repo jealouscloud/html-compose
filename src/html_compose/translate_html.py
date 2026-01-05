@@ -14,6 +14,21 @@ from .util_funcs import safe_name
 SPEC_WS = r"[\t\n\r ]"
 
 
+def _neighbor_tags(node: NavigableString) -> tuple[Tag | None, Tag | None]:
+    """Return the closest Tag siblings to the left and right of a text node."""
+
+    def _find_tag_sibling(node, attr) -> Tag | None:
+        sibling = getattr(node, attr)
+        while sibling and not isinstance(sibling, Tag):
+            sibling = getattr(sibling, attr)
+        return sibling if isinstance(sibling, Tag) else None
+
+    return (
+        _find_tag_sibling(node, "previous_sibling"),
+        _find_tag_sibling(node, "next_sibling"),
+    )
+
+
 @cache
 def get_phrasing_tags():
     """
@@ -169,7 +184,8 @@ def translate(
             tags["doctype"] = None
             return f"doctype({repr(dt)})"
         elif isinstance(element, NavigableString):
-            return read_string(element, None, None, phrasing_tags)
+            prev_tag, next_tag = _neighbor_tags(element)
+            return read_string(element, prev_tag, next_tag, phrasing_tags)
 
         assert isinstance(element, Tag)
         safe_tag_name = safe_name(element.name)
@@ -251,20 +267,7 @@ def translate(
                 continue
 
             if isinstance(child, NavigableString):
-                # We step backwards until we find a tag
-                prev_tag = next(
-                    (
-                        j
-                        for j in reversed(child_nodes[:i])
-                        if isinstance(j, Tag)
-                    ),
-                    None,
-                )
-                # Same deal, forwards until we find a tag
-                next_tag = next(
-                    (j for j in child_nodes[i + 1 :] if isinstance(j, Tag)),
-                    None,
-                )
+                prev_tag, next_tag = _neighbor_tags(child)
                 processed = read_string(
                     child, prev_tag, next_tag, phrasing_tags
                 )
