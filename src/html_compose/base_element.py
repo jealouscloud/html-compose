@@ -309,7 +309,7 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
             else:
                 result = child
                 while callable(result):
-                    result = self._call_callable(child, parent)  # type: ignore[assignment]
+                    result = self._call_callable(result, parent)  # type: ignore[assignment]
 
                 yield from self._resolve_child(result, call_callables, parent)
         else:
