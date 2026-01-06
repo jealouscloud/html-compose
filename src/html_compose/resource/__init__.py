@@ -108,14 +108,12 @@ def to_elements(
                 entry = jsi.import_map_entry()
                 if entry:
                     # Add to import map
-                    name, src = entry[0:2]
+                    name, src = entry.name, entry.src
                     js_imports[name] = src
-                    if len(entry) == 3:
-                        # Scopes feature, although I can't imagine anyone
-                        # using it.
-                        scope = str(entry[2])
-                        sdict = scopes.setdefault(scope, {})
-                        sdict[name] = src
+                    if entry.scope_urls:
+                        for scope_key in entry.scope_urls:
+                            sdict = scopes.setdefault(scope_key, {})
+                            sdict[name] = src
 
             else:
                 if not isinstance(js_src, str):
