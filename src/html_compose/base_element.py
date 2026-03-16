@@ -269,8 +269,9 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
             inst: BaseElement = child()
             yield from inst.resolve()
 
-        elif isinstance(child, _HasHtml):
-            yield unsafe_text(child.__html__())
+        elif hasattr(child, "__html__"):
+            # Duck typing is faster than isinstance checks on runtime Protocols
+            yield unsafe_text(cast(_HasHtml, child).__html__())
 
         elif isinstance(child, str):
             # Magic: If the string is already escaped, this never has to fire.
