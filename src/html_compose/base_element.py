@@ -405,7 +405,7 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
         children = None
 
         if not self.is_void_element:
-            children = [child for child in self._resolve_tree(parent)]
+            children = (child for child in self._resolve_tree(parent))
 
         # join_attrs has a configurable lru_cache
         join_attrs = self.get_attr_join()
