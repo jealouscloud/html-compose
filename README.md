@@ -115,6 +115,7 @@ a([tab]
   # <div tabindex=1></div>
   div({"data-for-something": "foo"})
   # <div data-for-something="foo"></div>
+  
   ## With class dictionary resolution
   is_dark_mode = False
   div(class_={"dark-mode": is_dark_mode, "flex": True})
