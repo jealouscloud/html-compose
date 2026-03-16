@@ -1189,3 +1189,12 @@ def test_compare_argument_style_performance():
     assert test3_delta < test1_delta * 0.5, (
         "Control function should be at least 50% faster than Test 1"
     )
+
+
+def test_fn_name():
+    from html_compose.elements import div
+
+    fn = div().render
+    assert fn.__name__ == "render"
+    assert fn.__module__ == "html_compose.base_element"
+    assert fn.__qualname__ == "BaseElement.render"

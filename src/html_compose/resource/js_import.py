@@ -1,8 +1,18 @@
-from typing import Iterable, Literal
+from typing import Iterable, Literal, NamedTuple
 
 from .. import elements as el
 from ..util_funcs import flatten_iterable, is_iterable_but_not_str
 from .util_funcs import _cachebust_resource_uri
+
+
+class _ImportMapEntry(NamedTuple):
+    """
+    Common structure for import map entries
+    """
+
+    name: str
+    src: str
+    scope_urls: Iterable[str] | None = None
 
 
 class js_import:
@@ -188,9 +198,16 @@ class js_import:
         self.source = source
         self.preload = preload
         self.hash = hash
-        self.scope_url = scope_url
-        if scope_url and is_iterable_but_not_str(scope_url):
-            self.scope_url = flatten_iterable(scope_url)
+        self.scope_urls = scope_url
+        if scope_url:
+            if isinstance(scope_url, str):
+                self.scope_urls = [scope_url]
+            elif is_iterable_but_not_str(scope_url):
+                # Materialize scope URLs so they can be iterated multiple times
+                # (flatten_iterable returns a generator by default).
+                self.scope_urls = list(flatten_iterable(scope_url))
+            else:
+                self.scope_urls = [str(scope_url)]
         self.crossorigin = crossorigin
         self.cache_bust = cache_bust
         self.has_link = preload
@@ -219,17 +236,18 @@ class js_import:
 
         return _cachebust_resource_uri(self.source)
 
-    def import_map_entry(
-        self,
-    ) -> tuple[str, str] | tuple[str, str, Iterable] | None:
+    def import_map_entry(self) -> _ImportMapEntry | None:
         """
         Returns a tuple of (name, source, scope_url) for use in an import map
         """
+
         if self.name:
-            if self.scope_url is None:
-                return (self.name, self._src)
+            if self.scope_urls is None:
+                return _ImportMapEntry(name=self.name, src=self._src)
             else:
-                return (self.name, self._src, self.scope_url)
+                return _ImportMapEntry(
+                    name=self.name, src=self._src, scope_urls=self.scope_urls
+                )
 
         return None
 

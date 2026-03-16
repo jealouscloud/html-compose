@@ -235,9 +235,10 @@ class WatchCond:
             server_reload:
                 If False, do not reload the daemon process after a change; just the browser.
         """
-        self.path_glob = path_glob
         if isinstance(path_glob, str):
             self.path_glob = [path_glob]
+        else:
+            self.path_glob = path_glob
 
         if not ignore_glob:
             ignore_glob = []
@@ -246,6 +247,17 @@ class WatchCond:
             self.ignore_glob = [ignore_glob]
         else:
             self.ignore_glob = ignore_glob
+
+        # We assume you want all paths to be relative to CWD
+
+        for i, p in enumerate(self.path_glob):
+            p = os.path.relpath(p, CWD) + ("/" if p.endswith("/") else "")
+            self.path_glob[i] = p
+
+        for i, p in enumerate(self.ignore_glob):
+            p = os.path.relpath(p, CWD) + ("/" if p.endswith("/") else "")
+            self.ignore_glob[i] = p
+
         self.server_reload = server_reload
         self.reload = reload
         if action is None:
@@ -375,6 +387,7 @@ class Watcher:
                         continue
 
                     dirs.add(as_t)
+
         return dirs
 
     def _get_matching_rules(self, path) -> list[WatchCond]:
@@ -474,7 +487,7 @@ class Watcher:
             result_tuples: set[tuple[int, str]] = result
             for watch_id, path in result_tuples:
                 # RustWatch returns full paths, convert to relative
-                path = str(Path(path).relative_to(CWD))
+                path = os.path.relpath(path, CWD)
                 matching_rules = self._get_matching_rules(path)
                 if matching_rules:
                     changes.append(Hit(path, matching_rules))

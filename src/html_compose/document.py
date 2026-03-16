@@ -1,3 +1,21 @@
+"""
+HTML5 document generation functions and classes.
+
+The most featureful way to generate a full HTML5 document is to use
+the `HTML5Document` class with `html_compose.resource` types managing
+imports. The benefit of this is automatic and correct ordering of resources,
+preloads, and import mapping.
+
+The most control over the document generation process is to use
+`document_generator` which yields parts of the document as strings.
+
+Streaming alternatives are available via `document_streamer`, or
+`HTML5Document.stream()`.
+
+These will yield chunks as they are generated.
+"""
+
+import os
 from typing import Any, Generator, Iterable, Literal, TypeAlias
 from urllib.parse import urlencode
 
@@ -163,17 +181,25 @@ def document_generator(
 
 def get_livereload_uri() -> str:
     """
-    Generally this is just the neat place to store the livereload URI.
-
+    Return livereload-js compatible resource URI
     But if the user wants they can override this function to return a local
     resource i.e.
 
     html_compose.document.get_live_reload_uri =
       lambda: "mydomain.com/static/livereload.js";
 
+    Or just set env var HTMLCOMPOSE_LIVERELOAD_URL to the desired URL.
+
+    We default to livereload-morph, which fits our use case better.
+
     """
-    VERSION = "v4.0.2"
-    return f"cdn.jsdelivr.net/npm/livereload-js@{VERSION}/dist/livereload.js"
+    env_url = os.getenv("HTMLCOMPOSE_LIVERELOAD_URL", None)
+    # allow user override.
+    if env_url:
+        return env_url
+    VERSION = "0.3.0"
+    # We ported from livereload-js to livereload-morph to better fit our use case
+    return f"cdn.jsdelivr.net/npm/livereload-morph@{VERSION}/dist/livereload-morph.js"
 
 
 def _livereload_script_tag(live_reload_settings):
@@ -196,7 +222,9 @@ def _livereload_script_tag(live_reload_settings):
         # Regular development enviroment with no proxy. host:port will do.
         host = live_reload_settings["host"]
         port = live_reload_settings["port"]
-        uri_encoded_flags = urlencode({"host": host, "port": port})
+        uri_encoded_flags = urlencode(
+            {"host": host, "port": port, "verbose": True}
+        )
 
     # This scriptlet auto-inserts the livereload script and detects protocol
     return el.script()[

@@ -203,9 +203,15 @@ def generate_attrs(attr_class, attr_list) -> list[processed_attr]:  # -> list:
 def gen_elements():
     result = []
     attr_imports = []
+    special_elements = spec["_special_elements"]["spec"]
+    void_elements = special_elements["void elements"]
     global_attrs = spec["_global_attributes"]["spec"]
     for element in spec:
-        if element in ("_global_attributes", "autonomous custom elements"):
+        if element in (
+            "_global_attributes",
+            "_special_elements",
+            "autonomous custom elements",
+        ):
             continue
         split_elements = element.split(", ")
         for real_element in split_elements:
@@ -292,7 +298,7 @@ def gen_elements():
             extra_attrs = "\n".join(attr_list)
             attr_assignment = "\n".join(assign_list)
             fixed_name = safe_name(real_element)
-            is_void_element = children == "empty"
+            is_void_element = real_element in void_elements
             comment = ""
             if real_element in ("link", "input", "style"):
                 # Duplicate "title" definition

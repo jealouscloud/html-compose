@@ -1,15 +1,16 @@
 """
 Library utility functions
 
-Not inteded to be used directly by library users.
+Not intended to be used directly by library users.
 """
 
 import inspect
 import json
+from collections.abc import Iterable
 from functools import lru_cache
 from os import getenv
 from pathlib import PurePath
-from typing import Any, Generator, Iterable
+from typing import Any, Generator
 
 
 def join_attrs(k, value_trusted):

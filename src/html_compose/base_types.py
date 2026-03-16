@@ -5,6 +5,8 @@ from typing import Callable, Iterable, Mapping
 from . import util_funcs
 
 
+# Note: base_element actually does runtime checking via hasattr
+# This is for the type checker.
 @typing.runtime_checkable
 class _HasHtml(typing.Protocol):
     def __html__(self) -> str:

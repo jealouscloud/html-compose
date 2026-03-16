@@ -128,6 +128,61 @@ class Hextract:
             for el in Hextract.parse_table(columns, column_data)
         }
 
+    def parse_special_elements(html):
+        """
+        Parse the following from the spec:
+            Void elements
+                area, base, br, col, embed, hr, img, input,
+                link, meta, source, track, wbr
+            The template element
+                template
+            Raw text elements
+                script, style
+            Escapable raw text elements
+                textarea, title
+        """
+        rule = hext.Rule(
+            """
+        <h4 id="elements-2"/>
+        <dl>
+            <dt @inner-html:html>
+                <dfn @text:title />
+            </dt>
+            <dd @inner-html:html>
+                <code>
+                <a @text:element />
+                </code>
+            </dd>
+        </dl>
+
+        """
+        )
+
+        results = rule.extract(html)
+        payload = results[0]
+        html_elements = payload["html"]
+        # so they should come in pairs,
+        # dfn, then code, dfn, then code, etc.
+
+        title_rule = hext.Rule("<dfn @text:title/>")
+        element_rule = hext.Rule("<code><a @text:element /></code>")
+        parsed = {}
+        for i in range(0, len(html_elements), 2):
+            title_res = title_rule.extract(hext.Html(html_elements[i]))
+            element_res = element_rule.extract(hext.Html(html_elements[i + 1]))
+            assert len(title_res) == 1, "Expected one title"
+
+            title = title_res[0]["title"]
+            elements = [el["element"] for el in element_res]
+            parsed[title] = elements
+        return {
+            "void elements": parsed.get("Void elements"),
+            "raw text elements": parsed.get("Raw text elements"),
+            "escapable raw text elements": parsed.get(
+                "Escapable raw text elements"
+            ),
+        }
+
     def parse_attr_table(html):
         """
         Return all html attrs in format
@@ -249,7 +304,11 @@ class Hextract:
                     if element == this_element_name:
                         this_element["attributes"].append(attr)
 
-        spec = {"_global_attributes": global_atttrs} | elements
+        special_elements = Hextract.parse_special_elements(html)
+        spec = {
+            "_global_attributes": global_atttrs,
+            "_special_elements": special_elements,
+        } | elements
 
         return spec
 

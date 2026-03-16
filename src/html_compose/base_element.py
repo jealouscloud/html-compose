@@ -269,8 +269,9 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
             inst: BaseElement = child()
             yield from inst.resolve()
 
-        elif isinstance(child, _HasHtml):
-            yield unsafe_text(child.__html__())
+        elif hasattr(child, "__html__"):
+            # Duck typing is faster than isinstance checks on runtime Protocols
+            yield unsafe_text(cast(_HasHtml, child).__html__())
 
         elif isinstance(child, str):
             # Magic: If the string is already escaped, this never has to fire.
@@ -309,7 +310,7 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
             else:
                 result = child
                 while callable(result):
-                    result = self._call_callable(child, parent)  # type: ignore[assignment]
+                    result = self._call_callable(result, parent)  # type: ignore[assignment]
 
                 yield from self._resolve_child(result, call_callables, parent)
         else:
@@ -405,7 +406,7 @@ class BaseElement(ElementBase, metaclass=ElementMeta):
         children = None
 
         if not self.is_void_element:
-            children = [child for child in self._resolve_tree(parent)]
+            children = (child for child in self._resolve_tree(parent))
 
         # join_attrs has a configurable lru_cache
         join_attrs = self.get_attr_join()

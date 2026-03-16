@@ -72,6 +72,24 @@ def test_nested_callables():
     assert a.render() == "<div>text<div>divdiv</div></div>"
 
 
+def test_callable_returning_callable():
+    """Callables that return callables should fully resolve."""
+    calls: list[str] = []
+
+    def first(parent):
+        calls.append("first")
+
+        def second(current):
+            calls.append("second")
+            return current.tag
+
+        return second
+
+    el = div()[first]
+    assert el.render() == "<div>div</div>"
+    assert calls == ["first", "second"]
+
+
 def test_resolve_none():
     el = div()[None].render()
     assert el == "<div></div>", "Nonetype should result in empty string"
@@ -256,3 +274,13 @@ def test_custom_element():
 def test_callable_br():
     a = div()[h.p["hi"], h.br, h.p["there"]]
     assert a.render() == "<div><p>hi</p><br/><p>there</p></div>"
+
+
+def test_list_render():
+    a = [h.li[x] for x in range(5)]
+    assert h.render(a) == "<li>0</li><li>1</li><li>2</li><li>3</li><li>4</li>"
+
+
+def test_el_render():
+    a = h.div()["content"]
+    assert h.render(a) == "<div>content</div>"

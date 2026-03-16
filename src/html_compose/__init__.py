@@ -110,18 +110,26 @@ If you prefer simpler boilerplate generation, `HTML5Document` returns a complete
 document string:
 
 ```python
-from html_compose import HTML5Document, p, script, link
+from html_compose import HTML5Document, p, script, link, meta
 
 doc: str = HTML5Document(
     "Site Title",
     lang="en",
-    head=[
-        script(src="/public/bundle.js"),
-        link(rel="stylesheet", href="/public/style.css"),
+    js=[
+        '/public/bundle.js',
+    ],
+    css=[
+        '/public/style.css',
+    ],
+    head_extra=[
+        meta(name='robots', content='index, follow'),
     ],
     body=[p["Hello, world!"]],
 )
 ```
+See `html_compose.resource` for advanced resource configuration,
+or view `html_compose.document` for for more on document generation.
+
 
 ### Composing Elements
 
@@ -208,7 +216,11 @@ We are going to dive into the technicals and core ideas of the library.
 .. include:: ../../doc/ideas/06_resource_imports.md
 """
 
+from typing import Any, Generator, Iterable, cast
+
 from markupsafe import Markup, escape
+
+from .base_types import Node
 
 
 def escape_text(value) -> Markup:
@@ -270,6 +282,49 @@ def doctype(dtype: str = "html"):
 from .base_attribute import BaseAttribute as BaseAttribute
 from .base_element import BaseElement as BaseElement
 from .custom_element import CustomElement as CustomElement
+
+
+def stream(html_content: Iterable[Node] | Node) -> Generator[str, Any, None]:
+    """
+    Stream one or more HTML elements as a generator of strings
+
+    :param html_content: An iterable of elements that could be rendered as HTML
+
+    :return: Generator of HTML strings
+    """
+    last = object()
+
+    def generator() -> Generator[str, Any, None]:
+        # We use a dummy element to implement .resolve()
+        dummy = BaseElement(tag="dummy")
+        dummy.append(html_content)
+
+        element_source = dummy.resolve()
+        next(element_source, None)  # Skip dummy start tag
+
+        next_item = next(element_source, last)
+
+        while True:
+            item = cast(str, next_item)
+            next_item = next(element_source, last)
+            if next_item is last:
+                # skip dummy end tag
+                break
+            yield cast(str, item)
+
+    return generator()
+
+
+def render(html_content: Iterable[Node] | Node) -> str:
+    """
+    Render one or more HTML elements into a single string
+
+    :param html_content: An iterable of elements that could be rendered as HTML
+
+    :return: A single HTML string
+    """
+    return "".join(stream(html_content))
+
 
 create_element = CustomElement.create
 # Document features

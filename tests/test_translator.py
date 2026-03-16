@@ -1,6 +1,18 @@
 from bs4 import BeautifulSoup
 
 import html_compose.translate_html as t
+from html_compose import render as render_nodes
+
+
+def _render_translated(html: str) -> str:
+    tresult = t.translate(html)
+    env: dict[str, object] = {"__builtins__": __builtins__}
+    if tresult.import_statement:
+        exec(tresult.import_statement, env, env)
+    if tresult.custom_elements:
+        exec("\n".join(tresult.custom_elements), env, env)
+    nodes = [eval(expr, env, env) for expr in tresult.elements]
+    return render_nodes(nodes)
 
 
 def test_translate():
@@ -104,17 +116,17 @@ def test_translate():
     tresult = t.translate(html)
 
     def _test_translation(r: t.TranslateResult):
-        lines = "\n\n".join(tresult.elements) + ".render()"
+        render_expr = "\n\n".join(tresult.elements) + ".render()"
         exec(tresult.import_statement)
-        output = eval(lines)
+        output = eval(render_expr)
         soup1 = BeautifulSoup(output, "html.parser")
         soup2 = BeautifulSoup(expected.render(), "html.parser")
-        lines = str(soup1).splitlines()
-        lines2 = str(soup2).splitlines()
-        assert len(lines) == len(lines2)
-        for i, line in enumerate(lines):
-            assert line.strip() == lines2[i].strip(), (
-                f"Line {i + 1} mismatch: {line.strip()} != {lines2[i].strip()}"
+        rendered_lines = str(soup1).splitlines()
+        expected_lines = str(soup2).splitlines()
+        assert len(rendered_lines) == len(expected_lines)
+        for i, line in enumerate(rendered_lines):
+            assert line.strip() == expected_lines[i].strip(), (
+                f"Line {i + 1} mismatch: {line.strip()} != {expected_lines[i].strip()}"
             )
 
     _test_translation(t.translate(html))
@@ -153,3 +165,25 @@ def test_script_round_trip():
     print(lines)
     output = eval(lines)
     assert output == html
+
+
+def test_inline_whitespace_between_phrasing_tags():
+    html = "<p><span>foo</span> <span>bar</span></p>"
+    assert _render_translated(html) == html
+
+
+def test_inline_whitespace_trimmed_outside_phrasing():
+    html = "<p> <div>block</div> </p>"
+    expected = "<p><div>block</div></p>"
+    assert _render_translated(html) == expected
+
+
+def test_whitespace_only_between_phrasing_tags():
+    html = "<p><span>foo</span>        <span>bar</span></p>"
+    expected = "<p><span>foo</span> <span>bar</span></p>"
+    assert _render_translated(html) == expected
+
+
+def test_inline_whitespace_between_root_phrasing_tags():
+    html = "<span>foo</span> <span>bar</span>"
+    assert _render_translated(html) == html

@@ -562,7 +562,7 @@ class template(BaseElement):
             
         """  # fmt: skip
         super().__init__(
-            "template", void_element=True, attrs=attrs, children=children
+            "template", void_element=False, attrs=attrs, children=children
         )
         if not (id is None or id is False):
             self._process_attr("id", id)
