@@ -4,14 +4,10 @@ from time import sleep, time
 
 from ..util_funcs import generate_livereload_env
 from .livereload_server import reload_because, run_server
-from .watcher import (
-    ProcessTask,
-    ShellCommand,
-    Task,
-    TaskRunner,
-    WatchCond,
-    Watcher,
-)
+from .watcher import ProcessTask, Task, TaskRunner
+from .watcher import ShellCommand as ShellCommand
+from .watcher import WatchCond as WatchCond
+from .watcher import Watcher as Watcher
 
 
 def _wait_for_server(
