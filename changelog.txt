@@ -1,3 +1,22 @@
+# 0.12.0
+* Add gallery: component showcase server with live reload (`html-compose gallery`)
+  * `@showcase` decorator to register components with example fixtures
+  * `declare_environment` for managing CSS/JS/fonts and isolation modes (shadow-dom, iframe, none)
+  * Environment inheritance with resource merging and body_override support
+  * Hot-reloading dev server with file watching
+* Switch livereload client from livereload-js to livereload-morph
+* js_import supports multiple scopes
+* render/stream public APIs now accept element lists
+* Spec parser now identifies special elements
+* HTML converter: don't output constructor for attr-less elements
+* bugfix: improve whitespace round trip
+* bugfix: nested callables are now called appropriately
+* bugfix: correctly detect void elements, fix iframe/template
+* bugfix: watcher rule matching
+* Performance: deferred_resolve no longer generates extra list
+* Performance: detect _HasHtml via hasattr instead of Protocol isinstance
+* Prefer collections.abc for runtime Iterable checking
+
 # 0.11.2
 * resource module correctly places import map before preload links
 * bugfix: relative paths were stripped in cache_bust=true
