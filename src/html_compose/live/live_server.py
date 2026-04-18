@@ -118,6 +118,10 @@ def live_server(
         generate_livereload_env(host, port, proxy_host, proxy_uri)
     )
 
+    # Discard any filesystem events that predate the watch loop
+    # (e.g. a build step that wrote to a watched directory before launch).
+    w.changed()
+
     daemon_task = ProcessTask(daemon, delay=0, sync=False)
     daemon_stop_task = Task(action=lambda: daemon_task.cancel(), sync=True)
     # Run livereload server
