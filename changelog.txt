@@ -1,3 +1,7 @@
+# 0.12.2
+* Revert superfluous 12.1 bugfix
+* Gallery reloads nested submodules
+
 # 0.12.0
 * Add gallery: component showcase server with live reload (`html-compose gallery`)
   * `@showcase` decorator to register components with example fixtures

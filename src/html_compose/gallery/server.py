@@ -255,8 +255,15 @@ def run(
                 sleep(0.1)
                 waited += 0.1
 
-        if module_name in sys.modules:
-            del sys.modules[module_name]
+        # Remove the module and all its submodules so they reimport
+        prefix = module_name + "."
+        stale = [
+            key
+            for key in sys.modules
+            if key == module_name or key.startswith(prefix)
+        ]
+        for key in stale:
+            del sys.modules[key]
 
         importlib.invalidate_caches()
 
